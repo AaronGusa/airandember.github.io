@@ -13,26 +13,44 @@
     src: url(../assets/fonts/Onoma.otf);
 }
 
+@font-face {
+    font-family: Qielftan;
+    src: url(../assets/fonts/Qielftan.otf);
+}
+
+
+html {
+    width: 100%;
+}
 
 header {
     display: flex;
     flex-direction: column;
     font-family: 'KaviarBeluga', sans-serif;
+    background-color: rgb(8, 5, 17);
+    color: white;
+    border-radius: 15px;
 }
 
 nav ul {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
     list-style-type: none;
-    
 }
 
 nav ul li {
     list-style: none;
     font-size: 3rem;
+
 }
 
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Qielftan', sans-serif;
+}
 
 
 h1 {
@@ -46,5 +64,8 @@ h2 {
 .Logo {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0 3.5rem;
 }
