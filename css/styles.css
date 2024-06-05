@@ -3,19 +3,48 @@
     src: url(../assets/fonts/Nauman-Regular.ttf);
 }
 
+@font-face {
+    font-family: KaviarBeluga;
+    src: url(../assets/fonts/KaviarBeluga.ttf);
+}
+
+@font-face {
+    font-family: Onoma;
+    src: url(../assets/fonts/Onoma.otf);
+}
+
+
 header {
     display: flex;
     flex-direction: column;
-    font-family: 'Nauman', sans-serif;
+    font-family: 'KaviarBeluga', sans-serif;
 }
 
 nav ul {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    list-style-type: none;
     
 }
 
 nav ul li {
     list-style: none;
+    font-size: 3rem;
+}
+
+
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-family: 'Onoma', serif;
+}
+
+.Logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
