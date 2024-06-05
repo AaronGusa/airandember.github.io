@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Nauman;
+    src: url(../assets/fonts/Nauman-Regular.ttf);
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nauman', sans-serif;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+}
+
+nav ul li {
+    list-style: none;
+}
