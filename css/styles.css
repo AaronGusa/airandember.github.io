@@ -29,7 +29,7 @@ header {
     font-family: 'KaviarBeluga', sans-serif;
     background-color: rgb(8, 5, 17);
     color: white;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
 }
 
 nav ul {
@@ -42,7 +42,7 @@ nav ul {
 
 nav ul li {
     list-style: none;
-    font-size: 3rem;
+    font-size: 1.5rem;
 
 }
 
@@ -61,6 +61,16 @@ h2 {
     font-family: 'Onoma', serif;
 }
 
+#logoImage {
+    border-radius: 15px 0 0 0;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .Logo {
     display: flex;
     flex-direction: row;
@@ -69,3 +79,10 @@ h2 {
     margin: 0;
     padding: 0 3.5rem;
 }
+
+.Logo h1 {
+    padding: 0;
+    margin: 0;
+}
+
+
