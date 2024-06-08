@@ -43,6 +43,11 @@
     src: url(../assets/fonts/CaviarDreams.ttf);
 }
 
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
 html {
     width: 100%;
     background-color: #faecca;
@@ -119,6 +124,11 @@ a:hover {
 
 #logoImage {
     border-radius: 15px 0 0 0;
+}
+
+.content {
+    animation: fadeIn 1s ease-in-out;
+
 }
 
 .flexRow {
