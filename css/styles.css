@@ -18,18 +18,55 @@
     src: url(../assets/fonts/Qielftan.otf);
 }
 
+@font-face {
+    font-family: ZTBoldItalic;
+    src: url(../assets/fonts/ZTNeueRalewe-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: ZTMed;
+    src: url(../assets/fonts/ZTNeueRalewe-Medium.ttf);
+}
+
+@font-face {
+    font-family: ZTExtBd;
+    src: url(../assets/fonts/ZTNeueRalewe-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: ZTExtBdItlc;
+    src: url(../assets/fonts/ZTNeueRalewe-ExtraBoldItalic.ttf);
+}
+
+@font-face {
+    font-family: CaviarDreams;
+    src: url(../assets/fonts/CaviarDreams.ttf);
+}
 
 html {
     width: 100%;
+    background-color: #faecca;
 }
 
-header {
+body {
+    height:auto;
+}
+
+header, footer  {
     display: flex;
     flex-direction: column;
     font-family: 'KaviarBeluga', sans-serif;
-    background-color: rgb(8, 5, 17);
-    color: white;
+    background-color: #080511;
+    color: #f4e7c5;
+    
+}
+
+header {
     border-radius: 15px 15px 0 0;
+}
+
+footer {
+    border-radius: 0 0 15px 15px;
 }
 
 nav ul {
@@ -52,13 +89,32 @@ nav ul li a {
     font-family: 'Qielftan', sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: #080511;
+}
+
 
 h1 {
     font-size: 5rem;
+    font-family: 'KaviarBeluga', serif;
+    margin: 0;
+    padding: 0.5rem;
 }
 
 h2 {
-    font-family: 'Onoma', serif;
+    font-family: 'Nauman', monospace;
+}
+
+a {
+    transition: all ease-in-out 0.5s;
+    padding: 0.5rem;
+}
+
+a:hover {
+    background-color: #f7f3e9;
+    color: #080511;
+    border-radius: 20px;
+    margin: 0;
 }
 
 #logoImage {
@@ -71,6 +127,8 @@ h2 {
     justify-content: space-between;
 }
 
+
+
 .Logo {
     display: flex;
     flex-direction: row;
@@ -78,11 +136,97 @@ h2 {
     justify-content: space-between;
     margin: 0;
     padding: 0 3.5rem;
+
 }
 
 .Logo h1 {
     padding: 0;
     margin: 0;
+    color: #f4e7c5;
 }
 
+.underNav {
+    background-color: #f4e7c5;
+    height: 150px;
+    width: 105%;
+    margin: 0 -10px;
+    padding: 0;
+}
+/* ========================================================= Universals ====================== */
 
+.aligned {
+    display: flex;
+    align-items: center;
+}
+
+.backgrounded {
+    background-image: url(../assets/images/A&E_backsplash.png);
+}
+
+.bordered {
+    border: 5px solid #080511;
+}
+
+.bRadius {
+    border-radius: 65px;
+}
+
+.headered, .footered  {
+    display: flex;
+    flex-direction: column;
+    font-family: 'KaviarBeluga', sans-serif;
+    background-color: #080511;
+    color: #f4e7c5;
+    
+}
+
+.headered {
+    border-radius: 15px 15px 0 0;
+}
+
+.footered {
+    border-radius: 0 0 15px 15px;
+}
+
+.lightcard {
+    background-color: #f7f3e9;
+}
+
+.overHidded {
+    overflow: hidden;
+}
+
+.padded {
+    margin: 0;
+    padding: 1rem;
+}
+
+.pBase {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    font-family: 'CaviarDreams', sans-serif;
+}
+
+.selected {
+    background-color: #f7f3e9;
+    color: #080511;
+    border-radius: 20px 20px 0 0;
+    padding: 1rem;
+    margin: 0;
+}
+
+.shadowed {
+    box-shadow: 2px 4px 15px #080511;
+}
+
+.textL {
+    color: #f4e7c5;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.widthed {
+    width: 100%;
+}
