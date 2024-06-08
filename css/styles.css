@@ -219,6 +219,10 @@ a:hover {
     box-shadow: 2px 4px 15px #080511;
 }
 
+.textCenter {
+    text-align: center;
+}
+
 .textL {
     color: #f4e7c5;
 }
