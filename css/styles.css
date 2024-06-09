@@ -113,6 +113,7 @@ h2 {
 a {
     transition: all ease-in-out 0.5s;
     padding: 0.5rem;
+    text-decoration: none;
 }
 
 a:hover {
