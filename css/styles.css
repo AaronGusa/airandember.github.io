@@ -48,6 +48,10 @@
     100% {opacity: 1;}
 }
 
+* {
+    box-sizing: border-box;
+}
+
 html {
     width: 100%;
     background-color: #faecca;
@@ -135,13 +139,16 @@ a:hover {
 .flexRow {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+
 }
 
 .flexColumn {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
+}
+
+.flexGrew {
+    flex-grow: 1;
 }
 
 .Logo {
@@ -201,6 +208,26 @@ a:hover {
 
 .footered {
     border-radius: 0 0 15px 15px;
+}
+
+.justLeft {
+    justify-content: left;
+}
+
+.justRight {
+    justify-content: right;
+}
+
+.justCenter {
+    justify-content: center;
+}
+
+.justSpaceAround {
+    justify-content: space-around;
+}
+
+.justSpaceBetween {
+    justify-content: space-between;
 }
 
 .lightcard {
