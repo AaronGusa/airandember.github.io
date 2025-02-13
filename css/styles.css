@@ -279,3 +279,7 @@ a:hover {
 .widthed {
     width: 100%;
 }
+
+.messageDiv {
+    border: 2px solid black;
+}
