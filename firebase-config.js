@@ -37,7 +37,7 @@ console.log('We made it sis');
  
  signIn.addEventListener('click', (event) => {
   console.log("We're logging in");
-  // event.preventDefault();
+  event.preventDefault();
   const email = document.getElementById('email').value;
   const pass = document.getElementById('password').value;
   const auth = getAuth();
