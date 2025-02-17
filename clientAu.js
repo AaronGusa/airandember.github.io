@@ -55,9 +55,14 @@ const firebaseConfig = {
   })
 
   function onLogout() {
-    localStorage.clear();
-    console.log('Local Storatge cleared')
-    window.location.href='login.html';
+    localStorage.removeItem('loggedInUserID');
+    signOut(au)
+    .then (() => {
+        console.log('Signed out')
+        window.location.href='login.html';
+    }) .catch((error) => {
+        console.log('Error signing out: ', error);
+    })
   }
-
-  document.querySelector('.clientInfoCont button').addEventListener('click', onLogout);
+  const logoutButton = document.getElementById('logoutButton');
+  document.addEventListener('click', onLogout);
