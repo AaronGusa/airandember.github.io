@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-import { getAuth, onAutStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 import { getFirestore, getDoc,  doc} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 
 
@@ -22,15 +22,42 @@ const firebaseConfig = {
   const au = getAuth();
   const dbs = getFirestore();
 
-  onAuthStateChanged(auth, (user) => {
-    const inUID = localStorage.getItem('loggedInUserId');
+  onAuthStateChanged(au, (user) => {
+    const inUID = localStorage.getItem('loggedInUserID');
     if(inUID) {
         const docRef = doc(dbs, "users", inUID);
         getDoc(docRef)
-            .thne((docSnap) => {
+            .then((docSnap) => {
                 if(docSnap.exists()) {
                     const userData = docSnap.data();
+                    console.log(userData);
+                    if (userData) {
+                    const placement = document.getElementById('clientInfo');
+                        placement.innerHTML = `
+                            <h1>Welcome ${userData.fname} </h1>
+                            <hr>
+                            <p>First Name: ${userData.fname}</p>
+                            <p>Last Name: ${userData.lname}</p>
+                            <p>Email: ${userData.email}</p>
+                            <p>Phone: ${userData.phone}</p>
+                    
+                        `;
+                    }
+                } else {
+                    console.log('No doc found matching ID.')
                 }
+            }).catch((error) => {
+                console.log(error);
             })
+    } else {
+        console.log('No inUID');
     }
   })
+
+  function onLogout() {
+    localStorage.clear();
+    console.log('Local Storatge cleared')
+    window.location.href='login.html';
+  }
+
+  document.querySelector('.clientInfoCont button').addEventListener('click', onLogout);

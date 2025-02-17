@@ -283,3 +283,7 @@ a:hover {
 .messageDiv {
     border: 2px solid black;
 }
+
+.boxBorder {
+    border: solid 2px black;
+}
