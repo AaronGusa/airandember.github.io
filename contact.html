@@ -10,17 +10,28 @@
 </head>
 <body>
     <header>
-        <div>
-            <H1>Air & Ember</H1>
+
+        <div id="header1" class="flexRow justSpaceBetween">
+            <div class="overHidded headerImageCont">
+                <img id="logoImage" src="assets/images/A&E_SqLogo_Lt.png" alt="Logo image" >
+            </div>
+            
         </div>
-        <div>
+        <div id="header2" class="Logo">    
+                <div><h1>Air</h1></div>
+                <div><h1>&</h1></div>
+                <div><h1>Ember</h1></div>
+            </div>
+        <div id="header3">
             <nav><ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a class="selected" href="contact.html">Contact</a></li>
+                <li><a href="webdesign.html">Development</a></li>
+                <li><a class="selected" href="#">Contact</a></li>
                 <li><a href="about.html">About</a></li>
 
             </ul></nav>
         </div>
+        
     </header>
     <div class="content">
         <h1>HOWDY</h1>
@@ -36,31 +47,7 @@
         <textarea id="message" name="message" required></textarea><br><br>
         <button type="submit">Submit</button>
     </form>
-    <h1>Customer Login</h1>
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <button type="submit">Login</button>
-    </form>
-    <div id="loginMessage"></div>
-
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            
-            if (username === "user" && password === "password") {
-                document.getElementById("loginMessage").innerText = "Login successful!";
-                // Redirect to a secure area
-                window.location.href = "secure.html";
-            } else {
-                document.getElementById("loginMessage").innerText = "Invalid username or password.";
-            }
-        });
-    </script>
+    
     <footer>
         @Copyright 2024
     </footer>

@@ -17,24 +17,25 @@
       
     <body>
         <header>
-    
-            <div class="flexRow justSpaceBetween">
-                <div class="overHidded">
-                    <img id="logoImage" src="assets/images/A&E_SqLogo_Lt.png" alt="Logo image" width="200px" style="margin:-0.25rem">
+
+            <div id="header1" class="flexRow justSpaceBetween">
+                <div class="overHidded headerImageCont">
+                    <img id="logoImage" src="assets/images/A&E_SqLogo_Lt.png" alt="Logo image" >
                 </div>
-                <div class="Logo">    
+                
+            </div>
+            <div id="header2" class="Logo">    
                     <div><h1>Air</h1></div>
                     <div><h1>&</h1></div>
                     <div><h1>Ember</h1></div>
                 </div>
-            </div>
-            <div>
+            <div id="header3">
                 <nav><ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a class="selected" href="#">Profile</a></li>
                     <li><a href="#">Billing</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li id="logoutButton" (click)="onLogout()"><a >Logout</a></li>
+                    <li id="logoutButton"><a onclick="">Logout</a></li>
                     
                 </ul></nav>
             </div>
@@ -48,7 +49,7 @@
             <p>This is a secure page that only logged-in users can access.</p>
         </div>     -->
         <div class="clientInfoCont">
-            <button (click)="onLogout()">LOGOUT</button>
+            <button >LOGOUT</button>
             <div id="clientInfo" class="borderBox">
                 
             </div>
