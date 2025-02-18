@@ -64,5 +64,6 @@ const firebaseConfig = {
         console.log('Error signing out: ', error);
     })
   }
+  
   const logoutButton = document.getElementById('logoutButton');
-  document.addEventListener('click', onLogout);
+  document.addEventListener('click', logoutButton);
