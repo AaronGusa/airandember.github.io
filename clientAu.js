@@ -59,11 +59,13 @@ const firebaseConfig = {
     signOut(au)
     .then (() => {
         console.log('Signed out')
+        signOut(au);
         window.location.href='login.html';
     }) .catch((error) => {
         console.log('Error signing out: ', error);
     })
   }
-  
+
   const logoutButton = document.getElementById('logoutButton');
-  document.addEventListener('click', logoutButton);
+  
+  logoutButton.addEventListener('click', onLogout);
