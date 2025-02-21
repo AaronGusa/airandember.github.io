@@ -56,6 +56,9 @@ const firebaseConfig = {
 
   function onLogout() {
     localStorage.removeItem('loggedInUserID');
+    localStorage.removeItem('sid', user.stripeID);
+    localStorage.clear();
+    sessionStorage.clear();
     signOut(au)
     .then (() => {
         console.log('Signed out')
