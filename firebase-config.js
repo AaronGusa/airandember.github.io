@@ -47,7 +47,6 @@ console.log('We made it sis');
       showMessage('login is successful', 'loginMessage');
       const user=userCredential.user;
       localStorage.setItem('loggedInUserID', user.uid);
-      localStorage.setItem('sid', user.stripeID);
       window.location.href='secure.html';
     })
     .catch((error) => {

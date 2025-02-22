@@ -1,8 +1,11 @@
-fetch('https://aaronandemberbe.onrender.com/service/', {
+const st_cus = localStorage.getItem('sid');
+
+fetch(`https://aaronandemberbe.onrender.com/service/${st_cus}`, {
     method: 'GET'
 })
 .then(response => response.json())
 .then(data => {
+    console.log(data)
     let dataCustomers = data.data;
     let messageCont = document.getElementById('message');
 

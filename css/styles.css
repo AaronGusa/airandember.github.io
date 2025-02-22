@@ -154,7 +154,8 @@ a:hover {
 #logoImage {
     border-radius: 15px 0 0 0;
     margin: -0.5rem;
-    width: 190px;
+    width: auto;
+    height: 230px;
 }
 
 .content {
