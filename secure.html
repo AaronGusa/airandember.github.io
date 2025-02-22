@@ -12,7 +12,7 @@
         <!-- Include other Firebase services as needed -->
         <script type='module' src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
         <script type='module' src="clientAu.js" defer></script>
-        <!-- <script type="module" src="striper.js" defer></script> -->
+        <script type="module" src="viewChange.js" defer></script>
       </head>
       
       
@@ -33,9 +33,9 @@
             <div id="header3">
                 <nav><ul>
                     <!-- <li><a href="index.html">Home</a></li> -->
-                    <li><a class="selected" href="#">Profile</a></li>
-                    <li><a href="#">Billing</a></li>
-                    <li><a href="#">Contract</a></li>
+                    <li><a class=" nav-link" href="#" data-target="profile">Profile</a></li>
+                    <li><a class=" nav-link" href="#" data-target="billing">Billing</a></li>
+                    <li><a class=" nav-link" href="#" data-target="contract">Contract</a></li>
                     <!-- <li id="logoutButton"><a>Logout</a></li> -->
                     
                 </ul></nav>
@@ -49,15 +49,34 @@
             <h1>Welcome to the Secure Area</h1>
             <p>This is a secure page that only logged-in users can access.</p>
         </div>     -->
-        <div class="clientInfoCont">
-            <button id="logoutButton">LOGOUT</button>
-            <div id="clientInfo" class="borderBox">
-                
+        <button id="logoutButton">LOGOUT</button>
+
+        <div id="profile" class="content-div hidden">
+            <!-- <h2>Profile</h2> -->
+            <div class="clientInfoCont">
+                <div id="clientInfo" class="borderBox">
+                    
+                </div>
             </div>
-        </div>
-        <div>
+
             <h2>Stripe Profile:</h2>
             <div id="message"></div>
+            
+        </div>
+        <div id="billing" class="content-div hidden">
+            <h2>Billing</h2>
+            <div id="message">Billing content goes here</div>
+        </div>
+        <div id="contract" class="content-div hidden">
+            <h2>Contract</h2>
+            <div id="message">Contract content goes here</div>
+        </div>
+
+
+
+        
+        <div>
+            <!-- <div id="message"></div> -->
         </div>
        
     </body>

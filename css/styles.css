@@ -163,6 +163,9 @@ a:hover {
 
 }
 
+.hidden { display: none; }
+.selected { font-weight: bold; }
+
 .flexRow {
     display: flex;
     flex-direction: row;
