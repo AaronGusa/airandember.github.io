@@ -44,6 +44,7 @@ const firebaseConfig = {
                         
                             `;
                         stripeIt(userData.stripeID);
+                        getInvoices(userData.stripeID);  
                     }
 
                 } else {
@@ -64,7 +65,7 @@ const firebaseConfig = {
     })
     .then(response => response.json())
     .then(data => {
-        let messageCont = document.getElementById('message');
+        let messageCont = document.getElementById('profileDiv');
     
         console.log(data);
     
@@ -87,6 +88,80 @@ const firebaseConfig = {
     });
     
   }
+
+  function getInvoices(sid) {
+    fetch(`https://aaronandemberbe.onrender.com/service/invoices/${sid}`, {
+        method: 'GET'
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data.data);
+        let messageCont = document.getElementById('invoiceDiv');
+
+        let invoicesByYear = {};
+
+        if (data.data.length > 0) {
+            // Organize invoices by year
+            data.data.forEach(invoice => {
+                let year = new Date(invoice.created * 1000).getFullYear();
+                if (!invoicesByYear[year]) {
+                    invoicesByYear[year] = [];
+                }
+                invoicesByYear[year].push(invoice);
+            });
+
+            // Create the accordion structure
+            Object.keys(invoicesByYear).forEach(year => {
+                let yearDiv = document.createElement('div');
+                yearDiv.className = 'yearAccordion';
+                yearDiv.innerHTML = `
+                    <h2 class="accordion-header">${year}</h2>
+                    <div class="accordion-content" style="display: none;">
+                    </div>
+                `;
+                messageCont.appendChild(yearDiv);
+
+                let accordionContent = yearDiv.querySelector('.accordion-content');
+
+                invoicesByYear[year].forEach(invoice => {
+                    let dateCreated = new Date(invoice.created * 1000).toLocaleDateString('en-US', {month: 'long', day: '2-digit'});
+                    let moneyMaker = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
+                    let amount = moneyMaker.format(invoice.amount_due);
+
+                    let card = document.createElement('div');
+                    card.className = 'invoiceCard';
+                    card.innerHTML = `
+                        <h3>${dateCreated} - ${invoice.status.toUpperCase()}</h3>
+                        <p><strong>Description:</strong> ${invoice.description}</p>
+                        <p><strong>Amount:</strong> ${amount}</p>
+                    `;
+                    accordionContent.appendChild(card);
+                });
+
+                yearDiv.querySelector('.accordion-header').addEventListener('click', () => {
+                    let content = yearDiv.querySelector('.accordion-content');
+                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+        }
+    })
+    .catch(error => {
+        if (error instanceof SyntaxError) {
+            console.error('SyntaxError: Unexpected end of input - Check if the response is valid JSON:', error);
+        } else {
+            console.error('Error:', error);
+        }
+    });
+}
+
+
+    
+
 
   function onLogout() {
     localStorage.removeItem('loggedInUserID');
