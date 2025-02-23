@@ -211,6 +211,88 @@ a:hover {
     align-items: center;
 }
 
+.yearAccordion {
+    width: 100%;
+    margin: 0 0;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.accordion-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #172c16;
+    padding: 2rem;
+    margin: 0;
+    cursor: pointer;
+    border-radius: 2rem 2rem 0 0;
+    
+}
+
+.accordion-header h2 {
+    color: white;
+    font-family: 'Playfair', serif;
+    font-size: 2.5rem;
+}
+
+.accordion-content {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+    background-color: white;
+    border-radius: 0 0 2rem 2rem;
+}
+
+.accordion-content.show {
+    max-height: none; 
+}
+
+.accordion-content.hide {
+    max-height: 0; 
+}
+
+.invoiceCard {
+    display: block;
+    text-align: center;
+    height: max-content;
+    font-size: 1rem;
+    margin: 1rem;
+    padding: 2rem;
+    background-color: whitesmoke;
+    box-shadow: inset 0 0 10px black,
+                0 0 0 black;
+    transition: box-shadow 0.75s ease-in-out,
+                font-size 0.75s ease-in-out;
+}
+
+.invoiceCard:hover {
+    box-shadow: inset 0 0 0 black,
+        2px 2px 10px black;
+    font-size: 1rem;
+}
+
+.invoiceStatusGreen {
+    color: green;
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.downArrow {
+    height: 100%;
+    transition: transform 2s ;
+    transition-timing-function: linear(0, 0.457 2.1%, 0.751 3.9%, 0.856 4.8%, 0.923 5.6%, 0.97 6.5%, 0.981 6.9%, 0.986 7.4%, 0.984 7.8%, 0.974 8.3%, 0.934 9.2%, 0.87 10.1%, 0.776 11.1%, 0.557 12.9%, -0.039 17.2%, -0.295 19.5%, -0.385 20.6%, -0.445 21.6%, -0.486 22.6%, -0.498 23.1%, -0.505 23.6%, -0.508 24%, -0.507 24.4%, -0.497 25.2%, -0.476 26%, -0.442 26.9%, -0.338 28.8%, -0.038 33.2%, 0.085 35.3%, 0.139 36.5%, 0.18 37.7%, 0.205 38.8%, 0.214 39.4%, 0.22 40%, 0.222 40.8%, 0.219 41.6%, 0.211 42.4%, 0.197 43.3%, 0.156 45.1%, 0.033 49.4%, -0.018 51.5%, -0.041 52.7%, -0.057 53.8%, -0.069 54.9%, -0.076 56.1%, -0.078 56.9%, -0.077 57.7%, -0.07 59.5%, -0.057 61.3%, -0.019 65.3%, -0.002 67.3%, 0.011 69.5%, 0.017 71.7%, 0.019 73.3%, 0.018 75.1%, 0.003 82.1%, -0.001 85.8%, 0);
+}
+
+.downArrow:hover {
+    transform: translateY(10px);
+}
+
 .backgrounded {
     background-image: url(../assets/images/A&E_backsplash.png);
 }

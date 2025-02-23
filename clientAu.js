@@ -120,8 +120,13 @@ const firebaseConfig = {
                 let yearDiv = document.createElement('div');
                 yearDiv.className = 'yearAccordion';
                 yearDiv.innerHTML = `
-                    <h2 class="accordion-header">${year}</h2>
-                    <div class="accordion-content" style="display: none;">
+                    <div class="accordion-header">
+                        <h2>${year} Invoices</h2>
+                        <div class='downArrow'>
+                            <h2>View <span >&#x21A1<span></h2>
+                        </div>
+                    </div>
+                    <div class="accordion-content hide" style='max-height: 0px;'>
                     </div>
                 `;
                 messageCont.appendChild(yearDiv);
@@ -132,22 +137,30 @@ const firebaseConfig = {
                     let dateCreated = new Date(invoice.created * 1000).toLocaleDateString('en-US', {month: 'long', day: '2-digit'});
                     let moneyMaker = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
                     let amount = moneyMaker.format(invoice.amount_due);
+                    let amountPaid = moneyMaker.format(invoice.amount_paid);
+                    let status;
+                    if (invoice.status === 'paid') {
+                        status = 'invoiceStatusGreen';
+                    } else {
+                        status = 'invoiceStatusNotGreen';
+                    };
 
                     let card = document.createElement('div');
                     card.className = 'invoiceCard';
                     card.innerHTML = `
-                        <h3>${dateCreated} - ${invoice.status.toUpperCase()}</h3>
+                        <h3>${dateCreated} </h3>
                         <p><strong>Description:</strong> ${invoice.description}</p>
                         <p><strong>Amount:</strong> ${amount}</p>
+                        <h3 class=${status}>${invoice.status.toUpperCase()}<?h3>
                     `;
                     accordionContent.appendChild(card);
                 });
 
                 yearDiv.querySelector('.accordion-header').addEventListener('click', () => {
                     let content = yearDiv.querySelector('.accordion-content');
-                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
-                });
-            });
+                    toggleAccordion(content);
+                
+            })})
         }
     })
     .catch(error => {
@@ -156,11 +169,22 @@ const firebaseConfig = {
         } else {
             console.error('Error:', error);
         }
-    });
+    })
+}
+
+function toggleAccordion(content) {
+    if (content.classList.contains('show')) {
+        content.classList.remove('show');
+        content.classList.add('hide');
+        content.style.maxHeight = 0;
+    } else {
+        content.classList.remove('hide');
+        content.classList.add('show');
+        content.style.maxHeight = content.scrollHeight + 'px';
+    }
 }
 
 
-    
 
 
   function onLogout() {
