@@ -33,19 +33,44 @@ async function fetchProtectedData(url) {
   if (response.ok) {
     const data = await response.json();
     console.log('Protected data:', data);
+    return data;
   } else {
-    console.error('Failed to fetch protected data');
+    console.error('Failed to fetch protected data ' + response.json() );
   }
 }
 
 // Example usage:
-fetchProtectedData('http://localhost:3000/service');
+// fetchProtectedData('https://aaronandemberbe.onrender.com/service/');
 
 // In your secure.html, other functions can use fetchProtectedData:
 async function stripeIt(sid) {
   try {
-    await fetchProtectedData(`https://aaronandemberbe.onrender.com/service/${sid}`);
-    // Handle the fetched data
+    await fetchProtectedData(`https://aaronandemberbe.onrender.com/service/${sid}`)
+    .then(response => response.json())
+    .then(data => {
+        let messageCont = document.getElementById('profileDiv');
+    
+        console.log(data);
+    
+        let customer = data;
+        let card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <h3>${customer.name}</h3>
+            <p><strong>Email:</strong> ${customer.email}</p>
+            <p><strong>Phone:</strong> ${customer.phone}</p>
+            <p><strong>Address:</strong> ${customer.address.line1}, ${customer.address.city}, ${customer.address.state} ${customer.address.postal_code}, ${customer.address.country}</p>
+            <p><strong>Description:</strong> ${customer.description}</p>
+            <p><strong>Balance:</strong> ${customer.currency.toUpperCase()} ${customer.balance}</p>
+        `;
+        messageCont.appendChild(card);
+        }
+    )
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    
+
   } catch (error) {
     console.error('Error:', error);
   }
@@ -53,8 +78,84 @@ async function stripeIt(sid) {
 
 async function getInvoices(sid) {
   try {
-    await fetchProtectedData(`https://aaronandemberbe.onrender.com/service/invoices/${sid}`);
-    // Handle the fetched data
+    await fetchProtectedData(`https://aaronandemberbe.onrender.com/service/invoices/${sid}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data.data);
+        let messageCont = document.getElementById('invoiceDiv');
+
+        let invoicesByYear = {};
+
+        if (data.data.length > 0) {
+            // Organize invoices by year
+            data.data.forEach(invoice => {
+                let year = new Date(invoice.created * 1000).getFullYear();
+                if (!invoicesByYear[year]) {
+                    invoicesByYear[year] = [];
+                }
+                invoicesByYear[year].push(invoice);
+            });
+
+            // Create the accordion structure
+            Object.keys(invoicesByYear).forEach(year => {
+                let yearDiv = document.createElement('div');
+                yearDiv.className = 'yearAccordion';
+                yearDiv.innerHTML = `
+                    <div class="accordion-header">
+                        <h2>${year} Invoices</h2>
+                        <div class='downArrow'>
+                            <h2>View <span >&#x21A1<span></h2>
+                        </div>
+                    </div>
+                    <div class="accordion-content hide" style='max-height: 0px;'>
+                    </div>
+                `;
+                messageCont.appendChild(yearDiv);
+
+                let accordionContent = yearDiv.querySelector('.accordion-content');
+
+                invoicesByYear[year].forEach(invoice => {
+                    let dateCreated = new Date(invoice.created * 1000).toLocaleDateString('en-US', {month: 'long', day: '2-digit'});
+                    let moneyMaker = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
+                    let amount = moneyMaker.format(invoice.amount_due);
+                    let amountPaid = moneyMaker.format(invoice.amount_paid);
+                    let status;
+                    if (invoice.status === 'paid') {
+                        status = 'invoiceStatusGreen';
+                    } else {
+                        status = 'invoiceStatusNotGreen';
+                    };
+
+                    let card = document.createElement('div');
+                    card.className = 'invoiceCard';
+                    card.innerHTML = `
+                        <h3>${dateCreated} </h3>
+                        <p><strong>Description:</strong> ${invoice.description}</p>
+                        <p><strong>Amount:</strong> ${amount}</p>
+                        <h3 class=${status}>${invoice.status.toUpperCase()}<?h3>
+                    `;
+                    accordionContent.appendChild(card);
+                });
+
+                yearDiv.querySelector('.accordion-header').addEventListener('click', () => {
+                    let content = yearDiv.querySelector('.accordion-content');
+                    toggleAccordion(content);
+                
+            })})
+        }
+    })
+    .catch(error => {
+        if (error instanceof SyntaxError) {
+            console.error('SyntaxError: Unexpected end of input - Check if the response is valid JSON:', error);
+        } else {
+            console.error('Error:', error);
+        }
+    })
   } catch (error) {
     console.error('Error:', error);
   }
