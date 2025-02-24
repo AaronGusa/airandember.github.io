@@ -1,15 +1,15 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
 import { getFirestore, getDoc, doc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
-import 'dotenv/config';
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: process.env.apiKey,
-    authDomain: process.env.authDomain,
-    projectId: process.env.projectId,
-    storageBucket: process.env.storageBucket,
-    messagingSenderId: process.env.messagingSenderId,
-    appId: process.env.appId
+    apiKey: "AIzaSyCyLPg3mbTjKXfx_44iB8JyQXzFURX33bs",
+    authDomain: "auth-airember.firebaseapp.com",
+    projectId: "auth-airember",
+    storageBucket: "auth-airember.firebasestorage.app",
+    messagingSenderId: "232838222436",
+    appId: "1:232838222436:web:1faf1906c0fadeb0ca4571"
 };
 
 // Initialize Firebase
