@@ -9,12 +9,12 @@ console.log('We made it sis');
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSyCyLPg3mbTjKXfx_44iB8JyQXzFURX33bs",
-    authDomain: "auth-airember.firebaseapp.com",
-    projectId: "auth-airember",
-    storageBucket: "auth-airember.firebasestorage.app",
-    messagingSenderId: "232838222436",
-    appId: "1:232838222436:web:1faf1906c0fadeb0ca4571"
+    apiKey: process.apiKey,
+    authDomain: process.authDomain,
+    projectId: process.projectId,
+    storageBucket: process.storageBucket,
+    messagingSenderId: process.messagingSenderId,
+    appId: process.appId
   };
 
   // Initialize Firebase
@@ -43,10 +43,12 @@ console.log('We made it sis');
   const auth = getAuth();
 
   signInWithEmailAndPassword(auth, email, pass)
-    .then((userCredential) => {
+    .then(async  (userCredential) => {
       showMessage('login is successful', 'loginMessage');
       const user=userCredential.user;
+      const token = await user.getIdToken();
       localStorage.setItem('loggedInUserID', user.uid);
+      localStorage.setItem('tokeen', token);
       window.location.href='secure.html';
     })
     .catch((error) => {

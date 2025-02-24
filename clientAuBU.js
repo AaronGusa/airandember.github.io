@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-auth.js";
-import { getFirestore, getDoc, doc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+import { getFirestore, getDoc,  doc} from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+import 'dotenv/config';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -10,110 +11,95 @@ const firebaseConfig = {
     storageBucket: process.storageBucket,
     messagingSenderId: process.messagingSenderId,
     appId: process.appId
-};
+  };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
 
-console.log('We made it bro');
 
-const au = getAuth();
-const dbs = getFirestore();
+  console.log('We made it bro');
 
-// Function to get Firebase ID token
-async function getAuthToken() {
-    const user = au.currentUser;
-    if (user) {
-        return await user.getIdToken();
-    } else {
-        throw new Error("User is not authenticated");
-    }
-}
+  const au = getAuth();
+  const dbs = getFirestore();
 
-onAuthStateChanged(au, (user) => {
+  onAuthStateChanged(au, (user) => {
     const inUID = localStorage.getItem('loggedInUserID');
-    if (inUID) {
+    if(inUID) {
         const docRef = doc(dbs, "users", inUID);
         getDoc(docRef)
             .then((docSnap) => {
-                if (docSnap.exists()) {
+                if(docSnap.exists()) {
                     const userData = docSnap.data();
                     console.log(userData);
                     if (userData) {
                         localStorage.setItem('sid', userData.stripeID);
                         const placement = document.getElementById('clientInfo');
-                        placement.innerHTML = `
-                            <h1>Welcome ${userData.fname} </h1>
-                            <hr>
-                            <p>First Name: ${userData.fname}</p>
-                            <p>Last Name: ${userData.lname}</p>
-                            <p>Email: ${userData.email}</p>
-                            <p>Phone: ${userData.phone}</p>
-                        `;
+                            placement.innerHTML = `
+                                <h1>Welcome ${userData.fname} </h1>
+                                <hr>
+                                <p>First Name: ${userData.fname}</p>
+                                <p>Last Name: ${userData.lname}</p>
+                                <p>Email: ${userData.email}</p>
+                                <p>Phone: ${userData.phone}</p>
+                        
+                            `;
                         stripeIt(userData.stripeID);
-                        getInvoices(userData.stripeID);
+                        getInvoices(userData.stripeID);  
                     }
+
                 } else {
-                    console.log('No doc found matching ID.');
+                    console.log('No doc found matching ID.')
                 }
             }).catch((error) => {
                 console.log(error);
-            });
+            })
     } else {
         console.log('No inUID');
     }
-});
+  })
 
-async function stripeIt(sid) {
-    try {
-        const token = await getAuthToken();
-        const response = await fetch(`https://aaronandemberbe.onrender.com/service/${sid}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
 
-        if (response.ok) {
-            const data = await response.json();
-            let messageCont = document.getElementById('profileDiv');
-
-            console.log(data);
-
-            let customer = data;
-            let card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <h3>${customer.name}</h3>
-                <p><strong>Email:</strong> ${customer.email}</p>
-                <p><strong>Phone:</strong> ${customer.phone}</p>
-                <p><strong>Address:</strong> ${customer.address.line1}, ${customer.address.city}, ${customer.address.state} ${customer.address.postal_code}, ${customer.address.country}</p>
-                <p><strong>Description:</strong> ${customer.description}</p>
-                <p><strong>Balance:</strong> ${customer.currency.toUpperCase()} ${customer.balance}</p>
-            `;
-            messageCont.appendChild(card);
-        } else {
-            console.error('Failed to fetch protected data');
+  function stripeIt(sid) {
+    fetch(`https://aaronandemberbe.onrender.com/service/${sid}`, {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+        let messageCont = document.getElementById('profileDiv');
+    
+        console.log(data);
+    
+        let customer = data;
+        let card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <h3>${customer.name}</h3>
+            <p><strong>Email:</strong> ${customer.email}</p>
+            <p><strong>Phone:</strong> ${customer.phone}</p>
+            <p><strong>Address:</strong> ${customer.address.line1}, ${customer.address.city}, ${customer.address.state} ${customer.address.postal_code}, ${customer.address.country}</p>
+            <p><strong>Description:</strong> ${customer.description}</p>
+            <p><strong>Balance:</strong> ${customer.currency.toUpperCase()} ${customer.balance}</p>
+        `;
+        messageCont.appendChild(card);
         }
-    } catch (error) {
+    )
+    .catch(error => {
         console.error('Error:', error);
-    }
-}
+    });
+    
+  }
 
-async function getInvoices(sid) {
-    try {
-        const token = await getAuthToken();
-        const response = await fetch(`https://aaronandemberbe.onrender.com/service/invoices/${sid}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
-
+  function getInvoices(sid) {
+    fetch(`https://aaronandemberbe.onrender.com/service/invoices/${sid}`, {
+        method: 'GET'
+    })
+    .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        const data = await response.json();
+        return response.json();
+    })
+    .then(data => {
         console.log(data.data);
         let messageCont = document.getElementById('invoiceDiv');
 
@@ -148,8 +134,8 @@ async function getInvoices(sid) {
                 let accordionContent = yearDiv.querySelector('.accordion-content');
 
                 invoicesByYear[year].forEach(invoice => {
-                    let dateCreated = new Date(invoice.created * 1000).toLocaleDateString('en-US', { month: 'long', day: '2-digit' });
-                    let moneyMaker = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+                    let dateCreated = new Date(invoice.created * 1000).toLocaleDateString('en-US', {month: 'long', day: '2-digit'});
+                    let moneyMaker = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
                     let amount = moneyMaker.format(invoice.amount_due);
                     let amountPaid = moneyMaker.format(invoice.amount_paid);
                     let status;
@@ -157,7 +143,7 @@ async function getInvoices(sid) {
                         status = 'invoiceStatusGreen';
                     } else {
                         status = 'invoiceStatusNotGreen';
-                    }
+                    };
 
                     let card = document.createElement('div');
                     card.className = 'invoiceCard';
@@ -173,16 +159,17 @@ async function getInvoices(sid) {
                 yearDiv.querySelector('.accordion-header').addEventListener('click', () => {
                     let content = yearDiv.querySelector('.accordion-content');
                     toggleAccordion(content);
-                });
-            });
+                
+            })})
         }
-    } catch (error) {
+    })
+    .catch(error => {
         if (error instanceof SyntaxError) {
             console.error('SyntaxError: Unexpected end of input - Check if the response is valid JSON:', error);
         } else {
             console.error('Error:', error);
         }
-    }
+    })
 }
 
 function toggleAccordion(content) {
@@ -197,18 +184,25 @@ function toggleAccordion(content) {
     }
 }
 
-function onLogout() {
+
+
+
+  function onLogout() {
     localStorage.removeItem('loggedInUserID');
     localStorage.clear();
     sessionStorage.clear();
     signOut(au)
-        .then(() => {
-            console.log('Signed out');
-            window.location.href = 'login.html';
-        }).catch((error) => {
-            console.log('Error signing out: ', error);
-        });
-}
+    .then (() => {
+        console.log('Signed out')
+        signOut(au);
+        window.location.href='login.html';
+    }) .catch((error) => {
+        console.log('Error signing out: ', error);
+    })
+  }
 
-const logoutButton = document.getElementById('logoutButton');
-logoutButton.addEventListener('click', onLogout);
+  const logoutButton = document.getElementById('logoutButton');
+  
+  logoutButton.addEventListener('click', onLogout);
+
+  
