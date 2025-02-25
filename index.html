@@ -6,7 +6,7 @@
     <title>Air&Ember Homepage</title>
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="css/styles.css">
-    <script href="script.js" defer></script>
+    <script src="wordFlip.js" defer></script>
 </head>
 <body>
     <header>
@@ -15,9 +15,9 @@
             <div class="overHidded headerImageCont">
                 <img id="logoImage" src="assets/images/A&E_SqLogo_Lt.png" alt="Logo image" >
             </div>
-            
+
         </div>
-        <div id="header2" class="Logo">    
+        <div id="header2" class="Logo">
                 <div><h1>Air</h1></div>
                 <div><h1>&</h1></div>
                 <div><h1>Ember</h1></div>
@@ -31,93 +31,108 @@
                 <li><a href="login.html">Login</a></li>
             </ul></nav>
         </div>
-        
+
     </header>
-    <div class="underNav  textCenter">
-        <h1 class="padded content">Welcome!</h1>
-        <!-- <img class="widthed" src="assets/images/A&E_backsplash.png" alt=""> -->
-    </div>
-    <div class="content">
-        <!-- Card -->
-        <div class="bordered padded lightcard">
-            <div class="flexRow justSpaceBetween">    
+    <main class="mainRestrain">
+        <!-- <div class="underNav  textCenter">
+            <h1 class="padded content">Welcome!</h1>
+            <img class="widthed" src="assets/images/A&E_backsplash.png" alt="">
+        </div> -->
+        <div class="content">
+            <!-- Card -->
+            <div class="bordered padded lightcard splash">
+                <div class="flexRow justSpaceBetween">
+                    <div class="splashWords">
+                        <h1>You-Centered Services</h1>
+                        <div class="word-wrapper text pBase">
+                            <!-- <h2><span class="verb pBase"></span></h2> -->
+                            <div class="words">
+                                <h2 class="word" data-index="0">Web Design</h2>
+                                <h2 class="word" data-index="1">Software Development</h2>
+                                <h2 class="word" data-index="2">Graphic Design</h2>
+                                <h2 class="word" data-index="3">Photography</h2>
+                                <h2 class="word" data-index="4">Web Design</h2>
+                            </div>
+                        </div>
+                        <p class="pBase">
+                            Air & Ember meets your needs by heeding the most important element in the service, YOU!
+                        </p>
+                    </div>
+                    <div class="aligned">
+                        <img class="bRadius overHidded" src="assets/images/Designer (75 - ArtDecoFire).png" width="400px">
+                    </div>
+                </div>
+
+            </div>
+            <div class="footered padded">
+                    <h2 class="textL padded">Your vision, realized</h2>
+            </div>
+            <!-- Section 2 Soft Dev -->
+            <br>
+            <div class="flexRow">
                 <div>
-                    <h1>You-Centered Services</h1>
-                    <p class="pBase">Whether photography, graphic design, or software development 
-                        Air & Ember meets your needs by heeding the most important element in the service, YOU!
+                    <a href="webdesign.html"><img src="assets/images/Designer (77).png" width="300px"></a>
+                </div>
+                <div class="textRight">
+                    <a href="webdesign.html"><h1 class="padded">Web Development</h1></a>
+                    <p class="padded pBase">Need a web-app, website, or database?
                     </p>
+                    <p class="padded pBase">
+                        Air & Ember can design and develop high speed, customized,
+                        and personalized solutions.</p>
                 </div>
-                <div class="aligned">
-                    <img class="bRadius overHidded" src="assets/images/Designer (75 - ArtDecoFire).png" width="400px">
-                </div>
-            </div>
-                
-        </div>
-        <div class="footered padded">
-                <h2 class="textL padded">Your vision, realized</h2>
-        </div>  
-        <!-- Section 2 Soft Dev -->
-        <br>
-        <div class="flexRow">
-            <div>
-                <a href="webdesign.html"><img src="assets/images/Designer (77).png" width="300px"></a>
-            </div>
-            <div class="textRight">
-                <a href="webdesign.html"><h1 class="padded">Web Development</h1></a>
-                <p class="padded pBase">Need a web-app, website, or database?
-                </p>
-                <p class="padded pBase">    
-                    Air & Ember can design and develop high speed, customized, 
-                    and personalized solutions.</p>
-            </div>
 
 
-        </div>
-        <!-- Section 3 No Sales -->
-        <div class="flexRow padded">
-            <div>
-                <div class="bordered padded lightcard" style="max-width: 631px;">
-                    <div class="flexRow justCenter">
-                        <div>
-                            <h1>No Salesman, Just Partners</h1>
-                            <p class="pBase">We prefer to use a low pressure approach. Mutually beneficial relationships are preferred here.
+            </div>
+            <!-- Section 3 No Sales -->
+            <div class="flexRow padded">
+                <div>
+                    <div class="bordered padded lightcard" style="max-width: 631px;">
+                        <div class="flexRow justCenter">
+                            <div>
+                                <h1>No Salesman, Just Partners</h1>
+                                <p class="pBase">We prefer to use a low pressure approach. Mutually beneficial relationships are preferred here.
 
-                            </p>
+                                </p>
+                            </div>
+                            <div>
+                                <img class="bRadius overHidded" src="assets/images/Designer (2).png" width="250px" alt="">
+                            </div>
                         </div>
-                        <div>
-                            <img class="bRadius overHidded" src="assets/images/Designer (2).png" width="250px" alt="">
-                        </div>
-                    </div>    
+                    </div>
+
+
+                    <div class="footered padded" style="max-width: 640.5px;">
+                        <p></p>
+                    </div>
+                </div>
+                <div class="flexGrew" >
+                    <div class="textRight justRight padded">
+                        <h1>Helpful.</h1>
+                        <p class="pBase"></p>
+                    </div>
+                    <div class="padded textLeft">
+                        <h1>Trustworthy. </h1>
+                    </div>
+                    <div class="padded textRight">
+                        <h1>Good Faith.</h1>
+                    </div>
+                    <div class="padded textLeft">
+                        <h1>Integrity.</h1>
+                    </div>
+
+                    <div class="textRight padded">
+                        <h1>Ideal.</h1>
+                        <p class="pBase"></p>
+                    </div>
                 </div>
 
-                
-                <div class="footered padded" style="max-width: 640.5px;">
-                    <p></p>
-                </div>
             </div>
-            <div class="flexGrew" >
-                <div class="textRight justRight padded">
-                    <h1>Helpful.</h1>
-                    <p class="pBase"></p>
-                </div>
-                <div class="padded textLeft">
-                    <h1>Trustworthy. </h1>
-                </div>
-                <div class="padded textRight">
-                    <h1>Good Faith.</h1>
-                </div>
-                <div class="padded textLeft">
-                    <h1>Integrity.</h1>
-                </div>
-
-                <div class="textRight padded">
-                    <h1>Ideal.</h1>
-                    <p class="pBase"></p>
-                </div>
-            </div>
-        
         </div>
-    </div>
+        <div class="airWalkCont">
+            <img src="/assets/images/AirWalk.gif" alt="" id="lilfella">
+        </div>
+    </main>
     <footer class="padded bordered">
         @Copyright 2024
     </footer>
