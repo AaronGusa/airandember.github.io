@@ -46,11 +46,11 @@ async function fetchProtectedData(url) {
 async function stripeIt(sid) {
   try {
     await fetchProtectedData(`https://aaronandemberbe.onrender.com/service/${sid}`)
-    .then(response => response.json())
+    // .then(response => response.json())
     .then(data => {
         let messageCont = document.getElementById('profileDiv');
     
-        console.log(data);
+        console.log("Data: " + data);
     
         let customer = data;
         let card = document.createElement('div');
@@ -79,12 +79,12 @@ async function stripeIt(sid) {
 async function getInvoices(sid) {
   try {
     await fetchProtectedData(`https://aaronandemberbe.onrender.com/service/invoices/${sid}`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
+    // .then(response => {
+    //     if (!response.ok) {
+    //         throw new Error('Network response was not ok');
+    //     }
+    //     return response.json();
+    // })
     .then(data => {
         console.log(data.data);
         let messageCont = document.getElementById('invoiceDiv');
@@ -159,6 +159,19 @@ async function getInvoices(sid) {
   } catch (error) {
     console.error('Error:', error);
   }
+}
+
+
+function toggleAccordion(content) {
+    if (content.classList.contains('show')) {
+        content.classList.remove('show');
+        content.classList.add('hide');
+        content.style.maxHeight = 0;
+    } else {
+        content.classList.remove('hide');
+        content.classList.add('show');
+        content.style.maxHeight = content.scrollHeight + 'px';
+    }
 }
 
 onAuthStateChanged(au, (user) => {
