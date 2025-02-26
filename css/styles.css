@@ -3,9 +3,17 @@
     src: url(../assets/fonts/Nauman-Regular.ttf);
 }
 
+.Nauman {
+    font-family: 'Nauman', sans-serif;
+}
+
 @font-face {
     font-family: Playfair;
     src: url(../assets/fonts/PlayfairDisplay-ExtraBold.ttf);
+}
+
+.Playfair {
+    font-family: 'Playfair', sans-serif;
 }
 
 @font-face {
@@ -13,14 +21,18 @@
     src: url(../assets/fonts/Onoma.otf);
 }
 
-@font-face {
-    font-family: Qielftan;
-    src: url(../assets/fonts/Qielftan.otf);
+.Onoma {
+    font-family: 'Onoma', sans-serif;
 }
+
 
 @font-face {
     font-family: ZTBoldItalic;
     src: url(../assets/fonts/ZTNeueRalewe-BoldItalic.ttf);
+}
+
+.ZTBoldItalic {
+    font-family: 'ZTBoldItalic', sans-serif;
 }
 
 @font-face {
@@ -28,9 +40,17 @@
     src: url(../assets/fonts/ZTNeueRalewe-Medium.ttf);
 }
 
+.ZTMed {
+    font-family: 'ZTMed', sans-serif;
+}
+
 @font-face {
     font-family: ZTExtBd;
     src: url(../assets/fonts/ZTNeueRalewe-ExtraBold.ttf);
+}
+
+.ZTExtBd {
+    font-family: 'ZTExtBd', sans-serif;
 }
 
 @font-face {
@@ -38,14 +58,91 @@
     src: url(../assets/fonts/ZTNeueRalewe-ExtraBoldItalic.ttf);
 }
 
+.ZTExtBdItlc {
+    font-family: 'ZTExtBdItlc', sans-serif;
+}
+
 @font-face {
     font-family: CaviarDreams;
     src: url(../assets/fonts/CaviarDreams.ttf);
 }
 
+.CaviarDreams {
+    font-family: 'CaviarDreams', sans-serif;
+}
+
+
+@font-face {
+    font-family: Digital;
+    src: url(../assets/fonts/DigitalSystem.ttf);
+}
+
+.Digital {
+    font-family: 'Digital', sans-serif;
+}
+
+
+@font-face {
+    font-family: Krusty;
+    src: url(../assets/fonts/krustycraft.otf);
+}
+
+.Krusty {
+    font-family: 'Krusty', sans-serif;
+}
+
+
+@font-face {
+    font-family: Feronia;
+    src: url(../assets/fonts/Feronia.ttf);
+}
+
+.Feronia {
+    font-family: 'Feronia', sans-serif;
+}
+
+
+@font-face {
+    font-family: Arellion;
+    src: url(../assets/fonts/Arellion.otf);
+}
+
+.Arellion {
+    font-family: 'Arellion', sans-serif;
+}
+
+@font-face {
+    font-family: Monday;
+    src: url(../assets/fonts/MondayCoffee.ttf);
+}
+
+.Monday {
+    font-family: 'Monday', sans-serif;
+}
+
+@font-face {
+    font-family: Aamonoline;
+    src: url(../assets/fonts/Aamonoline.ttf);
+}
+
+.Aamonoline {
+    font-family: 'Aamonoline', sans-serif;
+}
+
 @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
+}
+
+.bigFont {
+    font-size: 4rem;
+}
+
+.fontCont {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 * {
@@ -132,7 +229,9 @@ h1 {
 }
 
 h2 {
-    font-family: 'Nauman', monospace;
+    font-family: 'Onoma', monospace;
+    font-size: 2.5rem;
+    font-weight: 200;
 }
 
 a {
@@ -164,14 +263,15 @@ a:hover {
 
 .splash {
     margin-top : 1rem !important;
-    height: 59vh;
+    height: 100%;
     display: flex;
     align-items: center;
-    
+    min-height: 60vh;
 }
 
 .splash div {
     height: 100%;
+    align-items: center;
 }
 
 .splashWords {
@@ -179,6 +279,13 @@ a:hover {
     grid-template-columns: 1;
     grid-template-rows: 1;
     align-content: center;
+}
+
+.splashImgCont {
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
 
 .content {
@@ -192,7 +299,10 @@ a:hover {
 .flexRow {
     display: flex;
     flex-direction: row;
+}
 
+.flexwrap {
+    flex-wrap: wrap;
 }
 
 .flexColumn {
@@ -203,6 +313,8 @@ a:hover {
 .flexGrew {
     flex-grow: 1;
 }
+
+
 
 .Logo {
     display: flex;
@@ -462,42 +574,64 @@ a:hover {
     }
 
 }
-
-.word-wrapper {
-    box-sizing: content-box;
-    height:120px;
-    padding: 2rem 1rem;
-    display: flex;
-    align-items: center;
-    min-width: 20vw;
+.wordCycleCont {
+    position: relative;
+    width: 100%;
+    height: 200px !important;
     overflow: hidden;
-}
-
-.words {
-    overflow: hidden;
-    height: 5%;
+    text-align: justify;
+    align-items: bottom;
 }
 
 .word {
-    display: block;
-    height: 100%;
-    animation: textRole 15s infinite ;
+    font-size: 5rem;
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    animation: cycleWords 16s linear infinite;
 }
 
-@keyframes textRole {
+.word:nth-child(1) {
+
+    animation-delay: 0s;
+}
+
+.word:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.word:nth-child(3) {
+    animation-delay: 8s;
+}
+
+.word:nth-child(4) {
+    animation-delay: 12s;
+}
+
+@keyframes cycleWords {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
     10% {
+        opacity: 1;
         transform: translateY(0);
     }
     25% {
-        transform: translateY(-120%);
+        opacity: 1;
+        transform: translateY(0);
     }
-    50% {
-        transform: translateY(-240%);
-    }
-    75% {
-        transform: translateY(-360%);
+    35% {
+        opacity: 0;
+        transform: translateY(-100%);
     }
     100% {
-        transform: translateY(-485%);
+        opacity: 0;
+        transform: translateY(-100%);
     }
+}
+
+.homeCardHalf {
+    overflow: hidden;
+    padding: 2rem;
 }
