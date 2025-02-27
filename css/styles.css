@@ -635,3 +635,11 @@ a:hover {
     overflow: hidden;
     padding: 2rem;
 }
+
+.followListCont {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 3rem;
+    font-family: 'Onoma', sans-serif;
+}
