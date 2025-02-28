@@ -7,6 +7,7 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <link rel="stylesheet" href="css/styles.css">
+    <script  defer></script>
 </head>
 <body>
     <header>
@@ -33,21 +34,25 @@
         </div>
         
     </header>
-    <div class="content">
-        <h1>HOWDY</h1>
-        <p>Welkcome to da contact Pageeeee</p>
-    </div>
-    <h1>Contact Us</h1>
-    <form action="contact_form_handler.php" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea><br><br>
-        <button type="submit">Submit</button>
-    </form>
-    
+    <main class="contactMain">
+        
+        <div class="contactFormCont riser">
+            <h1>Contact Us</h1>
+
+            <form id="contactForm">
+                <input type="text" id="name" name="name" placeholder="First and Last Name" required><br>
+                <input type="text" id="company_name" name="company_name" placeholder="Your Organization's Name"><br>
+                <input type="email" id="email" name="email" placeholder="Your Email" required><br>
+                <textarea id="message" name="message" placeholder="Let us know what your looking for, and we'll get you a quote!" required></textarea><br>
+                <div style="display:none !important;">
+                    <label for="contact_me_back"  class="hidden">Contact by Email</label>
+                    <input id="contact_me_back" type="checkbox" name="contact_me_by_email" value="1" tabindex="-1" autocomplete="off"> 
+                </div>
+                <button type="submit">Submit</button>
+
+            </form>
+        </div>
+    </main>
     <footer>
         @Copyright 2024
     </footer>
