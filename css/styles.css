@@ -247,6 +247,10 @@ a:hover {
     margin: 0;
 }
 
+p {
+    font-family: 'CaviarDreams', sans-serif;
+}
+
 .headerImageCont {
     height: 100%;
     width: auto;
@@ -677,20 +681,37 @@ a:hover {
 
 .contactMain {
     display: grid;
+    grid-template-columns: 1fr 1fr ;
     justify-content: center;
 }
 
+.explainContact {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
 .contactFormCont {
-    max-width: 50vw;
+    width: 100%;
+    
 }
 
 #contactForm {
-     display: grid;
+    display: grid;
     justify-items: center;
+    align-content: center;
+    
 }
 
-#contactForm button {
-    width: 90%;
+#contactButton {
+    width: 50%;
+    background-color: #172c16;
+    color: white;
+    height: 3rem;
+    border-radius: 25px;
+}
+
+#contactButton {
+
 }
 
 input, textarea {
@@ -699,10 +720,11 @@ input, textarea {
     padding: 1rem;
     font-size: 1.2rem;
     font-family: "Nauman", sans-serif;
+    margin: 0.05rem;
 }
 
 input {
-    height: 2rem;
+    height: 4rem;
 }
 
 textarea {
