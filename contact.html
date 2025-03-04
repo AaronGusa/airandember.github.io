@@ -7,9 +7,9 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <link rel="stylesheet" href="css/styles.css">
-    <script  defer></script>
+    <script src="contact.js" defer></script>
 </head>
-<body>
+<body id="contactPage">
     <header>
 
         <div id="header1" class="flexRow justSpaceBetween">
@@ -53,7 +53,7 @@
         </div>
         <div class="contactFormCont riser">
               <h1>Contact Us</h1>
-           <form id="contactForm" onsubmit="event.preventDefault()">
+           <form id="contactForm" >
                 
                 <input type="text" id="name" name="name" placeholder="First and Last Name" required><br>
 
@@ -65,7 +65,7 @@
 
                 <div style="display:none !important;">
                     <label for="contact_me_back"  class="hidden">Contact by Email</label>
-                    <input id="contact_me_back" type="checkbox" name="contact_me_by_email" value="1" tabindex="-1" autocomplete="off"> 
+                    <input id="contact_me_back" type="checkbox" name="contact_me_back" value="1" tabindex="-1" autocomplete="off"> 
                 </div>
 
                 <button id="contactButton" type="submit">Submit</button>
@@ -73,7 +73,7 @@
         </div>
     </main>
     <footer>
-        <h1>@Copyright 2024</h1>
+        <h3>@Copyright 2024</h3>
     </footer>
 </body>
 </html>
