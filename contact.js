@@ -25,6 +25,8 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
    // Show the loading circle
    document.getElementById('loadingCircle').classList.remove('hidden');
+   document.getElementById('contactForm').classList.add('hidden');
+
 
   fetch('https://aaronandemberbe.onrender.com/contact', {
       method: 'POST',
@@ -39,7 +41,6 @@ document.getElementById('contactForm').addEventListener('submit', function(event
       console.log(data);
       // Display success message
       document.getElementById('loadingCircle').classList.add('hidden');
-      document.getElementById('contactForm').classList.add('hidden');
       document.getElementById('emailConfirm').classList.remove('hidden');
   })
   .catch(error => {
