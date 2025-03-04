@@ -10,6 +10,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   const name = document.getElementById('name').value;
   const companyName = document.getElementById('company_name').value;
   const subject = `RING A DING: You've got Air& Ember site contact e-mail!`;
+  const phone = document.getElementById('phone').value;
   const email = document.getElementById('email').value;
   const message = document.getElementById('message').value;
 
@@ -17,6 +18,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
       name,
       companyName,
       subject,
+      phone,
       email,
       message
   };
