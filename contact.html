@@ -53,7 +53,10 @@
         </div>
         <div class="contactFormCont riser">
               <h1>Contact Us</h1>
-           <form id="contactForm" >
+              <div id="loadingCircle" class="hidden centeredCont">
+                <div class="loader"></div>
+              </div>   
+           <form id="contactForm">
                 
                 <input type="text" id="name" name="name" placeholder="First and Last Name" required><br>
 
@@ -70,9 +73,13 @@
                     <input id="contact_me_back" type="checkbox" name="contact_me_back" value="1" tabindex="-1" autocomplete="off"> 
                 </div>
 
-                <button id="contactButton" type="submit">Submit</button>
+                <button class="animated-button" id="contactButton" type="submit">Submit</button>
             </form> 
+            <div class="centeredCont">
+                <h1 id="emailConfirm" class="hidden">Email Sent!</h1>
+            </div>
         </div>
+        
     </main>
     <footer>
         <h3>@Copyright 2024</h3>

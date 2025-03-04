@@ -23,6 +23,9 @@ document.getElementById('contactForm').addEventListener('submit', function(event
       message
   };
 
+   // Show the loading circle
+   document.getElementById('loadingCircle').classList.remove('hidden');
+
   fetch('https://aaronandemberbe.onrender.com/contact', {
       method: 'POST',
       headers: {
@@ -35,11 +38,13 @@ document.getElementById('contactForm').addEventListener('submit', function(event
       console.log('Email sent:');
       console.log(data);
       // Display success message
-      alert('Thank you for your message! We will get back to you soon.');
+      document.getElementById('loadingCircle').classList.add('hidden');
+      document.getElementById('contactForm').classList.add('hidden');
+      document.getElementById('emailConfirm').classList.remove('hidden');
   })
   .catch(error => {
       console.error('Error:', error);
       // Display error message
-      alert('Oops! Something went wrong. Please try again later.');
+      alert('Oops! Something went wrong. Please try again later or email support@airandember.com for help.');
   });
 });
