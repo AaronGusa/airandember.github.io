@@ -1038,6 +1038,7 @@ textarea {
 @media only screen and (max-width:576px) {
     html {
         box-sizing: border-box; /* Ensure padding is included in the width */
+        width: 100vw;
         margin: 0;
         padding: 0.5rem; /* Add your desired padding */
         overflow-x: hidden;
@@ -1047,9 +1048,22 @@ textarea {
         box-sizing: inherit; /* Apply box-sizing to all elements */
     }
 
+    * {
+        /* outline: 1px solid red; Highlights elements */
+    }
+
     body {
+        width: 100%;
         margin: 0;
         padding: 0;
+    }
+
+    html, body {
+        min-width: 100%;
+        padding: 0.5rem; /* Your desired padding */
+        margin: 0;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        box-sizing: border-box; /* Include padding in total width */
     }
 
     header {
@@ -1063,8 +1077,16 @@ textarea {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        font-size: clamp(0.5rem, 90vw, 4rem);
+        justify-content: center;
+        width: 100%;
+        padding: 0.25rem;
     }
+
+    #header2 h1{
+        font-size: clamp(0.5rem, 15vw, 5rem);
+
+    }
+
     #header3 {
         display:none;
     };
