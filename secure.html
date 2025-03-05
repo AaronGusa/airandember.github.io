@@ -30,7 +30,7 @@
                     <div><h1>Air</h1></div>
                     <div><h1>&</h1></div>
                     <div><h1>Ember</h1></div>
-                </div>
+            </div>
             <div id="header3">
                 <nav><ul>
                     <!-- <li><a href="index.html">Home</a></li> -->
@@ -46,48 +46,76 @@
                 <img class="widthed" src="assets/images/A&E_backsplash.png" alt=""> 
             </div>-->
         </header>
-        <!-- <div>    
-            <h1>Welcome to the Secure Area</h1>
-            <p>This is a secure page that only logged-in users can access.</p>
-        </div>     -->
-        <button id="logoutButton">LOGOUT</button>
+        <main class="clientMain">
+            <!-- <div>    
+                <h1>Welcome to the Secure Area</h1>
+                <p>This is a secure page that only logged-in users can access.</p>
+            </div>     -->
+            <div class="logoutButtonCont">
+                <div id="logoutButtonDiv">
+                    <p id="logoutButton">LOGOUT</p>
+                </div>
+            </div>    
+            <div id="profile" class="content-div hidden">
+                <h1>Welcome <span id="clientWelcomeName"></span></h1>
+                <div class="profileCont"> 
+                    <div class="aeProfile card riser">
+                        <h2>Air&Ember Profile</h2> 
+                        <div class="clientInfoCont">
+
+                            <div id="clientInfo" class="borderBox "></div>
+                        </div>
+                    </div>
+                    <div class="strProfile card riser">
+                        <h2>Stripe Profile</h2>
+                        <div id="profileDiv"></div>
+                
+                        <div class="template"></div>
+                    </div>    
+                </div>  
+            </div>
 
 
 
+            <div id="billing" class="content-div hidden">
+                <h1>My Invoices</h1>
+                <div id="invoiceDiv"></div>
+            </div>
 
-        <div id="profile" class="content-div hidden">
-            <!-- <h2>Profile</h2> -->
-            <div class="clientInfoCont">
-                <div id="clientInfo" class="borderBox">
-                    
+            <div id="contract" class="content-div hidden">
+                <h1>My Contract</h1>
+                <div id="contractDiv">
+                    <h2>Coming Soon.</h2>
+                    <p>Your contract will appear here.</p>
                 </div>
             </div>
 
-            <h1>Stripe Profile:</h1>
-            <div id="profileDiv"></div>
+
+
             
-        </div>
-
-
-
-        <div id="billing" class="content-div hidden">
-            <h1>My Invoices</h1>
-            <div id="invoiceDiv"></div>
-        </div>
-        <div id="contract" class="content-div hidden">
-            <h1>My Contract</h1>
-            <div id="contractDiv">
-                <h2>Coming Soon.</h2>
-                <p>Your contract will appear here.</p>
+            <div>
+                <!-- <div id="message"></div> -->
+            </div>
+       </main>
+       <footer class="contactFooterCont justSpaceBetween padded">
+        <h3 class="contactFootContent padded">@Copyright 2025</h3>
+        <div class="contactFooterCont">
+            <div class="footerContactCont padded">
+                <h4>Support</h4>
+                <p>support@airandember.com</p>
+            </div>      
+            <div class="footerContactCont padded">
+            
+                <h4>Operating Hours</h4>
+                <p>Monday - Friday</p>
+                <p>7 AM - 6 PM MST / MDT</p>
+            </div>
+            <div class="footerContactCont padded">
+                <h4>Legal</h4>
+                <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
+                <!-- <p><a href="">Terms of Service</a></p> -->
             </div>
         </div>
-
-
-
-        
-        <div>
-            <!-- <div id="message"></div> -->
-        </div>
-       
+    </footer>
     </body>
 </html>

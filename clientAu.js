@@ -54,14 +54,15 @@ async function stripeIt(sid) {
     
         let customer = data;
         let card = document.createElement('div');
-        card.className = 'card';
+        console.log(customer)
+        card.className = 'strInfo ';
         card.innerHTML = `
-            <h3>${customer.name}</h3>
-            <p><strong>Email:</strong> ${customer.email}</p>
-            <p><strong>Phone:</strong> ${customer.phone}</p>
-            <p><strong>Address:</strong> ${customer.address.line1}, ${customer.address.city}, ${customer.address.state} ${customer.address.postal_code}, ${customer.address.country}</p>
+            <p><strong>Name:</strong> ${customer.name}</p>
+            <p><strong>Email:</strong>      ${customer.email}</p>
+            <p><strong>Phone:</strong>      ${customer.phone}</p>
+            <p><strong>Address:</strong>    ${customer.address.line1}, ${customer.address.city}, ${customer.address.state} ${customer.address.postal_code}, ${customer.address.country}</p>
             <p><strong>Description:</strong> ${customer.description}</p>
-            <p><strong>Balance:</strong> ${customer.currency.toUpperCase()} ${customer.balance}</p>
+            <!--<p><strong>Balance:</strong>     $${customer.balance} ${customer.currency.toUpperCase()}</p>-->
         `;
         messageCont.appendChild(card);
         }
@@ -186,14 +187,17 @@ onAuthStateChanged(au, (user) => {
           console.log(userData);
           if (userData) {
             localStorage.setItem('sid', userData.stripeID);
+            const welcomeName = document.getElementById('clientWelcomeName');
+            welcomeName.innerHTML = `${userData.fname}`;  
+
+
             const placement = document.getElementById('clientInfo');
             placement.innerHTML = `
-              <h1>Welcome ${userData.fname} </h1>
-              <hr>
-              <p>First Name: ${userData.fname}</p>
-              <p>Last Name: ${userData.lname}</p>
-              <p>Email: ${userData.email}</p>
-              <p>Phone: ${userData.phone}</p>
+              
+              <p><strong>First Name:</strong> ${userData.fname}</p>
+              <p><strong>Last Name:</strong> ${userData.lname}</p>
+              <p><strong>Email:</strong> ${userData.email}</p>
+              <p><strong>Phone:</strong> (${userData.phone[0]}${userData.phone[1]}${userData.phone[2]}) ${userData.phone[3]}${userData.phone[4]}${userData.phone[5]}-${userData.phone[6]}${userData.phone[7]}${userData.phone[8]}${userData.phone[9]}</p>
             `;
             stripeIt(userData.stripeID);
             getInvoices(userData.stripeID);

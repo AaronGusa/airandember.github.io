@@ -37,8 +37,8 @@ document.getElementById('contactForm').addEventListener('submit', function(event
   })
   .then(response => response.json())
   .then(data => {
-      console.log('Email sent:');
-      console.log(data);
+      //console.log('Email sent:');
+      //console.log(data);
       // Display success message
       document.getElementById('loadingCircle').classList.add('hidden');
       document.getElementById('emailConfirm').classList.remove('hidden');
