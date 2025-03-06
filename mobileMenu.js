@@ -8,8 +8,8 @@ const nav = document.getElementById('navMobile');
 // Function to toggle the menu
 function toggleMenu() {
 
-    console.log('Menu clicked'); // Debugging
-    console.log(nav); 
+    // console.log('Menu clicked'); // Debugging
+    // console.log(nav); 
     // Toggle the expanded and collapsed classes
     menu.classList.toggle('min-height');
     menu.classList.toggle('max-height');
