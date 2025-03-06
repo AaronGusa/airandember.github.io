@@ -1489,4 +1489,96 @@ textarea {
 
    }
 
+   /* Client Pages */
+    .logoutButtonCont {
+        position: fixed;
+        top: 4vh;
+        left: 2vh;
+        padding: 0;
+        margin:0;
+    }
+
+    #logoutButtonDiv {
+        box-sizing: content-box;
+        position: relative;
+        width: 84px;
+        border-radius: 15px 15px;
+        padding: 0.5rem;
+    }
+
+    .clientMain {
+        box-sizing: border-box;
+        padding: 0.5rem;
+    }
+
+    .card {
+        padding: 0;
+        margin: 0;
+    }
+
+    #profile {
+        box-sizing: border-box;
+        padding: 0;
+        text-align: center;
+    }
+
+    #profile h1 {
+        font-size: clamp(0.75rem, 15vw, 5rem);
+
+    }
+
+    .profileCont {
+        box-sizing: border-box;
+        /* width: 100vw; */
+    }
+
+    .aeProfile, .strProfile {
+        box-sizing: border-box;
+        margin: 1rem 0;
+        padding: 0.5rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .aeProfile h2, .strProfile h2, #billing h1 {
+        font-size: clamp(0.75rem, 10vw, 5rem);
+    }
+    .aeProfile div div p, .strProfile div div p {
+        font-size: clamp(0.75rem, 5vw, 5rem);
+
+    }
+
+
+
+    .strInfo {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        text-wrap: werap;
+    }
+
+    #billing h1 {
+        text-align: center;
+    }
+
+    .yearAccordion {
+        padding: 0;
+    }
+
+    .accordion-header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .downArrow {
+        display: none;
+    }
+
+    .accordion-content {
+        flex-direction: column;
+    }
 }   

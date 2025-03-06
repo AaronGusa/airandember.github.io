@@ -60,7 +60,7 @@ async function stripeIt(sid) {
             <p><strong>Name:</strong> ${customer.name}</p>
             <p><strong>Email:</strong>      ${customer.email}</p>
             <p><strong>Phone:</strong>      ${customer.phone}</p>
-            <p><strong>Address:</strong>    ${customer.address.line1}, ${customer.address.city}, ${customer.address.state} ${customer.address.postal_code}, ${customer.address.country}</p>
+            <p><strong>Address:</strong>    <br><br>${customer.address.line1}, <br>${customer.address.city}, <br>${customer.address.state} ${customer.address.postal_code}, <br>${customer.address.country}</p>
             <p><strong>Description:</strong> ${customer.description}</p>
             <!--<p><strong>Balance:</strong>     $${customer.balance} ${customer.currency.toUpperCase()}</p>-->
         `;
@@ -113,7 +113,7 @@ async function getInvoices(sid) {
                             <h2>View <span >&#x21A1<span></h2>
                         </div>
                     </div>
-                    <div class="accordion-content hide" style='max-height: 0px;'>
+                    <div class="accordion-content hide" >
                     </div>
                 `;
                 messageCont.appendChild(yearDiv);
