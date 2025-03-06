@@ -194,6 +194,10 @@ header {
     grid-row: 2;
 }
 
+#headerMini {
+    display: none;
+}
+
 footer {
     display: flex;
     flex-direction: column;
@@ -251,6 +255,68 @@ a:hover {
     border-radius: 20px;
     margin: 0;
 }
+
+/* .styleA {
+    transition: all ease-in-out 0.5s;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: white;
+    font-family: "Krusty", sans-serif;
+    font-size: 2rem;
+}
+
+.styleA:hover {
+    background-color: #f7f3e9;
+    color: #080511;
+    border-radius: 20px;
+    margin: 0;
+} */
+
+.styleA {
+    /* display: inline-block; */
+    position: relative; 
+    max-width: 25%;
+    transition: all ease-in-out 0.5s;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: white;
+    font-family: "Krusty", sans-serif;
+    font-size: 2rem;
+}
+
+.styleA .text {
+    display: inline-block;
+    transition: transform 0.5s ease-in-out, max-width 0.75s ease-in-out;
+    transform: translateX(0); 
+    max-width: 100%;
+}
+
+.styleA .arrow {
+    display: inline-block;
+    margin-left: -0.5rem;
+    opacity: 0; 
+    letter-spacing: 1rem;
+    transition: opacity 0.5s, transform 0.5s, letter-spacing 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.styleA:hover .text {
+    transform: translateX(calc(700% - 1rem)); 
+}
+
+.styleA:hover .arrow {
+    opacity: 1; 
+    transform: translateX(calc(1150% - 1rem)); 
+}
+
+.styleA:active .text {
+    transform: translateX(calc(100% - 2rem));
+}
+
+.styleA:active .arrow {
+    transform: translateX(calc(100% - 2rem)); 
+}
+
 
 p {
     font-family: 'CaviarDreams', sans-serif;
@@ -507,6 +573,7 @@ p {
 }
 
 .lightcard {
+    box-sizing: border-box;
     background-color: #f7f3e9;
 }
 
@@ -843,11 +910,25 @@ textarea {
 .buttonStandard {
     background-color: #172c16;
     color: white;
+    max-width: 16rem;
     border-radius: 25px;
     font-family: "Playfair", serif;
     font-size: clamp(16px,1vw,48px);
     padding: 1rem;
     transition: background-color ease-in-out 0.25s;
+}
+
+.buttonSplash {
+    background-color:  #172c16;
+    max-width: 25%;
+    border-radius: 25px;
+    padding: 1rem;
+    transition: max-width 0.5s ease-in-out, background-color 0.75s ease-in-out  ;
+}
+
+.buttonSplash:hover {
+    background-color: #A74918;
+    max-width: 100%;
 }
 
 .smallerH1 {
@@ -1035,6 +1116,10 @@ textarea {
     font-size: 2rem;
 }
 
+.maxWide45 {
+    max-width: 45vw;
+}
+
 @media only screen and (max-width:576px) {
     html {
         box-sizing: border-box; /* Ensure padding is included in the width */
@@ -1048,11 +1133,14 @@ textarea {
         box-sizing: inherit; /* Apply box-sizing to all elements */
     }
 
+
+
     * {
-        /* outline: 1px solid red; Highlights elements */
+         outline: 1px solid red;
     }
 
     body {
+        height: calc(max-content + 18vh);
         width: 100%;
         margin: 0;
         padding: 0;
@@ -1082,12 +1170,134 @@ textarea {
         padding: 0.25rem;
     }
 
-    #header2 h1{
+    #header2 h1 {
         font-size: clamp(0.5rem, 15vw, 5rem);
 
     }
 
     #header3 {
-        display:none;
-    };
+        display: none;
+    }
+
+    .word-wrapper {
+        margin: 0;
+        width: 100vw;
+        justify-content: center;
+    }
+
+    .splash {
+        box-sizing: border-box;
+        padding: 0.5rem;
+        width: 100%;
+        display: flex;
+
+    }
+    
+    .splash div {
+        justify-content: left;
+    }
+
+    /* #header3 {
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+        width: 100vw;
+        opacity: 1;
+        position: fixed;
+        bottom: 0;
+        background-color: #172c16;
+        z-index: 100;
+    } */
+
+    #headerMini {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        opacity: 1;
+        background-color: #172c16;
+        z-index: 999;
+    }
+
+    .airWalkCont {
+        bottom: 75px;
+    }
+
+    #lilfella {
+    }
+   
+    .splashWords {
+        box-sizing: border-box;
+        width:100%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .word {
+        font-size: clamp(1rem, 3rem, 4rem);
+    }
+
+    .splashTitle {
+        font-size: clamp(0.5rem, 15vw, 5rem) !important;
+        color: white !important;
+        background-color: #A74918;
+    }
+
+    .splashImgCont {
+        display: none !important;
+    }
+
+    .miniCont {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .miniCont div, .miniCont div a {
+        width: 100%;
+    }
+
+    .miniCont div a img {
+        width: 75vw;
+    }
+
+    .homeCardHalf {
+        padding: 0;
+
+    }
+
+    .h1Mini div h1{
+        font-size: clamp(0.5rem, 2rem, 4rem);
+    }
+
+    .maxWide45 {
+        max-width: 100%;
+    }
+
+    .miniTitle {
+        font-size: clamp(0.25rem, 15vw, 5rem) !important;
+        color: white !important;
+        background-color: #A74918;
+    }
+
+    .styleA {
+        max-width: 100%;
+    }
+
+    .styleA {
+        
+    }
+
+    .arrow {
+        color: white;
+        opacity: 1;
+
+    }
 }
