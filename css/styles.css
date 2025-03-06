@@ -1161,6 +1161,7 @@ textarea {
         align-items: center;
         padding: 0.5rem;
     }
+
     #header2 {
         display: flex;
         flex-direction: row;
@@ -1177,6 +1178,74 @@ textarea {
 
     #header3 {
         display: none;
+    }
+
+    #headerMini {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+        opacity: 1;
+        background-color: #172c16;
+        z-index: 999;
+    }
+
+    #menuMobile {
+        display: grid;
+        justify-content: center;
+        padding: 0.5rem;
+    }
+
+    #menuMobile span {
+        height: 5px;
+        width: 7vw;
+        background-color: white;
+        margin: 0.1rem;
+    }
+
+    #navMobile {
+        height: 100vh;
+
+    }
+
+    #navMobile nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    #navMobile nav ul li {
+        padding: 3rem;
+    }
+
+    #closeMenu {
+        color: white;
+        position: absolute;
+        bottom: 10vh;
+        font-size: 2rem;
+        padding: 1rem;
+        background-color: #A74918;
+        box-shadow: 1px 1px 3px black;
+        border-radius: 100rem;
+        text-shadow: 1px 1px 2px black;
+    }
+
+    .min-height {
+        height: 5vh;
+    }
+
+    .max-height {
+        height: 100vh;
+    }
+
+    .selected {
+        border-radius: 20px 20px;
     }
 
     .word-wrapper {
@@ -1209,20 +1278,10 @@ textarea {
         z-index: 100;
     } */
 
-    #headerMini {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        width: 100vw;
-        opacity: 1;
-        background-color: #172c16;
-        z-index: 999;
-    }
+    
 
     .airWalkCont {
-        bottom: 75px;
+        bottom: 4.25vh;
     }
 
     #lilfella {

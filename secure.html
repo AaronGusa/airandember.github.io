@@ -12,6 +12,8 @@
         <script type='module' src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
         <script type='module' src="clientAu.js" defer></script>
         <script type="module" src="viewChange.js" defer></script>
+        <script src="mobileMenu.js" defer></script>
+        
         <link rel="stylesheet" href="css/styles.css">
         
       </head>
@@ -42,10 +44,22 @@
                     
                 </ul></nav>
             </div>
-           <!--  <div class="underNav  textCenter">
-                <h1 class="padded content">Welcome!</h1>
-                <img class="widthed" src="assets/images/A&E_backsplash.png" alt=""> 
-            </div>-->
+            <div id="headerMini" class="min-height">
+                <div id="menuMobile">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div id="navMobile" class="hidden">
+                    <nav><ul>
+                        <li><a class=" nav-link" href="#" data-target="profile">Profile</a></li>
+                        <li><a class=" nav-link" href="#" data-target="billing">Invoices</a></li>
+                        <li><a class=" nav-link" href="#" data-target="contract">Contract</a></li>
+                    <h1 id="closeMenu">X</h1>
+    
+                    </ul></nav>
+                </div>
+            </div>
         </header>
         <main class="clientMain">
             <!-- <div>    

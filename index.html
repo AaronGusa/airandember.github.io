@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="css/styles.css">
     <script src="wordFlip.js" defer></script>
+    <script src="mobileMenu.js" defer></script>
 </head>
 <body>
     <header>
@@ -31,19 +32,23 @@
                 <li><a href="login.html">Login</a></li>
             </ul></nav>
         </div>
-        <div id="headerMini">
-            <div class="menuMobile">
+        <div id="headerMini" class="min-height">
+            <div id="menuMobile">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <nav><ul>
-                <li><a class="selected" href="#">Home</a></li>
-                <li><a href="webdesign.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul></nav>
+            <div id="navMobile" class="hidden">
+                <nav><ul>
+                    <li><a class="selected" href="#">Home</a></li>
+                    <li><a href="webdesign.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="login.html">Login</a></li>
+                <h1 id="closeMenu">X</h1>
+
+                </ul></nav>
+            </div>
         </div>
     </header>
     <main class="mainRestrain main">
