@@ -1707,7 +1707,7 @@ textarea {
     }
 
     .min-height {
-        height: 5vh;
+        height: 7vh;
         transition: height 1s ease-in-out;
     }
 
@@ -2049,6 +2049,8 @@ textarea {
 }   
 
 @media only screen and (orientation: landscape) and (max-height: 577px) and (max-width: 1024px) {
+    
+    
     #navMobile nav ul {
         display: flex;
         flex-direction: row;
@@ -2058,6 +2060,11 @@ textarea {
         text-align: center;
         padding: 0;
         margin: 0;
+
+    }
+
+    .min-height {
+        height: 13vh;
     }
     
     .loginMain {
