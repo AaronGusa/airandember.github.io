@@ -1135,9 +1135,9 @@ textarea {
 
 
 
-    * {
+    /* * {
          outline: 1px solid red;
-    }
+    } */
 
     body {
         height: calc(max-content + 18vh);
