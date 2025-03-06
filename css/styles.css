@@ -1199,7 +1199,7 @@ textarea {
     }
 
     #menuMobile span {
-        height: 5px;
+        height: 3px;
         width: 7vw;
         background-color: white;
         margin: 0.1rem;
@@ -1229,20 +1229,25 @@ textarea {
         position: absolute;
         bottom: 10vh;
         right: 10vw;
-        font-size: 2rem;
+        font-size: 1rem;
         padding: 1rem;
         background-color: #A74918;
         box-shadow: 1px 1px 3px black;
-        border-radius: 100rem;
+        border-radius: 100px;
         text-shadow: 1px 1px 2px black;
+        width: auto;
+        height: auto;
     }
 
     .min-height {
         height: 5vh;
+        transition: height 1s ease-in-out;
     }
 
     .max-height {
         height: 100vh;
+        transition: height 1s ease-in-out;
+
     }
 
     .selected {
