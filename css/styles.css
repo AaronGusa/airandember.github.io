@@ -1221,13 +1221,14 @@ textarea {
     }
 
     #navMobile nav ul li {
-        padding: 3rem;
+        padding: 2rem;
     }
 
     #closeMenu {
         color: white;
         position: absolute;
         bottom: 10vh;
+        right: 10vw;
         font-size: 2rem;
         padding: 1rem;
         background-color: #A74918;
