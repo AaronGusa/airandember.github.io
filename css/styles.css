@@ -2047,3 +2047,27 @@ textarea {
         flex-direction: row;
     }
 }   
+
+@media only screen and (orientation: landscape) and (max-height: 577px) and (max-width: 1024px) {
+    #navMobile nav ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .loginMain {
+        height: 150vh;
+       }
+    
+       .loginFormCont {
+        width: 90vw;
+        margin-bottom: 10vh;
+        padding-top: 0;
+    
+       }
+}
