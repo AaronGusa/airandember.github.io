@@ -317,6 +317,9 @@ a:hover {
     transform: translateX(calc(100% - 2rem)); 
 }
 
+.aWidth {
+    max-width: 100%;
+}
 
 p {
     font-family: 'CaviarDreams', sans-serif;
@@ -1360,9 +1363,6 @@ textarea {
         max-width: 100%;
     }
 
-    .styleA {
-        
-    }
 
     .arrow {
         color: white;
@@ -1581,6 +1581,57 @@ textarea {
 
     .accordion-content {
         flex-direction: column;
+    }
+
+    .styleA {
+        /* display: inline-block; */
+        position: relative; 
+        max-width: 25%;
+        transition: all ease-in-out 0.5s;
+        padding: 0.5rem;
+        text-decoration: none;
+        color: white;
+        font-family: "Krusty", sans-serif;
+        font-size: 2rem;
+    }
+    
+    .styleA .text {
+        display: inline-block;
+        transition: transform 0.5s ease-in-out, max-width 0.75s ease-in-out;
+        transform: translateX(0); 
+        max-width: 100%;
+    }
+    
+    .styleA .arrow {
+        display: inline-block;
+        margin-left: -0.5rem;
+        opacity: 0; 
+        letter-spacing: 1rem;
+        transition: opacity 0.5s, transform 0.5s, letter-spacing 1s;
+        transition-timing-function: ease-in-out;
+        color: #A74918;
+
+    }
+    
+    .styleA:hover .text {
+        transform: translateX(calc(100% - 1rem)); 
+    }
+    
+    .styleA:hover .arrow {
+        opacity: 1; 
+        transform: translateX(calc(200% - 1rem)); 
+    }
+    
+    .styleA:active .text {
+        transform: translateX(calc(100% - 2rem));
+    }
+    
+    .styleA:active .arrow {
+        transform: translateX(calc(100% - 2rem)); 
+    }
+    
+    .aWidth {
+        max-width: 100%;
     }
 }   
 
@@ -1822,10 +1873,6 @@ textarea {
 
     .styleA {
         max-width: 100%;
-    }
-
-    .styleA {
-        
     }
 
     .arrow {
@@ -2077,4 +2124,5 @@ textarea {
         padding-top: 0;
     
        }
+
 }
