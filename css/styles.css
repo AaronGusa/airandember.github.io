@@ -1168,6 +1168,11 @@ textarea {
         padding: 0.5rem;
     }
 
+    .content {
+        margin: 0;
+        padding: 0;
+    }
+
     #header2 {
         display: flex;
         flex-direction: row;
@@ -1586,7 +1591,7 @@ textarea {
     .styleA {
         /* display: inline-block; */
         position: relative; 
-        max-width: 25%;
+        max-width: 75%;
         transition: all ease-in-out 0.5s;
         padding: 0.5rem;
         text-decoration: none;
@@ -1600,6 +1605,11 @@ textarea {
         transition: transform 0.5s ease-in-out, max-width 0.75s ease-in-out;
         transform: translateX(0); 
         max-width: 100%;
+    }
+
+    #arrow1 .arrow {
+        color: white;
+
     }
     
     .styleA .arrow {
@@ -1619,7 +1629,7 @@ textarea {
     
     .styleA:hover .arrow {
         opacity: 1; 
-        transform: translateX(calc(200% - 1rem)); 
+        transform: translateX(calc(183% - 1rem)); 
     }
     
     .styleA:active .text {
@@ -1632,6 +1642,11 @@ textarea {
     
     .aWidth {
         max-width: 100%;
+    }
+
+    .miniCont div a img {
+        max-height: 254px;
+        width: auto;
     }
 }   
 
@@ -1790,19 +1805,16 @@ textarea {
         justify-content: left;
     }
 
-    /* #header3 {
-        display: flex;
-        flex-direction: column;
-        height: max-content;
-        width: 100vw;
-        opacity: 1;
-        position: fixed;
-        bottom: 0;
-        background-color: #172c16;
-        z-index: 100;
-    } */
+    .wordCycleCont {
+        text-align: center;
+        align-items: baseline;
+    }
 
-    
+    .word {
+        margin: 0;
+        margin-top: 5rem;
+        padding: 0;
+    }
 
     .airWalkCont {
         bottom: 4.25vh;
@@ -1849,7 +1861,11 @@ textarea {
     }
 
     .miniCont div a img {
-        width: 75vw;
+        max-height: 15rem;
+        max-width: 75vw;
+        height: auto;
+        width: auto;
+        min-width: 36vw;
     }
 
     .homeCardHalf {
@@ -2093,6 +2109,60 @@ textarea {
     .accordion-content {
         flex-direction: row;
     }
+
+    .styleA {
+        /* display: inline-block; */
+        position: relative; 
+        max-width: 25%;
+        transition: all ease-in-out 0.5s;
+        padding: 0.5rem;
+        text-decoration: none;
+        color: white;
+        font-family: "Krusty", sans-serif;
+        font-size: 2rem;
+    }
+    
+    .styleA .text {
+        display: inline-block;
+        transition: transform 0.5s ease-in-out, max-width 0.75s ease-in-out;
+        transform: translateX(0); 
+        max-width: 100%;
+    }
+    
+    .styleA .arrow {
+        display: inline-block;
+        margin-left: -0.5rem;
+        opacity: 0; 
+        letter-spacing: 1rem;
+        transition: opacity 0.5s, transform 0.5s, letter-spacing 1s;
+        transition-timing-function: ease-in-out;
+    }
+    
+    .styleA:hover .text {
+        transform: translateX(calc(100% - 1rem)); 
+    }
+    
+    .styleA:hover .arrow {
+        opacity: 1; 
+        transform: translateX(calc(150% - 1rem)); 
+    }
+    
+    .styleA:active .text {
+        transform: translateX(calc(100% - 2rem));
+    }
+    
+    .styleA:active .arrow {
+        transform: translateX(calc(100% - 2rem)); 
+    }
+    
+    .aWidth {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .text {
+
+    }
 }   
 
 @media only screen and (orientation: landscape) and (max-height: 934px) and (max-width: 1024px) {
@@ -2116,13 +2186,34 @@ textarea {
     
     .loginMain {
         height: 150vh;
-       }
+    }
     
-       .loginFormCont {
-        width: 90vw;
-        margin-bottom: 10vh;
-        padding-top: 0;
-    
-       }
+    .loginFormCont {
+    width: 90vw;
+    margin-bottom: 10vh;
+    padding-top: 0;
+
+    }
+
+    .homeCardHalf {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+
+    }
+
+    .homeCardHalf div {
+        padding: 0.1rem;
+
+    }
+
+    .homeCardHalf div img {
+        width: 95%;
+
+    }
+
+    .miniTitle {
+        font-size: clamp(1rem, 5vw, 10rem);
+    }
 
 }
