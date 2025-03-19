@@ -1123,6 +1123,14 @@ textarea {
     max-width: 45vw;
 }
 
+.spaced li {
+    padding-bottom: 1.5rem;
+}
+
+.whiteColor {
+    color: white;
+}
+
 @media only screen and (max-width:576px) {
     html {
         box-sizing: border-box; /* Ensure padding is included in the width */
@@ -2215,5 +2223,18 @@ textarea {
     .miniTitle {
         font-size: clamp(1rem, 5vw, 10rem);
     }
+
+}
+
+@media only screen and (orientation: landscape) and (max-height: 934px) and (min-width: 1024px) {
+    #contactPage {
+        display: grid;
+        row-gap: 0.1rem;
+    }
+
+    .loginMain {
+        height: max-content;
+    }
+
 
 }
