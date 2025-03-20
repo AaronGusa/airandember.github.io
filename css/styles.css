@@ -1131,6 +1131,69 @@ textarea {
     color: white;
 }
 
+/* DESIGN PAGE */
+.cardGrid {
+    justify-content: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 500px);
+    gap: 2vw;
+    padding-bottom: 2rem
+}
+
+.designCardLink {
+    background: none;
+    scale: 100%;
+    transition: scale 0.5s ease-in-out;
+}
+
+.designCardLink:hover {
+    background: none;
+    scale: 115%;
+}
+
+
+.designCardCont {
+    /* border: #A74918 solid 5px; */
+    aspect-ratio: 16/9;
+    max-width: 500px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.designCardWordCont {
+    border: #A74918 solid 2px;
+    color: #f4e7c5;
+    background-color: #172c16;
+    border-top: none;
+    border-radius: 0 0 35px 35px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.designCardImg {
+    min-height: 75%;
+    width: 100%;
+    background: #080511;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.designCardTitle {
+
+    text-align: center;
+}
+
+.designCardTitle, .designCardDesc {
+    color: #f4e7c5;
+
+    padding: 0.2rem 1.5rem;
+    margin: 0;
+}
+
+.designCardDesc {
+    padding-bottom: 1rem;
+}
 
 
 @keyframes swirl {
