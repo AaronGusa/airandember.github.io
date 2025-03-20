@@ -49,7 +49,7 @@ console.log('We made it sis');
       const token = await user.getIdToken();
       localStorage.setItem('loggedInUserID', user.uid);
       localStorage.setItem('tokeen', token);
-      window.location.href='secure.html';
+      window.location.href='../pages/secure.html';
     })
     .catch((error) => {
       const errorCode = error.code;

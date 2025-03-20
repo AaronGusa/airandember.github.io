@@ -189,8 +189,6 @@ onAuthStateChanged(au, (user) => {
             localStorage.setItem('sid', userData.stripeID);
             const welcomeName = document.getElementById('clientWelcomeName');
             welcomeName.innerHTML = `${userData.fname}`;  
-
-
             const placement = document.getElementById('clientInfo');
             placement.innerHTML = `
               

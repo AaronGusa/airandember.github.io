@@ -1131,6 +1131,18 @@ textarea {
     color: white;
 }
 
+
+
+@keyframes swirl {
+    0% {
+    transform: rotate(0deg) translate(30px) rotate(0deg);
+    }
+    100% {
+    transform: rotate(360deg) translate(30px) rotate(-360deg);
+    }
+}
+
+
 @media only screen and (max-width:576px) {
     html {
         box-sizing: border-box; /* Ensure padding is included in the width */
