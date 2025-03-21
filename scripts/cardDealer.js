@@ -1,7 +1,7 @@
 const designArray = [
     {
         designName: "Asymmetrical",
-        designImg: "../assets/images/placeholder.png",
+        designImg: "../assets/images/designAssets/SITE_Asymm.png",
         designDesc: "Breaks conventional grid-based layouts. Often dynamic and unpredictable, with unique design approaches.",
         designPage: "../pages/designs/aysmmetrical.html"
     },
