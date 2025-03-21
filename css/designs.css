@@ -1,4 +1,10 @@
 /* General Reset */
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, p, blockquote, a, address, img,
 strong, table, td, nav, footer {
@@ -9,9 +15,9 @@ strong, table, td, nav, footer {
     box-sizing: border-box;
 }
 
-img {
+/* img {
     width: 100%;
-}
+} */
 
 @font-face {
     font-family: Krusty;
@@ -77,6 +83,11 @@ img {
     font-family: sans-serif;
 }
 
+.asym_main {
+    box-sizing: border-box;
+    width: 100%;
+}
+
 .asym_buttonCont {
     display: flex;
     justify-content: right;
@@ -121,9 +132,10 @@ img {
 }
 
 .asym_MainGrid {
+    width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto);
-    grid-template-rows: repeat(auto );
+    /* grid-template-columns: repeat(auto 1fr);
+    grid-template-rows: repeat(auto 1fr); */
 }
 
 .asym_header {
@@ -139,25 +151,24 @@ img {
 .asym_header{
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .asym_nav {
-    /* flex-grow: 1; */
-    display: flex;
-    justify-content: right;
-    width: 100%;
+    flex-grow: 1;
+    
 }
 
 .asym_ul {
     display: flex;
-    justify-content: space-between;
     list-style: none;
     text-decoration: none;
-    max-width: 322px;
+    padding: 0;
+    justify-content: space-around;
 }
 
 .asym_ul li {
-    padding: 0 2rem;
+    padding: 0;
 }
 
 .asym_nav li a {
@@ -172,19 +183,23 @@ img {
 }
 
 /* Header & Splash Image */
-.asym_header {
+/* .asym_header {
    
-}
+} */
 
-.asym_img {
-    /* position: absolute;
+/* .asym_img {
+    position: absolute;
     top: -10rem;
     right: -15rem;
     aspect-ratio: 16/9;
     min-width: 100vw;
     height: auto;
     min-height: 100%;
-    z-index: -1; */
+    z-index: -1;
+} */
+
+.asym_img {
+    width: 100%;
 }
 
 .asym_secondary_images {
@@ -207,7 +222,7 @@ img {
 .asym_title {
    color: #ff7600;
    text-transform: uppercase;
-   font-size: clamp(2.25rem, 10vw, 7rem)
+   font-size: clamp(1.75rem, 10vw, 7rem)
 }
 
 .asym_location {
@@ -247,6 +262,7 @@ img {
 }
 
 .asym_social_link {
+    padding: 0 0.55rem;
 }
 
 .asym_socialImg {
@@ -356,3 +372,228 @@ img {
 /* 10. **Retro/Vintage** */
 /* 11. **Skeuomorphic** */
 /* 12. **Typography-Based** */
+
+@media only screen and (min-width: 789px) {
+    /* ************************************************************************************************ */
+/* 1. Asymmetric Page ==============================================================================*/
+
+
+
+.asym_body {
+   
+}
+
+.asym_buttonCont {
+    
+}
+
+.asym_button {
+    
+}
+
+.asym_button::after {
+    
+}
+
+.asym_button:hover::after,
+.asym_button:focus::after {
+    
+}
+
+.asym_description {
+    
+}
+
+.asym_MainGrid {
+   
+}
+
+.asym_header {
+    
+}
+
+.asym_logo {
+}
+
+/* Nav Styling */
+.asym_header{
+   
+}
+
+.asym_nav {
+   
+}
+
+.asym_ul {
+    
+}
+
+.asym_ul li {
+    
+}
+
+.asym_nav li a {
+   
+}
+
+.asym_nav li a:hover {
+    
+}
+
+/* Header & Splash Image */
+.asym_header {
+   
+}
+
+.asym_img {
+    
+}
+
+.asym_secondary_images {
+    
+}
+
+.asym_secondary_image {
+    
+}
+
+.asym_title {
+   
+}
+
+.asym_location {
+ 
+}
+
+/* Footer Styling */
+.asym_footer {
+   
+}
+
+.asym_footer div {
+    
+}
+
+.asym_footer a {
+    
+}
+
+.asym_footer a:hover {
+    
+}
+
+.asym_social {
+    
+}
+
+.asym_social_link {
+}
+
+.asym_socialImg {
+   
+}
+
+
+/* ==================================================================================================*/
+/* 2. **Brutalist** =================================================================================*/
+.brut_body {
+    margin: 1em;
+}
+
+.brut_MainGrid {
+    display: grid;
+    grid-template-columns: repeat(auto);
+    grid-template-rows: repeat(auto );
+}
+
+.brut_header {}
+
+.brut_logo {}
+
+/* Nav Styling */
+.brut_nav {}
+
+.brut_ul {
+    list-style: none;
+    text-decoration: none;
+}
+
+.brut_nav a {
+    text-decoration: none;
+}
+
+.brut_nav a:hover {
+    color: #f39c12;
+}
+
+/* Header & Splash Image */
+.brut_header {
+   
+}
+
+.brut_img {
+    /* position: absolute;
+    top: -10rem;
+    right: -15rem;
+    aspect-ratio: 16/9;
+    min-width: 100vw;
+    height: auto;
+    min-height: 100%;
+    z-index: -1; */
+}
+
+.brut_secondary_image {
+    width: 50vw;
+}
+
+.brut_title {
+   
+}
+
+/* Sections */
+.brut_section {
+    
+}
+
+.brut_section:nth-child(odd) {
+   
+}
+
+.brut_section:nth-child(even) {
+    
+}
+
+.brut_section h2 {
+    
+}
+
+.brut_section p {
+    
+}
+
+/* Footer Styling */
+.brut_footer {
+    width: 100%;
+}
+
+.brut_footer a {
+    color: #f39c12;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.brut_footer a:hover {
+    color: #fff;
+}
+/* 3. **Dark Mode** */
+/* 4. **Flat Design** */
+/* 5. **Illustration-Led** */
+/* 6. **Material Design** */
+/* 7. **Maximalist** */
+/* 8. **Minimalist** */
+/* 9. **Neumorphism** */
+/* 10. **Retro/Vintage** */
+/* 11. **Skeuomorphic** */
+/* 12. **Typography-Based** */
+}
