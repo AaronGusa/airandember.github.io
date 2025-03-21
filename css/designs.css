@@ -1,0 +1,328 @@
+/* General Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, p, blockquote, a, address, img,
+strong, table, td, nav, footer {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+@font-face {
+    font-family: Krusty;
+    src: url(../assets/fonts/krustycraft.otf);
+}
+
+.Krusty {
+    font-family: 'Krusty', sans-serif;
+}
+
+
+.returnCont {
+    display: flex;
+    justify-content: center;
+}
+
+.Return {
+    position: fixed;
+    bottom: 1rem;
+    background-color: #a74918;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    font-family: 'Krusty', sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+/* TOCs
+
+1. **Asymmetrical/Experimental**
+2. **Brutalist**
+3. **Dark Mode**
+4. **Flat Design**
+5. **Illustration-Led**
+6. **Material Design**
+7. **Maximalist**
+8. **Minimalist**
+9. **Neumorphism**
+10. **Retro/Vintage**
+11. **Skeuomorphic**
+12. **Typography-Based**
+
+ */
+/* ************************************************************************************************ */
+/* 1. Asymmetric Page ==============================================================================*/
+
+
+
+.asym_body {
+    margin: 1em;
+    background-color: #242424;
+    color: white;
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+
+.asym_button {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 1.525rem;
+    display: inline-block;
+    padding: 0.5rem;
+    position: relative;
+
+}
+
+.asym_button::after {
+    content: '';
+    position: absolute;
+    background-color: #f39c12;
+    height: 28%;
+    width: 80%;
+    bottom: 10px;
+    left:-2px;
+    z-index: -1;
+    transition: all 0.25s cubic-bezier(0.3, -0.89, 0.78, 2.17);
+}
+
+.asym_button:hover::after,
+.asym_button:focus::after {
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 15px;
+}
+
+.asym_MainGrid {
+    display: grid;
+    grid-template-columns: repeat(auto);
+    grid-template-rows: repeat(auto );
+}
+
+.asym_header {
+    display: flex;
+}
+
+.asym_logo {
+    width: 75px;
+    height: 38px;
+}
+
+/* Nav Styling */
+.asym_header{
+    display: flex;
+    align-items: center;
+}
+
+.asym_nav {
+    flex-grow: 1;
+}
+
+.asym_ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    text-decoration: none;
+}
+
+.asym_nav li a {
+    text-transform: capitalize;
+
+    text-decoration: none;
+    color: white;
+}
+
+.asym_nav li a:hover {
+    color: #f39c12;
+}
+
+/* Header & Splash Image */
+.asym_header {
+   
+}
+
+.asym_img {
+    /* position: absolute;
+    top: -10rem;
+    right: -15rem;
+    aspect-ratio: 16/9;
+    min-width: 100vw;
+    height: auto;
+    min-height: 100%;
+    z-index: -1; */
+}
+
+.asym_secondary_images {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow: hidden;
+
+}
+
+.asym_secondary_image {
+    max-width: 50%;
+    height: auto;
+    flex: 1;
+    object-fit: contain;
+    padding: .15rem;
+}
+
+.asym_title {
+   color: #ff7600;
+   text-transform: uppercase;
+   font-size: clamp(2rem, 10vw, 7rem)
+}
+
+.asym_location {
+    color: #808a96;
+    margin: 0;
+    font-size: 1.5rem;
+    margin: 0 0 2em 0;
+}
+
+/* Asymmetrical Divs */
+.asym_div.asymmetrical {
+    
+}
+
+/* Footer Styling */
+.asym_footer {
+    background-color: black;
+    display: block;
+    text-align: center;
+    padding: 2rem;
+}
+
+.asym_footer a {
+    color: #f39c12;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.asym_footer a:hover {
+    color: #fff;
+}
+
+
+/* ==================================================================================================*/
+/* 2. **Brutalist** =================================================================================*/
+.brut_body {
+    margin: 1em;
+}
+
+.brut_MainGrid {
+    display: grid;
+    grid-template-columns: repeat(auto);
+    grid-template-rows: repeat(auto );
+}
+
+.brut_header {}
+
+.brut_logo {}
+
+/* Nav Styling */
+.brut_nav {}
+
+.brut_ul {
+    list-style: none;
+    text-decoration: none;
+}
+
+.brut_nav a {
+    text-decoration: none;
+}
+
+.brut_nav a:hover {
+    color: #f39c12;
+}
+
+/* Header & Splash Image */
+.brut_header {
+   
+}
+
+.brut_img {
+    /* position: absolute;
+    top: -10rem;
+    right: -15rem;
+    aspect-ratio: 16/9;
+    min-width: 100vw;
+    height: auto;
+    min-height: 100%;
+    z-index: -1; */
+}
+
+.brut_secondary_image {
+    width: 50vw;
+}
+
+.brut_title {
+   
+}
+
+/* Sections */
+.brut_section {
+    
+}
+
+.brut_section:nth-child(odd) {
+   
+}
+
+.brut_section:nth-child(even) {
+    
+}
+
+.brut_section h2 {
+    
+}
+
+.brut_section p {
+    
+}
+
+/* Footer Styling */
+.brut_footer {
+    width: 100%;
+}
+
+.brut_footer a {
+    color: #f39c12;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.brut_footer a:hover {
+    color: #fff;
+}
+/* 3. **Dark Mode** */
+/* 4. **Flat Design** */
+/* 5. **Illustration-Led** */
+/* 6. **Material Design** */
+/* 7. **Maximalist** */
+/* 8. **Minimalist** */
+/* 9. **Neumorphism** */
+/* 10. **Retro/Vintage** */
+/* 11. **Skeuomorphic** */
+/* 12. **Typography-Based** */
