@@ -77,6 +77,11 @@ img {
     font-family: sans-serif;
 }
 
+.asym_buttonCont {
+    display: flex;
+    justify-content: right;
+}
+
 .asym_button {
     cursor: pointer;
     border: 0;
@@ -86,7 +91,7 @@ img {
     display: inline-block;
     padding: 0.5rem;
     position: relative;
-
+    margin: 2rem;
 }
 
 .asym_button::after {
@@ -108,6 +113,11 @@ img {
     bottom: 0;
     left: 0;
     border-radius: 15px;
+}
+
+.asym_description {
+    padding-top: 2rem;
+    line-height: 2;
 }
 
 .asym_MainGrid {
@@ -132,7 +142,10 @@ img {
 }
 
 .asym_nav {
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    display: flex;
+    justify-content: right;
+    width: 100%;
 }
 
 .asym_ul {
@@ -140,6 +153,11 @@ img {
     justify-content: space-between;
     list-style: none;
     text-decoration: none;
+    max-width: 322px;
+}
+
+.asym_ul li {
+    padding: 0 2rem;
 }
 
 .asym_nav li a {
@@ -189,7 +207,7 @@ img {
 .asym_title {
    color: #ff7600;
    text-transform: uppercase;
-   font-size: clamp(2rem, 10vw, 7rem)
+   font-size: clamp(2.25rem, 10vw, 7rem)
 }
 
 .asym_location {
@@ -199,17 +217,16 @@ img {
     margin: 0 0 2em 0;
 }
 
-/* Asymmetrical Divs */
-.asym_div.asymmetrical {
-    
-}
-
 /* Footer Styling */
 .asym_footer {
     background-color: black;
     display: block;
     text-align: center;
     padding: 2rem;
+}
+
+.asym_footer div {
+    padding: 0.51rem 0;
 }
 
 .asym_footer a {
@@ -221,6 +238,19 @@ img {
 
 .asym_footer a:hover {
     color: #fff;
+}
+
+.asym_social {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.asym_social_link {
+}
+
+.asym_socialImg {
+    height: 2rem;
 }
 
 
