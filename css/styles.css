@@ -1145,6 +1145,7 @@ textarea {
     background: none;
     scale: 100%;
     transition: scale 0.5s ease-in-out;
+    margin: 1rem;
 }
 
 .designCardLink:hover {
