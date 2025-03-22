@@ -1734,6 +1734,30 @@ textarea {
         max-height: 254px;
         width: auto;
     }
+
+    /* Design Page */
+
+    .cardGrid {
+        grid-template-columns: repeat(auto-fit, 98vw);
+        gap: 0.5rem;
+        padding: 0.2rem;
+    }
+
+    .designCardTitle {
+        width: 100%;
+        font-size: clamp(0.1rem, 1rem, 5rem);
+    }
+
+    .designCardLink {
+        margin: 0 0 2rem 0;
+        transform: scale(1)
+    }
+
+    .designCardLink:hover {
+        transform: scale(0.9)
+    }
+
+
 }   
 
 @media only screen and (min-width:577px) and ( max-width:829px) {
