@@ -1,0 +1,215 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    color: rgb(0, 85, 78);
+}
+
+@font-face {
+    font-family: Krusty;
+    src: url(../assets/fonts/krustycraft.otf);
+}
+
+.returnCont {
+    display: flex;
+    justify-content: center;
+}
+
+.Return {
+    position: fixed;
+    bottom: 1rem;
+    background-color: #a74918;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    font-family: 'Krusty', sans-serif;
+    z-index: 200000;
+}
+
+html, body {
+    background-color: rgb(1, 54, 38);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background-color: whitesmoke;
+    width: auto;
+    border-radius: 25px;
+    margin: 1rem;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+nav {
+    height: 15vh;
+    width: 100%;
+    overflow: hidden;
+    padding: 0.25rem;
+    display: flex;
+    justify-items: center; 
+    align-items: center;
+}
+
+nav img {
+    max-height: 55%;
+    width: auto;
+    justify-content: center;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none; 
+    justify-content: space-around;
+}
+
+button {
+    max-width: 150px;
+    margin: 0.5rem;
+    border-radius: 15px;
+    padding: 1rem;
+    color: white;
+    background: linear-gradient(to right, rgb(43, 77, 66), rgb(27, 87, 68), rgb(43, 77, 66));
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    /* min-height: calc(100vh - 30vh - 50px); Adjusts for nav and footer */
+    padding: 2rem;
+}
+
+section {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    z-index: 1;
+
+}
+
+section h1 {
+    font-size: 3rem;
+}
+
+p {
+    line-height: 2;
+}
+
+div {
+    grid-column: 2 / 4;
+    grid-row: 1;
+    z-index: 0;
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+div img {
+    aspect-ratio: 6 / 5; /* Maintains the aspect ratio of the image */
+    width: clamp(2rem, 100%, 558px); /* Responsive width with constraints */
+    height: auto; /* Auto-adjust the height based on the width */
+    object-fit: cover; 
+}
+
+
+footer {
+    position: absolute;
+    bottom: 75px;
+    height: 75px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+@media screen and (min-width: 1056px) {
+    .returnCont {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .Return {
+        position: fixed;
+        background-color: #a74918;
+        top: 15px;
+        right: 15px;
+        height: 3rem;
+        width: 15rem;
+        display: flex;
+        justify-content: center;
+        border-radius: 50px;
+        padding: 0.5rem;
+        color: white;
+        font-weight: 200;
+        letter-spacing: 0.15rem;
+        text-decoration: none;
+        font-family: 'Krusty', sans-serif;
+    }
+    
+
+
+    main {
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+        padding: 10rem;
+        /* min-height: calc(100vh - 30vh - 50px); */
+
+    }
+
+    body {
+        overflow-y: hidden;
+    }
+
+    div img {
+        position: absolute;
+        top: 25vh;
+        right: 0;
+        height: 100%;
+        z-index: 0
+    }
+
+    div {
+        /* overflow-y: hidden; */
+    }
+}
+
+@media screen and (min-width: 1438px) {
+    div img {
+        width: 50vw;
+    }
+
+    main {
+        padding: 0 15rem;
+        padding-right: 25rem;
+    }
+
+    section button {
+        margin-top: 1rem;
+        max-width: 35vw;
+        width: 25vw;
+        height: 200px;
+        font-size: 5rem;
+        border-radius: 50px;
+    }
+
+    p {
+        line-height: 4;
+        font-size: 1.5rem;
+    }
+
+}
