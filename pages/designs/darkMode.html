@@ -3,52 +3,61 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Air&Ember Asymmetric Design Example</title>
+        <title>Air&Ember darkmetric Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
-        <link rel="stylesheet" href="../../css/designs.css">
+        <link rel="stylesheet" href="../../css/designDarkM.css">
 
     </head>
-    <body class="asym_body">
-        <div class="asym_MainGrid">
+    <body class="dark_body">
+        <div class="dark_MainGrid">
             <div class="returnCont">
                 <a class="Return" href="../designs.html">Back to Designs</a>
             </div>
-            <header class="asym_header">
-                <img class="asym_logo" src="../../assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="AE Logo">
-                <nav class="asym_nav">
-                    <ul class="asym_ul">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li> <a href="#">About</a></li>
+            <header class="dark_header">
+                <img class="dark_logo" src="../../assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="AE Logo">
+                <nav class="dark_nav dark_body">
+                    <ul class="dark_ul">
+                        <li><a class="dark_li" href="#">Home</a></li>
+                        <li><a class="dark_li" href="#">Contact</a></li>
+                        <li><a class="dark_li" href="#">About</a></li>
                     </ul>
-                </nav>                
-            </header>
-            <main class="asym_main">
 
-                    <h1 class="asym_title">Dark Mode</h1>
-                    <p class="asym_location">Uintah Mountains, UT</p>
-                    <img src="../../assets/images/designAssets/BirdHouse.png" alt="" class="asym_img">
-                    <div class="asym_secondary_images">
-                        <img src="../../assets/images/designAssets/frog-hands.png" alt="" class="asym_secondary_image">
-                        <img src="../../assets/images/designAssets/treeline.png" alt="" class="asym_secondary_image">
+                </nav>                
+                
+
+            </header>
+            <a id="darkModeToggle" class="light">DARK</a>
+            <main class="dark_main">
+                    <h1 class="dark_title">Dark Mode </h1>                    
+                    <p class="dark_location">Uintah Mountains, UT</p>
+                    <img src="../../assets/images/designAssets/BirdHouse.png" alt="" class="dark_img">
+                    <div class="dark_secondary_images">
+                        <img src="../../assets/images/designAssets/frog-hands.png" alt="" class="dark_secondary_image">
+                        <img src="../../assets/images/designAssets/treeline.png" alt="" class="dark_secondary_image">
                     </div>
-                    <p class="asym_description">Asymmetrical design often features irregularly spaced elements, uneven distributions of visual weight, and unexpected alignments. For example, images, text blocks, and interactive elements might appear off-center or overlap with one another to create a sense of depth and movement. Negative space is skillfully used to balance these unconventional arrangements, ensuring that the layout remains visually cohesive and not chaotic.
-                        <br><br>This style thrives on contrasts—mixing bold typography with subtle, lightweight fonts, or pairing sharp, angular elements with soft, organic shapes. Vivid color palettes are commonly employed to draw attention to key areas, while gradients, textures, and overlapping layers enhance the sense of dimension. Asymmetry invites viewers to actively explore the page, guiding their eyes across the design in an organic, deliberate flow.
-                        </p>
-                    <div class="asym_buttonCont">
-                        <button class="asym_button">BOOK NOW</button>
+                    <p class="dark_description">Dark mode web design is a popular feature that switches a website's color scheme to darker tones,
+                         reducing eye strain in low-light environments and conserving battery life on OLED screens. It typically features dark 
+                         backgrounds contrasted with light text, creating an elegant and modern look while enhancing readability. Dark mode is often
+                         implemented using CSS techniques, such as custom variables, media queries, and JavaScript toggles, allowing users to switch
+                         seamlessly between light and dark themes. Besides aesthetics, dark mode prioritizes user comfort and accessibility, making
+                         it a key aspect of user-focused, responsive, and sustainable web design practices today.
+                    </p>
+                    <div class="dark_buttonCont">
+                        <!-- <button class="dark_button">BOOK NOW</button> -->
+                        <a href="" class="neonButton"><span></span><span></span>
+                            <span></span><span></span>Book Now!</a>
                     </div>
             </main>
-            <footer class="asym_footer">
-                <div class="asym_social">
-                    <a href="" aria-label="Instagram" class="asym_social_link"><img src="../../assets/images/designAssets/instagram-2016-logo-svgrepo-com.svg" alt="" class="asym_socialImg"></a>
-                    <a href="" aria-label="Facebook" class="asym_social_link"><img src="../../assets/images/designAssets/facebook-svgrepo-com.svg" alt="" class="asym_socialImg"></a>
-                    <a href="" aria-label="X Social" class="asym_social_link"><img src="../../assets/images/designAssets/icons8-x.svg" alt="" class="asym_socialImg"></a>
+            <footer class="dark_footer">
+                <div class="dark_social">
+                    <a href="" aria-label="Instagram" class="dark_social_link"><img src="../../assets/images/designAssets/instagram-2016-logo-svgrepo-com.svg" alt="" class="dark_socialImg"></a>
+                    <a href="" aria-label="Facebook" class="dark_social_link"><img src="../../assets/images/designAssets/facebook-svgrepo-com.svg" alt="" class="dark_socialImg"></a>
+                    <a href="" aria-label="X Social" class="dark_social_link"><img src="../../assets/images/designAssets/icons8-x.svg" alt="" class="dark_socialImg"></a>
                 </div>
                 <div class="">
                     <h3 class="contactFootContent padded">@Copyright 2025</h3>
                 </div>
-                <div class="asym_footer">
+                <div class="dark_footer">
                     <div class="">
                         <h4>Support</h4>
                         <p>support@airandember.com</p>
@@ -69,6 +78,27 @@
             </footer>
             <br><br><br>
         </div>
+        <script>
+            const toggle = document.querySelector("#darkModeToggle");
+            const button = document.getElementById('darkButton');
+            toggle.addEventListener("click", () => {
+                document.body.classList.toggle("dark-mode");
+                if (document.body.classList.contains("dark-mode")) {
+                    toggle.innerText = "LIGHT"; 
+                    toggle.classList.toggle('dark');
+                    toggle.classList.toggle('light');
+
+                } else {
+                    toggle.innerText = "DARK"; 
+                    toggle.classList.toggle('light');
+                    toggle.classList.toggle('dark')
+
+                }
+
+            });
+
+
+        </script>
     </body>
 
 </html>

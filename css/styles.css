@@ -1144,7 +1144,7 @@ textarea {
 .designCardLink {
     background: none;
     transform: scale(0.9);
-    transition: transform 0.5s cubic-bezier(0.72, 0.55, 0.95, 2.05);
+    transition: transform 0.25s cubic-bezier(0.72, 0.55, 0.95, 2.05);
     margin: 1rem;
     /* will-change: transform; */
 }

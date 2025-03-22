@@ -1,0 +1,692 @@
+/* General Reset */
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --clr-neon: hsl(317 100% 54%);
+  --clr-bg: hsl(323 21% 16%);
+}
+.dark-mode {
+    --bg-color: #121212;
+    --text-color: #ffffff;
+}
+.dark_body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+.dark_li {
+    color: #a74918 !important;
+}
+
+#darkModeToggle {
+    position: absolute;
+    top: 150px;
+    right: 75px;
+}
+
+
+.dark {
+    font-size: 6rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-neon);
+    border: var(--clr-neon) 0.125em solid;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon), 0 0 0.5em 0 var(--clr-neon);
+    position: relative;
+    overflow: hidden; /* Prevents the pseudo-element from causing overflow */        
+    transition: background-color 0.15s ease-in-out;
+}
+
+
+.dark::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: var(--clr-neon);
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.7;
+}
+
+.dark::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em var(--clr-neon);
+  opacity: 0;
+  background-color: var(--clr-neon);
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+
+.dark:hover,
+.dark:focus {
+  color: white;
+  text-shadow: none;
+  background-color: var(--clr-neon);
+
+}
+
+.dark:hover::before,
+.dark:focus::before {
+  opacity: 1;
+}
+.dark:hover::after,
+.dark:focus::after {
+  opacity: 1;
+}
+
+.dark_main {
+    align-items: center;
+}
+
+
+.light {
+    font-size: 6rem;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(black);
+    border: var(black) 0.125em solid;
+    padding: 0.25em 1em;
+    border-radius: 0.25em;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+    box-shadow: inset 0 0 0.5em 0 black, 0 0 0.5em 0 black;
+    position: relative;
+    overflow: hidden; /* Prevents the pseudo-element from causing overflow */        
+    transition: background-color 0.15s ease-in-out;
+}
+
+
+.light::before {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  background: black;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+  filter: blur(1em);
+  opacity: 0.7;
+}
+
+.light::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 2em 0.5em black;
+  opacity: 0;
+  background-color: black;
+  z-index: -1;
+  transition: opacity 100ms linear;
+}
+
+.light:hover,
+.light:focus {
+  color: white;
+  text-shadow: none;
+  background-color: rgb(14, 11, 11);
+
+}
+
+.light:hover::before,
+.light:focus::before {
+  opacity: 1;
+}
+.light:hover::after,
+.light:focus::after {
+  opacity: 1;
+}
+
+.neonButton {
+    position: relative;
+    display: inline-block;
+    padding: 25px 30px;
+    margin: 35px 0;
+    color: #61CE70;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+    letter-spacing: 4px;
+    overflow: hidden;
+    margin-right: 50px;
+    font-size: 3rem;
+    z-index: 1000;
+}
+
+.neonButton:hover {
+    background: #61CE70;
+    color: #050801;
+    box-shadow: 0 0 5px #61CE70,
+        0 0 25px #61CE70,
+        0 0 50px #61CE70,
+        0 0 200px #61CE70;
+}
+
+.neonButton:nth-child(2) {
+    filter: hue-rotate(90deg);
+}
+
+.neonButton:nth-child(3) {
+    filter: hue-rotate(180deg);
+}
+
+.neonButton span {
+    position: absolute;
+    display: block;
+}
+
+.neonButton span:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #61CE70);
+    animation: animate 1s linear infinite;
+}
+
+
+@keyframes animate {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+a span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,
+            transparent, #61CE70);
+    animation: animate2 1s linear infinite;
+    animation-delay: 0.25s;
+}
+
+@keyframes animate2 {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+a span:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #61CE70);
+    animation: animate3 1s linear infinite;
+    animation-delay: 0.50s;
+}
+
+@keyframes animate3 {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+
+a span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #61CE70);
+    animation: animate4 1s linear infinite;
+    animation-delay: 0.75s;
+}
+
+@keyframes animate4 {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+@font-face {
+    font-family: Krusty;
+    src: url(../assets/fonts/krustycraft.otf);
+}
+
+.Krusty {
+    font-family: 'Krusty', sans-serif;
+}
+
+@font-face {
+    font-family: Schabo;
+    src: url(../assets/fonts/designFonts/SCHABO.woff);
+    font-weight: 100;
+}
+
+.Schabo {
+    font-family: 'Schabo';
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, p, blockquote, a, address, img,
+strong, table, td, nav, footer {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+
+.returnCont {
+    display: flex;
+    justify-content: center;
+}
+
+.Return {
+    position: fixed;
+    bottom: 1rem;
+    background-color: #a74918;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    font-family: 'Krusty', sans-serif;
+    z-index: 200000;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ************************************************************************************************ */
+/* 1. Dark Mode Page ==============================================================================*/
+
+
+
+.dark_body {
+    margin: 1em;
+    /* background-color: #242424; */
+    /* color: white; */
+    line-height: 1.5;
+    font-family: sans-serif;
+}
+
+.dark_main {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+
+
+.dark_buttonCont {
+    display: flex;
+    justify-content: right;
+}
+
+.dark_button {
+    cursor: pointer;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 1.525rem;
+    display: inline-block;
+    padding: 0.5rem;
+    position: relative;
+    margin: 2rem;
+}
+
+.dark_button::after {
+    content: '';
+    position: absolute;
+    background-color: #f39c12;
+    height: 28%;
+    width: 80%;
+    bottom: 10px;
+    left:-2px;
+    z-index: -1;
+    transition: all 0.25s cubic-bezier(0.3, -0.89, 0.78, 2.17);
+}
+
+.dark_button:hover::after,
+.dark_button:focus::after {
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 15px;
+}
+
+.dark_description {
+    padding-top: 2rem;
+    line-height: 2;
+}
+
+.dark_MainGrid {
+    width: 100%;
+    display: grid;
+    /* grid-template-columns: repeat(auto 1fr);
+    grid-template-rows: repeat(auto 1fr); */
+}
+
+.dark_header {
+    display: flex;
+}
+
+.dark_logo {
+    width: 75px;
+    height: 38px;
+}
+
+/* Nav Styling */
+.dark_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dark_nav {
+    flex-grow: 1;
+
+}
+
+.dark_ul {
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    justify-content: space-around;
+}
+
+.dark_ul li {
+    padding: 0;
+}
+
+.dark_nav li a {
+    text-transform: capitalize;
+
+    text-decoration: none;
+    color: white;
+}
+
+.dark_nav li a:hover {
+    color: #f39c12;
+}
+
+/* Header & Splash Image */
+/* .dark_header {
+
+} */
+
+/* .dark_img {
+    position: absolute;
+    top: -10rem;
+    right: -15rem;
+    aspect-ratio: 16/9;
+    min-width: 100vw;
+    height: auto;
+    min-height: 100%;
+    z-index: -1;
+} */
+
+.dark_img {
+    width: 100%;
+}
+
+.dark_secondary_images {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow: hidden;
+
+}
+
+.dark_secondary_image {
+    max-width: 50%;
+    height: auto;
+    flex: 1;
+    object-fit: contain;
+    padding: .15rem;
+}
+
+.dark_title {
+   color: #ff7600;
+   text-transform: uppercase;
+   font-size: clamp(1.75rem, 10vw, 7rem)
+}
+
+.dark_location {
+    color: #808a96;
+    margin: 0;
+    font-size: 1.5rem;
+    margin: 0 0 2em 0;
+}
+
+/* Footer Styling */
+.dark_footer {
+    background-color: black;
+    display: block;
+    text-align: center;
+    padding: 2rem;
+}
+
+.dark_footer div {
+    padding: 0.51rem 0;
+}
+
+.dark_footer a {
+    color: #f39c12;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.dark_footer a:hover {
+    color: #fff;
+}
+
+.dark_social {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.dark_social_link {
+    padding: 0 0.55rem;
+}
+
+.dark_socialImg {
+    height: 2rem;
+}
+
+
+
+@media only screen and (min-width: 789px) {
+    /* ************************************************************************************************ */
+/* 1. darkmetric Page ==============================================================================*/
+.returnCont {
+    display: flex;
+    justify-content: center;
+}
+
+.Return {
+    position: fixed;
+    background-color: #a74918;
+    top: 15px;
+    right: 15px;
+    height: 3rem;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    font-family: 'Krusty', sans-serif;
+}
+
+.light, .dark {
+    font-size: 6rem;
+}
+
+.dark_body {
+   margin: 0;
+}
+
+.dark_MainGrid {
+    margin: 0 auto;
+    padding: 0;
+   display: grid;
+   grid-template-columns:
+    minmax(1em, 1rem)
+    repeat(3, minmax(9rem, 35rem))
+    minmax(1em, 1fr);
+    gap: 1em;
+   ;
+}
+
+.dark_header {
+    grid-column: 2 / 4;
+}
+
+.dark_main {
+    grid-column: 2 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+
+.dark_title {
+   grid-column: 1 / 4;
+   grid-row: 1;
+   font-size: clamp(2rem, 10vw, 12rem);
+}
+
+
+.dark_location {
+    align-items: baseline;
+    grid-column: 1;
+    grid-row: 2;
+    font-size: clamp(2rem, 10vw, 3rem);
+}
+
+.dark_img {
+    grid-column: 2/-1;
+    grid-row: 1 / 4;
+    z-index: -1;
+}
+
+.dark_secondary_images {
+    grid-column: 3 / 5;
+}
+
+.dark_secondary_image {
+
+}
+
+.dark_description {
+    font-size: 1.5em;
+    grid-column: 1 / 4;
+    grid-row: 3;
+}
+
+.dark_buttonCont {
+    grid-row: 4;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark_button {
+    font-size: 3rem;
+}
+
+
+/* Footer Styling */
+.dark_footer {
+   grid-column: 2 / -1;
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+
+.dark_footer div {
+
+}
+
+.dark_footer a {
+
+}
+
+.dark_footer a:hover {
+
+}
+
+.dark_social {
+}
+
+.dark_social_link {
+}
+
+.dark_socialImg {
+
+}
+}
+
+@media only screen and (min-width: 1223px) {
+.brut_header_breadCont {
+    justify-content: right;
+}
+
+.brut_header_title {
+    font-size: 1215px;
+
+}
+#brut_header_title_bread {
+    font-size:1200px;
+}
+}

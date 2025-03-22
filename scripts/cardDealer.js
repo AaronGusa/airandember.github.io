@@ -13,7 +13,7 @@ const designArray = [
     },
     {
         designName: "Dark Mode",
-        designImg: "../assets/images/placeholder.png",
+        designImg: "../assets/images/designAssets/SITE_Dark.png",
         designDesc: `Uses darker color schemes to reduce eye strain and create a modern look. Often complemented with neon accents or minimalistic details.`,
         designPage: "../pages/designs/darkMode.html"
     },
