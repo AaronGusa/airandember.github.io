@@ -7,7 +7,7 @@ const designArray = [
     },
     {
         designName: "Brutalist",
-        designImg: "../assets/images/placeholder.png",
+        designImg: "../assets/images/designAssets/SITE_Brut.png",
         designDesc: `Raw and unconventional design with a "rough" aesthetic, breaking traditional rules. It's functional, edgy, and appeals to niche audiences.`,
         designPage: "../pages/designs/brutalist.html"
     },

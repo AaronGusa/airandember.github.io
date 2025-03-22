@@ -4,6 +4,24 @@
     overflow-x: hidden;
 }
 
+@font-face {
+    font-family: Krusty;
+    src: url(../assets/fonts/krustycraft.otf);
+}
+
+.Krusty {
+    font-family: 'Krusty', sans-serif;
+}
+
+@font-face {
+    font-family: Schabo;
+    src: url(../assets/fonts/designFonts/SCHABO.woff);
+    font-weight: 100;
+}
+
+.Schabo {
+    font-family: 'Schabo';
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, p, blockquote, a, address, img,
@@ -14,20 +32,6 @@ strong, table, td, nav, footer {
     vertical-align: baseline;
     box-sizing: border-box;
 }
-
-/* img {
-    width: 100%;
-} */
-
-@font-face {
-    font-family: Krusty;
-    src: url(../assets/fonts/krustycraft.otf);
-}
-
-.Krusty {
-    font-family: 'Krusty', sans-serif;
-}
-
 
 .returnCont {
     display: flex;
@@ -48,6 +52,7 @@ strong, table, td, nav, footer {
     letter-spacing: 0.15rem;
     text-decoration: none;
     font-family: 'Krusty', sans-serif;
+    z-index: 200000;
 }
 
 .hidden {
@@ -87,6 +92,8 @@ strong, table, td, nav, footer {
     box-sizing: border-box;
     width: 100%;
 }
+
+
 
 .asym_buttonCont {
     display: flex;
@@ -156,7 +163,7 @@ strong, table, td, nav, footer {
 
 .asym_nav {
     flex-grow: 1;
-    
+
 }
 
 .asym_ul {
@@ -184,7 +191,7 @@ strong, table, td, nav, footer {
 
 /* Header & Splash Image */
 /* .asym_header {
-   
+
 } */
 
 /* .asym_img {
@@ -273,7 +280,7 @@ strong, table, td, nav, footer {
 /* ==================================================================================================*/
 /* 2. **Brutalist** =================================================================================*/
 .brut_body {
-    margin: 1em;
+    margin: 0;
 }
 
 .brut_MainGrid {
@@ -282,73 +289,139 @@ strong, table, td, nav, footer {
     grid-template-rows: repeat(auto );
 }
 
-.brut_header {}
-
-.brut_logo {}
-
-/* Nav Styling */
-.brut_nav {}
-
-.brut_ul {
-    list-style: none;
-    text-decoration: none;
+.brut_header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.25fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    height: 100vh;
+    overflow-y: hidden;
 }
 
+.brut_header_breadCont {
+    grid-row: 2 ;
+}
+
+.brut_bread {
+    height: auto;
+    aspect-ratio: 4/3;
+    width: clamp(1rem, 100vw, 440px);
+    z-index: -2;
+}
+
+.brut_header_title {
+    grid-row: 3 /4;
+    position: relative;
+    scroll-behavior: unset;
+    display: block;
+    width: 100%;
+    z-index: 1;
+}
+
+.brut_header_title h1 {
+    grid-row:  1;
+    font-family: "Schabo";
+    width: 100%;
+    color: rgb(255, 17, 255);
+    font-weight: 100;
+    font-size: clamp(20px, 19vw, 500px);
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    line-height: 1;
+}
+
+#brut_header_title_bread {
+    width: 100%;
+    font-size:clamp(1rem, 100vw, 87vw);
+    color: red;
+    z-index: 0;
+
+}
+
+.brut_logo {
+    height: 50px;
+}
+
+/* Nav Styling */
+.brut_nav {
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: .75rem;
+    justify-content: space-evenly;
+}
+
+
 .brut_nav a {
+    border-radius: 100px;
+    padding: clamp(0.5rem, 0.75rem, 2rem);
+    rotate: 25deg;
+    background-color: white;
     text-decoration: none;
+    box-shadow: 5px 5px 0 black;
+    color: #242424;
+    font-family: "Schabo";
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    transition: box-shadow 0.05s ease-out;
 }
 
 .brut_nav a:hover {
     color: #f39c12;
 }
 
-/* Header & Splash Image */
-.brut_header {
-   
+.brut_nav a:active {
+    box-shadow: none;
 }
 
-.brut_img {
-    /* position: absolute;
-    top: -10rem;
-    right: -15rem;
-    aspect-ratio: 16/9;
-    min-width: 100vw;
+/* Header & Splash Image */
+.brut_header {
+
+}
+
+ .brut_mainDiv1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
     height: auto;
-    min-height: 100%;
-    z-index: -1; */
+    font-size: clamp(5rem, 25vw, 10rem);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.brut_title {
+    font-family: Impact, sans-serif;
+    text-transform: uppercase;
+    
+}
+
+.brut_write {
+    font-family: monospace;
+    font-size: 1.75rem;
+    background-color: #ff5e00;
+    color: white;
+    padding: 1rem 0;
+}
+
+.brut_write_highlight {
+    /* font-weight: bolder; */
+    font-family: fantasy;
 }
 
 .brut_secondary_image {
     width: 50vw;
 }
 
-.brut_title {
-   
-}
-
-/* Sections */
-.brut_section {
-    
-}
-
-.brut_section:nth-child(odd) {
-   
-}
-
-.brut_section:nth-child(even) {
-    
-}
-
-.brut_section h2 {
-    
-}
-
-.brut_section p {
-    
-}
-
 /* Footer Styling */
 .brut_footer {
+    text-align: right;
     width: 100%;
 }
 
@@ -362,6 +435,27 @@ strong, table, td, nav, footer {
 .brut_footer a:hover {
     color: #fff;
 }
+
+.brut_social {
+    background-color: #ff008c;
+    height: 35vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+.brut_social_link {
+    padding: 1rem;
+}
+
+.brut_socialImg {
+    height: auto;
+    width: 100%;
+
+}
+
 /* 3. **Dark Mode** */
 /* 4. **Flat Design** */
 /* 5. **Illustration-Led** */
@@ -408,10 +502,10 @@ strong, table, td, nav, footer {
     margin: 0 auto;
     padding: 0;
    display: grid;
-   grid-template-columns: 
-    minmax(1em, 1rem) 
+   grid-template-columns:
+    minmax(1em, 1rem)
     repeat(3, minmax(9rem, 35rem))
-    minmax(1em, 1fr); 
+    minmax(1em, 1fr);
     gap: 1em;
    ;
 }
@@ -451,7 +545,7 @@ strong, table, td, nav, footer {
 }
 
 .asym_secondary_image {
-    
+
 }
 
 .asym_description {
@@ -481,108 +575,170 @@ strong, table, td, nav, footer {
 }
 
 .asym_footer div {
-    
+
 }
 
 .asym_footer a {
-    
+
 }
 
 .asym_footer a:hover {
-    
+
 }
 
 .asym_social {
-    
 }
 
 .asym_social_link {
 }
 
 .asym_socialImg {
-   
+
 }
 
 
 /* ==================================================================================================*/
 /* 2. **Brutalist** =================================================================================*/
 .brut_body {
-    margin: 1em;
+    margin: 0;
 }
 
-.brut_MainGrid {
+
+.brut_header {
     display: grid;
-    grid-template-columns: repeat(auto);
-    grid-template-rows: repeat(auto );
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.25fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    height: 100vh;
+    overflow-y: hidden;
 }
 
-.brut_header {}
 
-.brut_logo {}
 
 /* Nav Styling */
-.brut_nav {}
-
-.brut_ul {
-    list-style: none;
-    text-decoration: none;
+.brut_nav {
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: .75rem;
+    justify-content: space-evenly;
+    z-index: 10000;
 }
 
+
 .brut_nav a {
+    border-radius: 100px;
+    padding: clamp(0.5rem, 0.75rem, 2rem);
+    rotate: 25deg;
+    background-color: white;
     text-decoration: none;
+    box-shadow: 2px 2px 0 black;
 }
 
 .brut_nav a:hover {
     color: #f39c12;
 }
 
-/* Header & Splash Image */
-.brut_header {
-   
+.brut_header_breadCont {
+    grid-row: 2 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    margin-top: 500px;
 }
 
-.brut_img {
-    /* position: absolute;
-    top: -10rem;
-    right: -15rem;
-    aspect-ratio: 16/9;
-    min-width: 100vw;
+.brut_bread {
     height: auto;
-    min-height: 100%;
-    z-index: -1; */
+    aspect-ratio: 4/3;
+    width: clamp(1rem, 100vw, 1034px);
+    z-index: -2;
+}
+
+.brut_header_title {
+    grid-row: 3 /4;
+    position: relative;
+    scroll-behavior: unset;
+    display: block;
+    width: 100%;
+    z-index: 1;
+    /* top: 200px; */
+}
+
+.brut_header_title h1 {
+    grid-row:  1;
+    font-family: "Schabo";
+    width: 100%;
+    color: rgb(255, 17, 255);
+    font-weight: 100;
+    font-size: clamp(20px, 19vw, 1004px);
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+    line-height: 1;
+}
+
+#brut_header_title_bread {
+    width: 100%;
+    font-size:clamp(1rem, 100vw, 87vw);
+    color: red;
+    z-index: 0;
+
+}
+
+.brut_logo {
+    height: 50px;
+}
+
+
+
+/* Header & Splash Image */
+.brut_header {
+
+}
+
+ .brut_mainDiv1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    font-size: clamp(5rem, 25vw, 10rem);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.brut_title {
+    font-family: Impact, sans-serif;
+    text-transform: uppercase;
+    
+}
+
+.brut_write {
+    font-family: monospace;
+    font-size: 1.75rem;
+    background-color: #ff5e00;
+    color: white;
+    padding: 1rem 0;
+}
+
+.brut_write_highlight {
+    /* font-weight: bolder; */
+    font-family: fantasy;
 }
 
 .brut_secondary_image {
     width: 50vw;
 }
 
-.brut_title {
-   
-}
-
-/* Sections */
-.brut_section {
-    
-}
-
-.brut_section:nth-child(odd) {
-   
-}
-
-.brut_section:nth-child(even) {
-    
-}
-
-.brut_section h2 {
-    
-}
-
-.brut_section p {
-    
-}
-
 /* Footer Styling */
 .brut_footer {
+    text-align: right;
     width: 100%;
 }
 
@@ -596,6 +752,28 @@ strong, table, td, nav, footer {
 .brut_footer a:hover {
     color: #fff;
 }
+
+.brut_social {
+    background-color: #ff008c;
+    height: 35vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    overflow-y: hidden;
+
+}
+
+.brut_social_link {
+    padding: 1rem;
+}
+
+.brut_socialImg {
+    height: auto;
+    width: 100%;
+
+}
 /* 3. **Dark Mode** */
 /* 4. **Flat Design** */
 /* 5. **Illustration-Led** */
@@ -606,4 +784,18 @@ strong, table, td, nav, footer {
 /* 10. **Retro/Vintage** */
 /* 11. **Skeuomorphic** */
 /* 12. **Typography-Based** */
+}
+
+@media only screen and (min-width: 1223px) {
+.brut_header_breadCont {
+    justify-content: right;
+}
+
+.brut_header_title {
+    font-size: 1215px;
+
+}
+#brut_header_title_bread {
+    font-size:1200px;
+}
 }
