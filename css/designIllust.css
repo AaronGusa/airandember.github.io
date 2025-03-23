@@ -5,13 +5,20 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+    height: 100%;
+}
+
 body {
-    
+    height: max-content;
+    width: 100%;
     font-family: 'Helvetica', sans-serif;
     line-height: 1.6;
     color: #333;
     /* background-color: #f5f5f5; */
     padding: 0 1rem;
+    overflow-x: hidden;
 }
 
 /* Navigation */
@@ -38,11 +45,17 @@ main {
 }
 
 /* Hero Section */
+#title {
+    font-size: clamp(1rem, 10vw, 10rem);
+}
+
 .hero {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 2rem 0;
+    z-index: 10;
 }
 
 .hero-content h1 {
@@ -61,6 +74,25 @@ main {
     height: auto;
 }
 
+button {
+    padding: 2rem;
+    border-radius: 100px;
+    background-color: rgba(228, 228, 228, 0.75);
+    transition: background-color 0.15s ease-in-out, border-radius 0.15s ease-in-out;
+    z-index: 100;
+}
+
+button:hover {
+    background-color: #029cb3;
+    border-radius: 0;
+}
+
+button:active {
+    background-color: red;
+}
+
+
+
 /* About Section */
 #about {
     text-align: center;
@@ -74,8 +106,8 @@ main {
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 1rem 0;
+    text-align: right;
+    padding: 1rem;
     background-color: #222;
     color: white;
     z-index: 10;
@@ -86,7 +118,7 @@ footer {
 } */
 
 #trees {
-    width: 100vw;
+    height: 500px;
     /* border: 5px solid red; */
     position: absolute;
     bottom: -35px;
@@ -126,3 +158,13 @@ footer {
     font-family: 'Krusty', sans-serif;
     z-index: 200000;
 }
+
+/* @media screen and (max-width: 845px) {
+    #title {
+        font-size: 3rem;
+    }
+
+    #trees {
+        width: 95vw;
+    }
+} */

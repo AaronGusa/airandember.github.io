@@ -24,13 +24,13 @@ const designArray = [
         designPage: "../pages/designs/flatDesign.html"
     },
     {
-        designName: "Illustration-Led",
-        designImg: "../assets/images/placeholder.png",
+        designName: "Illustration",
+        designImg: "../assets/images/designAssets/SITE_Illust.png",
         designDesc: "Features hand-drawn or digital illustrations as focal points. Adds a playful, artistic vibe to the user experience.",
         designPage: "../pages/designs/illustrationLed.html"
     },
     {
-        designName: "Material Design",
+        designName: "Material",
         designImg: "../assets/images/placeholder.png",
         designDesc: "Inspired by Google’s design philosophy, it uses depth, shadows, and animations to create a tactile and realistic feel.",
         designPage: "../pages/designs/material.html"
