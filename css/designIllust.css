@@ -1,0 +1,128 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    
+    font-family: 'Helvetica', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    /* background-color: #f5f5f5; */
+    padding: 0 1rem;
+}
+
+/* Navigation */
+header nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+main {
+    background-image: url('../assets/images/designAssets/SITE_Illust_HERO.png');
+    background-size: cover;
+    background-position: right;
+    background-color: transparent;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    max-width: 400px;
+    margin-bottom: 2rem;
+}
+
+.hero-illustration img {
+    width: 100%;
+    max-width: 600px; /* Ensures image is responsive */
+    height: auto;
+}
+
+/* About Section */
+#about {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: #222;
+    color: white;
+    z-index: 10;
+}
+
+/* .hero-illustration img {
+    animation: float 3s infinite ease-in-out;
+} */
+
+#trees {
+    width: 100vw;
+    /* border: 5px solid red; */
+    position: absolute;
+    bottom: -35px;
+    left: 0;
+    animation: float 3s infinite cubic-bezier(0.76,-0.19, 0.29, 1.21);
+    z-index: 0;
+
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.returnCont {
+    display: flex;
+    justify-content: center;
+}
+
+.Return {
+    position: fixed;
+    bottom: 1rem;
+    background-color: #a74918;
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    font-family: 'Krusty', sans-serif;
+    z-index: 200000;
+}

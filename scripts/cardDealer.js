@@ -19,7 +19,7 @@ const designArray = [
     },
     {
         designName: "Flat Design",
-        designImg: "../assets/images/placeholder.png",
+        designImg: "../assets/images/designAssets/SITE_Flat.png",
         designDesc: "Emphasizes simplicity with two-dimensional elements, bright colors, and clean typography. Focuses on clarity and functionality.",
         designPage: "../pages/designs/flatDesign.html"
     },
