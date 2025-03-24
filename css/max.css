@@ -1,0 +1,249 @@
+* {
+    box-sizing: border-box;
+    font-family: Impact, sans-serif;
+    margin: 0;
+    padding: 0
+}
+
+html {
+    width: 100vw;
+    /* border: red solid 5px; */
+}
+
+
+@font-face {
+    font-family: Krusty;
+    src: url(../assets/fonts/krustycraft.otf);
+}
+
+@font-face {
+    font-family: Vis;
+    src: url(../assets/fonts/designFonts/Vis-A-Vis.ttf);
+}
+@font-face {
+    font-family: Manbow;
+    src: url(../assets/fonts/designFonts/ManbowSolid.otf);
+}
+@font-face {
+    font-family: Sandre;
+    src: url(../assets/fonts/designFonts/SANDRE.ttf);
+}
+@font-face {
+    font-family: Splendid;
+    src: url(../assets/fonts/designFonts/SplendidN.ttf);
+}
+
+.returnCont {
+    display: flex;
+    justify-content: center;
+}
+
+.Return {
+    position: fixed;
+    bottom: 1rem;
+    background-color: #a74918;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    font-family: 'Krusty', sans-serif;
+    z-index: 200000;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: red;
+    height: 12vh;
+    width: 100%;
+}
+
+
+.maxTitle {
+    font-size: clamp(1.5rem, 10vw, 10rem);
+    text-align: center;
+    letter-spacing: 5px;
+    font-family: 'Vis';
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: red;
+    font-size: clamp(1rem, 2vw, 2rem);
+    font-family: 'Manbow';
+
+}
+
+.patternCont {
+    height: 100px;
+}
+
+.pattern {
+    background-image: url('../assets/images/designAssets/pattern.png');
+    background-repeat: repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+}
+
+main {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/023/789/084/large_2x/beautiful-flowers-wallpaper-repeating-pattern-generative-ai-photo.jpg');
+    height: max-content;
+    background-repeat: repeat;
+    background-size: contain;
+    display: grid;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.para1 {
+    width: 95vw;
+    margin-top: 3rem;
+}
+
+.para1 h1 {
+    background-color: rgb(255, 166, 0);
+    border-radius: 0 25px 0 0;
+    height: max-content;
+
+    align-items: center;
+    font-family: 'Manbow';
+    padding: 1rem;
+    font-size: clamp(1rem, 14vw, 2rem);
+
+}
+
+.para1 p {
+    background-color: rgb(52, 59, 88);
+    border-radius: 0 0 25px 0;
+    color: white;
+    padding: 0.5rem 1rem 1rem 1rem;
+    line-height: 2; 
+    font-family: 'Splendid';
+    font-size: 1.5rem;
+}
+
+
+.para2 {
+    width: 95vw;
+    margin-top: 3rem;
+
+}
+
+.para2 h1 {
+    background-color: rgb(49, 78, 71);
+    border-radius: 0 25px 0 0;
+    height: max-content;
+    align-items: center;
+    font-family: 'Manbow';
+    color: #a74918;
+    padding: 1rem;
+    font-size: clamp(0.751rem, 14vw, 2rem);
+}
+
+.para2 p {
+    background-color: rgb(169, 231, 231);
+    border-radius: 0 0 25px 0;
+    color: black;
+    padding: 0.5rem 1rem 1rem 1rem;
+    line-height: 2; 
+    font-family: 'Splendid';
+    font-size: 1.5rem;
+}
+
+.para3 {
+    width: 95vw;
+    margin: 3rem 0;
+}
+
+.para3 h1 {
+    background-color: red;
+    border-radius: 0 25px 0 0;
+    height: max-content;
+    align-items: center;
+    font-family: 'Manbow';
+    padding: 1rem;
+    font-size: clamp(0.751rem, 14vw, 2rem);
+}
+
+.para3 p {
+    background-color: black;
+    border-radius: 0 0 25px 0;
+    color: white;
+    padding: 0.5rem 0 1rem 1rem;
+    line-height: 2; 
+    font-family: 'Splendid';
+    font-size: 1.5rem;
+}
+
+footer {
+    display: block;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: yellow;
+}
+
+
+
+@media screen and (min-width: 760px) {
+    html {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .main {
+        min-height: 80vh;
+        height: max-content;
+
+    }
+
+    .returnCont {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .Return {
+        position: fixed;
+        background-color: #a74918;
+        top: 13vh;
+        right: 15px;
+        height: 3rem;
+        width: 10rem;
+        display: flex;
+        justify-content: center;
+        border-radius: 50px;
+        padding: 0.5rem;
+        color: white;
+        font-weight: 200;
+        letter-spacing: 0.15rem;
+        text-decoration: none;
+        font-family: 'Krusty', sans-serif;
+        align-items: center;
+    }
+
+    .paraCont {
+        display: flex;
+        justify-content: right;
+    }
+
+    .para1, .para2, .para3 {
+        max-width: 80vw;
+        border-radius: 0 0 0 0;
+    }
+
+}

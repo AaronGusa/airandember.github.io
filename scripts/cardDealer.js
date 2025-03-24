@@ -31,31 +31,31 @@ const designArray = [
     },
     {
         designName: "Material",
-        designImg: "../assets/images/placeholder.png",
+        designImg: "../assets/images/designAssets/SITE_Mat.png",
         designDesc: "Inspired by Google’s design philosophy, it uses depth, shadows, and animations to create a tactile and realistic feel.",
         designPage: "../pages/designs/material.html"
     },
     {
         designName: "Maximalist",
-        designImg: "../assets/images/placeholder.png",
+        designImg: "../assets/images/designAssets/SITE_Max.png",
         designDesc: "Vibrant and bold visuals with intricate layouts, patterns, and textures. Used to tell immersive stories or leave a strong impression.",
         designPage: "../pages/designs/maximalist.html"
     },
     {
         designName: "Minimalist",
-        designImg: "../assets/images/placeholder.png",
+        designImg: "../assets/images/designAssets/SITE_Min.png",
         designDesc: "Clean, simple layouts with ample white space. Focuses on clarity, usability, and visual harmony.",
         designPage: "../pages/designs/minimalist.html"
     },
     {
         designName: "Neumorphism",
-        designImg: "../assets/images/placeholder.png",
+        designImg: "../assets/images/designAssets/SITE_Neu.png",
         designDesc: "A combination of flat design and skeuomorphism, featuring soft shadows and gradients to create a subtle 3D effect.",
         designPage: "../pages/designs/neumorphism.html"
     },
     {
         designName: "Retro/Vintage",
-        designImg: "../assets/images/placeholder.png",
+        designImg: "../assets/images/designAssets/SITE_Retro.png",
         designDesc: "Nostalgic designs inspired by past decades, using vintage typography, textures, and color schemes to evoke familiarity.",
         designPage: "../pages/designs/retro.html"
     },

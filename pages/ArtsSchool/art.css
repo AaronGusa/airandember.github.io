@@ -1,0 +1,70 @@
+.main {
+    display: flex;
+    margin-left: 70vw;
+    transition: margin-left 2s ease-in-out;
+}
+
+main:hover {
+   margin-left: 1vw;                       
+}
+
+
+.TRUCK {
+    width: 920px;
+    
+}
+
+.topchassis {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.front {
+    background-color: blue;
+    height: 200px;
+    width: 100px;
+    border-radius: 25px 10px 5px 5px;
+}
+
+.trailer {
+    display: block;
+    
+}
+
+.top {
+    background-color: grey;
+    width: 800px;
+    height: 200px;
+    margin-left: 1rem;
+}
+
+.bottom {
+    width: 800px + 1rem;
+    height: 10px;
+    margin-left: -102px;
+    background-color: darkslategray;
+    
+}
+
+/* Bottom of Truck */
+.wheels {
+    height: 100px;
+    display: flex;
+    grid-template-rows: 100px;
+    justify-content: space-between;
+
+}
+.wheel {
+    height: 50px;
+    width: 50px;
+    background-color: grey;
+    border: black solid 19px;
+    border-radius: 100px;
+}
+
+.doubleTrouble {
+    display: flex;
+}
+

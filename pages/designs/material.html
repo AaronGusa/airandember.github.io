@@ -5,64 +5,97 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Air&Ember Asymmetric Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
-        <link rel="stylesheet" href="../../css/designs.css">
-        <script src="../../scripts/mobileMenu.js" defer></script>
+        <link rel="stylesheet" href="../../css/matDes.css">
 
     </head>
-    <body class="asym_body">
-        <div class="asym_MainGrid">
-            <a class="selected" href="../designs.html">Return to Designs</a>
-            <header class="asym_header">
-                <img class="logo" src="../../assets/images/designAssets/AE LOGO ICON cropped Pine.png" alt="AE Logo">
-                <nav class="asym_nav">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li> <a href="#">About</a></li>
-                    </ul>
-                </nav>                
-            </header>
-            <main class="main">
-
-                    <h1 class="asym_title">Asymmetrical A&E</h1>
-                    <p class="asym_location"></p>
-                    <img src="../../assets/images/designAssets/BirdHouse.webp" alt="" class="asym_Img">
-                    <div class="asym_secondary_images">
-                        <img src="" alt="" class="secondary_image">
-                        <img src="" alt="" class="secondary_image">
-                    </div>
-                    <p class="asym_description"></p>
-                    <button class="asym_button"></button>
-            </main>
-            <footer class="asym_footer">
-                <div class="">
-                    <h3 class="contactFootContent padded">@Copyright 2025</h3>
+    <body >
+        <div >
+            <div class="returnCont">
+                <a class="Return" href="../designs.html">Back to Designs</a>
+            </div>
+            <header class="app-bar">
+                <div class="app-bar__left">
+                  <span class="material-icons app-icon">menu</span>
                 </div>
-                <div class="">
-                    <div class="">
-                        <h4>Support</h4>
-                        <p>support@airandember.com</p>
-                    </div>      
-                    <div class="">
-                    
-                        <h4>Operating Hours</h4>
-                        <p>Monday - Friday</p>
-                        <p>7 AM - 6 PM MST / MDT</p>
+                <nav class="app-nav">
+                  <button class="nav-btn">Home</button>
+                  <button class="nav-btn">Features</button>
+                  <button class="nav-btn">Contact</button>
+                </nav>
+              </header>
+            
+              <!-- Main Content -->
+              <main>
+                <!-- Hero Section -->
+                <section class="hero">
+                  <div class="hero-content">
+                    <h2>Material Web Design</h2>
+                    <p>
+                        Material Web Design champions a modern, tactile aesthetic that revives the physical world through intuitive layers, subtle shadows, 
+                        and bold color palettes. It encourages simplicity, clarity, and responsive interactivity, convincing designers to create cohesive, 
+                        engaging digital experiences that are both visually appealing and functionally superior, bridging art and usability seamlessly.
+                    </p>
+                    <button class="cta-btn">Learn More</button>
+                  </div>
+                  <div class="hero-image">
+                    <!-- Replace with your hero image -->
+                    <img src="https://images.pexels.com/photos/1456734/pexels-photo-1456734.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Hero Illustration" />
+                  </div>
+                </section>
+            
+                <!-- Cards Section -->
+                <section class="cards-section">
+                  <h2 class="section-title">Our Services</h2>
+                  <div class="cards-grid">
+                    <div class="card">
+                      <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=2580&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Service 1" />
+                      </div>
+                      <div class="card-content">
+                        <h3>Service 1</h3>
+                        <p>High-quality solutions designed with precision and care.</p>
+                      </div>
+                      <div class="card-action">
+                        <button class="card-btn">Explore</button>
+                      </div>
                     </div>
-                    <div class="asym_social">
-                        <a href="" aria-label="Instagram" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-                        <a href="" aria-label="Facebook" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-                        <a href="" aria-label="X Social" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-
+                    <div class="card">
+                      <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2620&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Service 2" />
+                      </div>
+                      <div class="card-content">
+                        <h3>Service 2</h3>
+                        <p>Innovative approaches to solve complex problems.</p>
+                      </div>
+                      <div class="card-action">
+                        <button class="card-btn">Explore</button>
+                      </div>
                     </div>
-                    <div class="">
-                        <h4>Legal</h4>
-                        <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
-                        <!-- <p><a href="">Terms of Service</a></p> -->
+                    <div class="card">
+                      <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Service 3" />
+                      </div>
+                      <div class="card-content">
+                        <h3>Service 3</h3>
+                        <p>Creative design strategies that transform your vision.</p>
+                      </div>
+                      <div class="card-action">
+                        <button class="card-btn">Explore</button>
+                      </div>
                     </div>
-                </div>
-            </footer>
-        </div>
-    </body>
-
-</html>
+                  </div>
+                </section>
+              </main>
+            
+              <!-- Footer -->
+              <footer class="app-footer">
+                <p>&copy; 2025 Air & Ember Material Web Design Mock Up. All rights reserved.</p>
+              </footer>
+            
+              <!-- Floating Action Button (FAB) -->
+              <button class="fab">
+                <span class="material-icons">add</span>
+              </button>
+            </body>
+            </html>
+            

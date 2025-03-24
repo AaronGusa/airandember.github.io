@@ -1,0 +1,236 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  @font-face {
+    font-family: Krusty;
+    src: url(../assets/fonts/krustycraft.otf);
+}
+
+@font-face {
+    font-family: Vis;
+    src: url(../assets/fonts/designFonts/Vis-A-Vis.ttf);
+}
+@font-face {
+    font-family: Manbow;
+    src: url(../assets/fonts/designFonts/ManbowSolid.otf);
+}
+@font-face {
+    font-family: Sandre;
+    src: url(../assets/fonts/designFonts/SANDRE.ttf);
+}
+@font-face {
+    font-family: Splendid;
+    src: url(../assets/fonts/designFonts/SplendidN.ttf);
+}
+
+.returnCont {
+    display: flex;
+    justify-content: center;
+}
+
+.Return {
+    position: fixed;
+    bottom: 1rem;
+    background-color: #a74918;
+    width: 90vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    font-family: 'Krusty', sans-serif;
+    z-index: 200000;
+}
+  
+  /* Base Styles */
+  body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    padding: 0;
+  }
+  
+  /* Header & Navigation */
+  header, nav, .hero {
+    color: white;
+    padding: 1rem;
+  }
+
+
+
+  header {
+    /* margin-bottom: 2rem; */
+    background-color: #a5d0b4;
+
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  nav h1 {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+    transition: color 0.3s ease, border 0.3s ease;
+    padding: 0.5rem;
+    
+  }
+  
+  nav ul li a:hover {
+    color: #a7ffff;
+    border: white solid 1px;
+  }
+  
+  /* Hero Section */
+    .banner {
+        text-align: center;
+    }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    background-color: #a5d0b4;
+    text-align: center;
+    padding: 3rem 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+    height: 100%;
+    align-items: center;
+  }
+  
+  .hero h2 {
+    font-weight: 300;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero h2 span {
+    font-size: 3rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+    color: white;
+  }
+  
+  /* Content Section */
+  .content {
+    padding: 2rem;
+    line-height: 2;
+  }
+  
+  .content h2 {
+    font-weight: 300;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .content p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #888;
+    border-top: 1px solid #eee;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 600px) {
+    nav {
+      flex-direction: column;
+    }
+    nav ul {
+      margin-top: 0.5rem;
+    }
+    .hero h2 {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media screen and (min-width: 760px) {
+    html {
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .content {
+        line-height: 3;
+    }
+
+    nav {
+        justify-content: left;
+        font-size: 2rem;
+
+    }
+
+    nav ul li {
+        padding: 0 5rem;
+
+    }
+
+    .hero {
+        padding: 15rem 1rem;
+    }
+
+    main {
+        min-height: 60vh;
+        height: max-content;
+
+    }
+
+    .returnCont {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .Return {
+        position: fixed;
+        background-color: #a74918;
+        top: 15px;
+        right: 15px;
+        height: 3rem;
+        width: 10rem;
+        display: flex;
+        justify-content: center;
+        border-radius: 50px;
+        padding: 0.5rem;
+        color: white;
+        font-weight: 200;
+        letter-spacing: 0.15rem;
+        text-decoration: none;
+        font-family: 'Krusty', sans-serif;
+        align-items: center;
+    }
+
+    
+
+}

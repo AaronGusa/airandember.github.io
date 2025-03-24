@@ -1,0 +1,252 @@
+@font-face {
+    font-family: Krusty;
+    src: url(../assets/fonts/krustycraft.otf);
+}
+
+@font-face {
+    font-family: oneUp;
+    src: url(../assets/fonts/designFonts/1up.ttf);
+}
+@font-face {
+    font-family: PIXEL;
+    src: url(../assets/fonts/designFonts/PIXEL.TTF);
+}
+@font-face {
+    font-family: ThreeD;
+    src: url(../assets/fonts/designFonts/3DIsometric-Regular.ttf);
+}
+@font-face {
+    font-family: Krusty;
+    src: url(../assets/fonts/designFonts/);
+}
+
+.returnCont {
+    display: flex;
+    justify-content: center;
+}
+
+.Return {
+    position: fixed;
+    bottom: 1rem;
+    background-color: #a74918;
+    width: 60vw;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 0.15rem;
+    text-decoration: none;
+    font-family: 'Krusty', sans-serif;
+    z-index: 200000;
+}
+  
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  html {
+    margin: 0;
+    background-color: lightgray;
+  }
+  
+  /* Body & Overall Layout */
+  body {
+    font-family: Arial, sans-serif; /* Replace with a retro low-bit font if desired */
+    background-color: #f0f0f0;
+    color: #222;
+    width: 100%;
+
+  }
+
+  nav {
+    width: 100%;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    background: linear-gradient(45deg, #ff8c00, #ff0080);
+    padding: 20px;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    font-size: clamp(1rem, 3vw, 5rem);
+    margin-bottom: 10px;
+    color: #fff;
+    font-family: 'ThreeD';
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    box-shadow: 2px 2px 0 #000;
+    transition: background 0.3s, color 0.3s;
+    font-family: 'oneUp';
+  }
+  
+  nav ul li a:hover {
+    background-color: #fff;
+    color: #000;
+  }
+
+  img {
+    max-width: 650px;
+  }
+  
+  /* Carousel Section */
+  #carousel {
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    height: 200px;
+    background-color: #fff;
+    border: 2px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  /* Each Slide - Using CSS keyframes for a pure CSS carousel */
+  .slide {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    animation: slideAnimation 16s infinite;
+    font-family: 'PIXEL';
+    font-size: clamp(1rem, 10vw, 5rem);
+  }
+  
+  .slide:nth-child(1) { animation-delay: 0s; }
+  .slide:nth-child(2) { animation-delay: 4s; }
+  .slide:nth-child(3) { animation-delay: 8s; }
+  .slide:nth-child(4) { animation-delay: 12s; }
+  
+  @keyframes slideAnimation {
+    0% { opacity: 0; transform: scale(0.95); }
+    5% { opacity: 1; transform: scale(1); }
+    25% { opacity: 1; transform: scale(1); }
+    30% { opacity: 0; transform: scale(1.05); }
+    100% { opacity: 0; }
+  }
+
+  .contentPImg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contentPImg p {
+    line-height: 2.4;
+  }
+
+  .contentPImg img {
+    width: 100%;
+  }
+
+  .contentCont h1 {
+    font-family: 'ThreeD';
+  }
+
+  .RetroTitle {
+    font-family: 'PIXEL';
+    font-size: clamp(1rem, 5vw, 10rem);
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #ccc;
+    border: 2px solid #000;
+    box-shadow: -2px -2px 0 #000;
+    font-size: 1rem;
+  }
+
+
+
+@media screen and (min-width: 721px) {
+    html {
+        padding: 0.5rem;
+    }  
+
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 75vw;
+        margin: 0 auto;
+    }
+
+
+    .returnCont {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .Return {
+        position: fixed;
+        background-color: #a74918;
+        top: 15px;
+        right: 25px;
+        height: 3rem;
+        width: 10rem;
+        display: flex;
+        justify-content: center;
+        border-radius: 50px;
+        padding: 0.5rem;
+        color: white;
+        font-weight: 200;
+        letter-spacing: 0.15rem;
+        text-decoration: none;
+        font-family: 'Krusty', sans-serif;
+        align-items: center;
+        box-shadow: 2px 2px 5px black;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    
+
+}
+
+@media screen and (min-width: 1160px) {
+    footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .contentPImg {
+        flex-direction: row;
+    }
+}
