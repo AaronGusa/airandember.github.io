@@ -70,6 +70,11 @@ const designArray = [
         designImg: "../assets/images/designAssets/SITE_Type.png",
         designDesc: "Centers the design around typography, using bold, creative fonts as a key visual element with minimal imagery.",
         designPage: "../pages/designs/typography.html"
+    },
+    {
+        designName: "More to come...",
+        designImg: "../assets/images/placeholder.png",
+        designDesc: ""
     }
 ]
 
