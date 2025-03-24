@@ -59,15 +59,15 @@ const designArray = [
         designDesc: "Nostalgic designs inspired by past decades, using vintage typography, textures, and color schemes to evoke familiarity.",
         designPage: "../pages/designs/retro.html"
     },
-    {
-        designName: "Skeuomorphic",
-        designImg: "../assets/images/placeholder.png",
-        designDesc: "Mimics real-world objects with realistic textures, shadows, and details, creating a sense of familiarity and tangibility.",
-        designPage: "../pages/designs/skeuomorphic.html"
-    },
+    // {
+    //     designName: "Skeuomorphic",
+    //     designImg: "../assets/images/placeholder.png",
+    //     designDesc: "Mimics real-world objects with realistic textures, shadows, and details, creating a sense of familiarity and tangibility.",
+    //     designPage: "../pages/designs/skeuomorphic.html"
+    // },
     {
         designName: "Typography",
-        designImg: "../assets/images/placeholder.png",
+        designImg: "../assets/images/designAssets/SITE_Type.png",
         designDesc: "Centers the design around typography, using bold, creative fonts as a key visual element with minimal imagery.",
         designPage: "../pages/designs/typography.html"
     }

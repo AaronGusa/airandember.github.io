@@ -2,6 +2,7 @@
     display: flex;
     margin-left: 70vw;
     transition: margin-left 2s ease-in-out;
+    align-items: center;
 }
 
 main:hover {
@@ -11,7 +12,8 @@ main:hover {
 
 .TRUCK {
     width: 920px;
-    
+    position: absolute;
+    margin-top: 90vh;
 }
 
 .topchassis {
