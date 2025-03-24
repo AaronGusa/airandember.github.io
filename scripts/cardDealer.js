@@ -74,7 +74,8 @@ const designArray = [
     {
         designName: "More to come...",
         designImg: "../assets/images/placeholder.png",
-        designDesc: ""
+        designDesc: "",
+        designPage: "#"
     }
 ]
 
