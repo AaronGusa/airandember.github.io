@@ -2008,37 +2008,7 @@ textarea {
 
     }
 
-    /* Services */
-
-    .devMain {
-        box-sizing: border-box;
-    }
-
-    .WebDesign, .softwareDesign, .graphicDesign, .Photography {
-        padding: 0;
-        margin: 0;
-        font-size: clamp(1rem, 1.5rem, 3rem);
-
-    }
-
-    .list1 ul li, .list2 ul li {
-        font-size: clamp(1rem, 1.5rem, 3rem);
-
-    }
-
-    .softwareWords {
-        width: 100%;
-        padding: 0 !important;
-        margin: 0;
-    }
-
-    .softwareWords h2 {
-        font-size: clamp(1rem, 1.5rem, 3rem) !important;
-    }
-
-    .softwareDesign h1, .graphicDesign h1, .Photography h1 {
-        font-size: clamp(0.75rem, 15vw, 5rem);
-    }
+ 
 
     /*  Contact Page */
     .contactMain {
@@ -2342,3 +2312,39 @@ textarea {
 
 }
 
+@media only screen and (min-width: 1428px) {
+    #header3 {
+        position: absolute;
+        left: 0;
+        top: 250px;
+        background-color: #172c16;
+        height: 430px;
+        width: 177px;
+        z-index: 0;
+        border-radius: 0 25px 25px 0;
+        box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.75);
+    }
+
+    #header3 nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        margin: 5rem 2rem;
+        padding: 0;
+
+    }
+
+    main {
+        margin-left: 190px;
+    }
+
+    .selected {
+        border-radius: 20px;
+    }
+
+    footer {
+        z-index: 100;
+    }
+}

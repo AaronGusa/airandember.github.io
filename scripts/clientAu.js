@@ -15,7 +15,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-console.log('We made it bro');
+//console.log('We made it bro');
 
 const au = getAuth();
 const dbs = getFirestore();
@@ -32,7 +32,7 @@ async function fetchProtectedData(url) {
 
   if (response.ok) {
     const data = await response.json();
-    console.log('Protected data:', data);
+    //console.log('Protected data:', data);
     return data;
   } else {
     console.error('Failed to fetch protected data ' + response.json() );
@@ -50,11 +50,11 @@ async function stripeIt(sid) {
     .then(data => {
         let messageCont = document.getElementById('profileDiv');
     
-        console.log("Data: " + data);
+        //console.log("Data: " + data);
     
         let customer = data;
         let card = document.createElement('div');
-        console.log(customer)
+        //console.log(customer)
         card.className = 'strInfo ';
         card.innerHTML = `
             <p><strong>Name:</strong> ${customer.name}</p>
@@ -79,6 +79,7 @@ async function stripeIt(sid) {
 
 async function getInvoices(sid) {
   try {
+
     await fetchProtectedData(`https://aaronandemberbe.onrender.com/service/invoices/${sid}`)
     // .then(response => {
     //     if (!response.ok) {
@@ -87,7 +88,7 @@ async function getInvoices(sid) {
     //     return response.json();
     // })
     .then(data => {
-        console.log(data.data);
+        //console.log(data.data);
         let messageCont = document.getElementById('invoiceDiv');
 
         let invoicesByYear = {};
@@ -121,6 +122,7 @@ async function getInvoices(sid) {
                 let accordionContent = yearDiv.querySelector('.accordion-content');
 
                 invoicesByYear[year].forEach(invoice => {
+                    //console.log(invoice);
                     let dateCreated = new Date(invoice.created * 1000).toLocaleDateString('en-US', {month: 'long', day: '2-digit'});
                     let moneyMaker = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
                     let amount = moneyMaker.format(invoice.amount_due);
@@ -184,9 +186,10 @@ onAuthStateChanged(au, (user) => {
       .then((docSnap) => {
         if (docSnap.exists()) {
           const userData = docSnap.data();
-          console.log(userData);
+          //console.log(userData);
           if (userData) {
             localStorage.setItem('sid', userData.stripeID);
+            localStorage.setItem('loggedIn', 'True');
             const welcomeName = document.getElementById('clientWelcomeName');
             welcomeName.innerHTML = `${userData.fname}`;  
             const placement = document.getElementById('clientInfo');
@@ -215,6 +218,7 @@ function onLogout() {
   localStorage.removeItem('loggedInUserID');
   localStorage.clear();
   sessionStorage.clear();
+  localStorage.setItem('loggedIn', "False");
   signOut(au)
     .then(() => {
       console.log('Signed out');
