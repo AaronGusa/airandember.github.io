@@ -6,7 +6,9 @@
     <title>Air&amp;Ember — Where Wind Meets Fire</title>
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
     <link rel="stylesheet" href="css/showcase.css">
+    <link rel="stylesheet" href="css/trailnav.css">
     <script src="scripts/showcase.js" defer></script>
+    <script src="scripts/trailnav.js" defer></script>
 </head>
 <body>
 
@@ -21,20 +23,57 @@
         <div id="scrollFlame">&#x1F525;</div>
     </div>
 
-    <!-- ====== NAV ====== -->
-    <header class="skyNav">
-        <a class="navBrand" href="index.html">
+    <!-- ====== NAV : THE TRAIL MAP ====== -->
+    <header class="trailBar" id="trailBar">
+        <a class="trailBrand" href="index.html">
             <img src="assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="Air&Ember logo">
             <span>Air<em>&amp;</em>Ember</span>
         </a>
-        <nav class="navLinks">
-            <a href="index.html">Home</a>
-            <a href="pages/designs.html">Designs</a>
-            <a href="pages/webdesign.html">Services</a>
-            <a href="pages/about.html">About</a>
-            <a class="navCta magnet" href="pages/contact.html">Light the Fire</a>
-        </nav>
+        <button class="matchBtn" id="matchBtn" aria-expanded="false" aria-controls="trailMap" aria-label="Open the trail map">
+            <span class="matchSticks" aria-hidden="true">
+                <span class="matchFlame"></span>
+                <span class="matchStick matchStick--1"></span>
+                <span class="matchStick matchStick--2"></span>
+            </span>
+            <span class="matchLabel">TRAIL MAP</span>
+        </button>
     </header>
+
+    <nav class="trailMap" id="trailMap" aria-label="Site trail map">
+        <ol class="waypoints">
+            <li><a class="waypoint" href="index.html" aria-current="page">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">01</span>
+                <span class="wpName">Home</span>
+                <span class="wpNote">back to the campfire</span>
+            </a></li>
+            <li><a class="waypoint" href="pages/designs.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">02</span>
+                <span class="wpName">Designs</span>
+                <span class="wpNote">the field guide</span>
+            </a></li>
+            <li><a class="waypoint" href="pages/webdesign.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">03</span>
+                <span class="wpName">Services</span>
+                <span class="wpNote">what we forge</span>
+            </a></li>
+            <li><a class="waypoint" href="pages/contact.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">04</span>
+                <span class="wpName">Contact</span>
+                <span class="wpNote">send up a signal</span>
+            </a></li>
+            <li><a class="waypoint" href="pages/about.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">05</span>
+                <span class="wpName">About</span>
+                <span class="wpNote">the two fire-tenders</span>
+            </a></li>
+        </ol>
+        <p class="trailLegend" aria-hidden="true">A&amp;E TRAIL MAP — EST. WHERE WIND MEETS FIRE</p>
+    </nav>
 
     <main>
 
@@ -322,6 +361,7 @@
             <nav>
                 <a href="index.html">Home</a>
                 <a href="pages/contact.html">Contact</a>
+                <a href="pages/login.html">Client Login</a>
                 <a href="#" id="privacyPolicyA">Privacy</a>
             </nav>
         </div>

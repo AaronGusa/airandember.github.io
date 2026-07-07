@@ -1,0 +1,336 @@
+/* ============================================================
+   AIR & EMBER — TRAIL NAV
+   The site nav as a trail map. A matchstick button ignites,
+   and its light spreads across the screen to reveal waypoints
+   strung along a dashed trail. "You are here" marks the page.
+
+   Relies on the design tokens (:root vars) + fonts declared in
+   showcase.css / ember-pages.css — always loaded alongside this.
+   ============================================================ */
+
+/* ============ THE TRAIL BAR (fixed header) ============ */
+
+.trailBar {
+    position: fixed;
+    top: 5px; /* sits under the scroll-progress track */
+    left: 0;
+    right: 0;
+    z-index: 250;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .9rem 2.2rem;
+    background: linear-gradient(180deg, rgba(8, 5, 17, .85), transparent);
+    transition: background .4s, backdrop-filter .4s, border-color .4s;
+}
+.trailBar.scrolled {
+    background: rgba(8, 5, 17, .82);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(244, 231, 197, .08);
+}
+
+.trailBrand {
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    letter-spacing: .04em;
+    color: var(--cream);
+    position: relative;
+    z-index: 260; /* stays above the open map */
+}
+.trailBrand img { width: 42px; height: auto; }
+.trailBrand em { color: var(--ember); font-style: normal; }
+
+/* ============ THE MATCHSTICK BUTTON ============ */
+
+.matchBtn {
+    position: relative;
+    z-index: 260;
+    display: flex;
+    align-items: center;
+    gap: .85rem;
+    padding: .6rem 1.25rem;
+    background: rgba(8, 5, 17, .45);
+    border: 1px solid rgba(244, 231, 197, .28);
+    border-radius: 999px;
+    color: var(--cream);
+    cursor: pointer;
+    transition: border-color .3s, box-shadow .3s, background .3s;
+}
+.matchBtn:hover,
+.matchBtn:focus-visible {
+    border-color: var(--ember);
+    box-shadow: 0 0 22px rgba(255, 122, 47, .3);
+    outline: none;
+}
+
+/* two loose matches; they cross into an X when the map is open */
+.matchSticks {
+    position: relative;
+    width: 20px;
+    height: 22px;
+}
+.matchStick {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 3px;
+    height: 18px;
+    margin: -9px 0 0 -1.5px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, #c9b98e, var(--cream));
+    transition: transform .4s var(--ease-out);
+}
+.matchStick::before { /* the striking tip */
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -1px;
+    width: 5px;
+    height: 6px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 35%, #ff8f5e, #a3341f);
+    transition: opacity .3s;
+}
+.matchStick--1 { transform: rotate(-7deg) translateX(-3px); }
+.matchStick--2 { transform: rotate(9deg) translateX(4px); }
+.matchBtn.open .matchStick--1 { transform: rotate(45deg); }
+.matchBtn.open .matchStick--2 { transform: rotate(-45deg); }
+.matchBtn.open .matchStick::before { opacity: 0; } /* spent match */
+
+/* the flame — ignites on hover, snuffed while the map is open */
+.matchFlame {
+    position: absolute;
+    left: 50%;
+    top: -7px;
+    width: 9px;
+    height: 12px;
+    margin-left: -4.5px;
+    background: radial-gradient(circle at 50% 75%, #fff2c0 0%, #ffd76e 40%, var(--ember) 75%, transparent 85%);
+    border-radius: 50% 50% 40% 40% / 65% 65% 35% 35%;
+    filter: blur(.5px);
+    opacity: 0;
+    transform-origin: bottom center;
+    transition: opacity .25s;
+    animation: matchFlick 1.1s ease-in-out infinite;
+    pointer-events: none;
+}
+.matchBtn:not(.open):hover .matchFlame,
+.matchBtn:not(.open):focus-visible .matchFlame { opacity: 1; }
+@keyframes matchFlick {
+    0%, 100% { transform: scaleY(1) scaleX(1); }
+    30%      { transform: scaleY(1.18) scaleX(.9) translateY(-1px); }
+    60%      { transform: scaleY(.9) scaleX(1.08); }
+}
+
+.matchLabel {
+    font-family: var(--font-crt);
+    font-size: .72rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+}
+
+/* ============ THE TRAIL MAP (fullscreen overlay) ============ */
+
+.trailMap {
+    position: fixed;
+    inset: 0;
+    z-index: 240;
+    display: grid;
+    place-items: center;
+    padding: 6rem 2rem 4rem;
+    background:
+        radial-gradient(1.5px 1.5px at 14% 16%, var(--cream) 50%, transparent 51%),
+        radial-gradient(1px 1px at 32% 38%, var(--air) 50%, transparent 51%),
+        radial-gradient(2px 2px at 52% 10%, var(--cream) 50%, transparent 51%),
+        radial-gradient(1px 1px at 68% 30%, var(--cream) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 84% 14%, var(--air) 50%, transparent 51%),
+        radial-gradient(1px 1px at 8% 52%, var(--cream) 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 91% 44%, var(--cream) 50%, transparent 51%),
+        radial-gradient(ellipse 120% 70% at 50% -10%, #1a2440 0%, transparent 60%),
+        linear-gradient(180deg, var(--ink) 0%, #0e1a2b 45%, var(--pine-deep) 100%);
+    /* light spreads outward from the struck match (the button) */
+    clip-path: circle(0px at calc(100% - 4.5rem) 3rem);
+    visibility: hidden;
+    transition: clip-path .75s var(--ease-out), visibility 0s linear .75s;
+}
+.trailMap.open {
+    clip-path: circle(142% at calc(100% - 4.5rem) 3rem);
+    visibility: visible;
+    transition: clip-path .75s var(--ease-out);
+}
+.trailMap::after { /* treeline silhouette at the bottom of the map */
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 34%;
+    background: url(../assets/images/designAssets/treeline.png) bottom / cover no-repeat;
+    filter: brightness(.32);
+    opacity: .85;
+    pointer-events: none;
+}
+
+body.trailOpen { overflow: hidden; }
+
+/* ---- the waypoints ---- */
+
+.waypoints {
+    list-style: none;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(.9rem, 3vh, 1.7rem);
+    padding-left: 2.4rem;
+    margin: 0;
+}
+.waypoints::before { /* the dashed trail the dots sit on */
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 12px;
+    bottom: 12px;
+    border-left: 2px dashed rgba(159, 216, 203, .35);
+}
+
+.waypoints li { position: relative; }
+
+.waypoint {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 1.1rem;
+    color: var(--cream);
+    transition: transform .35s var(--ease-out);
+}
+.waypoint:hover { transform: translateX(10px); }
+
+.wpDot {
+    position: absolute;
+    left: -1.95rem;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    margin-top: -5.5px;
+    border-radius: 50%;
+    background: var(--air-dim);
+    transition: background .3s, box-shadow .3s;
+}
+.waypoint:hover .wpDot,
+.waypoint[aria-current="page"] .wpDot {
+    background: var(--ember);
+    box-shadow: 0 0 14px var(--ember);
+}
+
+.wpIndex {
+    font-family: var(--font-crt);
+    font-size: .8rem;
+    letter-spacing: .25em;
+    color: var(--air);
+    opacity: .75;
+}
+
+.wpName {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 6.5vh, 3.5rem);
+    line-height: 1.05;
+    transition: color .3s;
+}
+.waypoint:hover .wpName {
+    color: transparent;
+    background: linear-gradient(120deg, var(--ember-glow), var(--ember));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.wpNote {
+    font-family: var(--font-hand);
+    font-size: 1.15rem;
+    color: var(--air);
+    opacity: 0;
+    transform: rotate(-2deg) translateX(-6px);
+    transition: opacity .35s, transform .35s var(--ease-out);
+    white-space: nowrap;
+}
+.waypoint:hover .wpNote {
+    opacity: .9;
+    transform: rotate(-2deg) translateX(0);
+}
+
+/* the trail marker for the page you're standing on */
+.waypoint[aria-current="page"]::after {
+    content: 'YOU ARE HERE';
+    align-self: center;
+    font-family: var(--font-crt);
+    font-size: .6rem;
+    letter-spacing: .3em;
+    color: var(--ember-glow);
+    border: 1px solid rgba(255, 179, 71, .45);
+    border-radius: 999px;
+    padding: .3rem .75rem;
+    margin-left: .4rem;
+    animation: hereBlink 2.4s steps(2) infinite;
+    white-space: nowrap;
+}
+@keyframes hereBlink { 50% { opacity: .45; } }
+
+/* waypoints hike in one by one as the light spreads */
+.trailMap .waypoints li {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity .5s var(--ease-out), transform .5s var(--ease-out);
+}
+.trailMap.open .waypoints li { opacity: 1; transform: none; }
+.trailMap.open .waypoints li:nth-child(1) { transition-delay: .18s; }
+.trailMap.open .waypoints li:nth-child(2) { transition-delay: .26s; }
+.trailMap.open .waypoints li:nth-child(3) { transition-delay: .34s; }
+.trailMap.open .waypoints li:nth-child(4) { transition-delay: .42s; }
+.trailMap.open .waypoints li:nth-child(5) { transition-delay: .5s; }
+.trailMap.open .waypoints li:nth-child(6) { transition-delay: .58s; }
+
+/* a quiet legend in the map corner */
+.trailLegend {
+    position: absolute;
+    left: 2.2rem;
+    bottom: 2rem;
+    z-index: 2;
+    font-family: var(--font-crt);
+    font-size: .68rem;
+    letter-spacing: .28em;
+    color: rgba(244, 231, 197, .5);
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 700px) {
+    .trailBar { padding: .8rem 1.2rem; }
+    .trailBrand span { font-size: 1.1rem; }
+    .matchLabel { display: none; } /* just the matches on small screens */
+    .matchBtn { padding: .6rem .8rem; }
+    .trailMap { padding: 5rem 1.4rem 3rem; place-items: center start; }
+    .wpNote { display: none; }
+    .waypoint[aria-current="page"]::after { font-size: .52rem; padding: .24rem .55rem; }
+    .trailLegend { display: none; }
+}
+
+/* touch devices have no hover: keep the notes softly visible */
+@media (hover: none) {
+    .wpNote { opacity: .6; transform: rotate(-2deg); }
+}
+
+/* ============ REDUCED MOTION ============ */
+
+@media (prefers-reduced-motion: reduce) {
+    .trailMap {
+        clip-path: none;
+        opacity: 0;
+        transition: opacity .2s, visibility 0s linear .2s;
+    }
+    .trailMap.open { clip-path: none; opacity: 1; transition: opacity .2s; }
+    .trailMap .waypoints li { opacity: 1; transform: none; transition: none; }
+    .matchFlame { animation: none; }
+    .waypoint[aria-current="page"]::after { animation: none; }
+}

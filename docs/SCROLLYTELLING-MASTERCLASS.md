@@ -6,7 +6,7 @@
 >
 > Reference implementations in this repo:
 > - `pages/designs/scrollytelling.html` + `css/scrolly.css` — the teaching lab (small, annotated)
-> - `showcase.html` + `css/showcase.css` + `scripts/showcase.js` — a production-scale build
+> - `index.html` (formerly `showcase.html`) + `css/showcase.css` + `scripts/showcase.js` — a production-scale build
 >   (parallax hero, particle canvas, scroll-scrubbed marquee, progress-driven props)
 >
 > **Reading this without the repo, or new to the domain entirely?** Start with

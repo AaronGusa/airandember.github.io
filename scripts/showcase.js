@@ -279,8 +279,8 @@
         const progress = Math.min(1, scrollY / docHeight);
         root.style.setProperty('--scroll-progress', progress.toFixed(4));
 
-        // nav condenses after the hero
-        nav.classList.toggle('scrolled', scrollY > vh * 0.6);
+        // nav condenses after the hero (trailnav.js owns the new trail bar)
+        if (nav) nav.classList.toggle('scrolled', scrollY > vh * 0.6);
 
         // parallax: each layer slides against its section's scroll position
         for (const { el, speed, section } of parallaxLayers) {
