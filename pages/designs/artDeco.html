@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air&amp;Ember &mdash; Art Deco Design Example</title>
+        <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
+        <link rel="stylesheet" href="../../css/artdeco.css">
+    </head>
+    <body class="lvl1 lvl2 lvl3" data-ornament="3">
+        <div class="returnCont">
+            <a class="Return" href="../designs.html">Back to Designs</a>
+        </div>
+
+        <div class="page">
+            <header class="masthead">
+                <span class="kicker">Design Education</span>
+                <h1 class="deco-title">Art&nbsp;Deco</h1>
+                <div class="rule-double o1" aria-hidden="true"><i></i></div>
+                <p class="masthead__sub">Geometry, Gilt &amp; Discipline &mdash; Est.&nbsp;1925</p>
+            </header>
+
+            <!-- ============ CONTROLS ============ -->
+            <section class="controls" aria-label="Page ornament controls">
+                <div class="control">
+                    <label class="control__label" for="ornamentDial">Ornament Dial &mdash; <output id="ornamentName" for="ornamentDial">Full Gilded Glory</output></label>
+                    <input type="range" id="ornamentDial" min="0" max="3" step="1" value="3" aria-label="Ornament level, 0 bare to 3 full">
+                    <div class="dial-scale" aria-hidden="true"><span>Bare</span><span>Borders</span><span>Sunbursts</span><span>Gilded</span></div>
+                </div>
+                <div class="control control--metal">
+                    <span class="control__label" id="metalLabel">Metal</span>
+                    <button class="metal-toggle" id="metalToggle" type="button" role="switch" aria-checked="false" aria-labelledby="metalLabel">
+                        <span class="metal-toggle__opt">Gold</span>
+                        <span class="metal-toggle__thumb" aria-hidden="true"></span>
+                        <span class="metal-toggle__opt">Silver</span>
+                    </button>
+                </div>
+            </section>
+            <p class="demo-caption" id="dialNote">&#9432; <strong>Level 3 of 3.</strong> Every ornament is on &mdash; yet nothing overlaps the words. Deco is <em>ordered</em> ornament: decoration lives in borders, frames, and backgrounds, never on top of the message. Wind the dial down to 0 and watch the same page strip back to bare geometry.</p>
+            <p class="demo-caption">&#9432; Flip <strong>Gold &#8644; Silver</strong>. The whole page re-plates itself through a handful of CSS variables, because in deco the metallic <em>is</em> the accent color &mdash; gold for warmth and opulence, chrome-silver for the machine-age cool of the Chrysler Building&rsquo;s crown.</p>
+
+            <!-- ============ HERO ============ -->
+            <section class="hero-section">
+                <div class="hero" id="hero">
+                    <div class="sunburst o2" aria-hidden="true"></div>
+                    <div class="axis" aria-hidden="true"></div>
+                    <div class="spot spot--l" aria-hidden="true"></div>
+                    <div class="spot spot--r" aria-hidden="true"></div>
+
+                    <div class="frame o1">
+                        <div class="frame__steps" aria-hidden="true"><i></i><i></i><i></i></div>
+                        <span class="frame__corner frame__corner--tl o3" aria-hidden="true"></span>
+                        <span class="frame__corner frame__corner--tr o3" aria-hidden="true"></span>
+                        <span class="frame__corner frame__corner--bl o3" aria-hidden="true"></span>
+                        <span class="frame__corner frame__corner--br o3" aria-hidden="true"></span>
+                        <img class="hero__art" src="../../assets/images/Designer%20(75%20-%20ArtDecoFire).png" alt="Art deco style illustration of a stylized golden fire, the Air and Ember homepage hero artwork">
+                        <div class="frame__plate">
+                            <span class="frame__brand">Air&nbsp;&amp;&nbsp;Ember</span>
+                            <span class="frame__tag">The House Flame &mdash; Our Own Homepage Hero</span>
+                        </div>
+                        <div class="frame__steps frame__steps--down" aria-hidden="true"><i></i><i></i><i></i></div>
+                    </div>
+                </div>
+                <p class="demo-caption">&#9432; <strong>Symmetry spotlight:</strong> sweep your cursor across the hero. A center axis appears and your highlight is mirrored on the opposite side &mdash; deco compositions are obsessively bilateral, and whatever happens left of the axis must answer on the right. The rotating sunburst behind the flame is pure CSS (a repeating conic gradient), one of the style&rsquo;s signature fan motifs.</p>
+            </section>
+
+            <div class="divider o2" aria-hidden="true"><span class="divider__fan"></span></div>
+
+            <!-- ============ EDUCATIONAL BLURB ============ -->
+            <section class="essay">
+                <h2 class="deco-h2">Ornament With Discipline</h2>
+                <p>
+                    Art Deco took its name from the 1925 <em>Exposition Internationale des Arts D&eacute;coratifs</em>
+                    in Paris, and its spirit from the roaring decade around it &mdash; Gatsby&rsquo;s parties, ocean
+                    liners, jazz, and a wild new optimism about machines. Where Art Nouveau had curled like a vine,
+                    Deco snapped to attention: sunbursts, chevrons, ziggurats, and fan motifs, all drafted with a
+                    ruler and compass. Its cathedral is the Chrysler Building, whose stainless-steel crown of stacked,
+                    radiating arches is essentially a repeating-conic-gradient rendered in chrome.
+                </p>
+                <p>
+                    The traits travel to the web intact: strict <strong>bilateral symmetry</strong>, hard geometry,
+                    vertical emphasis, all-caps letterspaced typography, and &mdash; crucially &mdash; metallics used as
+                    the accent palette. Gold, brass, and chrome do the job that a bright brand color does elsewhere.
+                    What makes Deco feel expensive rather than busy is restraint of placement: ornament is confined
+                    to borders, frames, dividers, and backgrounds, executed in repeating geometric units, while the
+                    content itself stays clean. That is why luxury brands, hotels, restaurants, event invitations,
+                    and anything wanting &ldquo;1920s glamour&rdquo; still reach for it a century later.
+                </p>
+                <p>
+                    The pitfall is letting the gilding swallow the message. Metallic gradient text at paragraph
+                    sizes, patterns behind body copy, and ornamental corners on every element turn glamour into
+                    noise &mdash; and gold-on-black contrast is less forgiving than it looks. Use Deco when the brand
+                    genuinely trades on elegance, ceremony, or nostalgia, hold the ornament to the edges of the
+                    composition, and let generous black space do half the work. Wind the dial on this page up and
+                    down once more: the geometry survives at every level &mdash; the ornament is the costume, not the
+                    skeleton.
+                </p>
+            </section>
+
+            <div class="divider o2" aria-hidden="true"><span class="divider__fan"></span></div>
+
+            <!-- ============ TRAIT PANELS ============ -->
+            <section class="panels" aria-label="Three pillars of art deco">
+                <article class="panel o1">
+                    <span class="panel__motif panel__motif--chevron o2" aria-hidden="true"></span>
+                    <h3>Geometry</h3>
+                    <p>Sunbursts, chevrons, and stepped ziggurats &mdash; ornament built from ruler-and-compass repetition, never freehand flourish.</p>
+                </article>
+                <article class="panel o1">
+                    <span class="panel__motif panel__motif--fan o2" aria-hidden="true"></span>
+                    <h3>Symmetry</h3>
+                    <p>Compositions balance on a center axis. The eye is escorted down the middle like a guest down a grand staircase.</p>
+                </article>
+                <article class="panel o1">
+                    <span class="panel__motif panel__motif--steps o2" aria-hidden="true"></span>
+                    <h3>Metallics</h3>
+                    <p>Gold and chrome are the accent color. Light itself becomes part of the palette &mdash; which is why deco loves the dark.</p>
+                </article>
+            </section>
+        </div>
+
+        <footer class="site-footer">
+            <div class="rule-double o1" aria-hidden="true"><i></i></div>
+            <h3 class="footer-copy">@Copyright 2025</h3>
+            <div class="footer-grid">
+                <div class="footer-cell">
+                    <h4>Support</h4>
+                    <p>support@airandember.com</p>
+                </div>
+                <div class="footer-cell">
+                    <h4>Operating Hours</h4>
+                    <p>Monday &ndash; Friday</p>
+                    <p>7 AM &ndash; 6 PM MST / MDT</p>
+                </div>
+                <div class="footer-cell">
+                    <h4>Legal</h4>
+                    <p><a href="#" id="privacyPolicyA">Privacy Policy</a></p>
+                </div>
+            </div>
+            <div class="socialRow">
+                <a href="#" aria-label="Instagram" class="social_link"><img src="../../assets/images/designAssets/instagram-2016-logo-svgrepo-com.svg" alt="Instagram" class="socialImg"></a>
+                <a href="#" aria-label="Facebook" class="social_link"><img src="../../assets/images/designAssets/facebook-svgrepo-com.svg" alt="Facebook" class="socialImg"></a>
+                <a href="#" aria-label="X Social" class="social_link"><img src="../../assets/images/designAssets/icons8-x.svg" alt="X" class="socialImg"></a>
+            </div>
+        </footer>
+
+        <script>
+            (function () {
+                "use strict";
+
+                /* --- Ornament Dial --- */
+                var dial = document.getElementById("ornamentDial");
+                var dialNote = document.getElementById("dialNote");
+                var ornamentName = document.getElementById("ornamentName");
+                var levels = [
+                    {
+                        name: "Bare Geometry",
+                        note: "\u24D8 Level 0 of 3. Stripped to the skeleton: symmetry, all-caps letterspaced type, and a stepped frame. Notice the page is still unmistakably deco \u2014 the geometry, not the gold, carries the style."
+                    },
+                    {
+                        name: "Borders & Rules",
+                        note: "\u24D8 Level 1 of 3. Double-line borders and hairline rules arrive. Deco ornament starts at the edges \u2014 framing content the way a marquee frames a theater door."
+                    },
+                    {
+                        name: "Sunbursts & Fans",
+                        note: "\u24D8 Level 2 of 3. The signature motifs switch on: a conic-gradient sunburst behind the flame, fan dividers, chevrons in the panels. Still nothing sits on top of a single word."
+                    },
+                    {
+                        name: "Full Gilded Glory",
+                        note: "\u24D8 Level 3 of 3. Gilded headings and corner ornaments complete the look \u2014 yet the body copy stays plain cream on black. Deco is ordered ornament, not clutter: decoration fills the frame, never the message."
+                    }
+                ];
+                function applyLevel() {
+                    var v = parseInt(dial.value, 10);
+                    document.body.dataset.ornament = String(v);
+                    document.body.classList.toggle("lvl1", v >= 1);
+                    document.body.classList.toggle("lvl2", v >= 2);
+                    document.body.classList.toggle("lvl3", v >= 3);
+                    ornamentName.textContent = levels[v].name;
+                    dialNote.innerHTML = levels[v].note.replace(
+                        /Level (\d) of 3\./,
+                        "<strong>Level $1 of 3.</strong>"
+                    );
+                }
+                dial.addEventListener("input", applyLevel);
+
+                /* --- Gold <-> Silver metal toggle --- */
+                var metalToggle = document.getElementById("metalToggle");
+                metalToggle.addEventListener("click", function () {
+                    var silver = document.body.classList.toggle("metal-silver");
+                    metalToggle.setAttribute("aria-checked", String(silver));
+                });
+
+                /* --- Symmetry spotlight --- */
+                var hero = document.getElementById("hero");
+                hero.addEventListener("pointermove", function (e) {
+                    var rect = hero.getBoundingClientRect();
+                    var pct = ((e.clientX - rect.left) / rect.width) * 100;
+                    pct = Math.max(0, Math.min(100, pct));
+                    hero.style.setProperty("--mx", pct + "%");
+                });
+            })();
+        </script>
+    </body>
+</html>

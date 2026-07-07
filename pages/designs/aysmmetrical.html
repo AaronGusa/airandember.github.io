@@ -3,72 +3,114 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Air&Ember Asymmetric Design Example</title>
+        <title>Air&amp;Ember — Asymmetrical Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
         <link rel="stylesheet" href="../../css/designs.css">
-
     </head>
     <body class="asym_body">
-        <div class="asym_MainGrid">
-            <div class="returnCont">
-                <a class="Return" href="../designs.html">Back to Designs</a>
-            </div>
-            <header class="asym_header">
-                <img class="asym_logo" src="../../assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="AE Logo">
-                <nav class="asym_nav">
-                    <ul class="asym_ul">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li> <a href="#">About</a></li>
-                    </ul>
-                </nav>                
-            </header>
-            <main class="asym_main">
-
-                    <h1 class="asym_title">Asymmetrical</h1>
-                    <p class="asym_location">Uintah Mountains, UT</p>
-                    <img src="../../assets/images/designAssets/BirdHouse.png" alt="" class="asym_img">
-                    <div class="asym_secondary_images">
-                        <img src="../../assets/images/designAssets/frog-hands.png" alt="" class="asym_secondary_image">
-                        <img src="../../assets/images/designAssets/treeline.png" alt="" class="asym_secondary_image">
-                    </div>
-                    <p class="asym_description">Asymmetrical design often features irregularly spaced elements, uneven distributions of visual weight, and unexpected alignments. For example, images, text blocks, and interactive elements might appear off-center or overlap with one another to create a sense of depth and movement. Negative space is skillfully used to balance these unconventional arrangements, ensuring that the layout remains visually cohesive and not chaotic.
-                        <br><br>This style thrives on contrasts—mixing bold typography with subtle, lightweight fonts, or pairing sharp, angular elements with soft, organic shapes. Vivid color palettes are commonly employed to draw attention to key areas, while gradients, textures, and overlapping layers enhance the sense of dimension. Asymmetry invites viewers to actively explore the page, guiding their eyes across the design in an organic, deliberate flow.
-                        </p>
-                    <div class="asym_buttonCont">
-                        <button class="asym_button">BOOK NOW</button>
-                    </div>
-            </main>
-            <footer class="asym_footer">
-                <div class="asym_social">
-                    <a href="" aria-label="Instagram" class="asym_social_link"><img src="../../assets/images/designAssets/instagram-2016-logo-svgrepo-com.svg" alt="" class="asym_socialImg"></a>
-                    <a href="" aria-label="Facebook" class="asym_social_link"><img src="../../assets/images/designAssets/facebook-svgrepo-com.svg" alt="" class="asym_socialImg"></a>
-                    <a href="" aria-label="X Social" class="asym_social_link"><img src="../../assets/images/designAssets/icons8-x.svg" alt="" class="asym_socialImg"></a>
-                </div>
-                <div class="">
-                    <h3 class="contactFootContent padded">@Copyright 2025</h3>
-                </div>
-                <div class="asym_footer">
-                    <div class="">
-                        <h4>Support</h4>
-                        <p>support@airandember.com</p>
-                    </div>      
-                    <div class="">
-                    
-                        <h4>Operating Hours</h4>
-                        <p>Monday - Friday</p>
-                        <p>7 AM - 6 PM MST / MDT</p>
-                    </div>
-                    
-                    <div class="">
-                        <h4>Legal</h4>
-                        <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
-                        <!-- <p><a href="">Terms of Service</a></p> -->
-                    </div>
-                </div>
-            </footer>
-            <br><br><br>
+        <div class="returnCont">
+            <a class="Return" href="../designs.html">Back to Designs</a>
         </div>
-    </body>
 
+        <header class="asym_header">
+            <img class="asym_logo" src="../../assets/images/designAssets/AE LOGO ICON cropped Pine.png" alt="Air&amp;Ember logo">
+            <nav class="asym_nav" aria-label="Demo navigation">
+                <ul class="asym_ul">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="asym_intro">
+            <p class="asym_kicker">Design study — No. 01</p>
+            <h1 class="asym_pageTitle">Asymmetrical <em>layout</em></h1>
+            <p class="asym_lede">Balance without mirroring. Asymmetric design distributes visual weight unevenly on purpose, so the page has direction, tension, and a clear place for your eye to land first.</p>
+        </section>
+
+        <section class="asym_demo" aria-label="Interactive symmetry demo">
+            <div class="asym_controls">
+                <span class="asym_controlLabel" id="labelSym">Symmetry</span>
+                <button class="asym_toggle" id="layoutToggle" role="switch" aria-checked="true" aria-label="Toggle between symmetric and asymmetric layout">
+                    <span class="asym_toggle_knob"></span>
+                </button>
+                <span class="asym_controlLabel is-active" id="labelAsym">Asymmetry</span>
+            </div>
+            <p class="asym_caption" id="layoutCaption">Off-grid placement, overlap, and uneven margins create movement — your eye drops from the heavy title, across the photo, down to the button. Nothing is mirrored, yet it still feels balanced.</p>
+
+            <div class="asym_stage">
+                <p class="st_location st_el" >Uintah Mountains, UT</p>
+                <h2 class="st_title st_el" data-weight="heavy" tabindex="0">The Birdhouse</h2>
+                <figure class="st_hero st_el" data-weight="heavy" tabindex="0">
+                    <img src="../../assets/images/designAssets/BirdHouse.png" alt="A timber cabin perched in the pines">
+                </figure>
+                <div class="st_minis st_el">
+                    <figure class="st_mini" data-weight="light" tabindex="0">
+                        <img src="../../assets/images/designAssets/frog-hands.png" alt="A small frog illustration">
+                    </figure>
+                    <figure class="st_mini" data-weight="light" tabindex="0">
+                        <img src="../../assets/images/designAssets/treeline.png" alt="A treeline at dusk">
+                    </figure>
+                </div>
+                <p class="st_copy st_el" data-weight="light" tabindex="0">Three nights off the grid. A wood stove, a kettle, and forty miles of pine in every direction. The Birdhouse sleeps four — book it before the season does.</p>
+                <div class="st_btnWrap st_el">
+                    <button class="asym_button" data-weight="heavy">BOOK NOW</button>
+                </div>
+            </div>
+
+            <p class="asym_hint">Hover or tab to any element above to see its visual weight — asymmetry works by trading a few heavy anchors against plenty of light, open space.</p>
+        </section>
+
+        <section class="asym_essay" aria-label="About asymmetrical design">
+            <h2>What makes a layout asymmetrical?</h2>
+            <p class="asym_essay_p1">Asymmetrical design features irregularly spaced elements, uneven distributions of visual weight, and unexpected alignments. Images, text blocks, and interactive elements sit off-center or overlap one another to create a sense of depth and movement. Negative space does the heavy lifting: it balances those unconventional arrangements so the layout stays cohesive instead of chaotic. The result is a page with a clear visual hierarchy — the heaviest element wins your attention first, and everything else falls into reading order behind it.</p>
+            <blockquote class="asym_pull">Symmetry is calm. Asymmetry is a story your eye follows.</blockquote>
+            <p class="asym_essay_p2">The style thrives on contrast — bold display type against quiet body text, sharp angular crops against soft organic shapes. Color is used sparingly but deliberately, pulling the eye to key areas, while overlapping layers add dimension. Where a symmetric grid presents everything at once with equal importance, asymmetry invites viewers to actively explore the page, guiding them along an organic, deliberate path. That's why editorial sites, portfolios, and campaign pages reach for it when they want energy rather than calm.</p>
+        </section>
+
+        <footer class="asym_footer">
+            <div class="asym_social">
+                <a href="#" aria-label="Instagram" class="asym_social_link"><img src="../../assets/images/designAssets/instagram-2016-logo-svgrepo-com.svg" alt="" class="asym_socialImg"></a>
+                <a href="#" aria-label="Facebook" class="asym_social_link"><img src="../../assets/images/designAssets/facebook-svgrepo-com.svg" alt="" class="asym_socialImg"></a>
+                <a href="#" aria-label="X Social" class="asym_social_link"><img src="../../assets/images/designAssets/icons8-x.svg" alt="" class="asym_socialImg"></a>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <p>support@airandember.com</p>
+            </div>
+            <div>
+                <h4>Operating Hours</h4>
+                <p>Monday - Friday</p>
+                <p>7 AM - 6 PM MST / MDT</p>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <p><a href="#" id="privacyPolicyA">Privacy Policy</a></p>
+            </div>
+            <p class="asym_copyright">&copy; Copyright 2025 Air&amp;Ember</p>
+        </footer>
+
+        <script>
+            (function () {
+                var toggle = document.getElementById('layoutToggle');
+                var caption = document.getElementById('layoutCaption');
+                var labelSym = document.getElementById('labelSym');
+                var labelAsym = document.getElementById('labelAsym');
+
+                var CAPTIONS = {
+                    asym: 'Off-grid placement, overlap, and uneven margins create movement \u2014 your eye drops from the heavy title, across the photo, down to the button. Nothing is mirrored, yet it still feels balanced.',
+                    sym: 'Everything centered and evenly spaced: tidy, but static. With equal weight everywhere, nothing tells your eye where to go first \u2014 that\u2019s what asymmetry fixes.'
+                };
+
+                toggle.addEventListener('click', function () {
+                    var symmetric = document.body.classList.toggle('mode-symmetric');
+                    toggle.setAttribute('aria-checked', String(!symmetric));
+                    caption.textContent = symmetric ? CAPTIONS.sym : CAPTIONS.asym;
+                    labelSym.classList.toggle('is-active', symmetric);
+                    labelAsym.classList.toggle('is-active', !symmetric);
+                });
+            })();
+        </script>
+    </body>
 </html>

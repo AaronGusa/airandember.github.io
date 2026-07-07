@@ -1,0 +1,631 @@
+/* ============================================================
+   Air&Ember — Glassmorphism design example
+   Frosted panes over a vivid aurora. The glass recipe lives in
+   three custom properties (--glass-blur / --glass-fill /
+   --glass-border) so the Glass Lab can rewire it live.
+   ============================================================ */
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url(../assets/fonts/PlayfairDisplay-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'ZT Neue Ralewe';
+    src: url(../assets/fonts/ZTNeueRalewe-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'ZT Neue Ralewe';
+    src: url(../assets/fonts/ZTNeueRalewe-Medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'ZT Neue Ralewe';
+    src: url(../assets/fonts/ZTNeueRalewe-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+:root {
+    --pine: #172c16;
+    --cream: #f4e7c5;
+    --ember: #a74918;
+    --ember-bright: #ff7a2f;
+    --ink: #080511;
+
+    /* the frosted-glass recipe */
+    --glass-blur: 14px;
+    --glass-fill: rgba(255, 255, 255, 0.14);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: 0 18px 42px rgba(8, 5, 17, 0.35);
+    --glass-radius: 20px;
+
+    --text: #fdfaf2;
+    --text-dim: rgba(253, 250, 242, 0.78);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'ZT Neue Ralewe', 'Segoe UI', system-ui, sans-serif;
+    color: var(--text);
+    line-height: 1.65;
+    background: var(--ink);
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+code {
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 0.9em;
+    background: rgba(8, 5, 17, 0.35);
+    border-radius: 4px;
+    padding: 0.05em 0.35em;
+}
+
+/* ---- Scenery: the layers the glass blurs ------------------- */
+
+.scenery {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+.scenery__layer {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+body[data-bg="aurora"] .scenery__layer--aurora,
+body[data-bg="photo"] .scenery__layer--photo,
+body[data-bg="flat"] .scenery__layer--flat {
+    opacity: 1;
+}
+
+.scenery__layer--aurora {
+    background:
+        radial-gradient(ellipse at 80% 110%, #2c5428 0%, transparent 55%),
+        linear-gradient(160deg, #0d1a0c 0%, #172c16 45%, #241105 100%);
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    will-change: transform;
+}
+
+.blob--pine {
+    width: 55vmax;
+    height: 45vmax;
+    top: -15%;
+    left: -10%;
+    background: radial-gradient(circle, #3f7a38 0%, transparent 70%);
+    animation: drift1 26s ease-in-out infinite alternate;
+}
+
+.blob--ember {
+    width: 48vmax;
+    height: 42vmax;
+    top: 25%;
+    right: -15%;
+    background: radial-gradient(circle, #ff7a2f 0%, #a74918 45%, transparent 72%);
+    animation: drift2 31s ease-in-out infinite alternate;
+}
+
+.blob--air {
+    width: 42vmax;
+    height: 38vmax;
+    bottom: -10%;
+    left: 15%;
+    background: radial-gradient(circle, #4fa3a5 0%, transparent 68%);
+    animation: drift3 24s ease-in-out infinite alternate;
+}
+
+.blob--cream {
+    width: 26vmax;
+    height: 24vmax;
+    top: 8%;
+    left: 45%;
+    background: radial-gradient(circle, rgba(244, 231, 197, 0.85) 0%, transparent 70%);
+    animation: drift2 36s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes drift1 {
+    to { transform: translate(12vmax, 9vmax) scale(1.15); }
+}
+
+@keyframes drift2 {
+    to { transform: translate(-10vmax, 7vmax) scale(0.9); }
+}
+
+@keyframes drift3 {
+    to { transform: translate(9vmax, -8vmax) scale(1.1); }
+}
+
+.scenery__layer--photo {
+    background:
+        linear-gradient(rgba(8, 5, 17, 0.25), rgba(8, 5, 17, 0.45)),
+        url("../assets/images/designAssets/BirdHouse.webp") center / cover no-repeat;
+}
+
+.scenery__layer--flat {
+    background: #6e6e6e;
+}
+
+/* ---- The shared glass recipe -------------------------------- */
+
+.glass {
+    background: var(--glass-fill);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--glass-radius);
+    box-shadow: var(--glass-shadow);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
+    backdrop-filter: blur(var(--glass-blur)) saturate(1.4);
+}
+
+/* ---- Return link -------------------------------------------- */
+
+.returnCont {
+    padding: 1.25rem 1.5rem 0;
+}
+
+.Return {
+    display: inline-block;
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0.55rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.Return:hover,
+.Return:focus-visible {
+    background: rgba(255, 255, 255, 0.26);
+    transform: translateY(-2px);
+}
+
+/* ---- Header -------------------------------------------------- */
+
+.gl-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 1060px;
+    margin: 1.25rem auto 0;
+    padding: 0.8rem 1.5rem;
+    width: calc(100% - 3rem);
+}
+
+.gl-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    text-decoration: none;
+    color: var(--text);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.25rem;
+}
+
+.gl-brand img {
+    height: 42px;
+    width: auto;
+}
+
+.gl-nav ul {
+    display: flex;
+    gap: 0.4rem;
+    list-style: none;
+}
+
+.gl-nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.gl-nav a:hover,
+.gl-nav a:focus-visible {
+    color: var(--text);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* ---- Layout -------------------------------------------------- */
+
+.gl-main {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: grid;
+    gap: 2rem;
+}
+
+.gl-hero {
+    padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.gl-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.78rem;
+    color: var(--ember-bright);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.gl-hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    text-shadow: 0 2px 24px rgba(8, 5, 17, 0.45);
+}
+
+.gl-tagline {
+    font-size: 1.2rem;
+    color: var(--cream);
+    font-style: italic;
+    margin: 0.25rem 0 1.25rem;
+}
+
+.gl-hero p + p {
+    margin-top: 1rem;
+}
+
+/* ---- Demo sections ------------------------------------------- */
+
+.gl-lab {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.gl-lab h2 {
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    margin-bottom: 0.75rem;
+}
+
+.gl-caption {
+    color: var(--text-dim);
+    max-width: 62ch;
+    margin-bottom: 1.5rem;
+}
+
+/* Demo 1: Glass Lab */
+
+.lab-stage {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.lab-sample {
+    --lab-blur: 14px;
+    --lab-fill: 0.18;
+    --lab-border: 0.45;
+    padding: 1.75rem;
+    border-radius: var(--glass-radius);
+    background: rgba(255, 255, 255, var(--lab-fill));
+    border: 1px solid rgba(255, 255, 255, var(--lab-border));
+    box-shadow: var(--glass-shadow);
+    -webkit-backdrop-filter: blur(var(--lab-blur)) saturate(1.4);
+    backdrop-filter: blur(var(--lab-blur)) saturate(1.4);
+    min-height: 11rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.lab-controls {
+    display: grid;
+    gap: 1.1rem;
+}
+
+.lab-control {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.lab-control__name {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+}
+
+.lab-control output {
+    font-variant-numeric: tabular-nums;
+    color: var(--ember-bright);
+    font-weight: 800;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25);
+    outline-offset: 4px;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 14px rgba(8, 5, 17, 0.4);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 14px rgba(8, 5, 17, 0.4);
+}
+
+/* Demo 2: background switcher */
+
+.bg-switch {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.bg-btn {
+    font: inherit;
+    font-weight: 500;
+    color: var(--text);
+    padding: 0.65rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.bg-btn:hover,
+.bg-btn:focus-visible {
+    background: rgba(255, 255, 255, 0.24);
+    transform: translateY(-2px);
+}
+
+.bg-btn.is-active {
+    background: rgba(255, 122, 47, 0.45);
+    border-color: rgba(255, 200, 160, 0.8);
+}
+
+.bg-readout {
+    margin-top: 1.1rem;
+    font-style: italic;
+    color: var(--cream);
+}
+
+/* Demo 3: stacking */
+
+.stack-stage {
+    position: relative;
+    min-height: 21rem;
+}
+
+.stack-pane {
+    position: absolute;
+    width: min(62%, 26rem);
+    padding: 1.6rem;
+    border-radius: var(--glass-radius);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stack-pane--back {
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.09);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 28px rgba(8, 5, 17, 0.3);
+    -webkit-backdrop-filter: blur(8px) saturate(1.2);
+    backdrop-filter: blur(8px) saturate(1.2);
+}
+
+.stack-pane--front {
+    top: 6.5rem;
+    right: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 26px 54px rgba(8, 5, 17, 0.5);
+    -webkit-backdrop-filter: blur(18px) saturate(1.5);
+    backdrop-filter: blur(18px) saturate(1.5);
+    z-index: 1;
+}
+
+.stack-pane:hover,
+.stack-pane:focus-visible {
+    transform: translateY(-8px);
+    box-shadow: 0 34px 64px rgba(8, 5, 17, 0.55);
+}
+
+.stack-pane h3 {
+    margin-bottom: 0.4rem;
+}
+
+.stack-pane p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+/* ---- Footer --------------------------------------------------- */
+
+.gl-footer {
+    max-width: 1060px;
+    width: calc(100% - 3rem);
+    margin: 0 auto 2rem;
+    padding: 2rem clamp(1.5rem, 4vw, 2.5rem);
+    text-align: center;
+}
+
+.gl-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.gl-social a {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.gl-social a:hover,
+.gl-social a:focus-visible {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-3px);
+}
+
+.gl-social img {
+    width: 22px;
+    height: 22px;
+}
+
+.gl-footer__cols {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.gl-footer__cols h4 {
+    font-family: 'ZT Neue Ralewe', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+}
+
+.gl-footer__cols p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+}
+
+.gl-footer__cols a {
+    color: var(--ember-bright);
+    text-decoration: none;
+}
+
+.gl-footer__cols a:hover,
+.gl-footer__cols a:focus-visible {
+    text-decoration: underline;
+}
+
+.gl-footer__copy {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+}
+
+/* ---- Responsive ----------------------------------------------- */
+
+@media (max-width: 760px) {
+    .lab-stage {
+        grid-template-columns: 1fr;
+    }
+
+    .stack-stage {
+        min-height: 0;
+        display: grid;
+        gap: 1rem;
+    }
+
+    .stack-pane {
+        position: static;
+        width: 100%;
+    }
+
+    .gl-footer__cols {
+        grid-template-columns: 1fr;
+    }
+
+    .gl-header {
+        justify-content: center;
+    }
+}
+
+/* ---- Reduced motion ------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .blob {
+        animation: none;
+    }
+
+    * {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ---- Fallback: no backdrop-filter ------------------------------
+   Lean on a more opaque tinted fill so text stays readable even
+   without any blur. Kept last in the file so it outranks the
+   per-component glass recipes above. */
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass,
+    .lab-sample,
+    .stack-pane,
+    .stack-pane--back,
+    .stack-pane--front,
+    .Return,
+    .bg-btn {
+        background: rgba(23, 44, 22, 0.85);
+        border-color: rgba(244, 231, 197, 0.35);
+    }
+
+    .bg-btn.is-active {
+        background: rgba(167, 73, 24, 0.9);
+    }
+}
+@media screen and (max-width: 480px) {
+    .Return {
+        visibility: hidden;
+    }
+}

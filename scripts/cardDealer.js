@@ -59,12 +59,12 @@ const designArray = [
         designDesc: "Nostalgic designs inspired by past decades, using vintage typography, textures, and color schemes to evoke familiarity.",
         designPage: "../pages/designs/retro.html"
     },
-    // {
-    //     designName: "Skeuomorphic",
-    //     designImg: "../assets/images/placeholder.png",
-    //     designDesc: "Mimics real-world objects with realistic textures, shadows, and details, creating a sense of familiarity and tangibility.",
-    //     designPage: "../pages/designs/skeuomorphic.html"
-    // },
+    {
+        designName: "Skeuomorphic",
+        designImg: "../assets/images/designAssets/woodPile.webp",
+        designDesc: "Mimics real-world objects with realistic textures, shadows, and details, creating a sense of familiarity and tangibility.",
+        designPage: "../pages/designs/skeuomorphic.html"
+    },
     {
         designName: "Typography",
         designImg: "../assets/images/designAssets/SITE_Type.png",
@@ -72,10 +72,40 @@ const designArray = [
         designPage: "../pages/designs/typography.html"
     },
     {
+        designName: "Glassmorphism",
+        designImg: "../assets/images/placeholder.png",
+        designDesc: "Frosted-glass panels with background blur, transparency, and light borders, layered over vivid backdrops for a sense of depth.",
+        designPage: "../pages/designs/glassmorphism.html"
+    },
+    {
+        designName: "Neo-Brutalism",
+        designImg: "../assets/images/placeholder.png",
+        designDesc: "Brutalism's friendly modern cousin: bright flat colors, thick black borders, and hard offset shadows with playful, chunky energy.",
+        designPage: "../pages/designs/neoBrutalist.html"
+    },
+    {
+        designName: "Bento Grid",
+        designImg: "../assets/images/placeholder.png",
+        designDesc: "Modular tiles of mixed sizes arranged like a bento box. Tile size signals importance, making dense content scannable at a glance.",
+        designPage: "../pages/designs/bentoGrid.html"
+    },
+    {
+        designName: "Art Deco",
+        designImg: "../assets/images/Designer (75 - ArtDecoFire).png",
+        designDesc: "Gilded geometry from the Gatsby era: symmetry, metallic accents, sunburst motifs, and ornament applied with discipline.",
+        designPage: "../pages/designs/artDeco.html"
+    },
+    {
+        designName: "Scrollytelling",
+        designImg: "../assets/images/designAssets/treeline.png",
+        designDesc: "Scroll-driven narrative with parallax depth, pinned scenes, and choreographed reveals that turn the page into a story.",
+        designPage: "../pages/designs/scrollytelling.html"
+    },
+    {
         designName: "More to come...",
         designImg: "../assets/images/placeholder.png",
         designDesc: "",
-        designPage: "#"
+        designPage: "../assets/images/placeholder.png"
     }
 ]
 
@@ -87,7 +117,8 @@ for (let i = 0; i < designArray.length; i++) {
     const html = `
         <a href="${designPage}" class="designCardLink">
             <div class="designCardCont">
-                <img src="${designImg}" alt="${designName} Image" class="designCardImg">
+                <!-- <img src="${designImg}" alt="${designName} Image" class="designCardImg"> -->
+                <iframe src="${designPage}" class="designCardImg" scrolling="no" style="width: 100%; height: 100%;"></iframe>
                 <div class="designCardWordCont">
                     <h2 class="designCardTitle">${designName}</h2>
                     <p class="designCardDesc">

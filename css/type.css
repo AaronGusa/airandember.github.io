@@ -1,16 +1,99 @@
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* ============================================================
+   Air&Ember — Typography design example
+   Editorial type-specimen page built on local fonts, including
+   the Playfair Display variable font (continuous wght axis).
+   ============================================================ */
 
-  @font-face {
+@font-face {
     font-family: Krusty;
     src: url(../assets/fonts/krustycraft.otf);
 }
 
-  .returnCont {
+@font-face {
+    font-family: 'Playfair';
+    src: url(../assets/fonts/PlayfairDisplay-VariableFont_wght.ttf);
+    font-weight: 400 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair';
+    src: url(../assets/fonts/PlayfairDisplay-Italic-VariableFont_wght.ttf);
+    font-weight: 400 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Caviar Dreams';
+    src: url(../assets/fonts/CaviarDreams.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Caviar Dreams';
+    src: url(../assets/fonts/CaviarDreams_Bold.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'ZT Neue Ralewe';
+    src: url(../assets/fonts/ZTNeueRalewe-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'ZT Neue Ralewe';
+    src: url(../assets/fonts/ZTNeueRalewe-Medium.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'ZT Neue Ralewe';
+    src: url(../assets/fonts/ZTNeueRalewe-ExtraBold.ttf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Nauman';
+    src: url(../assets/fonts/Nauman-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'MondayCoffee';
+    src: url(../assets/fonts/MondayCoffee.ttf);
+}
+
+@font-face {
+    font-family: 'Feronia';
+    src: url(../assets/fonts/Feronia.ttf);
+}
+
+:root {
+    --paper: #faf7f0;
+    --ink: #1b150e;
+    --muted: #5d5648;
+    --hairline: #d9d1c0;
+    --ember: #a74918;
+    --pine: #172c16;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Caviar Dreams', Georgia, serif;
+    line-height: 1.65;
+    color: var(--ink);
+    background-color: var(--paper);
+    padding: 1rem;
+}
+
+/* ---- Return link ------------------------------------------------ */
+
+.returnCont {
     display: flex;
     justify-content: center;
 }
@@ -18,7 +101,7 @@
 .Return {
     position: fixed;
     bottom: 1rem;
-    background-color: #a74918;
+    background-color: var(--ember);
     width: 90vw;
     display: flex;
     justify-content: center;
@@ -31,253 +114,507 @@
     font-family: 'Krusty', sans-serif;
     z-index: 200000;
 }
-  
-  /* Base Typography */
-  body {
-    font-family: 'Georgia', serif; /* Elegant typography-focused font */
-    line-height: 1.6;
-    color: #333;
-    background-color: #fafafa;
-    padding: 1rem;
-  }
-  
-  /* Navigation */
-  header nav {
+
+/* ---- Navigation --------------------------------------------------- */
+
+.site-header nav {
     text-align: center;
     margin-bottom: 2rem;
-  }
-  
-  nav ul {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--hairline);
+}
+
+nav ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 0.5rem;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    font-size: clamp(0.5rem, 1.2rem, 2rem);
-    color: #333;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  
-  nav ul li a:hover {
-    color: #0073e6;
-  }
-  
-  /* Hero Section */
-  .hero {
-    text-align: center;
-    padding: 3rem 1rem;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    margin-bottom: 3rem;
-    display: grid;
-    gap: 2rem;
-
-  }
-
-  
-
-  .vid {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  video {
-    width:100%;
-    min-width: 200px;
-  }
-  
-  .words h1 {
-    font-size: clamp(1rem, 14vw, 4rem); /* Attention-grabbing main header */
-    font-weight: 900;
-    color: #0073e6; /* Bold, impactful color for emphasis */
-  }
-  
-  .words h2 {
-    font-size: 2rem;
-    font-weight: 400;
-    margin-top: 1rem;
-    color: #333;
-  }
-  
-  .words p {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: #666;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .cta {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #0073e6;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .cta:hover {
-    background-color: #005bb5;
-  }
-  
-  /* About Section */
-  .about {
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-  
-  .about h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 1rem;
-  }
-  
-  .about p {
-    font-size: 1rem;
-    color: #666;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.875rem;
-    color: #999;
-    margin-top: 2rem;
-    border-top: 1px solid #ddd;
-  }
-
-
-@media screen and (min-width: 760px) {
-
-    .returnCont {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .Return {
-        position: fixed;
-        background-color: #a74918;
-        top: 135px;
-        right: 25px;
-        height: 3rem;
-        width: 10rem;
-        display: flex;
-        justify-content: center;
-        border-radius: 50px;
-        padding: 0.5rem;
-        color: white;
-        font-weight: 200;
-        letter-spacing: 0.15rem;
-        text-decoration: none;
-        font-family: 'Krusty', sans-serif;
-        align-items: center;
-    }
-
-    nav ul {
-        flex-direction: row;
-        gap: 2rem;
-    }
-    
-    .hero {
-        display: grid;
-        grid-template-columns: 95vw;
-        gap: 0;
-        margin: 0;
-        padding: 0;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .vid {
-        width: 100%;
-        grid-column: 1 / 3;
-        grid-row: 1;
-        z-index: 0;
-        filter: blur(10px);
-    }
-
-    .words {
-        grid-column: 1 / 3;
-        grid-row: 1;
-        z-index: 1;
-    }
-
-    .words p {
-        color: rgb(14, 16, 19);
-    }
-
 }
 
-@media screen and (min-width: 1273px) {
-      
-    .returnCont {
-        display: flex;
-        justify-content: center;
+nav ul li a {
+    text-decoration: none;
+    font-size: 0.95rem;
+    color: var(--ink);
+    font-weight: bold;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--ember);
+}
+
+/* ---- Hero ------------------------------------------------------------ */
+
+.hero {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 0 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--hairline);
+    align-items: center;
+}
+
+.kicker {
+    font-family: 'ZT Neue Ralewe', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: 0.8rem;
+    color: var(--ember);
+    margin-bottom: 1rem;
+}
+
+.masthead {
+    font-family: 'Playfair', Georgia, serif;
+    font-variation-settings: 'wght' 880;
+    font-size: clamp(3rem, 11vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+}
+
+.masthead em {
+    font-style: italic;
+    font-variation-settings: 'wght' 560;
+    color: var(--ember);
+}
+
+.deck {
+    font-family: 'ZT Neue Ralewe', sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+    letter-spacing: 0.08em;
+    margin-top: 1.25rem;
+    color: var(--muted);
+}
+
+.lede {
+    margin-top: 1.25rem;
+    font-size: 1.1rem;
+    max-width: 56ch;
+    color: var(--muted);
+}
+
+.cta {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 1.8rem;
+    font-family: 'ZT Neue Ralewe', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    color: var(--paper);
+    background-color: var(--pine);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.cta:hover {
+    background-color: var(--ember);
+}
+
+.vid video {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    box-shadow: 0 18px 40px rgba(27, 21, 14, 0.25);
+}
+
+/* ---- About ---------------------------------------------------------------- */
+
+.about {
+    text-align: center;
+    padding: 0 1rem 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.section-title {
+    font-family: 'Playfair', Georgia, serif;
+    font-variation-settings: 'wght' 800;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 1rem;
+}
+
+.about p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 68ch;
+    margin: 0 auto;
+}
+
+/* ---- Demo sections ------------------------------------------------------------- */
+
+.demo {
+    max-width: 980px;
+    margin: 0 auto 3.5rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--hairline);
+}
+
+.demo-caption {
+    color: var(--muted);
+    max-width: 70ch;
+    margin: 0 0 1.75rem;
+}
+
+/* Demo 1: playground */
+
+.playground {
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    background: #fffdf8;
+    overflow: hidden;
+}
+
+.specimen {
+    font-family: 'Playfair', Georgia, serif;
+    font-size: 56px;
+    font-variation-settings: 'wght' 700;
+    line-height: 1.15;
+    padding: clamp(1.5rem, 5vw, 3rem);
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    overflow-wrap: anywhere;
+    outline: none;
+    border-bottom: 1px solid var(--hairline);
+    transition: background-color 0.2s;
+}
+
+.specimen:focus {
+    background-color: #fff8ea;
+}
+
+.playground-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.25rem 2rem;
+    padding: 1.5rem;
+    background: #f4efe3;
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-family: 'ZT Neue Ralewe', sans-serif;
+}
+
+.control-name {
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.control-name small {
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--muted);
+}
+
+.control input[type="range"] {
+    accent-color: var(--ember);
+    width: 100%;
+    cursor: pointer;
+}
+
+.control output {
+    font-family: 'Nauman', monospace, sans-serif;
+    font-size: 0.9rem;
+    color: var(--ember);
+}
+
+/* Demo 2: pairing */
+
+.pairing-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.pair-btn {
+    font-family: 'ZT Neue Ralewe', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.65rem 1.1rem;
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pair-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.pair-btn.is-active {
+    background: var(--pine);
+    border-color: var(--pine);
+    color: var(--paper);
+}
+
+.pair-btn-bad {
+    border-style: dashed;
+    border-color: var(--ember);
+    color: var(--ember);
+}
+
+.pair-btn-bad.is-active {
+    background: var(--ember);
+    border-color: var(--ember);
+    color: var(--paper);
+}
+
+.pair-card {
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    background: #fffdf8;
+    padding: clamp(1.5rem, 5vw, 2.75rem);
+    margin-bottom: 1rem;
+}
+
+.pair-heading {
+    font-size: clamp(1.6rem, 5vw, 2.6rem);
+    line-height: 1.15;
+    margin-bottom: 0.9rem;
+    transition: font-family 0.15s;
+}
+
+.pair-body {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 62ch;
+}
+
+.pair-card[data-pair="classic"] .pair-heading {
+    font-family: 'Playfair', Georgia, serif;
+    font-variation-settings: 'wght' 800;
+}
+.pair-card[data-pair="classic"] .pair-body {
+    font-family: 'Caviar Dreams', sans-serif;
+}
+
+.pair-card[data-pair="modern"] .pair-heading {
+    font-family: 'ZT Neue Ralewe', sans-serif;
+    font-weight: 800;
+}
+.pair-card[data-pair="modern"] .pair-body {
+    font-family: 'Nauman', sans-serif;
+}
+
+.pair-card[data-pair="warm"] .pair-heading {
+    font-family: 'MondayCoffee', cursive;
+}
+.pair-card[data-pair="warm"] .pair-body {
+    font-family: 'ZT Neue Ralewe', sans-serif;
+    font-weight: 500;
+}
+
+.pair-card[data-pair="bad"] .pair-heading {
+    font-family: 'MondayCoffee', cursive;
+}
+.pair-card[data-pair="bad"] .pair-body {
+    font-family: 'Feronia', fantasy;
+    letter-spacing: 0.02em;
+}
+
+.pair-caption {
+    font-size: 0.95rem;
+    color: var(--muted);
+    font-style: italic;
+    max-width: 70ch;
+}
+
+/* Demo 3: hierarchy */
+
+.hierarchy-toggle {
+    font-family: 'ZT Neue Ralewe', sans-serif;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0.8rem 1.6rem;
+    background: var(--pine);
+    color: var(--paper);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.2s;
+}
+
+.hierarchy-toggle:hover {
+    background: var(--ember);
+}
+
+.hier-article {
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    background: #fffdf8;
+    padding: clamp(1.5rem, 5vw, 2.75rem);
+}
+
+.ha-kicker {
+    font-family: 'ZT Neue Ralewe', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 0.75rem;
+    color: var(--ember);
+    margin-bottom: 0.75rem;
+}
+
+.ha-title {
+    font-family: 'Playfair', Georgia, serif;
+    font-variation-settings: 'wght' 850;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.ha-sub {
+    font-family: 'Playfair', Georgia, serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+}
+
+.ha-body {
+    font-family: 'Caviar Dreams', sans-serif;
+    font-size: 1.02rem;
+    max-width: 64ch;
+    margin-bottom: 1rem;
+    color: var(--ink);
+}
+
+/* Hierarchy OFF: everything collapses to one undifferentiated voice */
+.hier-article.no-hierarchy .ha-kicker,
+.hier-article.no-hierarchy .ha-title,
+.hier-article.no-hierarchy .ha-sub,
+.hier-article.no-hierarchy .ha-body {
+    font-family: 'Caviar Dreams', sans-serif;
+    font-variation-settings: normal;
+    font-size: 1.02rem;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.65;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+}
+
+/* ---- Footer ----------------------------------------------------------------------- */
+
+.asym_footer {
+    text-align: center;
+    padding: 2rem 1rem 4.5rem;
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-top: 2rem;
+    border-top: 1px solid var(--hairline);
+}
+
+.asym_footer h3,
+.asym_footer h4 {
+    font-family: 'ZT Neue Ralewe', sans-serif;
+    color: var(--ink);
+    margin-bottom: 0.35rem;
+}
+
+.contactFootContent {
+    margin-bottom: 1.5rem;
+}
+
+.footGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1.5rem;
+    align-items: start;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.asym_social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.asym_socialImg {
+    width: 28px;
+    height: 28px;
+}
+
+.asym_footer a {
+    color: var(--ember);
+}
+
+/* ---- Motion preferences --------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
     }
-    
+}
+
+/* ---- Responsive -------------------------------------------------------------------------- */
+
+@media screen and (min-width: 760px) {
+    nav ul {
+        flex-direction: row;
+        gap: 2.5rem;
+    }
+
     .Return {
         position: fixed;
-        background-color: #a74918;
-        top: 15px;
+        top: 135px;
         right: 25px;
+        bottom: auto;
         height: 3rem;
         width: 10rem;
-        display: flex;
-        justify-content: center;
-        border-radius: 50px;
-        padding: 0.5rem;
-        color: white;
-        font-weight: 200;
-        letter-spacing: 0.15rem;
-        text-decoration: none;
-        font-family: 'Krusty', sans-serif;
         align-items: center;
     }
 
     .hero {
-        
-        display: grid;
-        gap: 2rem;
-        grid-template-columns: 1fr 1fr;
-      }
-    
-      .vid {
-        grid-column: 2;
-        height: 100%;
-        width: auto;
-        overflow: hidden;
-        filter: blur(0);
+        grid-template-columns: 1.2fr 1fr;
+        gap: 3rem;
+        padding: 3rem 1rem 4rem;
+    }
+}
 
-      }
 
-      .words {
-        grid-column: 1;
-        grid-row: 1;
-        z-index: 1;
+@media screen and (min-width: 1273px) {
+    .Return {
+        top: 15px;
     }
 
-      video {
-        height: 100%;
-
-      }
-
-      source {
-        height: 100%;
-      }
-
+    .hero {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (max-width: 480px) {
+    .Return {
+        visibility: hidden;
+    }
 }

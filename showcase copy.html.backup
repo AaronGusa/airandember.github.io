@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air&amp;Ember — Where Wind Meets Fire</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
+    <link rel="stylesheet" href="css/showcase.css">
+    <script src="scripts/showcase.js" defer></script>
+</head>
+<body>
+
+    <!-- ====== AMBIENT LAYERS (fixed, behind everything) ====== -->
+    <canvas id="emberCanvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="cursorGlow" aria-hidden="true"></div>
+    <div id="cursorRing" aria-hidden="true"></div>
+
+    <!-- ====== SCROLL PROGRESS / WALKER ====== -->
+    <div id="scrollTrack" aria-hidden="true">
+        <div id="scrollFlame">&#x1F525;</div>
+    </div>
+
+    <!-- ====== NAV ====== -->
+    <header class="skyNav">
+        <a class="navBrand" href="index.html">
+            <img src="assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="Air&Ember logo">
+            <span>Air<em>&amp;</em>Ember</span>
+        </a>
+        <nav class="navLinks">
+            <a href="index.html">Home</a>
+            <a href="pages/designs.html">Designs</a>
+            <a href="pages/webdesign.html">Services</a>
+            <a href="pages/about.html">About</a>
+            <a class="navCta magnet" href="pages/contact.html">Light the Fire</a>
+        </nav>
+    </header>
+
+    <main>
+
+    <!-- ====== ACT I : HERO — THE FOREST AT NIGHT ====== -->
+    <section class="hero" id="hero">
+        <!-- parallax sky stack -->
+        <div class="pLayer pStars" data-speed="0.06" aria-hidden="true"></div>
+        <div class="pLayer pMoon" data-speed="0.12" aria-hidden="true"></div>
+        <div class="pLayer pTreesFar" data-speed="0.22" aria-hidden="true">
+            <img src="assets/images/designAssets/woodPile.webp" alt="">
+        </div>
+        <div class="pLayer pTreesNear" data-speed="0.45" aria-hidden="true">
+            <img src="assets/images/designAssets/treeline.png" alt="">
+        </div>
+
+        <div class="heroCenter">
+            <p class="heroKicker reveal" data-reveal="up">A FULLSTACK CAMPFIRE STORY</p>
+            <h1 class="heroTitle">
+                <span class="airWord drift" data-text="AIR">AIR</span>
+                <span class="amp tiltOnScroll">&amp;</span>
+                <span class="emberWord flicker" data-text="EMBER">EMBER</span>
+            </h1>
+            <p class="heroSub reveal" data-reveal="up">
+                Custom web &amp; software, hand-built where the forest meets the mainframe.
+                <br>Wind carries the idea. Fire makes it real.
+            </p>
+            <div class="heroCtas reveal" data-reveal="up">
+                <a class="btnEmber magnet" href="pages/contact.html"><span>Start a Spark</span> <span class="arrow">&#x21A0;</span></a>
+                <a class="btnGhost magnet" href="#retro"><span>Scroll the Story</span> <span class="arrow">&#x2193;</span></a>
+            </div>
+        </div>
+
+        <div class="heroHint" aria-hidden="true">
+            <span class="mouseIcon"><span class="mouseWheel"></span></span>
+            <span class="hintText">breathe in, scroll down</span>
+        </div>
+    </section>
+
+    <!-- ====== ACT II : RETRO TECH — THE OLD WAYS ====== -->
+    <section class="band retroBand" id="retro">
+        <div class="pLayer pSmokeA" data-speed="0.15" aria-hidden="true"></div>
+
+        <div class="bandInner splitGrid">
+            <div class="reveal" data-reveal="left">
+                <p class="eyebrow">EST. SOMEWHERE BETWEEN DIAL-UP &amp; STARLIGHT</p>
+                <h2 class="bandTitle">We remember when the web <span class="hl">crackled</span>.</h2>
+                <p class="bandCopy">
+                    Before frameworks had frameworks, websites were campfires — small, warm,
+                    and built by hand. We kept that spirit and bolted a turbine to it.
+                </p>
+                <p class="bandCopy">
+                    Every Air&amp;Ember build starts analog: pencil, paper, and a real conversation
+                    with a real human. No ticket queues. No overseas hand-offs.
+                </p>
+            </div>
+
+            <div class="crtWrap tiltOnScroll reveal" data-reveal="right" data-tilt-max="6">
+                <div class="crt">
+                    <div class="crtScreen">
+                        <p class="crtLine">&gt; BOOT AIR_EMBER.SYS .......... OK</p>
+                        <p class="crtLine">&gt; LOADING FOREST DRIVERS ...... OK</p>
+                        <p class="crtLine">&gt; IGNITING EMBERS ............. OK</p>
+                        <p class="crtLine">&gt; OVERSEAS_OUTSOURCING ........ <span class="crtErr">NOT FOUND</span></p>
+                        <p class="crtLine">&gt; SALES_PRESSURE.EXE .......... <span class="crtErr">DELETED</span></p>
+                        <p class="crtLine">&gt; YOUR_VISION.APP ............. <span class="crtOk">COMPILING&#x2588;</span></p>
+                    </div>
+                    <div class="crtBezel"><span class="crtDot"></span> A&amp;E TERMINAL 1979&#x2192;2099</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== MARQUEE DIVIDER ====== -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marqueeTrack" data-marquee>
+            <span>WEB DESIGN &#x2726; SOFTWARE DEVELOPMENT &#x2726; GRAPHIC DESIGN &#x2726; DOMAINS &#x2726; DIGITAL ASSETS &#x2726; BUILT 100% IN THE U.S.A. &#x2726;&nbsp;</span>
+            <span>WEB DESIGN &#x2726; SOFTWARE DEVELOPMENT &#x2726; GRAPHIC DESIGN &#x2726; DOMAINS &#x2726; DIGITAL ASSETS &#x2726; BUILT 100% IN THE U.S.A. &#x2726;&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- ====== ACT III : SERVICES — ELEMENTS ====== -->
+    <section class="band servicesBand" id="services">
+        <div class="pLayer pSmokeB" data-speed="0.1" aria-hidden="true"></div>
+
+        <div class="bandInner">
+            <h2 class="bandTitle centered reveal" data-reveal="up">
+                Four elements. <span class="hl">One forge.</span>
+            </h2>
+
+            <div class="elementGrid">
+                <article class="elementCard cardTilt reveal" data-reveal="up">
+                    <div class="elementGlyph">&#x1F32C;&#xFE0F;</div>
+                    <h3>Web Design</h3>
+                    <p>Sites that breathe. Fast, responsive, and shaped around the people who use them — not a template farm.</p>
+                    <span class="cardTag">AIR / FLOW</span>
+                </article>
+                <article class="elementCard cardTilt reveal" data-reveal="up">
+                    <div class="elementGlyph">&#x1F525;</div>
+                    <h3>Software Development</h3>
+                    <p>Custom tools forged for your workflow. From inventory systems to client portals, tempered in real use.</p>
+                    <span class="cardTag">EMBER / FORGE</span>
+                </article>
+                <article class="elementCard cardTilt reveal" data-reveal="up">
+                    <div class="elementGlyph">&#x1F343;</div>
+                    <h3>Graphic Design</h3>
+                    <p>Logos, brand kits, and assets that grow from your roots instead of being stapled on after.</p>
+                    <span class="cardTag">EARTH / ROOT</span>
+                </article>
+                <article class="elementCard cardTilt reveal" data-reveal="up">
+                    <div class="elementGlyph">&#x26A1;</div>
+                    <h3>Domains &amp; Assets</h3>
+                    <p>Hosting, email, domains — the boring-but-vital wiring, set up once and tended weekly.</p>
+                    <span class="cardTag">STORM / WIRE</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ACT IV : GALLERY — ROTATE-ON-SCROLL ====== -->
+    <section class="band galleryBand" id="gallery">
+        <div class="bandInner">
+            <h2 class="bandTitle centered reveal" data-reveal="up">Sparks we've already <span class="hl">set loose</span>.</h2>
+            <p class="bandCopy centered reveal" data-reveal="up">Tilt your scroll wheel. The work leans in to meet you.</p>
+
+            <div class="galleryRow">
+                <figure class="galleryItem rotScroll" data-rot="-7">
+                    <iframe src="pages/designs/retro.html" class="designCardImg" scrolling="no" style="width: 100%; height: 100%;" loading="lazy"></iframe>
+                    <figcaption>RETRO REVIVAL</figcaption>
+                </figure>
+                <figure class="galleryItem rotScroll" data-rot="5">
+                    <iframe src="pages/designs/darkMode.html" class="designCardImg" scrolling="no" style="width: 100%; height: 100%;" loading="lazy"></iframe>
+                    <figcaption>MIDNIGHT MODE</figcaption>
+                </figure>
+                <figure class="galleryItem rotScroll" data-rot="6">
+                    <iframe src="pages/designs/scrollytelling.html" class="designCardImg" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+                    <figcaption>RAW BRUTALIST</figcaption>
+                </figure>
+                <figure class="galleryItem rotScroll" data-rot="-4">
+                    <iframe src="pages/designs/illustrationLed.html" class="designCardImg" scrolling="no" style="width: 100%; height: 100%;" loading="lazy"></iframe>
+                    <figcaption>FOREST ILLUSTRATED</figcaption>
+                </figure>
+                <figure class="galleryItem rotScroll" data-rot="6">
+                    <iframe src="pages/designs/brutalist.html" class="designCardImg" scrolling="no" style="width: 100%; height: 100%;"></iframe>
+                    <figcaption>RAW BRUTALIST</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ACT V : FUNNEL — SPARK / STOKE / BLAZE ====== -->
+    <section class="band funnelBand" id="funnel">
+        <div class="pLayer pSmokeA" data-speed="0.18" aria-hidden="true"></div>
+
+        <div class="bandInner">
+            <h2 class="bandTitle centered reveal" data-reveal="up">From spark to <span class="hl">wildfire</span>, in three breaths.</h2>
+
+            <ol class="funnelSteps">
+                <li class="funnelStep reveal" data-reveal="left" data-fx="spark">
+                    <span class="stepNum">01</span>
+                    <h3>Spark</h3>
+                    <p>Tell us the dream — fifteen free minutes, zero sales pitch. We listen like the trees do.</p>
+                    <a class="stepLink magnet" href="pages/contact.html">Book the chat &#x21A0;</a>
+                </li>
+                <li class="funnelStep reveal" data-reveal="up" data-fx="stoke">
+                    <span class="stepNum">02</span>
+                    <h3>Stoke</h3>
+                    <p>We sketch, quote, and prototype. You see exactly what's burning before a dollar moves.</p>
+                    <a class="stepLink magnet" href="pages/webdesign.html">See the process &#x21A0;</a>
+                </li>
+                <li class="funnelStep reveal" data-reveal="right" data-fx="blaze">
+                    <span class="stepNum">03</span>
+                    <h3>Blaze</h3>
+                    <p>Launch, then weekly tending — maintenance, check-ins, and upgrades as you grow.</p>
+                    <a class="stepLink magnet" href="pages/designs.html">View past blazes &#x21A0;</a>
+                </li>
+            </ol>
+
+            <div class="bigCta reveal" data-reveal="up">
+                <p class="bigCtaWhisper">no salesmen. just partners.</p>
+                <a class="btnEmber btnHuge magnet" href="pages/contact.html">
+                    <span>Light Your Fire</span> <span class="arrow">&#x21A0;</span>
+                </a>
+                <p class="bigCtaSub">support@airandember.com &middot; Mon–Fri, 7AM–6PM MST</p>
+            </div>
+        </div>
+
+        
+    </section>
+<div class="airWalker" aria-hidden="true">
+            <img id="walkerGif" src="assets/images/AirWalk.gif" alt="">
+        </div>
+    </main>
+
+    <footer class="emberFooter">
+        <div class="footerInner">
+            <p>&copy; 2026 Air&amp;Ember — grown in the U.S.A., powered by wind &amp; fire.</p>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="pages/contact.html">Contact</a>
+                <a href="#" id="privacyPolicyA">Privacy</a>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+</html>

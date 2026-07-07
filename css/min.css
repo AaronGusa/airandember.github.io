@@ -1,30 +1,49 @@
-/* Global Reset */
+/* ============================================================
+   Air&Ember — Minimalist Design demo
+   One typeface (Caviar Dreams), one accent (ember), hairline
+   rules, and a --space variable driving every bit of breathing
+   room on the page.
+   ============================================================ */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
+}
 
-  @font-face {
+@font-face {
     font-family: Krusty;
     src: url(../assets/fonts/krustycraft.otf);
 }
 
 @font-face {
-    font-family: Vis;
-    src: url(../assets/fonts/designFonts/Vis-A-Vis.ttf);
+    font-family: Caviar;
+    src: url(../assets/fonts/CaviarDreams.ttf);
+    font-weight: 400;
 }
+
 @font-face {
-    font-family: Manbow;
-    src: url(../assets/fonts/designFonts/ManbowSolid.otf);
+    font-family: Caviar;
+    src: url(../assets/fonts/CaviarDreams_Bold.ttf);
+    font-weight: 700;
 }
+
 @font-face {
-    font-family: Sandre;
-    src: url(../assets/fonts/designFonts/SANDRE.ttf);
+    font-family: Caviar;
+    src: url(../assets/fonts/CaviarDreams_Italic.ttf);
+    font-weight: 400;
+    font-style: italic;
 }
-@font-face {
-    font-family: Splendid;
-    src: url(../assets/fonts/designFonts/SplendidN.ttf);
+
+:root {
+    /* The whitespace slider scales this single multiplier */
+    --space: 1;
+
+    --ink: #1d1b16;
+    --muted: #6b675e;
+    --paper: #fcfbf8;
+    --accent: #a74918;          /* the single accent */
+    --hairline: rgba(29, 27, 22, 0.14);
 }
 
 .returnCont {
@@ -48,189 +67,469 @@
     font-family: 'Krusty', sans-serif;
     z-index: 200000;
 }
-  
-  /* Base Styles */
-  body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+
+body {
+    font-family: 'Caviar', 'Helvetica Neue', Arial, sans-serif;
     font-size: 16px;
-    line-height: 1.5;
-    color: #333;
-    background-color: #fff;
-    padding: 0;
-  }
-  
-  /* Header & Navigation */
-  header, nav, .hero {
-    color: white;
-    padding: 1rem;
-  }
+    line-height: calc(1.3 + 0.45 * var(--space));
+    color: var(--ink);
+    background-color: var(--paper);
+}
 
+.bodyMain {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 calc(1.5rem * var(--space));
+}
 
-
-  header {
-    /* margin-bottom: 2rem; */
-    background-color: #a5d0b4;
-
-  }
-  
-  nav {
+/* ---------- Header ---------- */
+header {
     display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  nav h1 {
-    font-size: 1.5rem;
-    font-weight: 300;
-  }
-  
-  nav ul {
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: calc(2rem * var(--space)) 0 calc(1.25rem * var(--space));
+    border-bottom: 1px solid var(--hairline);
+}
+
+.wordmark {
+    font-weight: 700;
+    font-size: 1.0625rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+nav ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: 300;
-    transition: color 0.3s ease, border 0.3s ease;
-    padding: 0.5rem;
-    
-  }
-  
-  nav ul li a:hover {
-    color: #a7ffff;
-    border: white solid 1px;
-  }
-  
-  /* Hero Section */
-    .banner {
-        text-align: center;
-    }
+    gap: calc(1.75rem * var(--space));
+}
 
-  .hero {
+nav ul li a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid transparent;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* ---------- Hero / pull quote ---------- */
+.hero {
+    padding: calc(5rem * var(--space)) 0 calc(4rem * var(--space));
+    text-align: center;
+}
+
+.kicker {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: calc(1.5rem * var(--space));
+}
+
+.hero h1 {
+    font-size: clamp(2.25rem, 7vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: calc(3rem * var(--space));
+}
+
+.pull-quote {
+    max-width: 34ch;
+    margin: 0 auto;
+}
+
+.pull-quote p {
+    font-size: clamp(1.25rem, 3.5vw, 1.625rem);
+    font-style: italic;
+    color: var(--ink);
+    quotes: none;
+}
+
+.pull-quote p::before {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background: var(--accent);
+    margin: 0 auto calc(1.5rem * var(--space));
+}
+
+.pull-quote__attr {
+    margin-top: calc(1.25rem * var(--space));
     display: flex;
     flex-direction: column;
-    background-color: #a5d0b4;
-    text-align: center;
-    padding: 3rem 1rem;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #eee;
-    height: 100%;
+    gap: 0.2rem;
     align-items: center;
-  }
-  
-  .hero h2 {
-    font-weight: 300;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
+}
 
-  .hero h2 span {
-    font-size: 3rem;
-  }
-  
-  .hero p {
-    font-size: 1rem;
-    color: white;
-  }
-  
-  /* Content Section */
-  .content {
-    padding: 2rem;
-    line-height: 2;
-  }
-  
-  .content h2 {
-    font-weight: 300;
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-  }
-  
-  .content p {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  /* Footer */
-  footer {
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
+.pull-quote__attr cite {
+    font-style: normal;
     font-size: 0.875rem;
-    color: #888;
-    border-top: 1px solid #eee;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 600px) {
-    nav {
-      flex-direction: column;
-    }
-    nav ul {
-      margin-top: 0.5rem;
-    }
-    .hero h2 {
-      font-size: 1.75rem;
-    }
-  }
+    letter-spacing: 0.12em;
+    color: var(--muted);
+}
 
-  @media screen and (min-width: 760px) {
-    html {
-        width: 100vw;
-        overflow-x: hidden;
-    }
+/* The joke, typeset with restraint: Michael crossed out, Dwight corrected */
+.pull-quote__attr cite:first-child {
+    text-decoration: line-through;
+    text-decoration-color: var(--accent);
+}
 
-    .content {
-        line-height: 3;
-    }
+.pull-quote__correction {
+    color: var(--ink);
+}
 
-    nav {
-        justify-content: left;
-        font-size: 2rem;
+/* ---------- Hairline rules ---------- */
+.rule {
+    border: none;
+    border-top: 1px solid var(--hairline);
+    margin: calc(3rem * var(--space)) 0;
+}
 
-    }
+/* ---------- Content ---------- */
+.content {
+    padding: calc(1rem * var(--space)) 0;
+}
 
-    nav ul li {
-        padding: 0 5rem;
+.content h2,
+.demo h2 {
+    font-weight: 700;
+    font-size: 1.375rem;
+    letter-spacing: 0.02em;
+    margin-bottom: calc(1.75rem * var(--space));
+}
 
-    }
+.content p {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: calc(1.5rem * var(--space));
+    max-width: 65ch;
+}
 
-    .hero {
-        padding: 15rem 1rem;
-    }
+.content p:last-child {
+    margin-bottom: 0;
+}
 
-    main {
-        min-height: 60vh;
-        height: max-content;
+/* ---------- Demo shells ---------- */
+.demo {
+    padding: calc(1rem * var(--space)) 0;
+}
 
-    }
+.demo-intro {
+    color: var(--muted);
+    margin-bottom: calc(2rem * var(--space));
+    max-width: 60ch;
+}
 
-    .returnCont {
-        display: flex;
-        justify-content: center;
-    }
-    
+.demo-caption {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--muted);
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+    margin-top: calc(2rem * var(--space));
+    max-width: 60ch;
+}
+
+/* ---------- Declutter minipage ---------- */
+.minipage {
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    overflow: hidden;
+    background:
+        repeating-linear-gradient(135deg, rgba(167, 73, 24, 0.10) 0 14px, rgba(29, 27, 22, 0.06) 14px 28px),
+        #f3e9d8;
+    transition: background 0.6s ease;
+}
+
+.minipage.mp--calm {
+    background: #ffffff;
+}
+
+.mp-banner {
+    background: #d61f1f;
+    color: #fff;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-align: center;
+    padding: 0.5rem 0.75rem;
+    font-family: Impact, 'Arial Black', sans-serif;
+}
+
+.mp-inner {
+    position: relative;
+    padding: 2.25rem 1.75rem;
+    text-align: center;
+}
+
+.mp-badge {
+    position: absolute;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.mp-badge--a {
+    top: 0.9rem;
+    left: 1rem;
+    background: #ffd02e;
+    color: #1d1b16;
+    transform: rotate(-9deg);
+}
+
+.mp-badge--b {
+    top: 0.9rem;
+    right: 1rem;
+    background: #d61f1f;
+    color: #fff;
+    transform: rotate(8deg);
+}
+
+.mp-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.625rem;
+    margin-bottom: 0.5rem;
+    transition: font-family 0.3s ease;
+}
+
+.mp-text {
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 0.9375rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    transition: font-family 0.3s ease;
+}
+
+.minipage.mp--one-font .mp-title,
+.minipage.mp--one-font .mp-text,
+.minipage.mp--one-font .mp-btn,
+.minipage.mp--one-font .mp-banner,
+.minipage.mp--one-font .mp-badge {
+    font-family: 'Caviar', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.mp-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.mp-btn {
+    font-size: 0.875rem;
+    padding: 0.6rem 1.3rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Verdana, sans-serif;
+}
+
+.mp-btn--main {
+    background: var(--ink);
+    color: #fff;
+    border: 1px solid var(--ink);
+}
+
+.minipage.mp--calm .mp-btn--main {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.mp-btn--extra {
+    background: #2db7b7;
+    color: #fff;
+    border: 2px dashed #ffd02e;
+    font-weight: 700;
+}
+
+/* Clutter removal animation */
+.clutter {
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.clutter.is-removed {
+    opacity: 0;
+    transform: scale(0.85);
+    pointer-events: none;
+}
+
+.mp-banner.is-removed {
+    display: none;
+}
+
+/* ---------- Demo controls ---------- */
+.demo-controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: calc(1.75rem * var(--space));
+}
+
+.declutter-btn {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    padding: 0.75rem 1.75rem;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.declutter-btn:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+.demo-note {
+    font-size: 0.875rem;
+    color: var(--muted);
+    font-style: italic;
+    max-width: 44ch;
+}
+
+/* ---------- Whitespace slider ---------- */
+.space-control {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.space-control label {
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+#spaceSlider {
+    flex: 1 1 200px;
+    max-width: 320px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    height: 28px;
+}
+
+#spaceValue {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--accent);
+    min-width: 3.5ch;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    border-top: 1px solid var(--hairline);
+    margin-top: calc(4rem * var(--space));
+    padding: calc(2.5rem * var(--space)) 0 calc(5rem * var(--space));
+    font-size: 0.875rem;
+    color: var(--muted);
+}
+
+.site-footer h3 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin-bottom: calc(1.5rem * var(--space));
+}
+
+.site-footer h4 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: calc(1.5rem * var(--space));
+}
+
+.site-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease;
+}
+
+.site-footer a:hover {
+    border-bottom-color: var(--accent);
+}
+
+.socialRow {
+    display: flex;
+    gap: 1.25rem;
+    margin-top: calc(2rem * var(--space));
+}
+
+.asym_social_link {
+    display: inline-flex;
+    opacity: 0.55;
+    transition: opacity 0.25s ease;
+    border-bottom: none;
+}
+
+.asym_social_link:hover {
+    opacity: 1;
+    border-bottom: none;
+}
+
+.asym_socialImg {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+/* ---------- Desktop ---------- */
+@media screen and (min-width: 760px) {
     .Return {
-        position: fixed;
-        background-color: #a74918;
+        bottom: auto;
         top: 15px;
         right: 15px;
         height: 3rem;
         width: 10rem;
-        display: flex;
-        justify-content: center;
-        border-radius: 50px;
-        padding: 0.5rem;
-        color: white;
-        font-weight: 200;
-        letter-spacing: 0.15rem;
-        text-decoration: none;
-        font-family: 'Krusty', sans-serif;
         align-items: center;
     }
 
-    
+    .hero {
+        padding-top: calc(7rem * var(--space));
+    }
+}
 
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .clutter,
+    .minipage,
+    .mp-title,
+    .mp-text,
+    nav ul li a,
+    .declutter-btn,
+    .site-footer a {
+        transition: none;
+    }
+}
+@media screen and (max-width: 480px) {
+    .Return {
+        visibility: hidden;
+    }
 }

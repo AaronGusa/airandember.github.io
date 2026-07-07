@@ -1181,6 +1181,7 @@ textarea {
     background: #080511;
     padding-bottom: 0;
     margin-bottom: 0;
+    overflow: hidden;
 }
 
 .designCardTitle {

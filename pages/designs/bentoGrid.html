@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air&amp;Ember &mdash; Bento Grid Design Example</title>
+        <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
+        <link rel="stylesheet" href="../../css/bento.css">
+    </head>
+    <body>
+        <div class="returnCont">
+            <a class="Return" href="../designs.html">Back to Designs</a>
+        </div>
+
+        <div class="page">
+            <header class="masthead">
+                <span class="kicker">Design Education</span>
+                <h1>Bento Grid</h1>
+                <p class="masthead__sub">One screen. Many boxes. Every box earns its size.</p>
+            </header>
+
+            <!-- ============ BENTO HERO + INTERACTIVE DEMOS ============ -->
+            <section class="demo" aria-labelledby="heroHeading">
+                <h2 id="heroHeading" class="visually-hidden">Interactive bento grid</h2>
+
+                <div class="controls">
+                    <div class="control">
+                        <span class="control__label" id="layoutLabel">Layout</span>
+                        <button class="layout-toggle" id="layoutToggle" type="button" role="switch" aria-checked="true" aria-labelledby="layoutLabel">
+                            <span class="layout-toggle__opt" data-mode="rows">Rows</span>
+                            <span class="layout-toggle__thumb" aria-hidden="true"></span>
+                            <span class="layout-toggle__opt" data-mode="bento">Bento</span>
+                        </button>
+                    </div>
+                    <div class="control control--slider">
+                        <label class="control__label" for="gapSlider">Gap <output id="gapValue" for="gapSlider">16px</output></label>
+                        <input type="range" id="gapSlider" min="0" max="32" step="1" value="16" aria-label="Grid gap in pixels">
+                    </div>
+                </div>
+
+                <div class="bento" id="bento">
+                    <article class="tile tile--feature" tabindex="0" data-note="The headline tile. At 2&times;2 it claims four cells &mdash; the grid&rsquo;s way of saying &ldquo;read me first.&rdquo;">
+                        <span class="tile__tag">Featured</span>
+                        <h3 class="tile__display">Everything in its&nbsp;place.</h3>
+                        <p class="tile__body">A bento grid packs unrelated content &mdash; stats, images, quotes, charts &mdash; into one calm, scannable composition. Size does the talking.</p>
+                    </article>
+
+                    <article class="tile tile--stat tile--ember" tabindex="0" data-note="A single-cell stat. Small tile, small claim on your attention &mdash; but the giant numeral still lands.">
+                        <span class="tile__big">12+</span>
+                        <span class="tile__caption">design styles in this series</span>
+                    </article>
+
+                    <article class="tile tile--logo" tabindex="0" data-note="A breathing-room tile. Bento grids use quiet cells like this one to keep the busy ones from shouting over each other.">
+                        <img src="../../assets/images/designAssets/AE%20LOGO%20ICON%20cropped%20Pine.png" alt="Air and Ember logo" class="tile__logo">
+                    </article>
+
+                    <article class="tile tile--image" tabindex="0" data-note="A wide 2&times;1 image tile. Landscape cells suit landscape art &mdash; match the cell shape to the content&rsquo;s shape.">
+                        <img src="../../assets/images/designAssets/treeline.png" alt="Illustrated treeline at dusk" class="tile__img">
+                        <span class="tile__img-label">Local assets, zero libraries</span>
+                    </article>
+
+                    <article class="tile tile--chart" tabindex="0" data-note="A tall 1&times;2 chart tile. The bars are pure CSS &mdash; bento cells love small, self-contained data visuals.">
+                        <h4 class="tile__heading">Where eyes land first</h4>
+                        <div class="chart" role="img" aria-label="Bar chart: 2 by 2 tiles draw 92 percent first-glance attention, 2 by 1 tiles 64 percent, 1 by 1 tiles 38 percent, uniform list rows 18 percent">
+                            <div class="chart__row"><span class="chart__label">2&times;2 tile</span><span class="chart__bar" style="--w:92%"><i>92%</i></span></div>
+                            <div class="chart__row"><span class="chart__label">2&times;1 tile</span><span class="chart__bar" style="--w:64%"><i>64%</i></span></div>
+                            <div class="chart__row"><span class="chart__label">1&times;1 tile</span><span class="chart__bar" style="--w:38%"><i>38%</i></span></div>
+                            <div class="chart__row"><span class="chart__label">List row</span><span class="chart__bar chart__bar--dim" style="--w:18%"><i>18%</i></span></div>
+                        </div>
+                        <p class="tile__caption">Bigger cells win the first glance.</p>
+                    </article>
+
+                    <article class="tile tile--quote" tabindex="0" data-note="A quote tile. Text-only cells give the eye a rest between image-heavy neighbors &mdash; rhythm matters as much as content.">
+                        <blockquote>
+                            <p>&ldquo;A place for everything, and everything in its place.&rdquo;</p>
+                            <cite>&mdash; the bento box, since the 1500s</cite>
+                        </blockquote>
+                    </article>
+
+                    <article class="tile tile--stat tile--pine" tabindex="0" data-note="Another 1&times;1 stat. Notice it never competes with the 2&times;2 feature tile &mdash; the hierarchy was decided before you arrived.">
+                        <span class="tile__big">3s</span>
+                        <span class="tile__caption">average time to scan a well-built bento</span>
+                    </article>
+
+                    <article class="tile tile--cream" tabindex="0" data-note="A texture tile. The miniature grid glyph is drawn with CSS &mdash; a bento inside a bento.">
+                        <span class="bento-glyph" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                        <span class="tile__caption">modular by design</span>
+                    </article>
+                </div>
+
+                <p class="demo-caption" id="tileNote">&#9432; Click or focus any tile to <strong>feature</strong> it &mdash; it grows to 2&times;2 while its neighbors step back. In a bento grid, cell size <em>is</em> the hierarchy: promote a tile and you&rsquo;ve rewritten the page&rsquo;s order of importance without moving a single word.</p>
+                <p class="demo-caption" id="layoutNote">&#9432; Flip the <strong>Rows &#8644; Bento</strong> switch. The rows version holds identical content, but every item gets equal billing &mdash; so nothing leads. The bento version uses size variation to tell you what to read first, second, and last.</p>
+                <p class="demo-caption">&#9432; Drag the <strong>gap slider</strong>. At 0px the tiles fuse into one anxious slab; past ~24px they drift apart and stop reading as a set. The gutter is doing real work: it&rsquo;s the silence between sentences.</p>
+            </section>
+
+            <!-- ============ EDUCATIONAL BLURB ============ -->
+            <section class="essay">
+                <h2>From Lunchbox to Layout</h2>
+                <p>
+                    The bento grid borrows its name and its logic from the Japanese bento box: a lunch tray of
+                    differently sized compartments, each holding exactly one thing, arranged so the whole reads as a
+                    single tidy meal. Apple translated that idea into marketing &mdash; keynote slides and product pages
+                    where features sit in rounded, mixed-size cards &mdash; and by 2023 the pattern had swept across the
+                    web, becoming the default look for dashboards, portfolios, and SaaS landing pages alike.
+                </p>
+                <p>
+                    Its power comes from <strong>chunking</strong>. Human attention digests information in small,
+                    bounded servings, and a bento layout pre-portions the page: every tile is one idea with a hard
+                    edge around it. Hierarchy is communicated spatially &mdash; a 2&times;2 cell simply matters more than a
+                    1&times;1 &mdash; so visitors can rank the content before reading a word. The pattern is also a gift to
+                    responsive design: tiles reflow from a four-column mosaic to a single mobile column without any
+                    item losing its meaning, because each compartment was self-contained from the start.
+                </p>
+                <p>
+                    The pitfall is the <strong>junk drawer</strong>. When every tile is the same size, or when cells are
+                    filled just to plug holes in the grid, the layout keeps the rounded corners but loses the point
+                    &mdash; it becomes decoration around a list that no longer ranks anything. Use a bento when you have
+                    genuinely mixed content with a real pecking order: a product overview, a personal site, a stats
+                    dashboard. Skip it for long-form reading or step-by-step flows, where a sequence &mdash; not a
+                    mosaic &mdash; is the honest shape of the content.
+                </p>
+            </section>
+        </div>
+
+        <footer class="site-footer">
+            <h3 class="footer-copy">@Copyright 2025</h3>
+            <div class="footer-grid">
+                <div class="footer-cell">
+                    <h4>Support</h4>
+                    <p>support@airandember.com</p>
+                </div>
+                <div class="footer-cell">
+                    <h4>Operating Hours</h4>
+                    <p>Monday &ndash; Friday</p>
+                    <p>7 AM &ndash; 6 PM MST / MDT</p>
+                </div>
+                <div class="footer-cell">
+                    <h4>Legal</h4>
+                    <p><a href="#" id="privacyPolicyA">Privacy Policy</a></p>
+                </div>
+            </div>
+            <div class="socialRow">
+                <a href="#" aria-label="Instagram" class="social_link"><img src="../../assets/images/designAssets/instagram-2016-logo-svgrepo-com.svg" alt="Instagram" class="socialImg"></a>
+                <a href="#" aria-label="Facebook" class="social_link"><img src="../../assets/images/designAssets/facebook-svgrepo-com.svg" alt="Facebook" class="socialImg"></a>
+                <a href="#" aria-label="X Social" class="social_link"><img src="../../assets/images/designAssets/icons8-x.svg" alt="X" class="socialImg"></a>
+            </div>
+        </footer>
+
+        <script>
+            (function () {
+                "use strict";
+
+                var bento = document.getElementById("bento");
+                var tiles = Array.prototype.slice.call(bento.children);
+                var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+                /* FLIP helper: grid placement isn't animatable, so we snapshot
+                   positions, mutate, then animate each tile from old box to new. */
+                function flip(mutate) {
+                    if (reducedMotion.matches) { mutate(); return; }
+                    var first = tiles.map(function (t) { return t.getBoundingClientRect(); });
+                    mutate();
+                    tiles.forEach(function (t, i) {
+                        var a = first[i];
+                        var b = t.getBoundingClientRect();
+                        var dx = a.left - b.left;
+                        var dy = a.top - b.top;
+                        var sx = b.width ? a.width / b.width : 1;
+                        var sy = b.height ? a.height / b.height : 1;
+                        if (!dx && !dy && Math.abs(sx - 1) < 0.01 && Math.abs(sy - 1) < 0.01) return;
+                        t.animate(
+                            [
+                                { transform: "translate(" + dx + "px," + dy + "px) scale(" + sx + "," + sy + ")", transformOrigin: "top left" },
+                                { transform: "none", transformOrigin: "top left" }
+                            ],
+                            { duration: 480, easing: "cubic-bezier(.22,.9,.26,1)" }
+                        );
+                    });
+                }
+
+                /* --- Rows <-> Bento toggle --- */
+                var toggle = document.getElementById("layoutToggle");
+                var layoutNote = document.getElementById("layoutNote");
+                toggle.addEventListener("click", function () {
+                    var toRows = !bento.classList.contains("as-rows");
+                    flip(function () { bento.classList.toggle("as-rows", toRows); });
+                    toggle.setAttribute("aria-checked", String(!toRows));
+                    toggle.classList.toggle("layout-toggle--rows", toRows);
+                    layoutNote.innerHTML = toRows
+                        ? "&#9432; Same eight items, equal billing &mdash; and suddenly nothing leads. A uniform list makes the reader do the ranking. Flip back to <strong>Bento</strong> to hand that job to the layout."
+                        : "&#9432; Hierarchy restored: the 2&times;2 feature tile reads first, wide tiles second, single cells last. Size variation is the bento grid&rsquo;s entire sorting algorithm.";
+                });
+
+                /* --- Click a tile to feature it --- */
+                var tileNote = document.getElementById("tileNote");
+                var defaultNote = tileNote.innerHTML;
+                tiles.forEach(function (tile) {
+                    tile.addEventListener("click", function () { feature(tile); });
+                    tile.addEventListener("keydown", function (e) {
+                        if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            feature(tile);
+                        }
+                    });
+                });
+                function feature(tile) {
+                    if (bento.classList.contains("as-rows")) return;
+                    var wasFeatured = tile.classList.contains("is-featured");
+                    flip(function () {
+                        tiles.forEach(function (t) { t.classList.remove("is-featured"); });
+                        bento.classList.remove("has-feature");
+                        if (!wasFeatured) {
+                            tile.classList.add("is-featured");
+                            bento.classList.add("has-feature");
+                        }
+                    });
+                    tileNote.innerHTML = wasFeatured
+                        ? defaultNote
+                        : "&#9432; " + tile.getAttribute("data-note") + " Promoted to 2&times;2, it now outranks everything else &mdash; click it again to demote it. <em>Tile size = importance.</em>";
+                }
+
+                /* --- Gap slider --- */
+                var gapSlider = document.getElementById("gapSlider");
+                var gapValue = document.getElementById("gapValue");
+                gapSlider.addEventListener("input", function () {
+                    bento.style.setProperty("--gap", gapSlider.value + "px");
+                    gapValue.textContent = gapSlider.value + "px";
+                });
+            })();
+        </script>
+    </body>
+</html>

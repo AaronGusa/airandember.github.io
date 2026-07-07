@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air&amp;Ember &mdash; Neo-Brutalism Design Example</title>
+        <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
+        <link rel="stylesheet" href="../../css/neobrut.css">
+    </head>
+    <body>
+        <div class="returnCont">
+            <a class="Return" href="../designs.html">Back to Designs</a>
+        </div>
+
+        <header class="nb-header nb-box">
+            <a class="nb-brand" href="#" aria-label="Air and Ember home">
+                <img src="../../assets/images/designAssets/AE LOGO ICON cropped Pine.png" alt="Air&amp;Ember logo">
+                <span>Air&amp;Ember</span>
+            </a>
+            <nav class="nb-nav" aria-label="Demo navigation">
+                <ul>
+                    <li><a class="nb-box nb-press" href="#">Home</a></li>
+                    <li><a class="nb-box nb-press" href="#">About</a></li>
+                    <li><a class="nb-box nb-press" href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="nb-main">
+            <!-- Hero / educational blurb -->
+            <section class="nb-hero">
+                <span class="nb-sticker nb-sticker--spin" aria-hidden="true">100% flat color</span>
+                <h1>NEO-<br>BRUTALISM</h1>
+                <p class="nb-tagline nb-box nb-box--accent2">Loud. Honest. On purpose.</p>
+                <div class="nb-blurb nb-box">
+                    <p>
+                        Neo-brutalism is the friendly, design-school cousin of raw web brutalism. Where classic
+                        brutalism (see our <a href="brutalist.html">brutalist example page</a>) embraces unstyled
+                        90s HTML as a protest against slick sameness, neo-brutalism keeps the bluntness but adds
+                        deliberate craft. It bubbled up through the <strong>Figma and Gumroad era</strong> of the
+                        early 2020s, when product brands wanted to look hand-made and confident instead of
+                        corporate and interchangeable.
+                    </p>
+                    <p>
+                        The signature is a three-part recipe you can spot from across the room:
+                        <strong>flat, saturated color fills</strong> with zero gradients; <strong>thick solid black
+                        borders</strong> (3&ndash;4px, never hairline); and <strong>hard offset shadows</strong> with
+                        no blur at all &mdash; a solid black slab sitting behind every card, as if the page were cut
+                        from paper and glued together. Type is oversized and unapologetic, buttons physically move
+                        toward their shadow when pressed, and sticker-style badges shout in all caps.
+                    </p>
+                    <p>
+                        Small businesses love it because it is <strong>memorable, honest, and cheap to execute</strong>
+                        &mdash; no photography budget, no illustration pipeline, just color, borders, and conviction.
+                        The pitfall: overdone, it tips into gimmick. If every element screams, nothing does &mdash;
+                        the best neo-brutalist sites pair the loud frames with disciplined spacing and very plain
+                        body text, exactly like the card you are reading now.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Demo 1: Shadow Forge -->
+            <section class="nb-lab nb-box" id="shadow-forge" aria-labelledby="forgeHeading">
+                <span class="nb-sticker" aria-hidden="true">Demo 1</span>
+                <h2 id="forgeHeading">The Shadow Forge</h2>
+                <p class="nb-caption">
+                    The hard, unblurred shadow IS the signature. Drag the sliders: the shadow is just
+                    <code>box-shadow: Xpx Ypx 0 0 black</code> &mdash; that third value (blur) stays locked at zero.
+                    Add even a little blur and the card turns into ordinary &ldquo;material design&rdquo; floating
+                    paper; keep it sharp and the card looks die-cut and glued on. Border thickness works the same
+                    way: 1px reads as polite stationery, 4px reads as a statement.
+                </p>
+                <div class="forge-stage">
+                    <div class="forge-card" id="forgeCard">
+                        <h3>Die-cut card</h3>
+                        <p>Offset <output id="forgeXYOut">8px / 8px</output> &middot; border <output id="forgeBorderOut">3px</output></p>
+                    </div>
+                    <div class="forge-controls">
+                        <label class="forge-control" for="forgeX">
+                            <span>Shadow offset X <output id="forgeXOut" for="forgeX">8px</output></span>
+                            <input type="range" id="forgeX" min="0" max="16" value="8" step="1">
+                        </label>
+                        <label class="forge-control" for="forgeY">
+                            <span>Shadow offset Y <output id="forgeYOut" for="forgeY">8px</output></span>
+                            <input type="range" id="forgeY" min="0" max="16" value="8" step="1">
+                        </label>
+                        <label class="forge-control" for="forgeB">
+                            <span>Border thickness <output id="forgeBOut" for="forgeB">3px</output></span>
+                            <input type="range" id="forgeB" min="1" max="6" value="3" step="1">
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Demo 2: palette clash randomizer -->
+            <section class="nb-lab nb-box" id="palette-lab" aria-labelledby="paletteHeading">
+                <span class="nb-sticker" aria-hidden="true">Demo 2</span>
+                <h2 id="paletteHeading">Clash, but curated</h2>
+                <p class="nb-caption">
+                    Neo-brutalist palettes look random. They are not. Each one is a small set of loud colors balanced
+                    for contrast against black borders and a calm base. Hit the button to cycle through five curated
+                    palettes &mdash; every accent block, sticker, and button on this page re-inks itself through CSS
+                    custom properties. Notice that the colors always <em>clash on purpose</em>: high saturation,
+                    mismatched hues, but never more than three or four accents at once.
+                </p>
+                <div class="palette-stage">
+                    <button class="nb-btn nb-press" type="button" id="paletteBtn">Clash the palette</button>
+                    <p class="palette-readout" id="paletteReadout" role="status" aria-live="polite">
+                        Current palette: <strong>Ember &amp; Pine</strong> &mdash; the Air&amp;Ember house colors, turned up loud.
+                    </p>
+                    <div class="palette-chips" aria-hidden="true">
+                        <span class="chip chip--1"></span>
+                        <span class="chip chip--2"></span>
+                        <span class="chip chip--3"></span>
+                        <span class="chip chip--4"></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Demo 3: soften it -->
+            <section class="nb-lab nb-box" id="soften-lab" aria-labelledby="softenHeading">
+                <span class="nb-sticker" aria-hidden="true">Demo 3</span>
+                <h2 id="softenHeading">What if we &ldquo;made it professional&rdquo;?</h2>
+                <p class="nb-caption">
+                    Every small business hears it eventually: &ldquo;can we tone it down?&rdquo; Flip the switch and
+                    this entire page converts to generic corporate flat design &mdash; thin grey borders, soft blurred
+                    shadows, muted colors, smaller type. Nothing breaks. It is perfectly usable. It is also instantly
+                    forgettable: the page now looks like ten thousand other pages. Flip it back and notice how much
+                    personality the black borders and hard shadows were carrying.
+                </p>
+                <label class="soften-switch nb-box">
+                    <input type="checkbox" id="softenToggle">
+                    <span class="soften-switch__track" aria-hidden="true"><span class="soften-switch__thumb"></span></span>
+                    <span class="soften-switch__label" id="softenLabel">Soften it</span>
+                </label>
+            </section>
+
+            <!-- Feature cards showing the style applied -->
+            <section class="nb-features" aria-label="Neo-brutalism applied to product cards">
+                <div class="nb-card nb-box nb-box--accent1 nb-press">
+                    <h3>Flat fills</h3>
+                    <p>One saturated color per block. No gradients, no textures, no apologies.</p>
+                </div>
+                <div class="nb-card nb-box nb-box--accent3 nb-press">
+                    <h3>Thick strokes</h3>
+                    <p>3&ndash;4px solid black outlines make every element feel drawn by hand with a marker.</p>
+                </div>
+                <div class="nb-card nb-box nb-box--accent4 nb-press">
+                    <h3>Pressed hovers</h3>
+                    <p>Hover these cards: they translate toward the shadow, like a real button being pushed.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="nb-footer nb-box">
+            <div class="nb-social">
+                <a class="nb-box nb-press" href="" aria-label="Instagram"><img src="../../assets/images/designAssets/instagram-2016-logo-svgrepo-com.svg" alt=""></a>
+                <a class="nb-box nb-press" href="" aria-label="Facebook"><img src="../../assets/images/designAssets/facebook-svgrepo-com.svg" alt=""></a>
+                <a class="nb-box nb-press" href="" aria-label="X Social"><img src="../../assets/images/designAssets/icons8-x.svg" alt=""></a>
+            </div>
+            <div class="nb-footer__cols">
+                <div>
+                    <h4>Support</h4>
+                    <p>support@airandember.com</p>
+                </div>
+                <div>
+                    <h4>Operating Hours</h4>
+                    <p>Monday &ndash; Friday</p>
+                    <p>7 AM &ndash; 6 PM MST / MDT</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
+                </div>
+            </div>
+            <p class="nb-footer__copy">&copy; Copyright 2025 Air &amp; Ember</p>
+        </footer>
+
+        <script>
+            (function () {
+                /* Demo 1: Shadow Forge — sliders drive the demo card's custom props */
+                var card = document.getElementById("forgeCard");
+                var sx = document.getElementById("forgeX");
+                var sy = document.getElementById("forgeY");
+                var bw = document.getElementById("forgeB");
+                var sxOut = document.getElementById("forgeXOut");
+                var syOut = document.getElementById("forgeYOut");
+                var bwOut = document.getElementById("forgeBOut");
+                var xyOut = document.getElementById("forgeXYOut");
+                var borderOut = document.getElementById("forgeBorderOut");
+
+                function updateForge() {
+                    card.style.setProperty("--fx", sx.value + "px");
+                    card.style.setProperty("--fy", sy.value + "px");
+                    card.style.setProperty("--fb", bw.value + "px");
+                    sxOut.value = sx.value + "px";
+                    syOut.value = sy.value + "px";
+                    bwOut.value = bw.value + "px";
+                    xyOut.value = sx.value + "px / " + sy.value + "px";
+                    borderOut.value = bw.value + "px";
+                }
+                [sx, sy, bw].forEach(function (input) {
+                    input.addEventListener("input", updateForge);
+                });
+                updateForge();
+
+                /* Demo 2: curated palette cycler — rewrites the page accent variables */
+                var palettes = [
+                    { name: "Ember & Pine", note: "the Air&Ember house colors, turned up loud.",
+                      a1: "#ff7a2f", a2: "#9fd8cb", a3: "#ffd23f", a4: "#5c9e52" },
+                    { name: "Bubblegum Riot", note: "hot pink against mint \u2014 maximum clash, still only three hues.",
+                      a1: "#ff5d8f", a2: "#7df9c2", a3: "#ffe156", a4: "#7b5dff" },
+                    { name: "Taxi & Sky", note: "yellow-cab yellow grounded by a single cool blue.",
+                      a1: "#ffd400", a2: "#6fc7ff", a3: "#ff8552", a4: "#b5e655" },
+                    { name: "Citrus Crate", note: "three warm citrus tones, one cold lavender to break them up.",
+                      a1: "#ff9f1c", a2: "#c8b6ff", a3: "#ffe066", a4: "#ff6b35" },
+                    { name: "Pool Party", note: "cool aquas pushed loud, with one coral cannonball.",
+                      a1: "#40e0d0", a2: "#ff7a5c", a3: "#9ee7ff", a4: "#ffe156" }
+                ];
+                var paletteIndex = 0;
+                var root = document.documentElement;
+                var paletteBtn = document.getElementById("paletteBtn");
+                var paletteReadout = document.getElementById("paletteReadout");
+
+                paletteBtn.addEventListener("click", function () {
+                    paletteIndex = (paletteIndex + 1) % palettes.length;
+                    var p = palettes[paletteIndex];
+                    root.style.setProperty("--accent1", p.a1);
+                    root.style.setProperty("--accent2", p.a2);
+                    root.style.setProperty("--accent3", p.a3);
+                    root.style.setProperty("--accent4", p.a4);
+                    paletteReadout.innerHTML = "Current palette: <strong>" + p.name + "</strong> \u2014 " + p.note;
+                });
+
+                /* Demo 3: soften toggle — one class flip on <body> swaps the whole aesthetic */
+                var softenToggle = document.getElementById("softenToggle");
+                var softenLabel = document.getElementById("softenLabel");
+                softenToggle.addEventListener("change", function () {
+                    document.body.classList.toggle("is-soft", softenToggle.checked);
+                    softenLabel.textContent = softenToggle.checked
+                        ? "Corporate mode on \u2014 bring the personality back?"
+                        : "Soften it";
+                });
+            })();
+        </script>
+    </body>
+</html>

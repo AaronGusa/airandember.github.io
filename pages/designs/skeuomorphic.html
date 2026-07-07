@@ -3,66 +3,182 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Air&Ember Asymmetric Design Example</title>
+        <title>Air&amp;Ember — Skeuomorphic Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
-        <link rel="stylesheet" href="../../css/designs.css">
-        <script src="../../scripts/mobileMenu.js" defer></script>
-
+        <link rel="stylesheet" href="../../css/skeuo.css">
     </head>
-    <body class="asym_body">
-        <div class="asym_MainGrid">
-            <a class="selected" href="../designs.html">Return to Designs</a>
-            <header class="asym_header">
-                <img class="logo" src="../../assets/images/designAssets/AE LOGO ICON cropped Pine.png" alt="AE Logo">
-                <nav class="asym_nav">
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li> <a href="#">About</a></li>
-                    </ul>
-                </nav>                
-            </header>
-            <main class="main">
+    <body>
+        <div class="sk-lamp" aria-hidden="true"></div>
 
-                    <h1 class="asym_title">Asymmetrical A&E</h1>
-                    <p class="asym_location"></p>
-                    <img src="../../assets/images/designAssets/BirdHouse.webp" alt="" class="asym_Img">
-                    <div class="asym_secondary_images">
-                        <img src="" alt="" class="secondary_image">
-                        <img src="" alt="" class="secondary_image">
-                    </div>
-                    <p class="asym_description"></p>
-                    <button class="asym_button"></button>
-            </main>
-            <footer class="asym_footer">
-                <div class="">
-                    <h3 class="contactFootContent padded">@Copyright 2025</h3>
-                </div>
-                <div class="">
-                    <div class="">
-                        <h4>Support</h4>
-                        <p>support@airandember.com</p>
-                    </div>      
-                    <div class="">
-                    
-                        <h4>Operating Hours</h4>
-                        <p>Monday - Friday</p>
-                        <p>7 AM - 6 PM MST / MDT</p>
-                    </div>
-                    <div class="asym_social">
-                        <a href="" aria-label="Instagram" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-                        <a href="" aria-label="Facebook" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-                        <a href="" aria-label="X Social" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-
-                    </div>
-                    <div class="">
-                        <h4>Legal</h4>
-                        <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
-                        <!-- <p><a href="">Terms of Service</a></p> -->
-                    </div>
-                </div>
-            </footer>
+        <div class="returnCont">
+            <a class="Return" href="../designs.html">Back to Designs</a>
         </div>
-    </body>
 
+        <header class="sk-nav">
+            <span class="sk-nav_brand">
+                <img class="sk-nav_logo" src="../../assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="Air&amp;Ember logo">
+                The Workbench
+            </span>
+            <nav aria-label="Demo navigation">
+                <ul class="sk-nav_links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="sk-desk">
+            <article class="sk-paper">
+                <h1>Skeuomorphic Design</h1>
+                <p class="sk-sub">A letter from the forest cabin workbench</p>
+                <p>Skeuomorphism borrows the look and feel of real materials — leather, paper, brushed metal, glass — so that on-screen objects explain themselves. A button looks raised, so you know to press it. A switch sits in a groove, so you know it slides. Designers call these visual hints <em>affordances</em>: the texture isn't decoration, it's instruction. This page is the metaphor taken literally — a paper letter on a wooden desk, with a metal control panel screwed down beside it.</p>
+                <p>The style had its heyday in the early iPhone era, roughly 2007 to 2013. Apple's Notes app was a yellow legal pad, Game Center was a casino felt table, and iBooks shelved your library on rendered wood. It wasn't kitsch for its own sake: millions of people were touching a screen for the first time, and borrowing the physical world gave them something familiar to hold onto. Then screens multiplied — phones, tablets, watches, TVs — and all that hand-painted texture became heavy to render, hard to scale, and inconsistent across contexts. iOS 7 flattened everything in 2013, and the industry followed.</p>
+                <p>But skeuomorphism never really died. It still shines wherever an interface mimics an instrument: audio plugins with rotary knobs and VU meters, camera apps with dials, games and kids' software where tactility is the point. And its ideas came back dressed differently — neumorphism's soft shadows and glassmorphism's frosted panels are skeuomorphism with the serial numbers filed off. The lesson it taught stays true in flat design too: users should be able to tell, at a glance, what they can touch.</p>
+                <p class="sk-signoff">— The Air&amp;Ember workshop</p>
+            </article>
+
+            <section class="sk-panel" aria-label="Interactive skeuomorphism demos">
+                <span class="sk-screw sk-screw--tl" aria-hidden="true"></span>
+                <span class="sk-screw sk-screw--tr" aria-hidden="true"></span>
+                <span class="sk-screw sk-screw--bl" aria-hidden="true"></span>
+                <span class="sk-screw sk-screw--br" aria-hidden="true"></span>
+
+                <h2>Try it on the bench</h2>
+                <p class="sk-panel_sub">Three working controls, rendered like the hardware they imitate.</p>
+
+                <div class="sk-controls">
+                    <div class="sk-control">
+                        <button class="sk-switch" id="modeSwitch" role="switch" aria-checked="false" aria-label="Switch between skeuomorphic and flat rendering">
+                            <span class="sk-switch_label is-active" id="labelSkeuo">Skeuo</span>
+                            <span class="sk-switch_track"><span class="sk-switch_knob"></span></span>
+                            <span class="sk-switch_label" id="labelFlat">Flat</span>
+                        </button>
+                        <p class="sk-control_caption" id="modeCaption">Flip the switch: the same components re-render flat — textures, gradients, and shadows stripped to plain color. Notice how much harder the controls are to "read" without their physical cues.</p>
+                    </div>
+
+                    <div class="sk-control">
+                        <div class="sk-pushRow">
+                            <button class="sk-push" id="lampBtn" aria-pressed="false">LAMP</button>
+                            <span class="sk-led" aria-hidden="true"></span>
+                        </div>
+                        <p class="sk-control_caption">Real buttons travel. This one drops and its shadow inverts when pressed — the inset shadow is the skeuomorphic signal for "currently on / pushed in." It lights the desk lamp.</p>
+                    </div>
+
+                    <div class="sk-control">
+                        <div class="sk-knobWrap">
+                            <div class="sk-knob" id="warmKnob" role="slider" tabindex="0" aria-label="Lamp warmth" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+                                <div class="sk-knob_dial" id="knobDial"><span class="sk-knob_marker"></span></div>
+                            </div>
+                            <span class="sk-knob_readout" id="knobReadout">50</span>
+                        </div>
+                        <p class="sk-control_caption">Drag the knob (or focus it and use arrow keys) to set the lamp's warmth. Rotary knobs map a physical gesture to a value range — a metaphor flat sliders inherited from hardware like this.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="sk-footer">
+            <div>
+                <h4>Support</h4>
+                <p>support@airandember.com</p>
+            </div>
+            <div>
+                <h4>Operating Hours</h4>
+                <p>Monday - Friday</p>
+                <p>7 AM - 6 PM MST / MDT</p>
+            </div>
+            <div>
+                <h4>Legal</h4>
+                <p><a href="#" id="privacyPolicyA">Privacy Policy</a></p>
+            </div>
+            <p class="sk-copyright">&copy; Copyright 2025 Air&amp;Ember</p>
+        </footer>
+
+        <script>
+            (function () {
+                /* --- 1. Skeuo / Flat mode switch --- */
+                var modeSwitch = document.getElementById('modeSwitch');
+                var modeCaption = document.getElementById('modeCaption');
+                var labelSkeuo = document.getElementById('labelSkeuo');
+                var labelFlat = document.getElementById('labelFlat');
+
+                var CAPTIONS = {
+                    skeuo: 'Flip the switch: the same components re-render flat \u2014 textures, gradients, and shadows stripped to plain color. Notice how much harder the controls are to \u201cread\u201d without their physical cues.',
+                    flat: 'This is flat design: same layout, same controls, zero texture. Cleaner and lighter \u2014 but now color and labels alone must signal what\u2019s pressable. That trade-off is the whole skeuo-vs-flat debate.'
+                };
+
+                modeSwitch.addEventListener('click', function () {
+                    var flat = document.body.classList.toggle('flat');
+                    modeSwitch.setAttribute('aria-checked', String(flat));
+                    modeCaption.textContent = flat ? CAPTIONS.flat : CAPTIONS.skeuo;
+                    labelSkeuo.classList.toggle('is-active', !flat);
+                    labelFlat.classList.toggle('is-active', flat);
+                });
+
+                /* --- 2. Lamp push button --- */
+                var lampBtn = document.getElementById('lampBtn');
+
+                lampBtn.addEventListener('click', function () {
+                    var on = document.body.classList.toggle('lamp-on');
+                    lampBtn.setAttribute('aria-pressed', String(on));
+                });
+
+                /* --- 3. Rotary warmth knob --- */
+                var knob = document.getElementById('warmKnob');
+                var dial = document.getElementById('knobDial');
+                var readout = document.getElementById('knobReadout');
+                var value = 50; /* 0..100 mapped to -135deg..135deg */
+
+                function render() {
+                    var angle = -135 + (value / 100) * 270;
+                    dial.style.transform = 'rotate(' + angle + 'deg)';
+                    readout.textContent = Math.round(value);
+                    knob.setAttribute('aria-valuenow', String(Math.round(value)));
+                    /* lamp glow intensity: 0.12 .. 0.6 */
+                    document.body.style.setProperty('--lampA', (0.12 + (value / 100) * 0.48).toFixed(3));
+                }
+
+                function angleFromPointer(e) {
+                    var rect = knob.getBoundingClientRect();
+                    var cx = rect.left + rect.width / 2;
+                    var cy = rect.top + rect.height / 2;
+                    var deg = Math.atan2(e.clientX - cx, cy - e.clientY) * (180 / Math.PI);
+                    deg = Math.max(-135, Math.min(135, deg));
+                    return ((deg + 135) / 270) * 100;
+                }
+
+                var dragging = false;
+
+                knob.addEventListener('pointerdown', function (e) {
+                    dragging = true;
+                    knob.setPointerCapture(e.pointerId);
+                    value = angleFromPointer(e);
+                    render();
+                });
+
+                knob.addEventListener('pointermove', function (e) {
+                    if (!dragging) return;
+                    value = angleFromPointer(e);
+                    render();
+                });
+
+                knob.addEventListener('pointerup', function () {
+                    dragging = false;
+                });
+
+                knob.addEventListener('keydown', function (e) {
+                    var step = 0;
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowUp') step = 5;
+                    if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') step = -5;
+                    if (!step) return;
+                    e.preventDefault();
+                    value = Math.max(0, Math.min(100, value + step));
+                    render();
+                });
+
+                render();
+            })();
+        </script>
+    </body>
 </html>

@@ -3,85 +3,235 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Air&Ember Asymmetric Design Example</title>
+        <title>Air&amp;Ember — Typography Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
         <link rel="stylesheet" href="../../css/type.css">
-
     </head>
-    <body >
-        <div>
-            <div class="returnCont">
-                <a class="Return" href="../designs.html">Back to Designs</a>
-           </div>
-            <header>
-                <nav>
-                  <ul>
+    <body>
+        <div class="returnCont">
+            <a class="Return" href="../designs.html">Back to Designs</a>
+        </div>
+
+        <header class="site-header">
+            <nav>
+                <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Portfolio</a></li>
                     <li><a href="#">Contact</a></li>
-                  </ul>
-                </nav>
-              </header>
-            
-              <main>
-                <section class="hero">
-                    <div class="words">
-                        <h1>Typography is Art</h1>
-                        <h2>Where Words Speak Louder</h2>
-                        <p>
-                            Explore the power of letters, words, and expressive designs that captivate your audience
-                            through the beauty of typography.
-                        </p>
-                        <a href="#about" class="cta">Learn More</a>
-                    </div>
-                 <div class="vid">
-                    <video autoplay loop muted>
-                                        <source src="../../assets/clips/book.mp4">
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero / specimen masthead -->
+            <section class="hero">
+                <div class="words">
+                    <p class="kicker">A type specimen by Air&amp;Ember</p>
+                    <h1 class="masthead">Typography<br><em>is&nbsp;Art</em></h1>
+                    <h2 class="deck">Where words speak louder</h2>
+                    <p class="lede">
+                        Typography is the craft of arranging letters so language becomes both readable and expressive.
+                        Long before a visitor reads a single sentence, the type has already told them what kind of page
+                        this is. Explore the demos below to see &mdash; and feel &mdash; how that works.
+                    </p>
+                    <a href="#playground" class="cta">Try the Playground</a>
+                </div>
+                <div class="vid">
+                    <video autoplay loop muted playsinline aria-label="Pages of a book turning">
+                        <source src="../../assets/clips/book.mp4">
                     </video>
+                </div>
+            </section>
 
-                 </div>
-                  
-                </section>
-            
-                <section id="about" class="about">
-                  <h2>About This Design</h2>
-                  <p>
-                    This page celebrates the art of typography by combining bold headers, delicate subheadings,
-                    and dynamic text layouts to inspire creativity.
-                  </p>
-                </section>
-              </main>
-            
-            <footer class="asym_footer">
+            <!-- Educational blurb -->
+            <section id="about" class="about">
+                <h2 class="section-title">About this design</h2>
+                <p>
+                    Typography-driven design treats letterforms as the primary visual material: bold headers, delicate
+                    subheadings, deliberate spacing, and dynamic layouts carry the page with little or no imagery.
+                    Done well, it establishes hierarchy, sets tone, and guides the eye &mdash; all with the same tools
+                    printers have refined for five centuries. This page uses Air&amp;Ember&rsquo;s own local fonts, including a
+                    <em>variable</em> font (Playfair Display) whose weight you can stretch continuously in the playground below.
+                </p>
+            </section>
+
+            <!-- Demo 1: Type Playground -->
+            <section class="demo" id="playground">
+                <h2 class="section-title">Demo 1 &mdash; The Type Playground</h2>
+                <p class="demo-caption">
+                    Every term below is a real typographer&rsquo;s word. <strong>Tracking</strong> is the space between all letters;
+                    <strong>leading</strong> (rhymes with &ldquo;sledding&rdquo;) is the space between lines; and <strong>weight</strong> is the
+                    thickness of the strokes. Playfair Display is a variable font, so its weight axis is continuous &mdash;
+                    not just &ldquo;regular or bold.&rdquo; The text is editable: click it and type your own words.
+                </p>
+                <div class="playground">
+                    <p class="specimen" id="specimen" contenteditable="true" spellcheck="false">Hand-built &amp; fired with care</p>
+                    <div class="playground-controls">
+                        <label class="control">
+                            <span class="control-name">Size <small>(font-size)</small></span>
+                            <input type="range" id="ctlSize" min="18" max="110" value="56">
+                            <output id="outSize">56px</output>
+                        </label>
+                        <label class="control">
+                            <span class="control-name">Weight <small>(variable wght axis)</small></span>
+                            <input type="range" id="ctlWeight" min="400" max="900" value="700">
+                            <output id="outWeight">700</output>
+                        </label>
+                        <label class="control">
+                            <span class="control-name">Tracking <small>(letter-spacing)</small></span>
+                            <input type="range" id="ctlTracking" min="-4" max="30" value="0">
+                            <output id="outTracking">0.00em</output>
+                        </label>
+                        <label class="control">
+                            <span class="control-name">Leading <small>(line-height)</small></span>
+                            <input type="range" id="ctlLeading" min="90" max="220" value="115">
+                            <output id="outLeading">1.15</output>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Demo 2: Font pairing -->
+            <section class="demo" id="pairing">
+                <h2 class="section-title">Demo 2 &mdash; Font Pairing</h2>
+                <p class="demo-caption">
+                    Good pairings give the heading and the body <em>different jobs</em>: one provides voice, the other provides
+                    comfort. Bad pairings make two display faces compete for attention. Try each preset on the sample card.
+                </p>
+                <div class="pairing-buttons" role="group" aria-label="Font pairing presets">
+                    <button class="pair-btn is-active" type="button" data-pair="classic">Playfair + Caviar Dreams</button>
+                    <button class="pair-btn" type="button" data-pair="modern">ZT Neue Ralewe + Nauman</button>
+                    <button class="pair-btn" type="button" data-pair="warm">Monday Coffee + ZT Medium</button>
+                    <button class="pair-btn pair-btn-bad" type="button" data-pair="bad">Monday Coffee + Feronia</button>
+                </div>
+                <div class="pair-card" id="pairCard" data-pair="classic">
+                    <h3 class="pair-heading">The Kiln Runs Hot Tonight</h3>
+                    <p class="pair-body">
+                        Down in the valley workshop, the evening fire settles into a steady glow. Each piece on the shelf
+                        carries the mark of the hand that shaped it &mdash; a quiet argument for doing things slowly and well.
+                    </p>
+                </div>
+                <p class="pair-caption" id="pairCaption">
+                    <strong>Why it works:</strong> a high-contrast serif display over a clean geometric sans &mdash; classic
+                    editorial contrast. Each face has a clear, separate job.
+                </p>
+            </section>
+
+            <!-- Demo 3: Hierarchy toggle -->
+            <section class="demo" id="hierarchy">
+                <h2 class="section-title">Demo 3 &mdash; Why Hierarchy Matters</h2>
+                <p class="demo-caption">
+                    Hierarchy is the size, weight, and spacing system that tells readers what to look at first.
+                    Flip it off and the same article becomes a wall of words &mdash; nothing invites the eye in,
+                    and skimming becomes impossible.
+                </p>
+                <button class="hierarchy-toggle" type="button" id="hierToggle" aria-pressed="true">
+                    Hierarchy: <span id="hierState">ON</span>
+                </button>
+                <article class="hier-article" id="hierArticle">
+                    <p class="ha-kicker">From the workshop journal</p>
+                    <h3 class="ha-title">Firing Day at the Ridge Kiln</h3>
+                    <p class="ha-sub">Twelve hours, three cords of pine, and one nervous apprentice</p>
+                    <p class="ha-body">
+                        The kiln was loaded by lantern light, every shelf packed with a season&rsquo;s work. By noon the
+                        pyrometer read cone ten and the chimney breathed in long orange pulls.
+                    </p>
+                    <p class="ha-body">
+                        When the bricks finally cooled and the door came down, the glazes had run exactly where they
+                        were supposed to &mdash; which, any potter will tell you, almost never happens.
+                    </p>
+                </article>
+            </section>
+        </main>
+
+        <footer class="asym_footer">
+            <div class="">
+                <h3 class="contactFootContent padded">@Copyright 2025</h3>
+            </div>
+            <div class="footGrid">
                 <div class="">
-                    <h3 class="contactFootContent padded">@Copyright 2025</h3>
+                    <h4>Support</h4>
+                    <p>support@airandember.com</p>
                 </div>
                 <div class="">
-                    <div class="">
-                        <h4>Support</h4>
-                        <p>support@airandember.com</p>
-                    </div>      
-                    <div class="">
-                    
-                        <h4>Operating Hours</h4>
-                        <p>Monday - Friday</p>
-                        <p>7 AM - 6 PM MST / MDT</p>
-                    </div>
-                    <div class="asym_social">
-                        <a href="" aria-label="Instagram" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-                        <a href="" aria-label="Facebook" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-                        <a href="" aria-label="X Social" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-
-                    </div>
-                    <div class="">
-                        <h4>Legal</h4>
-                        <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
-                        <!-- <p><a href="">Terms of Service</a></p> -->
-                    </div>
+                    <h4>Operating Hours</h4>
+                    <p>Monday - Friday</p>
+                    <p>7 AM - 6 PM MST / MDT</p>
                 </div>
-            </footer>
-        </div>
+                <div class="asym_social">
+                    <a href="" aria-label="Instagram" class="asym_social_link"><img src="../../assets/images/designAssets/instagram-2016-logo-svgrepo-com.svg" alt="Instagram" class="asym_socialImg"></a>
+                    <a href="" aria-label="Facebook" class="asym_social_link"><img src="../../assets/images/designAssets/facebook-svgrepo-com.svg" alt="Facebook" class="asym_socialImg"></a>
+                    <a href="" aria-label="X Social" class="asym_social_link"><img src="../../assets/images/designAssets/icons8-x.svg" alt="X" class="asym_socialImg"></a>
+                </div>
+                <div class="">
+                    <h4>Legal</h4>
+                    <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
+                    <!-- <p><a href="">Terms of Service</a></p> -->
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            (function () {
+                /* --- Demo 1: Type Playground --- */
+                var specimen = document.getElementById('specimen');
+
+                function bind(id, outId, apply) {
+                    var input = document.getElementById(id);
+                    var out = document.getElementById(outId);
+                    input.addEventListener('input', function () { apply(input.value, out); });
+                    apply(input.value, out);
+                }
+
+                bind('ctlSize', 'outSize', function (v, out) {
+                    specimen.style.fontSize = v + 'px';
+                    out.textContent = v + 'px';
+                });
+                bind('ctlWeight', 'outWeight', function (v, out) {
+                    specimen.style.fontVariationSettings = "'wght' " + v;
+                    out.textContent = v;
+                });
+                bind('ctlTracking', 'outTracking', function (v, out) {
+                    var em = (v / 100).toFixed(2);
+                    specimen.style.letterSpacing = em + 'em';
+                    out.textContent = em + 'em';
+                });
+                bind('ctlLeading', 'outLeading', function (v, out) {
+                    var lh = (v / 100).toFixed(2);
+                    specimen.style.lineHeight = lh;
+                    out.textContent = lh;
+                });
+
+                /* --- Demo 2: Font pairing --- */
+                var pairCard = document.getElementById('pairCard');
+                var pairCaption = document.getElementById('pairCaption');
+                var pairBtns = document.querySelectorAll('.pair-btn');
+                var pairNotes = {
+                    classic: '<strong>Why it works:</strong> a high-contrast serif display over a clean geometric sans \u2014 classic editorial contrast. Each face has a clear, separate job.',
+                    modern: '<strong>Why it works:</strong> two quiet sans-serifs separated by a big weight jump. Harmony comes from similarity; hierarchy comes from weight, not style.',
+                    warm: '<strong>Why it works:</strong> a hand-drawn display face brings personality, while a neutral medium sans keeps paragraphs effortless to read. Voice up top, comfort below.',
+                    bad: '<strong>Why it fails:</strong> two decorative display faces compete \u2014 both demand attention, neither is built for body text, and the paragraph becomes genuinely hard to read.'
+                };
+                pairBtns.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        pairCard.dataset.pair = btn.dataset.pair;
+                        pairCaption.innerHTML = pairNotes[btn.dataset.pair];
+                        pairBtns.forEach(function (b) { b.classList.remove('is-active'); });
+                        btn.classList.add('is-active');
+                    });
+                });
+
+                /* --- Demo 3: Hierarchy toggle --- */
+                var hierToggle = document.getElementById('hierToggle');
+                var hierState = document.getElementById('hierState');
+                var hierArticle = document.getElementById('hierArticle');
+                hierToggle.addEventListener('click', function () {
+                    var off = hierArticle.classList.toggle('no-hierarchy');
+                    hierState.textContent = off ? 'OFF' : 'ON';
+                    hierToggle.setAttribute('aria-pressed', off ? 'false' : 'true');
+                });
+            })();
+        </script>
     </body>
-
 </html>

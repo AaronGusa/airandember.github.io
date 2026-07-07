@@ -1,16 +1,59 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    color: rgb(0, 85, 78);
+/* ============================================================
+   Air&Ember — Flat Design education page
+   Rule of the page: solid color, 2D geometry, zero gradients
+   or blurred shadows — except inside the "Flatten it" lab,
+   where skeuomorphism is the teaching specimen.
+   ============================================================ */
+
+@font-face {
+    font-family: 'Caviar Dreams';
+    src: url(../assets/fonts/CaviarDreams.ttf) format('truetype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Caviar Dreams';
+    src: url(../assets/fonts/CaviarDreams_Bold.ttf) format('truetype');
+    font-weight: 700;
+    font-display: swap;
 }
 
 @font-face {
     font-family: Krusty;
     src: url(../assets/fonts/krustycraft.otf);
+    font-display: swap;
 }
 
+:root {
+    --cream: #f4e7c5;
+    --cream-paper: #faf3e0;
+    --pine: #172c16;
+    --pine-soft: #2c4a2a;
+    --ember: #a74918;
+    --ember-bright: #ff7a2f;
+    --ink: #080511;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cream-paper);
+    color: var(--pine);
+    font-family: 'Caviar Dreams', 'Segoe UI', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ---------- Back to Designs ---------- */
 .returnCont {
     display: flex;
     justify-content: center;
@@ -33,183 +76,526 @@
     z-index: 200000;
 }
 
-html, body {
-    background-color: rgb(1, 54, 38);
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
+/* ---------- Header ---------- */
+.flat-header {
+    background-color: var(--cream);
+    border-bottom: 4px solid var(--pine);
 }
 
-body {
-    background-color: whitesmoke;
-    width: auto;
-    border-radius: 25px;
-    margin: 1rem;
-    box-sizing: border-box;
-    height: 100vh;
-}
-
-nav {
-    height: 15vh;
-    width: 100%;
-    overflow: hidden;
-    padding: 0.25rem;
+.flat-nav {
+    max-width: 72rem;
+    margin: 0 auto;
     display: flex;
-    justify-items: center; 
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem clamp(1rem, 4vw, 2.5rem);
+}
+
+.flat-nav__logo {
+    height: 3rem;
+    width: auto;
+}
+
+.flat-nav__links {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: clamp(0.75rem, 3vw, 2.5rem);
+    list-style: none;
+}
+
+.flat-nav__links a {
+    color: var(--pine);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.6rem;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.flat-nav__links a:hover,
+.flat-nav__links a:focus-visible {
+    background-color: var(--ember);
+    color: var(--cream);
+}
+
+/* ---------- Layout ---------- */
+.flat-main {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 6vw, 4rem) clamp(1rem, 4vw, 2.5rem) 5rem;
+    display: grid;
+    gap: clamp(3.5rem, 9vw, 6.5rem);
+}
+
+.flat-eyebrow {
+    color: var(--ember);
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.flat-title {
+    font-size: clamp(2.75rem, 9vw, 6rem);
+    line-height: 1;
+    text-transform: uppercase;
+    color: var(--pine);
+    margin-bottom: 1.25rem;
+}
+
+.flat-h2 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: var(--pine);
+    margin-bottom: 1.75rem;
+}
+
+.flat-lede {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 58ch;
+}
+
+/* ---------- Hero ---------- */
+.flat-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 5vw, 4rem);
     align-items: center;
 }
 
-nav img {
-    max-height: 55%;
-    width: auto;
-    justify-content: center;
-}
-
-ul {
-    width: 100%;
+.flat-hero__actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    list-style: none; 
-    justify-content: space-around;
+    gap: 1.25rem;
+    margin-top: 2rem;
 }
 
-button {
-    max-width: 150px;
-    margin: 0.5rem;
-    border-radius: 15px;
-    padding: 1rem;
-    color: white;
-    background: linear-gradient(to right, rgb(43, 77, 66), rgb(27, 87, 68), rgb(43, 77, 66));
+.flat-btn {
+    display: inline-block;
+    padding: 0.9rem 1.9rem;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease, color 0.15s ease;
 }
 
-main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    /* min-height: calc(100vh - 30vh - 50px); Adjusts for nav and footer */
-    padding: 2rem;
+.flat-btn--primary {
+    background-color: var(--ember);
+    color: var(--cream);
+    /* hard offset shadow: depth cue that stays honestly 2D */
+    box-shadow: 6px 6px 0 var(--pine);
 }
 
-section {
-    grid-column: 1 / 2;
-    grid-row: 1;
-    z-index: 1;
-
+.flat-btn--primary:hover,
+.flat-btn--primary:focus-visible {
+    background-color: var(--ember-bright);
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--pine);
 }
 
-section h1 {
-    font-size: 3rem;
+.flat-btn--ghost {
+    color: var(--pine);
+    border: 3px solid var(--pine);
 }
 
-p {
-    line-height: 2;
+.flat-btn--ghost:hover,
+.flat-btn--ghost:focus-visible {
+    background-color: var(--pine);
+    color: var(--cream);
 }
 
-div {
-    grid-column: 2 / 4;
-    grid-row: 1;
-    z-index: 0;
-    display: flex;
-    justify-content: right;
-    width: 100%;
+/* Hero shape composition — all pure CSS geometry */
+.flat-hero__art {
+    position: relative;
+    min-height: clamp(16rem, 40vw, 24rem);
 }
 
-div img {
-    aspect-ratio: 6 / 5; /* Maintains the aspect ratio of the image */
-    width: clamp(2rem, 100%, 558px); /* Responsive width with constraints */
-    height: auto; /* Auto-adjust the height based on the width */
-    object-fit: cover; 
-}
-
-
-footer {
+.shape {
     position: absolute;
-    bottom: 75px;
-    height: 75px;
-    background-color: #333;
-    color: white;
+    display: block;
+}
+
+.shape--circle {
+    width: 62%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--ember-bright);
+    top: 4%;
+    left: 8%;
+}
+
+.shape--triangle {
+    width: 0;
+    height: 0;
+    border-left: 5.5rem solid transparent;
+    border-right: 5.5rem solid transparent;
+    border-bottom: 9rem solid var(--pine);
+    bottom: 2%;
+    right: 4%;
+}
+
+.shape--square {
+    width: 4.5rem;
+    aspect-ratio: 1;
+    background-color: var(--ember);
+    transform: rotate(14deg);
+    top: 0;
+    right: 16%;
+}
+
+.shape--bar {
+    width: 38%;
+    height: 1.4rem;
+    background-color: var(--pine-soft);
+    bottom: 12%;
+    left: 0;
+}
+
+.flat-hero__trees {
+    position: absolute;
+    width: 58%;
+    height: auto;
+    left: 14%;
+    bottom: 0;
+}
+
+/* ---------- Principles ---------- */
+.flat-principles__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 1.5rem;
+}
+
+.flat-card {
+    background-color: var(--cream);
+    padding: 2rem 1.75rem;
+    border: 3px solid var(--pine);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.flat-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0 var(--ember);
+}
+
+.flat-card--ember {
+    background-color: var(--ember);
+    color: var(--cream);
+}
+
+.flat-card--ember:hover {
+    box-shadow: 8px 8px 0 var(--pine);
+}
+
+.flat-card--pine {
+    background-color: var(--pine);
+    color: var(--cream);
+}
+
+.flat-card h3 {
+    font-size: 1.4rem;
+    margin: 1.1rem 0 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.flat-card p {
+    font-size: 0.98rem;
+}
+
+/* CSS-only icons */
+.flat-icon {
+    display: block;
+    width: 3.25rem;
+    height: 3.25rem;
+    position: relative;
+}
+
+.flat-icon--bolt {
+    background-color: var(--ember-bright);
+    clip-path: polygon(58% 0, 18% 56%, 44% 56%, 36% 100%, 82% 40%, 54% 40%);
+}
+
+.flat-icon--eye {
+    border-radius: 50%;
+    background-color: var(--cream);
+    border: 4px solid var(--pine);
+}
+
+.flat-card--ember .flat-icon--eye {
+    border-color: var(--cream);
+    background-color: var(--ember);
+}
+
+.flat-icon--eye::after {
+    content: "";
+    position: absolute;
+    inset: 50%;
+    width: 1.1rem;
+    height: 1.1rem;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: var(--pine);
+}
+
+.flat-card--ember .flat-icon--eye::after {
+    background-color: var(--cream);
+}
+
+.flat-icon--grid::before {
+    content: "";
+    position: absolute;
+    width: 1.35rem;
+    height: 1.35rem;
+    background-color: var(--ember-bright);
+    /* hard-edged copies: still flat, zero images */
+    box-shadow: 1.85rem 0 0 var(--cream), 0 1.85rem 0 var(--cream), 1.85rem 1.85rem 0 var(--ember-bright);
+}
+
+/* ---------- Flatten-it lab ---------- */
+.flatten-lab__stage {
+    display: grid;
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+    gap: clamp(1.5rem, 5vw, 3.5rem);
+    align-items: center;
+    background-color: var(--cream);
+    border: 3px solid var(--pine);
+    padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+/*
+   The specimen card. One block of HTML; the --depth custom
+   property (1 = skeuomorphic, 0 = flat) drives every fake-3D
+   effect, so the slider morphs it live.
+*/
+.skeu-card {
+    position: relative;
+    background-color: #fffdf6;
+    border: 2px solid var(--pine);
+    border-radius: calc(4px + var(--depth) * 16px);
+    box-shadow: 0 calc(var(--depth) * 14px) calc(var(--depth) * 26px) rgba(8, 5, 17, 0.4);
+    overflow: hidden;
+}
+
+.skeu-card__sheen {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(170deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0) 38%, rgba(8, 5, 17, 0.12) 100%);
+    box-shadow: inset 0 2px 2px rgba(255, 255, 255, 0.8), inset 0 -4px 8px rgba(8, 5, 17, 0.25);
+    opacity: var(--depth);
+    z-index: 2;
+}
+
+.skeu-card__imgWrap {
+    position: relative;
+}
+
+.skeu-card__imgWrap img {
+    display: block;
+    width: 100%;
+    height: 11rem;
+    object-fit: cover;
+}
+
+.skeu-card__imgGloss {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 45%);
+    box-shadow: inset 0 -6px 10px rgba(8, 5, 17, 0.4);
+    opacity: var(--depth);
+}
+
+.skeu-card__body {
+    padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.skeu-card__body h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.skeu-card__body p {
+    font-size: 0.92rem;
+    margin-bottom: 1.1rem;
+}
+
+.skeu-card__btn {
+    position: relative;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    color: var(--cream);
+    background-color: var(--ember);
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    border-radius: calc(2px + var(--depth) * 18px);
+    box-shadow: 0 calc(var(--depth) * 5px) calc(var(--depth) * 8px) rgba(8, 5, 17, 0.45);
+    overflow: hidden;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.skeu-card__btnSheen {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.05) 50%, rgba(8, 5, 17, 0.25));
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), inset 0 -2px 4px rgba(8, 5, 17, 0.4);
+    opacity: var(--depth);
+}
+
+/* flat ≠ static: feedback without fake 3D */
+.skeu-card__btn:hover,
+.skeu-card__btn:focus-visible {
+    background-color: var(--ember-bright);
+    transform: translateY(-2px);
+}
+
+/* ---------- Lab controls ---------- */
+.flatten-lab__controls {
+    display: grid;
+    gap: 1rem;
+}
+
+.flatten-lab__scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ember);
+}
+
+.flatten-lab__label {
+    font-weight: 700;
+    display: grid;
+    gap: 0.5rem;
+}
+
+.flatten-lab__label input[type="range"] {
+    width: 100%;
+    accent-color: var(--ember);
+    height: 1.5rem;
+    cursor: pointer;
+    /* range runs skeuomorphic (right, 100) to flat (left, 0) */
+    direction: rtl;
+}
+
+.flat-caption {
+    font-size: 0.95rem;
+    color: var(--pine-soft);
+    max-width: 60ch;
+}
+
+.flat-caption--wide {
+    margin-top: 1.5rem;
+    max-width: 75ch;
+}
+
+/* ---------- Footer ---------- */
+.flat-footer {
+    background-color: var(--pine);
+    color: var(--cream);
+    padding: 3rem clamp(1rem, 4vw, 2.5rem) 5.5rem;
     text-align: center;
 }
 
-@media screen and (min-width: 1056px) {
-    .returnCont {
-        display: flex;
-        justify-content: center;
-    }
-    
-    .Return {
-        position: fixed;
-        background-color: #a74918;
-        top: 15px;
-        right: 15px;
-        height: 3rem;
-        width: 15rem;
-        display: flex;
-        justify-content: center;
-        border-radius: 50px;
-        padding: 0.5rem;
-        color: white;
-        font-weight: 200;
-        letter-spacing: 0.15rem;
-        text-decoration: none;
-        font-family: 'Krusty', sans-serif;
-    }
-    
+.flat-footer__cols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(1.5rem, 6vw, 5rem);
+    margin-bottom: 2rem;
+}
 
+.flat-footer__cols h4 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    color: var(--ember-bright);
+}
 
-    main {
-        grid-template-columns: 1fr 1fr;
-        justify-content: center;
-        align-items: center;
-        height: 70vh;
-        padding: 10rem;
-        /* min-height: calc(100vh - 30vh - 50px); */
+.flat-footer__cols p {
+    font-size: 0.95rem;
+}
 
-    }
+.flat-footer a {
+    color: var(--cream);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
 
-    body {
-        overflow-y: hidden;
-    }
+.flat-footer a:hover {
+    color: var(--ember-bright);
+}
 
-    div img {
-        position: absolute;
-        top: 25vh;
-        right: 0;
-        height: 100%;
-        z-index: 0
+.flat-footer__copy {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* ---------- Responsive ---------- */
+@media screen and (max-width: 860px) {
+    .flat-hero {
+        grid-template-columns: 1fr;
     }
 
-    div {
-        /* overflow-y: hidden; */
+    .flat-hero__art {
+        order: -1;
+        min-height: 14rem;
+    }
+
+    .shape--triangle {
+        border-left-width: 3.5rem;
+        border-right-width: 3.5rem;
+        border-bottom-width: 6rem;
+    }
+
+    .flatten-lab__stage {
+        grid-template-columns: 1fr;
+    }
+
+    .skeu-card {
+        max-width: 22rem;
+        margin: 0 auto;
     }
 }
 
-@media screen and (min-width: 1438px) {
-    div img {
-        width: 50vw;
+@media screen and (min-width: 1056px) {
+    .Return {
+        position: fixed;
+        bottom: auto;
+        top: 15px;
+        right: 15px;
+        height: 3rem;
+    }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
     }
 
-    main {
-        padding: 0 15rem;
-        padding-right: 25rem;
+    html {
+        scroll-behavior: auto;
     }
+}
 
-    section button {
-        margin-top: 1rem;
-        max-width: 35vw;
-        width: 25vw;
-        height: 200px;
-        font-size: 5rem;
-        border-radius: 50px;
+@media screen and (max-width: 480px) {
+    .Return {
+        visibility: hidden;
     }
-
-    p {
-        line-height: 4;
-        font-size: 1.5rem;
-    }
-
 }

@@ -3,45 +3,162 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Air&Ember Flat Design Example</title>
+        <title>Air&amp;Ember Flat Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
         <link rel="stylesheet" href="../../css/designFlat.css">
     </head>
     <body>
-        <header>
-            <nav>
-                <img src="../../assets/images/designAssets/AE-LOGO-ICON-1.webp" alt="">
-                <ul>
-                    <li>The Home</li>
-                    <li>The Mission</li>
-                    <li>The Bundles</li>
-                    <li>The Founders</li>
-                </ul>
-                <!-- <button>Order Air & Ember</button> -->
-            </nav>
-        </header>
         <div class="returnCont">
             <a class="Return" href="../designs.html">Back to Designs</a>
         </div>
-        <main>
-            <section>
-                <h1>FLAT DESIGN</h1>
-                <p>Flat web design is a minimalist approach emphasizing clean lines, solid colors, and 2D elements without 
-                   textures or gradients. Its advantages include faster load times, responsive adaptability, and user-friendly
-                   interfaces. By avoiding excessive design clutter, it enhances readability, simplifies navigation, and creates
-                   a modern aesthetic that aligns with digital trends.
-                </p>
-                <button>Sign Up</button>
+
+        <header class="flat-header">
+            <nav class="flat-nav" aria-label="Demo navigation">
+                <img class="flat-nav__logo" src="../../assets/images/designAssets/AE-LOGO-ICON-1.webp" alt="Air&amp;Ember logo">
+                <ul class="flat-nav__links">
+                    <li><a href="#">The Home</a></li>
+                    <li><a href="#">The Mission</a></li>
+                    <li><a href="#">The Bundles</a></li>
+                    <li><a href="#">The Founders</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="flat-main">
+            <section class="flat-hero">
+                <div class="flat-hero__copy">
+                    <p class="flat-eyebrow">Design Education &middot; Flat Design</p>
+                    <h1 class="flat-title">Flat Design</h1>
+                    <p class="flat-lede">
+                        Flat design is the discipline of leaving things out. No gradients, no bevels, no drop
+                        shadows, no fake leather &mdash; just solid color, simple 2D geometry, clear type, and
+                        generous space. What&rsquo;s left loads faster, scales to any screen without breaking,
+                        and tells the visitor exactly what matters. The style rose as screens diversified:
+                        when an interface must work at every size, decoration becomes baggage and clarity
+                        becomes the brand.
+                    </p>
+                    <div class="flat-hero__actions">
+                        <a class="flat-btn flat-btn--primary" href="#flatten-lab">Flatten Something</a>
+                        <a class="flat-btn flat-btn--ghost" href="#principles">Why It Works</a>
+                    </div>
+                </div>
+                <div class="flat-hero__art" aria-hidden="true">
+                    <span class="shape shape--circle"></span>
+                    <span class="shape shape--triangle"></span>
+                    <span class="shape shape--square"></span>
+                    <span class="shape shape--bar"></span>
+                    <img class="flat-hero__trees" src="../../assets/images/designAssets/Tree.png" alt="">
+                </div>
             </section>
-            <div>
-                <img src="../../assets/images/designAssets/Tree.png" alt="trees image">
-            </div>
+
+            <section class="flat-principles" id="principles" aria-labelledby="principles-heading">
+                <h2 id="principles-heading" class="flat-h2">What flatness buys you</h2>
+                <div class="flat-principles__grid">
+                    <article class="flat-card">
+                        <span class="flat-icon flat-icon--bolt" aria-hidden="true"></span>
+                        <h3>Speed</h3>
+                        <p>Solid colors and CSS shapes weigh almost nothing. No texture images to download means pages render in a blink &mdash; these three icons are pure CSS, zero image requests.</p>
+                    </article>
+                    <article class="flat-card flat-card--ember">
+                        <span class="flat-icon flat-icon--eye" aria-hidden="true"></span>
+                        <h3>Clarity</h3>
+                        <p>Without ornament competing for attention, hierarchy comes from size, color, and spacing alone. The eye finds the action button because nothing is pretending to be one.</p>
+                    </article>
+                    <article class="flat-card flat-card--pine">
+                        <span class="flat-icon flat-icon--grid" aria-hidden="true"></span>
+                        <h3>Scalability</h3>
+                        <p>A flat circle looks identical at 16 pixels or 1600. Flat systems survive every screen, density, and dark/light theme &mdash; which is why nearly every modern UI kit starts flat.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="flatten-lab" id="flatten-lab" aria-labelledby="lab-heading">
+                <h2 id="lab-heading" class="flat-h2">Flatten it: drag the slider</h2>
+                <div class="flatten-lab__stage">
+                    <article class="skeu-card" id="skeuCard" style="--depth: 1;">
+                        <span class="skeu-card__sheen" aria-hidden="true"></span>
+                        <div class="skeu-card__imgWrap">
+                            <img src="../../assets/images/designAssets/BirdHouse.webp" alt="A birdhouse on a cabin beam in a pine forest">
+                            <span class="skeu-card__imgGloss" aria-hidden="true"></span>
+                        </div>
+                        <div class="skeu-card__body">
+                            <h3>Mountain Birdhouse Kit</h3>
+                            <p>Hand-cut pine, ready in an afternoon.</p>
+                            <button type="button" class="skeu-card__btn">
+                                <span class="skeu-card__btnSheen" aria-hidden="true"></span>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </article>
+                    <div class="flatten-lab__controls">
+                        <div class="flatten-lab__scale" aria-hidden="true">
+                            <span>Skeuomorphic, c.&nbsp;2010</span>
+                            <span>Flat, today</span>
+                        </div>
+                        <label class="flatten-lab__label" for="depthSlider">Depth &amp; decoration
+                            <input type="range" id="depthSlider" min="0" max="100" value="100" step="1"
+                                   aria-label="Morph the card from skeuomorphic to flat">
+                        </label>
+                        <p class="flat-caption" id="depthCaption" aria-live="polite">
+                            Full skeuomorphism: gradients imitate light, bevels imitate plastic, shadows imitate depth.
+                        </p>
+                    </div>
+                </div>
+                <p class="flat-caption flat-caption--wide">
+                    The card is identical HTML the whole time &mdash; the slider only changes CSS. As you drag,
+                    flat design strips away the simulated lighting (gradients), the simulated material (bevels and
+                    gloss), and the simulated depth (blurred drop shadows). What remains is smaller to ship, easier
+                    to read, and effortless to recolor or resize &mdash; speed, clarity, scalability. Hover the
+                    finished flat button: flat doesn&rsquo;t mean static. Color shifts and hard offset shadows give
+                    feedback without faking three dimensions.
+                </p>
+            </section>
         </main>
-        
-        <footer>
 
+        <footer class="flat-footer">
+            <div class="flat-footer__cols">
+                <div>
+                    <h4>Support</h4>
+                    <p>support@airandember.com</p>
+                </div>
+                <div>
+                    <h4>Operating Hours</h4>
+                    <p>Monday &ndash; Friday</p>
+                    <p>7 AM &ndash; 6 PM MST / MDT</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
+                </div>
+            </div>
+            <p class="flat-footer__copy">&copy; Copyright 2025 Air &amp; Ember</p>
         </footer>
-        
-    </body>
 
+        <script>
+            (function () {
+                var slider = document.getElementById("depthSlider");
+                var card = document.getElementById("skeuCard");
+                var caption = document.getElementById("depthCaption");
+
+                function describe(depth) {
+                    if (depth > 0.66) {
+                        return "Full skeuomorphism: gradients imitate light, bevels imitate plastic, shadows imitate depth.";
+                    }
+                    if (depth > 0.33) {
+                        return "Halfway: the fake lighting fades and the real hierarchy \u2014 image, title, action \u2014 starts to carry the design.";
+                    }
+                    if (depth > 0.02) {
+                        return "Almost flat: only a whisper of shadow remains. Notice the button reads just as clearly without the chrome.";
+                    }
+                    return "Fully flat: solid color, hard edges, honest 2D. Less to download, nothing to squint at.";
+                }
+
+                slider.addEventListener("input", function () {
+                    var depth = Number(slider.value) / 100;
+                    card.style.setProperty("--depth", depth.toFixed(3));
+                    caption.textContent = describe(depth);
+                });
+            })();
+        </script>
+    </body>
 </html>

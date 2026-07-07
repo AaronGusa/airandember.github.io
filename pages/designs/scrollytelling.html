@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air&amp;Ember — Scrollytelling &amp; Parallax Design Example</title>
+        <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
+        <link rel="stylesheet" href="../../css/scrolly.css">
+    </head>
+    <body>
+        <div class="sc-progress" aria-hidden="true">
+            <div class="sc-progress__bar" id="progressBar"></div>
+        </div>
+
+        <div class="returnCont">
+            <a class="Return" href="../designs.html">Back to Designs</a>
+        </div>
+
+        <main>
+            <!-- 1 ── Layered parallax hero -->
+            <header class="sc-hero" id="hero" aria-label="Parallax hero scene">
+                <div class="sc-hero__sky" aria-hidden="true"></div>
+                <div class="sc-hero__layer sc-hero__layer--far" data-speed="0.55" aria-hidden="true"></div>
+                <div class="sc-hero__layer sc-hero__layer--mid" data-speed="0.35" aria-hidden="true"></div>
+                <div class="sc-hero__copy" id="heroCopy" data-speed="0.45">
+                    <p class="sc-eyebrow">Design Education &middot; Scrollytelling &amp; Parallax</p>
+                    <h1 class="sc-hero__title">The Page That Tells<br>Its Own Story</h1>
+                    <p class="sc-hero__sub">You are inside the demo. Every section below explains a scrollytelling
+                        technique <em>while performing it</em> &mdash; starting with these treelines, drifting at
+                        three different speeds.</p>
+                    <p class="sc-hero__cue" aria-hidden="true">Scroll<span class="sc-hero__chev">&#x25BE;</span></p>
+                </div>
+                <div class="sc-hero__layer sc-hero__layer--near" data-speed="0.12" aria-hidden="true"></div>
+            </header>
+
+            <p class="sc-caption sc-caption--hero">
+                <strong>What just happened:</strong> the three bands of forest above share a single scroll listener
+                and one <code>requestAnimationFrame</code> loop. The far band keeps ~55% of your scroll, the middle
+                ~35%, the nearest almost none &mdash; and that speed difference alone is what your eye reads as depth.
+            </p>
+
+            <!-- 2 ── Educational blurb -->
+            <section class="sc-essay" id="story" aria-labelledby="storyHeading">
+                <p class="sc-eyebrow sc-eyebrow--dark">Chapter One</p>
+                <h2 id="storyHeading">What is scrollytelling?</h2>
+                <p>
+                    Scrollytelling is scroll-driven narrative: instead of clicking through pages, the visitor&rsquo;s
+                    own scrolling advances a story &mdash; pinning visuals, triggering animations, and revealing text
+                    in a directed sequence. The technique went mainstream in 2012 with <em>The New York Times&rsquo;</em>
+                    &ldquo;Snow Fall,&rdquo; a multimedia feature about an avalanche that wove video, maps, and
+                    animation into the act of reading, and it has since become the signature format of editorial
+                    features, product launches, and annual reports.
+                </p>
+                <p>
+                    Its favorite tool, parallax, is much older. In the 1930s, animators built multiplane cameras that
+                    photographed artwork on stacked glass panes, sliding the background panes slower than the
+                    foreground to fake depth. Side-scrolling arcade games like <em>Moon Patrol</em> (1982) brought the
+                    same trick to screens, and around 2011 web designers began binding it to the scrollbar: layers
+                    that move at different fractions of scroll speed read instantly as near and far.
+                </p>
+                <p>
+                    The strengths are immersion and pacing &mdash; the author controls exactly when each idea arrives,
+                    and the reader feels like a participant rather than an audience. The pitfalls are just as real:
+                    heavy scroll effects can cause motion sickness, janky pages, and broken mobile experiences if
+                    they fight the browser instead of working with it. The craft rules: animate only
+                    <code>transform</code> and <code>opacity</code>, keep one listener feeding one animation frame,
+                    respect <code>prefers-reduced-motion</code>, and reach for the technique when you have an actual
+                    story to pace &mdash; not as decoration on a settings page.
+                </p>
+                <blockquote class="sc-pull">Scrolling is the one gesture every visitor already knows.
+                    Scrollytelling just gives it a plot.</blockquote>
+            </section>
+
+            <!-- 3a ── Parallax Lab -->
+            <section class="sc-lab" id="lab" aria-labelledby="labHeading">
+                <p class="sc-eyebrow">Interactive &middot; 01</p>
+                <h2 id="labHeading">The Parallax Lab</h2>
+                <p class="sc-lab__intro">Depth is nothing but a <strong>speed difference</strong>. Drag the camera
+                    through this little world, then change how much of the camera&rsquo;s motion each layer inherits.
+                    Set all three sliders equal and the depth illusion dies instantly &mdash; set the back layer
+                    slow and the front fast, and the forest snaps into 3D.</p>
+
+                <div class="sc-lab__viewport" aria-label="Parallax demo viewport">
+                    <div class="sc-lab__layer sc-lab__layer--back" id="labBack" aria-hidden="true"></div>
+                    <div class="sc-lab__layer sc-lab__layer--mid" id="labMid" aria-hidden="true"></div>
+                    <div class="sc-lab__layer sc-lab__layer--front" id="labFront" aria-hidden="true">
+                        <img class="sc-lab__tree sc-lab__tree--a" src="../../assets/images/designAssets/Tree.png" alt="">
+                        <img class="sc-lab__birdhouse" src="../../assets/images/designAssets/BirdHouse.webp" alt="">
+                        <img class="sc-lab__tree sc-lab__tree--b" src="../../assets/images/designAssets/Tree.png" alt="">
+                    </div>
+                    <div class="sc-lab__ground" aria-hidden="true"></div>
+                </div>
+
+                <div class="sc-lab__controls">
+                    <div class="sc-lab__control sc-lab__control--camera">
+                        <label for="labCamera">Camera <span class="sc-lab__hint">(your &ldquo;scroll&rdquo;)</span></label>
+                        <input type="range" id="labCamera" min="0" max="420" value="60" step="1">
+                    </div>
+                    <div class="sc-lab__control">
+                        <label for="labSpeedBack">Back treeline <output id="outBack">0.20&times;</output></label>
+                        <input type="range" id="labSpeedBack" min="-1" max="1" value="0.2" step="0.05">
+                    </div>
+                    <div class="sc-lab__control">
+                        <label for="labSpeedMid">Middle treeline <output id="outMid">0.50&times;</output></label>
+                        <input type="range" id="labSpeedMid" min="-1" max="1" value="0.5" step="0.05">
+                    </div>
+                    <div class="sc-lab__control">
+                        <label for="labSpeedFront">Front (trees &amp; birdhouse) <output id="outFront">1.00&times;</output></label>
+                        <input type="range" id="labSpeedFront" min="-1" max="1" value="1" step="0.05">
+                    </div>
+                </div>
+
+                <p class="sc-caption">
+                    Each layer simply does <code>translateX(&minus;camera &times; speed)</code>. Negative speeds make a
+                    layer move <em>against</em> the camera &mdash; disorienting, which is exactly why real parallax
+                    keeps every layer moving the same direction, just by different amounts. This is the multiplane
+                    camera from 1930s animation, rebuilt with three CSS transforms.
+                </p>
+            </section>
+
+            <!-- 3b ── Pinned scene + stepper -->
+            <section class="sc-pin" id="pinned" aria-labelledby="pinHeading">
+                <div class="sc-pin__head">
+                    <p class="sc-eyebrow sc-eyebrow--dark">Interactive &middot; 02</p>
+                    <h2 id="pinHeading">The pinned scene + stepper</h2>
+                    <p class="sc-pin__intro">This is <em>the</em> classic scrollytelling pattern: a visual sticks to
+                        the screen while short text steps scroll past it, and every step that crosses the middle of
+                        your viewport changes the scene&rsquo;s state. Scroll slowly and watch the day pass.</p>
+                </div>
+
+                <div class="sc-pin__layout">
+                    <div class="sc-pin__sticky">
+                        <div class="sc-pin__scene" id="pinScene" data-phase="day" aria-label="Forest scene that changes from day to night as you scroll">
+                            <div class="sc-pin__sky" aria-hidden="true"></div>
+                            <span class="sc-pin__orb" aria-hidden="true"></span>
+                            <div class="sc-pin__stars" aria-hidden="true"></div>
+                            <div class="sc-pin__trees" aria-hidden="true"></div>
+                            <img class="sc-pin__house" src="../../assets/images/designAssets/BirdHouse.webp" alt="">
+                            <span class="sc-pin__glow" aria-hidden="true"></span>
+                            <p class="sc-pin__phaseTag" id="phaseTag" aria-hidden="true">day</p>
+                        </div>
+                    </div>
+
+                    <div class="sc-pin__steps">
+                        <div class="sc-step" data-phase="day">
+                            <h3>Step 1 &mdash; the scene pins</h3>
+                            <p>The visual beside (or above) this text is <code>position:&nbsp;sticky</code>. It costs
+                                no JavaScript at all &mdash; the browser pins it while these steps scroll by.</p>
+                        </div>
+                        <div class="sc-step" data-phase="dusk">
+                            <h3>Step 2 &mdash; a step crosses center, dusk falls</h3>
+                            <p>An <code>IntersectionObserver</code> watches each step against a thin band in the middle
+                                of your viewport. The moment this paragraph entered that band, it fired once and set
+                                the scene&rsquo;s state to <em>dusk</em>. No scroll-position math, no constant polling.</p>
+                        </div>
+                        <div class="sc-step" data-phase="night">
+                            <h3>Step 3 &mdash; night, and the stars come out</h3>
+                            <p>Each state is just a <code>data-phase</code> attribute; CSS transitions handle the sky,
+                                the moon, and the stars. The JavaScript never animates anything &mdash; it only
+                                announces <em>which chapter you are in</em>.</p>
+                        </div>
+                        <div class="sc-step" data-phase="lantern">
+                            <h3>Step 4 &mdash; someone&rsquo;s home</h3>
+                            <p>Scrollytelling pieces chain dozens of these steps into a narrative arc. Scroll back up
+                                &mdash; the story politely rewinds, because the observer fires in both directions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="sc-caption sc-caption--onCream">
+                    <strong>Pattern name:</strong> the &ldquo;pinned scene + stepper.&rdquo; It powered
+                    &ldquo;Snow Fall&rdquo; and nearly every data-journalism feature since. The reader&rsquo;s scroll
+                    becomes the &ldquo;next&rdquo; button &mdash; pacing without ever taking control away.
+                </p>
+            </section>
+
+            <!-- 3c ── Reveal choreography -->
+            <section class="sc-reveal" id="reveal" aria-labelledby="revealHeading">
+                <p class="sc-eyebrow">Interactive &middot; 03</p>
+                <h2 id="revealHeading">Reveal choreography</h2>
+                <p class="sc-reveal__intro">When content enters the viewport, <em>how</em> it appears is a pacing
+                    decision. Flip the switch, then hit replay and feel the difference.</p>
+
+                <div class="sc-reveal__controls">
+                    <span class="sc-reveal__mode" id="modeInstant">All at once</span>
+                    <button class="sc-reveal__toggle" id="revealToggle" type="button" role="switch" aria-checked="true"
+                        aria-label="Toggle between all-at-once and staggered reveals">
+                        <span class="sc-reveal__knob"></span>
+                    </button>
+                    <span class="sc-reveal__mode is-active" id="modeStagger">Staggered</span>
+                    <button class="sc-reveal__replay" id="revealReplay" type="button">&#x21BB; Replay</button>
+                </div>
+
+                <div class="sc-reveal__grid mode-staggered" id="revealGrid">
+                    <article class="rv-card"><h3>Immersion</h3><p>The reader is inside the story, not in front of it.</p></article>
+                    <article class="rv-card"><h3>Pacing</h3><p>Ideas arrive one beat at a time, in author order.</p></article>
+                    <article class="rv-card"><h3>Depth</h3><p>Speed differences turn flat layers into space.</p></article>
+                    <article class="rv-card"><h3>Performance</h3><p>Transform &amp; opacity only &mdash; the GPU does the rest.</p></article>
+                    <article class="rv-card"><h3>Restraint</h3><p>Motion serves the story, never the other way around.</p></article>
+                    <article class="rv-card"><h3>Respect</h3><p>Reduced-motion users get the content, minus the ride.</p></article>
+                </div>
+
+                <p class="sc-caption" id="revealCaption">
+                    <strong>Staggered:</strong> each card waits ~90&nbsp;ms longer than the last, so your eye is led
+                    left-to-right through the list &mdash; the page is quietly deciding your reading order for you.
+                </p>
+            </section>
+
+            <!-- 4 ── CTA to showcase -->
+            <section class="sc-cta" aria-label="See a full scrollytelling build">
+                <h2>This was the classroom.<br>Our homepage is the field trip.</h2>
+                <p>Air&amp;Ember&rsquo;s own showcase is a full scrollytelling build &mdash; pinned scenes, parallax
+                    forest and all, at production scale.</p>
+                <a class="sc-cta__btn" href="../../showcase.html">See it at full scale &rarr;</a>
+            </section>
+        </main>
+
+        <img class="sc-walker" id="walker" src="../../assets/images/AirWalk.gif" alt="" aria-hidden="true">
+
+        <footer class="sc-footer">
+            <div class="sc-footer__cols">
+                <div>
+                    <h4>Support</h4>
+                    <p>support@airandember.com</p>
+                </div>
+                <div>
+                    <h4>Operating Hours</h4>
+                    <p>Monday &ndash; Friday</p>
+                    <p>7 AM &ndash; 6 PM MST / MDT</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <p><a href="#" id="privacyPolicyA">Privacy Policy</a></p>
+                </div>
+            </div>
+            <p class="sc-footer__copy">&copy; Copyright 2025 Air&amp;Ember &mdash; Scrollytelling &amp; Parallax Design Page</p>
+        </footer>
+
+        <script>
+            (function () {
+                "use strict";
+
+                var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+                /* ============================================================
+                   One scroll listener -> one rAF loop.
+                   Drives: progress bar, hero parallax, walking gif.
+                   ============================================================ */
+                var progressBar = document.getElementById("progressBar");
+                var hero = document.getElementById("hero");
+                var heroCopy = document.getElementById("heroCopy");
+                var heroLayers = hero.querySelectorAll("[data-speed]");
+                var walker = document.getElementById("walker");
+                var ticking = false;
+
+                function update() {
+                    ticking = false;
+                    var y = window.scrollY || window.pageYOffset;
+                    var max = document.documentElement.scrollHeight - window.innerHeight;
+                    var progress = max > 0 ? Math.min(y / max, 1) : 0;
+
+                    progressBar.style.transform = "scaleX(" + progress.toFixed(4) + ")";
+
+                    if (reducedMotion.matches) { return; }
+
+                    /* Hero parallax: only while the hero is on screen */
+                    var heroH = hero.offsetHeight;
+                    if (y <= heroH) {
+                        heroLayers.forEach(function (layer) {
+                            var speed = Number(layer.dataset.speed);
+                            layer.style.transform = "translate3d(0," + (y * speed).toFixed(1) + "px,0)";
+                        });
+                        heroCopy.style.opacity = Math.max(1 - y / (heroH * 0.6), 0).toFixed(3);
+                    }
+
+                    /* Walking character paced by overall scroll progress */
+                    var trackW = window.innerWidth - walker.offsetWidth - 16;
+                    walker.style.transform = "translate3d(" + (progress * trackW).toFixed(1) + "px,0,0)";
+                }
+
+                window.addEventListener("scroll", function () {
+                    if (!ticking) {
+                        ticking = true;
+                        window.requestAnimationFrame(update);
+                    }
+                }, { passive: true });
+                window.addEventListener("resize", update);
+                update();
+
+                /* ============================================================
+                   (a) Parallax Lab — camera slider + per-layer speed sliders
+                   ============================================================ */
+                var camera = document.getElementById("labCamera");
+                var labLayers = [
+                    { el: document.getElementById("labBack"), input: document.getElementById("labSpeedBack"), out: document.getElementById("outBack") },
+                    { el: document.getElementById("labMid"), input: document.getElementById("labSpeedMid"), out: document.getElementById("outMid") },
+                    { el: document.getElementById("labFront"), input: document.getElementById("labSpeedFront"), out: document.getElementById("outFront") }
+                ];
+
+                function renderLab() {
+                    var cam = Number(camera.value);
+                    labLayers.forEach(function (layer) {
+                        var speed = Number(layer.input.value);
+                        layer.out.textContent = speed.toFixed(2) + "\u00D7";
+                        layer.el.style.transform = "translate3d(" + (-cam * speed).toFixed(1) + "px,0,0)";
+                    });
+                }
+
+                camera.addEventListener("input", renderLab);
+                labLayers.forEach(function (layer) {
+                    layer.input.addEventListener("input", renderLab);
+                });
+                renderLab();
+
+                /* ============================================================
+                   (b) Pinned scene + stepper — IntersectionObserver against
+                   a thin band across the viewport's vertical center.
+                   ============================================================ */
+                var scene = document.getElementById("pinScene");
+                var phaseTag = document.getElementById("phaseTag");
+                var steps = document.querySelectorAll(".sc-step");
+
+                var stepObserver = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            var phase = entry.target.dataset.phase;
+                            scene.dataset.phase = phase;
+                            phaseTag.textContent = phase === "lantern" ? "night \u00B7 lights on" : phase;
+                            steps.forEach(function (step) {
+                                step.classList.toggle("is-active", step === entry.target);
+                            });
+                        }
+                    });
+                }, { rootMargin: "-42% 0px -42% 0px", threshold: 0 });
+
+                steps.forEach(function (step) { stepObserver.observe(step); });
+
+                /* ============================================================
+                   (c) Reveal choreography — instant vs. staggered
+                   ============================================================ */
+                var grid = document.getElementById("revealGrid");
+                var cards = grid.querySelectorAll(".rv-card");
+                var revealToggle = document.getElementById("revealToggle");
+                var replayBtn = document.getElementById("revealReplay");
+                var modeInstant = document.getElementById("modeInstant");
+                var modeStagger = document.getElementById("modeStagger");
+                var revealCaption = document.getElementById("revealCaption");
+                var staggered = true;
+
+                var CAPTIONS = {
+                    staggered: "<strong>Staggered:</strong> each card waits ~90\u00A0ms longer than the last, so your eye is led left-to-right through the list \u2014 the page is quietly deciding your reading order for you.",
+                    instant: "<strong>All at once:</strong> everything lands in a single frame. Honest, but flat \u2014 with six equal arrivals, nothing tells you where to look first. That's the pacing staggering buys back."
+                };
+
+                function playReveal() {
+                    cards.forEach(function (card) { card.classList.remove("is-shown"); });
+                    /* double rAF so the removal paints before re-adding */
+                    window.requestAnimationFrame(function () {
+                        window.requestAnimationFrame(function () {
+                            cards.forEach(function (card) { card.classList.add("is-shown"); });
+                        });
+                    });
+                }
+
+                revealToggle.addEventListener("click", function () {
+                    staggered = !staggered;
+                    grid.classList.toggle("mode-staggered", staggered);
+                    grid.classList.toggle("mode-instant", !staggered);
+                    revealToggle.setAttribute("aria-checked", String(staggered));
+                    modeStagger.classList.toggle("is-active", staggered);
+                    modeInstant.classList.toggle("is-active", !staggered);
+                    revealCaption.innerHTML = staggered ? CAPTIONS.staggered : CAPTIONS.instant;
+                    playReveal();
+                });
+
+                replayBtn.addEventListener("click", playReveal);
+
+                /* First reveal when the grid scrolls into view */
+                var gridObserver = new IntersectionObserver(function (entries, observer) {
+                    if (entries[0].isIntersecting) {
+                        playReveal();
+                        observer.disconnect();
+                    }
+                }, { threshold: 0.3 });
+                gridObserver.observe(grid);
+            })();
+        </script>
+    </body>
+</html>

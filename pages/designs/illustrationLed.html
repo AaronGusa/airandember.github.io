@@ -3,50 +3,175 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Air&Ember Asymmetric Design Example</title>
+        <title>Air&amp;Ember Illustration-Led Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
         <link rel="stylesheet" href="../../css/designIllust.css">
-
     </head>
     <body>
-        <header>
-            <nav>
+        <div class="returnCont">
+            <a class="Return" href="../designs.html">Back to Designs</a>
+        </div>
+
+        <header class="il-header">
+            <nav class="il-nav" aria-label="Demo navigation">
+                <img class="il-nav__logo" src="../../assets/images/designAssets/AE-LOGO-ICON-1.webp" alt="Air&amp;Ember logo">
                 <ul>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#scene">The Scene</a></li>
+                    <li><a href="#about">Why Illustration</a></li>
+                    <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
         </header>
-    
+
         <main>
-            <div class="returnCont">
-                <a class="Return" href="../designs.html">Back to Designs</a>
-            </div>
-            <section class="hero">
-                
-                <div class="hero-content">
-                    <h1 id="title">ILLUSTRATION-LED</h1>
-                    <br><br><br>
-                    <h1>You Decide How High You Go</h1>
-                    <p>Illustration-led web design uses custom artwork to create engaging visuals and memorable experiences. 
-                        Bold imagery, clean layouts, and vibrant colors enhance storytelling and brand identity.</p>
-                    <button type="button">Learn More</button>
+            <section class="scene" id="scene" data-mood="day" aria-label="Interactive illustrated forest scene">
+                <div class="scene__sky" aria-hidden="true"></div>
+                <span class="scene__orb" aria-hidden="true"></span>
+                <div class="scene__layer scene__layer--far" data-parallax="6" aria-hidden="true"></div>
+                <div class="scene__layer scene__layer--mid" data-parallax="14" aria-hidden="true"></div>
+                <div class="scene__content" data-parallax="4">
+                    <p class="il-eyebrow">Design Education &middot; Illustration-Led</p>
+                    <h1 class="scene__headline">You Decide<br>How High You Go</h1>
+                    <p class="scene__sub">Custom artwork doesn&rsquo;t decorate the page &mdash; it <em>is</em> the page.</p>
+                    <a class="scene__cta" href="#about">Step Into the Forest</a>
                 </div>
-                <!-- <div class="hero-illustration"> -->
-                <!-- </div> -->
+                <img class="scene__frog" data-parallax="22" src="../../assets/images/designAssets/frog-hands.png" alt="" aria-hidden="true">
+                <div class="scene__layer scene__layer--near" data-parallax="28" aria-hidden="true"></div>
+
+                <div class="moods" role="group" aria-label="Change the mood of the scene">
+                    <button class="moods__btn" type="button" data-mood-btn="dawn">
+                        <span class="moods__swatch moods__swatch--dawn" aria-hidden="true"></span>Dawn
+                    </button>
+                    <button class="moods__btn is-active" type="button" data-mood-btn="day" aria-pressed="true">
+                        <span class="moods__swatch moods__swatch--day" aria-hidden="true"></span>Day
+                    </button>
+                    <button class="moods__btn" type="button" data-mood-btn="dusk">
+                        <span class="moods__swatch moods__swatch--dusk" aria-hidden="true"></span>Dusk
+                    </button>
+                    <button class="moods__btn" type="button" data-mood-btn="night">
+                        <span class="moods__swatch moods__swatch--night" aria-hidden="true"></span>Night
+                    </button>
+                </div>
             </section>
-                <img id="trees" src="../../assets/images/designAssets/SITE_ILLUST_HERO_TREES.png" alt="Hero Illustration">
-            
-            <!-- <section id="about">
-                <h2>About Us</h2>
-                <p>Our team of creatives blends artistry and technology to deliver unmatched digital experiences.</p>
-            </section> -->
+
+            <div class="il-captions">
+                <p class="il-caption">
+                    <strong>Move your cursor across the scene.</strong> Each band of trees, the headline, and the
+                    frog sit on separate layers that shift at different speeds &mdash; a transform-based parallax
+                    that gives a 2D illustration believable depth and pulls you into the story. (It politely turns
+                    itself off on touch screens and for visitors who prefer reduced motion.)
+                </p>
+                <p class="il-caption">
+                    <strong>Try the mood swatches.</strong> One illustration, four completely different feelings:
+                    CSS filters re-light the same artwork &mdash; rotating hue, lifting brightness, deepening
+                    saturation &mdash; while the sky gradient swaps behind it. A stock photo locks you into one mood
+                    forever; an illustration is a stage you can re-light whenever the brand story calls for it.
+                </p>
+            </div>
+
+            <section class="il-about" id="about" aria-labelledby="about-heading">
+                <h2 id="about-heading">Why lead with illustration?</h2>
+                <p>
+                    Illustration-led web design builds the entire experience around custom artwork instead of
+                    photography or abstract decoration. Because every line is drawn for the brand, the visuals can
+                    say things photos can&rsquo;t: a frog can peek over the footer, a forest can grow as you scroll,
+                    and the whole world can shift from dawn to midnight without a reshoot. The artwork carries the
+                    storytelling, sets an emotional register that&rsquo;s impossible to copy, and makes even a simple
+                    page feel like a place rather than a layout.
+                </p>
+                <p>
+                    The craft lies in restraint and structure: clean type that doesn&rsquo;t fight the art, layouts
+                    that give scenes room to breathe, and motion used sparingly &mdash; a drift here, a parallax
+                    shift there &mdash; so the illustration feels alive instead of busy. Done well, visitors
+                    don&rsquo;t remember &ldquo;a website with nice drawings&rdquo;; they remember <em>your
+                    forest</em>.
+                </p>
+            </section>
         </main>
-    
-        <footer>
-            <p>&copy; 2025 Air & Ember Illustration-Led Design Page</p>
+
+        <footer class="il-footer">
+            <div class="il-footer__cols">
+                <div>
+                    <h4>Support</h4>
+                    <p>support@airandember.com</p>
+                </div>
+                <div>
+                    <h4>Operating Hours</h4>
+                    <p>Monday &ndash; Friday</p>
+                    <p>7 AM &ndash; 6 PM MST / MDT</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
+                </div>
+            </div>
+            <p class="il-footer__copy">&copy; 2025 Air &amp; Ember &mdash; Illustration-Led Design Page</p>
         </footer>
+
+        <script>
+            (function () {
+                /* ----- Mood palette switcher ----- */
+                var scene = document.getElementById("scene");
+                var moodButtons = document.querySelectorAll("[data-mood-btn]");
+
+                moodButtons.forEach(function (btn) {
+                    btn.addEventListener("click", function () {
+                        scene.dataset.mood = btn.dataset.moodBtn;
+                        moodButtons.forEach(function (other) {
+                            var active = other === btn;
+                            other.classList.toggle("is-active", active);
+                            if (active) {
+                                other.setAttribute("aria-pressed", "true");
+                            } else {
+                                other.removeAttribute("aria-pressed");
+                            }
+                        });
+                    });
+                });
+
+                /* ----- Mouse-move parallax (pointer devices, motion allowed) ----- */
+                var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+                var finePointer = window.matchMedia("(pointer: fine)");
+                if (reducedMotion.matches || !finePointer.matches) { return; }
+
+                var layers = scene.querySelectorAll("[data-parallax]");
+                var targetX = 0, targetY = 0;
+                var currentX = 0, currentY = 0;
+                var rafId = null;
+
+                function render() {
+                    /* ease toward the cursor so the drift feels weighty, not twitchy */
+                    currentX += (targetX - currentX) * 0.08;
+                    currentY += (targetY - currentY) * 0.08;
+                    layers.forEach(function (layer) {
+                        var depth = Number(layer.dataset.parallax);
+                        layer.style.transform =
+                            "translate3d(" + (currentX * depth).toFixed(2) + "px, " + (currentY * depth * 0.5).toFixed(2) + "px, 0)";
+                    });
+                    if (Math.abs(targetX - currentX) > 0.001 || Math.abs(targetY - currentY) > 0.001) {
+                        rafId = requestAnimationFrame(render);
+                    } else {
+                        rafId = null;
+                    }
+                }
+
+                function queueRender() {
+                    if (rafId === null) { rafId = requestAnimationFrame(render); }
+                }
+
+                scene.addEventListener("mousemove", function (event) {
+                    var rect = scene.getBoundingClientRect();
+                    targetX = ((event.clientX - rect.left) / rect.width - 0.5) * -2;  /* -1 .. 1 */
+                    targetY = ((event.clientY - rect.top) / rect.height - 0.5) * -2;
+                    queueRender();
+                });
+
+                scene.addEventListener("mouseleave", function () {
+                    targetX = 0;
+                    targetY = 0;
+                    queueRender();
+                });
+            })();
+        </script>
     </body>
-    </html>
-    
+</html>

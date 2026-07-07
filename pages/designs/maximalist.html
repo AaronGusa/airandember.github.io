@@ -3,76 +3,179 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Air&Ember Asymmetric Design Example</title>
+        <title>Air&amp;Ember | Maximalist Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
         <link rel="stylesheet" href="../../css/max.css">
-
     </head>
     <body>
-        <div class="bodyMain">
+        <div class="bodyMain" id="bodyMain">
             <div class="returnCont">
                 <a class="Return" href="../designs.html">Back to Designs</a>
             </div>
-            <div class="banner">
-                <h1 class="maxTitle">MAXIMALISt</h1>
+
+            <!-- Layer overlays revealed by the MORE! button -->
+            <div class="more-layer more-layer--pattern" aria-hidden="true"></div>
+            <div class="more-layer more-layer--stickers" aria-hidden="true">
+                <span class="float-sticker fs-1">&#10024;</span>
+                <span class="float-sticker fs-2">&#127801;</span>
+                <span class="float-sticker fs-3">&#128293;</span>
+                <span class="float-sticker fs-4">&#127744;</span>
+                <span class="float-sticker fs-5">&#11088;</span>
+                <span class="float-sticker fs-6">&#127802;</span>
             </div>
+            <div class="more-layer more-layer--spinners" aria-hidden="true">
+                <span class="spin-accent sa-1"></span>
+                <span class="spin-accent sa-2"></span>
+                <span class="spin-accent sa-3"></span>
+            </div>
+
+            <div class="banner">
+                <h1 class="maxTitle" data-text="MAXIMALIST">MAXIMALIST</h1>
+                <span class="banner-badge badge-rotate-l">MORE IS MORE</span>
+                <span class="banner-badge badge-rotate-r">EST. EXCESS</span>
+            </div>
+
+            <div class="marquee" aria-hidden="true">
+                <div class="marquee__track">
+                    <span>&#9733; BOLD &#9733; LOUD &#9733; LAYERED &#9733; CURATED &#9733; UNAPOLOGETIC &#9733; VIVID &#9733; ECLECTIC &#9733; MAXIMAL &#9733;</span>
+                    <span>&#9733; BOLD &#9733; LOUD &#9733; LAYERED &#9733; CURATED &#9733; UNAPOLOGETIC &#9733; VIVID &#9733; ECLECTIC &#9733; MAXIMAL &#9733;</span>
+                </div>
+            </div>
+
             <header>
-                <!-- <img class="logo" src="../../assets/images/designAssets/AE LOGO ICON cropped Pine.png" alt="AE Logo"> -->
-                <nav >
+                <nav aria-label="Demo navigation">
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li> <a href="#">About</a></li>
+                        <li><a href="#">About</a></li>
                     </ul>
-                </nav>                
+                </nav>
             </header>
-            <!-- <div class="patternCont">
-                <div class="pattern"></div>
-            </div> -->
+
             <main class="main">
-                <div class="para1">
+                <div class="para1 tilt-l">
+                    <span class="sticker sticker--burst">WOW!</span>
                     <h1>Max is Back</h1>
                     <p>Maximalism is the perfect choice for a business ready to make a bold statement. It eschews minimalism's
                         restraint in favor of vibrant, layered visuals that capture attention instantly. This style celebrates excess
                         as a form of creative expression, conveying energy and confidence that can set your brand apart in a competitive market.
                     </p>
                 </div>
+
+                <!-- MORE! interactive -->
+                <section class="more-section">
+                    <h2 class="more-heading">Turn It Up</h2>
+                    <div class="more-controls">
+                        <button class="more-btn" id="moreBtn">MORE!</button>
+                        <button class="less-btn" id="lessBtn">less, please</button>
+                        <span class="more-meter" id="moreMeter">layers: 0 / 6</span>
+                    </div>
+                    <p class="demo-caption">&#9432; Each click of <strong>MORE!</strong> stacks one deliberate layer onto this page &mdash; a pattern wash, floating stickers, doubled borders, spinning accents, a faster gradient, full glow. That&rsquo;s the lesson: maximalism is <em>built one intentional layer at a time</em>, and it knows when to stop (we cap at six).</p>
+                </section>
+
                 <div class="paraCont">
-                    <div class="para2">
+                    <div class="para2 tilt-r">
+                        <span class="sticker sticker--star">&#9733;</span>
                         <h1>Resonates with High Energy</h1>
                         <p>Embracing maximalism attracts a clientele that values uniqueness and creativity. It resonates with customers who
-                            appreciate rich textures, bold colors, and a dynamic aesthetic—people who aren’t satisfied with the ordinary.
+                            appreciate rich textures, bold colors, and a dynamic aesthetic&mdash;people who aren&rsquo;t satisfied with the ordinary.
                             This approach speaks to a modern audience looking for experiences that are as visually stimulating as they are
                             memorable.
                         </p>
                     </div>
                 </div>
-                <div class="para3">
+
+                <!-- Chaos vs Curation interactive -->
+                <section class="curation-section">
+                    <h2 class="more-heading">Chaos vs. Curation</h2>
+                    <div class="curation-controls">
+                        <button class="curation-toggle" id="curationToggle" aria-pressed="false">Show me the chaos</button>
+                    </div>
+                    <div class="curation-demo is-curated" id="curationDemo">
+                        <span class="cd-badge">HOT!</span>
+                        <h3 class="cd-title">Summer Drop</h3>
+                        <p class="cd-text">Layered patterns, three display faces, neon accents &mdash; and you can still read every word.</p>
+                        <button class="cd-btn" type="button">Shop the look</button>
+                        <span class="cd-shape cd-shape--1"></span>
+                        <span class="cd-shape cd-shape--2"></span>
+                    </div>
+                    <p class="demo-caption" id="curationCaption">&#9432; <strong>Curated maximalism:</strong> every layer is loud, but alignment, hierarchy, and a chosen palette keep it navigable.</p>
+                </section>
+
+                <div class="para3 tilt-l">
+                    <span class="sticker sticker--new">NEW</span>
                     <h1>More is More.</h1>
-                    <p>Maximalist design reflects the full personality of your business. It tells a story through every detail—from overlapping
-                        visuals to eclectic typography—exuding authenticity and passion. By choosing maximalism, you’re signaling that your 
+                    <p>Maximalist design reflects the full personality of your business. It tells a story through every detail&mdash;from overlapping
+                        visuals to eclectic typography&mdash;exuding authenticity and passion. By choosing maximalism, you&rsquo;re signaling that your
                         brand is dynamic, innovative, and unafraid to stand out, ultimately leaving a lasting impression on your customers.
                     </p>
                 </div>
             </main>
-            <footer >
-                    <h3 class="contactFootContent padded">@Copyright 2025</h3>
-                    <h4>Support</h4>
-                    <p>support@airandember.com</p>
-                
-                    <h4>Operating Hours</h4>
-                    <p>Monday - Friday</p>
-                    <p>7 AM - 6 PM MST / MDT</p>
-                    <a href="" aria-label="Instagram" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-                    <a href="" aria-label="Facebook" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
-                    <a href="" aria-label="X Social" class="asym_social_link"><img src="" alt="" class="asym_socialImg"></a>
 
-                
-                    <h4>Legal</h4>
-                    <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
-                        <!-- <p><a href="">Terms of Service</a></p> -->
+            <footer>
+                <h3 class="contactFootContent padded">@Copyright 2025</h3>
+                <h4>Support</h4>
+                <p>support@airandember.com</p>
+
+                <h4>Operating Hours</h4>
+                <p>Monday - Friday</p>
+                <p>7 AM - 6 PM MST / MDT</p>
+                <div class="socialRow">
+                    <a href="#" aria-label="Instagram" class="asym_social_link"><img src="../../assets/images/designAssets/instagram-2016-logo-svgrepo-com.svg" alt="Instagram" class="asym_socialImg"></a>
+                    <a href="#" aria-label="Facebook" class="asym_social_link"><img src="../../assets/images/designAssets/facebook-svgrepo-com.svg" alt="Facebook" class="asym_socialImg"></a>
+                    <a href="#" aria-label="X Social" class="asym_social_link"><img src="../../assets/images/designAssets/icons8-x.svg" alt="X" class="asym_socialImg"></a>
+                </div>
+
+                <h4>Legal</h4>
+                <p><a href="#" id="privacyPolicyA">Privacy Policy</a></p>
             </footer>
         </div>
-    </body>
 
+        <script>
+            (function () {
+                "use strict";
+
+                /* --- MORE! layering --- */
+                var MAX_LAYERS = 6;
+                var level = 0;
+                var bodyMain = document.getElementById("bodyMain");
+                var moreBtn = document.getElementById("moreBtn");
+                var lessBtn = document.getElementById("lessBtn");
+                var meter = document.getElementById("moreMeter");
+
+                function render() {
+                    for (var i = 1; i <= MAX_LAYERS; i++) {
+                        bodyMain.classList.toggle("more-" + i, level >= i);
+                    }
+                    meter.textContent = "layers: " + level + " / " + MAX_LAYERS;
+                    moreBtn.textContent = level >= MAX_LAYERS ? "MAXED OUT!" : "MORE!";
+                    moreBtn.disabled = level >= MAX_LAYERS;
+                }
+
+                moreBtn.addEventListener("click", function () {
+                    if (level < MAX_LAYERS) { level++; render(); }
+                });
+                lessBtn.addEventListener("click", function () {
+                    level = 0;
+                    render();
+                });
+                render();
+
+                /* --- Chaos vs curation toggle --- */
+                var demo = document.getElementById("curationDemo");
+                var toggle = document.getElementById("curationToggle");
+                var caption = document.getElementById("curationCaption");
+                var CURATED_NOTE = "\u24D8 Curated maximalism: every layer is loud, but alignment, hierarchy, and a chosen palette keep it navigable.";
+                var CHAOS_NOTE = "\u24D8 Chaos: same ingredients, zero curation \u2014 random angles, clashing colors, no hierarchy. Loud isn't the problem; carelessness is.";
+
+                toggle.addEventListener("click", function () {
+                    var chaotic = demo.classList.toggle("is-chaos");
+                    demo.classList.toggle("is-curated", !chaotic);
+                    toggle.setAttribute("aria-pressed", String(chaotic));
+                    toggle.textContent = chaotic ? "Bring back the curation" : "Show me the chaos";
+                    caption.textContent = chaotic ? CHAOS_NOTE : CURATED_NOTE;
+                });
+            })();
+        </script>
+    </body>
 </html>

@@ -3,99 +3,210 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Air&Ember Asymmetric Design Example</title>
+        <title>Air&amp;Ember | Material Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
         <link rel="stylesheet" href="../../css/matDes.css">
-
     </head>
-    <body >
-        <div >
-            <div class="returnCont">
-                <a class="Return" href="../designs.html">Back to Designs</a>
+    <body>
+        <div class="returnCont">
+            <a class="Return" href="../designs.html">Back to Designs</a>
+        </div>
+
+        <header class="app-bar" id="appBar">
+            <div class="app-bar__left">
+                <button class="icon-btn ripple-host" aria-label="Open menu">
+                    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+                </button>
+                <span class="app-title">Air&amp;Ember <span class="app-title__thin">Material</span></span>
             </div>
-            <header class="app-bar">
-                <div class="app-bar__left">
-                  <span class="material-icons app-icon">menu</span>
-                </div>
-                <nav class="app-nav">
-                  <button class="nav-btn">Home</button>
-                  <button class="nav-btn">Features</button>
-                  <button class="nav-btn">Contact</button>
-                </nav>
-              </header>
-            
-              <!-- Main Content -->
-              <main>
-                <!-- Hero Section -->
-                <section class="hero">
-                  <div class="hero-content">
-                    <h2>Material Web Design</h2>
+            <nav class="app-nav" aria-label="Demo navigation">
+                <button class="nav-btn ripple-host">Home</button>
+                <button class="nav-btn ripple-host">Features</button>
+                <button class="nav-btn ripple-host">Contact</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero -->
+            <section class="hero">
+                <div class="hero-content">
+                    <span class="overline">Design Education</span>
+                    <h1>Material Web Design</h1>
                     <p>
-                        Material Web Design champions a modern, tactile aesthetic that revives the physical world through intuitive layers, subtle shadows, 
-                        and bold color palettes. It encourages simplicity, clarity, and responsive interactivity, convincing designers to create cohesive, 
-                        engaging digital experiences that are both visually appealing and functionally superior, bridging art and usability seamlessly.
+                        Material Design treats the screen like sheets of physical paper and ink: surfaces sit at
+                        measurable heights, light casts believable shadows, and every touch responds with motion.
+                        It champions a modern, tactile aesthetic built on intuitive layers, subtle elevation, and
+                        bold-but-disciplined color, bridging art and usability so interfaces feel as natural as
+                        the physical world they borrow from.
                     </p>
-                    <button class="cta-btn">Learn More</button>
-                  </div>
-                  <div class="hero-image">
-                    <!-- Replace with your hero image -->
-                    <img src="https://images.pexels.com/photos/1456734/pexels-photo-1456734.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Hero Illustration" />
-                  </div>
-                </section>
-            
-                <!-- Cards Section -->
-                <section class="cards-section">
-                  <h2 class="section-title">Our Services</h2>
-                  <div class="cards-grid">
-                    <div class="card">
-                      <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=2580&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Service 1" />
-                      </div>
-                      <div class="card-content">
-                        <h3>Service 1</h3>
-                        <p>High-quality solutions designed with precision and care.</p>
-                      </div>
-                      <div class="card-action">
-                        <button class="card-btn">Explore</button>
-                      </div>
+                    <div class="hero-actions">
+                        <button class="btn btn--filled ripple-host">Learn More</button>
+                        <button class="btn btn--outlined ripple-host">See Components</button>
                     </div>
-                    <div class="card">
-                      <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=2620&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Service 2" />
-                      </div>
-                      <div class="card-content">
-                        <h3>Service 2</h3>
-                        <p>Innovative approaches to solve complex problems.</p>
-                      </div>
-                      <div class="card-action">
-                        <button class="card-btn">Explore</button>
-                      </div>
+                    <p class="demo-caption">&#9432; Every button and card on this page carries Material&rsquo;s signature <strong>ink ripple</strong> &mdash; click or tap anything to watch the wave spread from your fingertip. The ripple confirms <em>where</em> you touched, not just <em>that</em> you touched.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="../../assets/images/designAssets/SITE_Mat.png" alt="Material design illustration of layered surfaces" />
+                </div>
+            </section>
+
+            <!-- Elevation Playground -->
+            <section class="playground-section">
+                <h2 class="section-title">Elevation Playground</h2>
+                <p class="section-sub">Material expresses hierarchy through light. The higher a surface floats, the softer and wider its shadow grows.</p>
+                <div class="playground">
+                    <div class="playground__stage">
+                        <div class="elevation-card" id="elevationCard">
+                            <span class="elevation-card__dp" id="dpReadout">2dp</span>
+                            <span class="elevation-card__label">resting surface</span>
+                        </div>
                     </div>
-                    <div class="card">
-                      <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Service 3" />
-                      </div>
-                      <div class="card-content">
-                        <h3>Service 3</h3>
-                        <p>Creative design strategies that transform your vision.</p>
-                      </div>
-                      <div class="card-action">
-                        <button class="card-btn">Explore</button>
-                      </div>
+                    <div class="playground__controls">
+                        <label class="slider-label" for="elevationSlider">Elevation: <strong id="dpValue">2</strong>dp</label>
+                        <input type="range" id="elevationSlider" min="0" max="24" step="1" value="2" aria-label="Card elevation in dp">
+                        <div class="slider-scale"><span>0dp flat</span><span>24dp dialog</span></div>
+                        <p class="demo-caption">&#9432; Drag the slider. Material defines elevation in <strong>dp</strong> (density-independent pixels): cards rest at 1&ndash;2dp, raised buttons at 6dp, navigation drawers at 16dp, dialogs at 24dp. Shadows aren&rsquo;t decoration &mdash; they tell the user which surface is closest and therefore most important right now.</p>
                     </div>
-                  </div>
-                </section>
-              </main>
-            
-              <!-- Footer -->
-              <footer class="app-footer">
-                <p>&copy; 2025 Air & Ember Material Web Design Mock Up. All rights reserved.</p>
-              </footer>
-            
-              <!-- Floating Action Button (FAB) -->
-              <button class="fab">
-                <span class="material-icons">add</span>
-              </button>
-            </body>
-            </html>
-            
+                </div>
+            </section>
+
+            <!-- Cards -->
+            <section class="cards-section">
+                <h2 class="section-title">Cards at Rest</h2>
+                <p class="section-sub">Cards are Material&rsquo;s workhorse surface: a 1dp sheet that lifts to 8dp on hover, grouping related content into one touchable unit.</p>
+                <div class="cards-grid">
+                    <article class="card ripple-host">
+                        <div class="card-image">
+                            <img src="../../assets/images/designAssets/BirdHouse.png" alt="Illustrated birdhouse" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Built Structure</h3>
+                            <p>Surfaces snap to an 8dp grid &mdash; padding, gaps, and sizes are all multiples of eight, giving layouts quiet, dependable rhythm.</p>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn--text ripple-host">Explore</button>
+                        </div>
+                    </article>
+                    <article class="card ripple-host">
+                        <div class="card-image">
+                            <img src="../../assets/images/designAssets/Tree.png" alt="Illustrated pine tree" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Natural Hierarchy</h3>
+                            <p>Type follows a strict scale &mdash; display, headline, title, body, label &mdash; so readers always know what matters most at a glance.</p>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn--text ripple-host">Explore</button>
+                        </div>
+                    </article>
+                    <article class="card ripple-host">
+                        <div class="card-image">
+                            <img src="../../assets/images/designAssets/nestedEggs.webp" alt="Nested eggs in a nest" />
+                        </div>
+                        <div class="card-content">
+                            <h3>Layered Surfaces</h3>
+                            <p>Content nests like paper sheets: each layer earns its elevation, and shadows communicate the stacking order without a single border.</p>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn--text ripple-host">Explore</button>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <p>&copy; 2025 Air &amp; Ember Material Web Design Mock Up. All rights reserved.</p>
+        </footer>
+
+        <!-- FAB -->
+        <button class="fab ripple-host" id="fab" aria-label="Show snackbar demo">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5z"/></svg>
+        </button>
+        <p class="fab-caption">&#9432; The FAB (Floating Action Button) hovers at 6dp and holds the screen&rsquo;s single most important action. Tap it.</p>
+
+        <!-- Snackbar -->
+        <div class="snackbar" id="snackbar" role="status" aria-live="polite">
+            <span>Snackbar: brief feedback, standard easing, auto-dismiss.</span>
+            <button class="snackbar__action ripple-host" id="snackbarDismiss">OK</button>
+        </div>
+
+        <script>
+            (function () {
+                "use strict";
+
+                /* --- App bar: elevation rises on scroll --- */
+                var appBar = document.getElementById("appBar");
+                window.addEventListener("scroll", function () {
+                    appBar.classList.toggle("app-bar--raised", window.scrollY > 4);
+                }, { passive: true });
+
+                /* --- Ink ripple --- */
+                document.querySelectorAll(".ripple-host").forEach(function (host) {
+                    host.addEventListener("pointerdown", function (e) {
+                        /* only ripple the innermost host (button inside a card) */
+                        if (e.target.closest(".ripple-host") !== host) return;
+                        var rect = host.getBoundingClientRect();
+                        var size = Math.max(rect.width, rect.height) * 2;
+                        var ripple = document.createElement("span");
+                        ripple.className = "ripple";
+                        ripple.style.width = ripple.style.height = size + "px";
+                        ripple.style.left = (e.clientX - rect.left - size / 2) + "px";
+                        ripple.style.top = (e.clientY - rect.top - size / 2) + "px";
+                        host.appendChild(ripple);
+                        ripple.addEventListener("animationend", function () { ripple.remove(); });
+                    });
+                });
+
+                /* --- Elevation playground --- */
+                var slider = document.getElementById("elevationSlider");
+                var card = document.getElementById("elevationCard");
+                var dpReadout = document.getElementById("dpReadout");
+                var dpValue = document.getElementById("dpValue");
+
+                function materialShadow(dp) {
+                    if (dp === 0) return "none";
+                    var umbra = "0 " + dp + "px " + Math.round(dp * 1.5) + "px rgba(8,5,17," + (0.14 + dp * 0.002).toFixed(3) + ")";
+                    var penumbra = "0 " + Math.max(1, Math.round(dp / 2)) + "px " + Math.max(2, dp) + "px rgba(8,5,17," + (0.12 + dp * 0.001).toFixed(3) + ")";
+                    var ambient = "0 1px " + Math.max(3, Math.round(dp * 2.5)) + "px rgba(8,5,17,0.10)";
+                    return umbra + ", " + penumbra + ", " + ambient;
+                }
+
+                function labelFor(dp) {
+                    if (dp === 0) return "flush with background";
+                    if (dp <= 2) return "resting card";
+                    if (dp <= 6) return "raised button / FAB";
+                    if (dp <= 12) return "picked-up card";
+                    if (dp <= 16) return "navigation drawer";
+                    return "dialog / highest surface";
+                }
+
+                function updateElevation() {
+                    var dp = parseInt(slider.value, 10);
+                    card.style.boxShadow = materialShadow(dp);
+                    card.style.transform = "translateY(" + (-dp / 3) + "px)";
+                    dpReadout.textContent = dp + "dp";
+                    dpValue.textContent = dp;
+                    card.querySelector(".elevation-card__label").textContent = labelFor(dp);
+                }
+                slider.addEventListener("input", updateElevation);
+                updateElevation();
+
+                /* --- FAB opens snackbar --- */
+                var snackbar = document.getElementById("snackbar");
+                var hideTimer = null;
+                function showSnackbar() {
+                    snackbar.classList.add("snackbar--visible");
+                    clearTimeout(hideTimer);
+                    hideTimer = setTimeout(hideSnackbar, 4000);
+                }
+                function hideSnackbar() {
+                    snackbar.classList.remove("snackbar--visible");
+                    clearTimeout(hideTimer);
+                }
+                document.getElementById("fab").addEventListener("click", showSnackbar);
+                document.getElementById("snackbarDismiss").addEventListener("click", hideSnackbar);
+            })();
+        </script>
+    </body>
+</html>

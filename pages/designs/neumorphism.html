@@ -3,75 +3,236 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Air&Ember Asymmetric Design Example</title>
+        <title>Air&amp;Ember — Neumorphism Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
         <link rel="stylesheet" href="../../css/neumorph.css">
-
     </head>
     <body>
         <div class="returnCont">
             <a class="Return" href="../designs.html">Back to Designs</a>
-       </div>
-       <header class="app-bar">
-        <h1 class="logo">Neumorphism</h1>
-        <nav class="nav">
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-    
-      <main>
-        <section class="frosted-section">
-            <div class="frosted-card">
-              <h2>Fresh Approach</h2>
-              <p>Enhance your design with the elegant, frosted glass effect that casts subtle blur on the background.</p>
-              <button type="button">Learn More</button>
-            </div>
-            <div class="frosted-card">
-              <h2>Innovative Impact</h2>
-              <p>Create depth and visual interest with elements that seem to float over your background image.</p>
-              <button type="button">Discover</button>
-            </div>
-          </section>
-        <!-- Hero Section -->
-        <section class="hero">
-          <div class="hero-content">
-            <h2>Clean. Clear. Cool.</h2>
-            <p>Experience a fusion of clean minimalism and soft, realistic shadow effects. Our design brings depth, elegance,
-                 and a sense of tactile warmth to your digital presence.</p>
-            <button class="cta">Get Started</button>
-          </div>
-        </section>
-    
-        <!-- Features / Services Section -->
-        <section class="features">
-          <div class="card">
-            <h3>Neumorphism Basics</h3>
-            <p>Neumorphism Basics harnesses soft backgrounds, gentle dual shadows, and subtle gradients to create tactile,
-               almost tangible interfaces, merging digital design with a physically-inspired organic aesthetic.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Clean and Modern Layout</h3>
-            <p>Clean and Modern Layout in neumorphism emphasizes simplicity with ample whitespace, refined typography, and 
-                balanced structure, harmoniously uniting soft shadows with subtly raised design elements.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Responsiveness</h3>
-            <p>Responsiveness in neumorphic design ensures interfaces gracefully adapt across devices, preserving tactile visual effects, 
-                intuitive interactions, and consistent aesthetics for an immersive user experience everywhere.
-            </p>
-          </div>
-        </section>
-        
-        
-      </main>
-    
-    </body>
+        </div>
 
+        <header class="app-bar neu">
+            <h1 class="logo">Neumorphism</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Hero / educational blurb -->
+            <section class="hero neu">
+                <div class="hero-content">
+                    <h2>Soft. Tactile. Sculpted from the page.</h2>
+                    <p>
+                        Neumorphism (short for &ldquo;new skeuomorphism&rdquo;) makes interface elements look as if they were
+                        pressed out of &mdash; or into &mdash; the background itself. Instead of borders or flat color blocks, it relies on
+                        one soft background tone, gentle gradients, and a <strong>pair of shadows</strong>: a light one on the side
+                        facing the light source and a dark one opposite it. The result feels physical, calm, and quietly premium.
+                    </p>
+                    <p class="caveat">
+                        <strong>Honest caveat:</strong> because everything is the same color and edges are defined only by soft
+                        shadows, neumorphism scores poorly on contrast and accessibility. Users with low vision can struggle
+                        to find buttons at all. Most real products use it sparingly &mdash; as an accent, not a whole system.
+                    </p>
+                    <button class="cta neu-button" type="button">Press Me</button>
+                </div>
+            </section>
+
+            <!-- Interactive demo 1: light source -->
+            <section class="lab neu-flat" id="light-lab">
+                <h3 class="lab-title">Demo 1 &mdash; It&rsquo;s all just lighting</h3>
+                <p class="lab-caption">
+                    Every neumorphic shadow on this page is computed from one shared &ldquo;light direction.&rdquo;
+                    Pick a corner below and watch <em>the entire page</em> relight itself &mdash; the header, cards, buttons,
+                    everything. That consistency is the whole trick: neumorphism is simulated lighting, and it only
+                    works if every element agrees on where the light is coming from.
+                </p>
+                <div class="light-stage">
+                    <div class="light-grid" role="group" aria-label="Light direction">
+                        <button class="light-btn neu-button is-active" type="button" data-lx="-1" data-ly="-1" aria-label="Light from top left">&#8598;</button>
+                        <button class="light-btn neu-button" type="button" data-lx="1" data-ly="-1" aria-label="Light from top right">&#8599;</button>
+                        <button class="light-btn neu-button" type="button" data-lx="-1" data-ly="1" aria-label="Light from bottom left">&#8601;</button>
+                        <button class="light-btn neu-button" type="button" data-lx="1" data-ly="1" aria-label="Light from bottom right">&#8600;</button>
+                    </div>
+                    <div class="light-sample neu">
+                        <span class="light-readout" id="lightReadout">Light: top-left</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive demo 2: three states -->
+            <section class="lab neu-flat" id="state-lab">
+                <h3 class="lab-title">Demo 2 &mdash; The three classic states</h3>
+                <p class="lab-caption">
+                    Neumorphic elements live in one of three states. <strong>Raised</strong> casts outward shadows, as if extruded
+                    from the surface. <strong>Flat</strong> sits flush &mdash; only a subtle edge separates it. <strong>Pressed</strong>
+                    flips the shadows inward (inset), as if pushed into the surface. Click each chip; the &ldquo;Press Me&rdquo;
+                    buttons across this page use the raised&#8594;pressed transition on click.
+                </p>
+                <div class="state-row">
+                    <div class="state-demo">
+                        <button class="state-chip neu" type="button" data-state="raised">Raised</button>
+                        <span class="state-label">Outward dual shadow</span>
+                    </div>
+                    <div class="state-demo">
+                        <button class="state-chip neu-flat" type="button" data-state="flat">Flat</button>
+                        <span class="state-label">Flush with the surface</span>
+                    </div>
+                    <div class="state-demo">
+                        <button class="state-chip neu-inset" type="button" data-state="pressed">Pressed</button>
+                        <span class="state-label">Inset (inverted) shadow</span>
+                    </div>
+                </div>
+                <p class="state-readout" id="stateReadout">Tap a chip to compare the states up close.</p>
+            </section>
+
+            <!-- Interactive demo 3: depth slider -->
+            <section class="lab neu-flat" id="depth-lab">
+                <h3 class="lab-title">Demo 3 &mdash; Dial in the depth</h3>
+                <p class="lab-caption">
+                    Shadow <em>distance</em> and <em>blur</em> control how far an element appears to rise off the surface.
+                    Small values read as a faint emboss; large values float dramatically. Drag the slider and watch the
+                    card below &mdash; the shadows are recomputed live through CSS custom properties.
+                </p>
+                <div class="depth-stage">
+                    <div class="depth-card neu" id="depthCard">
+                        <h4>Depth: <span id="depthReadout">8px</span></h4>
+                        <p>distance &times; ~2 = blur</p>
+                    </div>
+                    <label class="depth-control">
+                        <span>Shadow depth</span>
+                        <input type="range" id="depthSlider" class="neu-range" min="2" max="24" value="8" step="1" aria-label="Shadow depth in pixels">
+                    </label>
+                </div>
+            </section>
+
+            <!-- Soft control panel -->
+            <section class="lab neu-flat" id="panel-lab">
+                <h3 class="lab-title">A working soft-UI control panel</h3>
+                <p class="lab-caption">
+                    Neumorphism shines on controls &mdash; toggles, sliders, and dials that beg to be touched.
+                    These are real, working inputs styled with nothing but the same dual-shadow recipe.
+                </p>
+                <div class="panel-grid">
+                    <div class="panel-item">
+                        <label class="neu-toggle">
+                            <input type="checkbox" checked aria-label="Ambient toggle">
+                            <span class="track"><span class="thumb"></span></span>
+                        </label>
+                        <span class="panel-label">Toggle switch</span>
+                    </div>
+                    <div class="panel-item">
+                        <label class="neu-toggle">
+                            <input type="checkbox" aria-label="Secondary toggle">
+                            <span class="track"><span class="thumb"></span></span>
+                        </label>
+                        <span class="panel-label">Off state</span>
+                    </div>
+                    <div class="panel-item panel-wide">
+                        <input type="range" class="neu-range" min="0" max="100" value="65" aria-label="Decorative volume slider">
+                        <span class="panel-label">Grooved slider</span>
+                    </div>
+                    <div class="panel-item">
+                        <button class="pill neu-button" type="button">Pill button</button>
+                        <span class="panel-label">Click to depress</span>
+                    </div>
+                    <div class="panel-item">
+                        <button class="pill pill-accent neu-button" type="button">Accent pill</button>
+                        <span class="panel-label">Brand ember accent</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section class="features">
+                <div class="card neu">
+                    <h3>Neumorphism Basics</h3>
+                    <p>Soft backgrounds, gentle dual shadows, and subtle gradients create tactile,
+                        almost tangible interfaces &mdash; merging digital design with a physically inspired, organic aesthetic.
+                    </p>
+                </div>
+                <div class="card neu">
+                    <h3>Clean, Modern Layout</h3>
+                    <p>Neumorphic layouts lean on simplicity: ample whitespace, refined typography, and
+                        balanced structure that lets the softly raised elements do the talking.
+                    </p>
+                </div>
+                <div class="card neu">
+                    <h3>Responsiveness</h3>
+                    <p>Because depth comes from shadows rather than fixed imagery, neumorphic interfaces adapt
+                        gracefully across devices while keeping their tactile feel intact.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Glassmorphism aside -->
+            <section class="frosted-section">
+                <div class="frosted-card">
+                    <h2>The Glass Cousin</h2>
+                    <p>
+                        This frosted panel is <strong>glassmorphism</strong> &mdash; neumorphism&rsquo;s sibling trend.
+                        Where neumorphism fakes depth with shadows on an opaque surface, glassmorphism fakes it
+                        with translucency and background blur. Same goal, opposite material.
+                    </p>
+                    <button type="button">Spot the difference</button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer neu-flat">
+            <p>Air&amp;Ember &mdash; Design education series &middot; Neumorphism</p>
+        </footer>
+
+        <script>
+            (function () {
+                var root = document.documentElement;
+
+                /* Demo 1: light direction drives --lx / --ly for the whole page */
+                var lightBtns = document.querySelectorAll('.light-btn');
+                var lightReadout = document.getElementById('lightReadout');
+                var names = { '-1,-1': 'top-left', '1,-1': 'top-right', '-1,1': 'bottom-left', '1,1': 'bottom-right' };
+                lightBtns.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        var lx = btn.dataset.lx, ly = btn.dataset.ly;
+                        root.style.setProperty('--lx', lx);
+                        root.style.setProperty('--ly', ly);
+                        lightReadout.textContent = 'Light: ' + names[lx + ',' + ly];
+                        lightBtns.forEach(function (b) { b.classList.remove('is-active'); });
+                        btn.classList.add('is-active');
+                    });
+                });
+
+                /* Demo 2: state chips */
+                var chips = document.querySelectorAll('.state-chip');
+                var stateReadout = document.getElementById('stateReadout');
+                var blurbs = {
+                    raised: 'Raised: light shadow toward the light, dark shadow away from it. Reads as a touchable button.',
+                    flat: 'Flat: no offset shadows, just a faint edge. Reads as a surface or grouping panel.',
+                    pressed: 'Pressed: shadows flipped inset. Reads as an active, pushed-in, or selected control.'
+                };
+                chips.forEach(function (chip) {
+                    chip.addEventListener('click', function () {
+                        stateReadout.textContent = blurbs[chip.dataset.state];
+                    });
+                });
+
+                /* Demo 3: depth slider scoped to the demo card */
+                var slider = document.getElementById('depthSlider');
+                var depthCard = document.getElementById('depthCard');
+                var depthReadout = document.getElementById('depthReadout');
+                slider.addEventListener('input', function () {
+                    var d = parseInt(slider.value, 10);
+                    depthCard.style.setProperty('--d', d + 'px');
+                    depthCard.style.setProperty('--blur', (d * 2) + 'px');
+                    depthReadout.textContent = d + 'px';
+                });
+            })();
+        </script>
+    </body>
 </html>

@@ -1,0 +1,781 @@
+/* ====================================================================
+   Air&Ember — Skeuomorphic design study ("forest cabin workbench")
+   Default state = full skeuomorphism (wood, paper, leather, metal).
+   body.flat strips textures/shadows to flat colors; everything that
+   changes between modes carries a transition so the flip reads well.
+   ==================================================================== */
+
+/* ---------- Fonts ---------- */
+@font-face {
+    font-family: "Playfair Display";
+    src: url(../assets/fonts/PlayfairDisplay-VariableFont_wght.ttf) format("truetype");
+    font-weight: 400 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ZT Neue Ralewe";
+    src: url(../assets/fonts/ZTNeueRalewe-Regular.ttf) format("truetype");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "ZT Neue Ralewe";
+    src: url(../assets/fonts/ZTNeueRalewe-ExtraBold.ttf) format("truetype");
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Krusty";
+    src: url(../assets/fonts/krustycraft.otf) format("opentype");
+    font-display: swap;
+}
+
+/* ---------- Tokens ---------- */
+:root {
+    --ink: #080511;
+    --cream: #f4e7c5;
+    --pine: #172c16;
+    --ember: #a74918;
+    --flame: #ff7a2f;
+    --paper: #f9f1da;
+    --leather: #4a2c17;
+    --lampA: 0.35;
+    /* lamp glow intensity, set by the knob */
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ---------- Page / wood desk ---------- */
+body {
+    margin: 0;
+    font-family: "ZT Neue Ralewe", Georgia, serif;
+    color: var(--ink);
+    overflow-x: clip;
+    background-color: #5b3a23;
+    background-image:
+        repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.18) 0 3px, rgba(255, 255, 255, 0.04) 3px 5px, transparent 5px 170px),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 2px, transparent 2px 6px),
+        repeating-linear-gradient(92deg, rgba(0, 0, 0, 0.05) 0 14px, transparent 14px 38px),
+        linear-gradient(90deg, #6b4528, #58371f 28%, #6b4226 52%, #4e2f1a 78%, #63401f);
+    transition: background-color 0.5s;
+}
+
+body.flat {
+    background-image: none;
+    background-color: #ece4d2;
+}
+
+/* warm lamp glow over the desk (toggled by the push button) */
+.sk-lamp {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    background: radial-gradient(58% 46% at 50% 0%, rgba(255, 184, 92, 0.9), rgba(255, 150, 60, 0.25) 55%, transparent 75%);
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+body.lamp-on .sk-lamp {
+    opacity: var(--lampA);
+}
+
+body.flat .sk-lamp {
+    background: radial-gradient(58% 46% at 50% 0%, rgba(255, 196, 110, 0.55), transparent 70%);
+}
+
+/* ---------- Back to Designs pill ---------- */
+.returnCont {
+    display: flex;
+    justify-content: center;
+}
+
+.Return {
+    position: fixed;
+    bottom: 1rem;
+    background-color: var(--ember);
+    width: 13rem;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+    padding: 0.6rem;
+    color: #fff;
+    letter-spacing: 0.12rem;
+    text-decoration: none;
+    font-family: "Krusty", sans-serif;
+    box-shadow: 0 4px 14px rgba(8, 5, 17, 0.45);
+    z-index: 20000;
+}
+
+.Return:hover {
+    background-color: var(--flame);
+}
+
+/* ---------- Stitched-leather nav ---------- */
+.sk-nav {
+    position: relative;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: clamp(0.75rem, 2.5vw, 1.5rem);
+    padding: 0.8rem 1.2rem;
+    border-radius: 14px;
+    background:
+        radial-gradient(120% 160% at 50% -30%, rgba(255, 255, 255, 0.14), transparent 55%),
+        linear-gradient(180deg, #5d3a20, var(--leather) 55%, #35200f);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.45),
+        0 8px 18px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2c1a0c;
+    outline: 2px dashed rgba(244, 231, 197, 0.5);
+    /* the stitching */
+    outline-offset: -8px;
+    transition: background 0.5s, box-shadow 0.5s, outline-color 0.5s, border-radius 0.5s;
+}
+
+.sk-nav_brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--cream);
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.sk-nav_logo {
+    height: 40px;
+    width: auto;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+.sk-nav_links {
+    display: flex;
+    gap: 0.6rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.sk-nav_links a {
+    display: inline-block;
+    text-decoration: none;
+    color: #3a230f;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    padding: 0.45rem 1rem;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #fdf3d7, #e0c98f 55%, #c9ad6e);
+    border: 1px solid #8a6c3c;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        inset 0 -2px 3px rgba(0, 0, 0, 0.25),
+        0 3px 5px rgba(0, 0, 0, 0.45);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    transition: box-shadow 0.2s, transform 0.2s, background 0.5s;
+}
+
+.sk-nav_links a:hover {
+    filter: brightness(1.05);
+}
+
+.sk-nav_links a:active {
+    transform: translateY(2px);
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.35),
+        0 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+body.flat .sk-nav {
+    background: var(--pine);
+    box-shadow: none;
+    outline-color: transparent;
+    border-color: var(--pine);
+    border-radius: 6px;
+}
+
+body.flat .sk-nav_brand {
+    text-shadow: none;
+}
+
+body.flat .sk-nav_logo {
+    filter: none;
+}
+
+body.flat .sk-nav_links a {
+    background: var(--cream);
+    border-color: var(--cream);
+    box-shadow: none;
+    text-shadow: none;
+    border-radius: 4px;
+}
+
+/* ---------- Layout ---------- */
+.sk-desk {
+    position: relative;
+    z-index: 2;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: clamp(1rem, 4vw, 3rem) clamp(0.75rem, 3.5vw, 2.5rem) 4rem;
+    display: grid;
+    gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* ---------- The paper letter ---------- */
+.sk-paper {
+    position: relative;
+    background:
+        repeating-linear-gradient(0deg, transparent 0 31px, rgba(122, 96, 58, 0.12) 31px 32px),
+        radial-gradient(140% 100% at 30% 0%, rgba(255, 255, 255, 0.55), transparent 60%),
+        linear-gradient(180deg, #fffdf2, var(--paper) 60%, #f0e4c2);
+    padding: clamp(1.5rem, 5vw, 3.5rem) clamp(1.25rem, 5vw, 3.5rem) clamp(2.5rem, 6vw, 4rem);
+    transform: rotate(-0.5deg);
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.3),
+        0 14px 34px rgba(0, 0, 0, 0.5),
+        inset 0 0 70px rgba(120, 90, 40, 0.14);
+    transition: box-shadow 0.5s, transform 0.5s, background-color 0.5s, border-radius 0.5s;
+}
+
+/* deckled (torn) bottom edge */
+.sk-paper::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -11px;
+    height: 12px;
+    background:
+        linear-gradient(-45deg, transparent 8px, #f0e4c2 0) 0 0 / 16px 16px repeat-x,
+        linear-gradient(45deg, transparent 8px, #f0e4c2 0) 8px 0 / 16px 16px repeat-x;
+    filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.25));
+    transition: opacity 0.5s;
+}
+
+/* a bit of tape on the top corner */
+.sk-paper::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: 8%;
+    width: 110px;
+    height: 32px;
+    background: rgba(244, 231, 197, 0.55);
+    border-left: 1px dashed rgba(0, 0, 0, 0.12);
+    border-right: 1px dashed rgba(0, 0, 0, 0.12);
+    transform: rotate(-4deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s;
+}
+
+body.flat .sk-paper {
+    background: #fff;
+    transform: none;
+    box-shadow: none;
+    border: 1px solid #d8d2c2;
+    border-radius: 8px;
+}
+
+body.flat .sk-paper::after,
+body.flat .sk-paper::before {
+    opacity: 0;
+}
+
+.sk-paper h1 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 850;
+    font-size: clamp(2.2rem, 6.5vw, 4.2rem);
+    line-height: 1;
+    margin: 0 0 0.3rem;
+    color: var(--pine);
+}
+
+.sk-paper .sk-sub {
+    font-style: italic;
+    font-family: "Playfair Display", Georgia, serif;
+    color: var(--ember);
+    margin: 0 0 1.75rem;
+    font-size: 1.05rem;
+}
+
+.sk-paper p {
+    margin: 0 0 1.25rem;
+    line-height: 1.75;
+    font-size: 1.03rem;
+    color: rgba(8, 5, 17, 0.85);
+    max-width: 68ch;
+}
+
+.sk-paper .sk-signoff {
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
+    color: var(--pine);
+    margin-top: 2rem;
+}
+
+/* ---------- Brushed-metal control panel ---------- */
+.sk-panel {
+    border-radius: 16px;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+    background:
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 3px),
+        linear-gradient(180deg, #cfd2d6, #9da2a8 50%, #b8bcc2 52%, #84898f);
+    border: 1px solid #5d6268;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.7),
+        inset 0 -4px 8px rgba(0, 0, 0, 0.3),
+        0 12px 28px rgba(0, 0, 0, 0.5);
+    transition: background 0.5s, box-shadow 0.5s, border-radius 0.5s;
+}
+
+/* corner screws */
+.sk-panel {
+    position: relative;
+}
+
+.sk-screw {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #eef0f2, #989da3 60%, #6a6f75);
+    box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.5);
+    transition: opacity 0.5s;
+}
+
+.sk-screw::after {
+    content: "";
+    position: absolute;
+    left: 2px;
+    right: 2px;
+    top: 6px;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.55);
+    transform: rotate(40deg);
+}
+
+.sk-screw--tl { top: 10px; left: 10px; }
+.sk-screw--tr { top: 10px; right: 10px; transform: rotate(70deg); }
+.sk-screw--bl { bottom: 10px; left: 10px; transform: rotate(-50deg); }
+.sk-screw--br { bottom: 10px; right: 10px; transform: rotate(15deg); }
+
+body.flat .sk-panel {
+    background: #fff;
+    border: 1px solid #d8d2c2;
+    box-shadow: none;
+    border-radius: 8px;
+}
+
+body.flat .sk-screw {
+    opacity: 0;
+}
+
+.sk-panel h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    margin: 0 0 0.25rem;
+    color: #2a2f34;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
+    transition: text-shadow 0.5s, color 0.5s;
+}
+
+.sk-panel .sk-panel_sub {
+    margin: 0 0 1.75rem;
+    font-size: 0.95rem;
+    color: #3c4147;
+}
+
+body.flat .sk-panel h2 {
+    text-shadow: none;
+    color: var(--pine);
+}
+
+.sk-controls {
+    display: grid;
+    gap: 1.75rem;
+    grid-template-columns: 1fr;
+}
+
+.sk-control {
+    display: grid;
+    gap: 0.8rem;
+    justify-items: center;
+    text-align: center;
+    padding: 1.25rem 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(255, 255, 255, 0.4);
+    transition: background 0.5s, box-shadow 0.5s;
+}
+
+body.flat .sk-control {
+    background: #f5f1e6;
+    box-shadow: none;
+}
+
+.sk-control_caption {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #2e3338;
+    max-width: 38ch;
+    margin: 0;
+}
+
+body.flat .sk-control_caption {
+    color: rgba(8, 5, 17, 0.75);
+}
+
+/* ---------- 1. The big mode switch ---------- */
+.sk-switch {
+    cursor: pointer;
+    border: 0;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: linear-gradient(180deg, #e9ebee, #c4c8cd 55%, #d6d9dd);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.85),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.25),
+        0 5px 10px rgba(0, 0, 0, 0.35);
+    transition: background 0.5s, box-shadow 0.5s, border-radius 0.5s;
+}
+
+.sk-switch:focus-visible {
+    outline: 3px solid var(--flame);
+    outline-offset: 3px;
+}
+
+.sk-switch_label {
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #5a6065;
+    transition: color 0.3s;
+}
+
+.sk-switch_label.is-active {
+    color: var(--ember);
+}
+
+.sk-switch_track {
+    position: relative;
+    width: 78px;
+    height: 36px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #74797f, #a8adb3);
+    box-shadow:
+        inset 0 3px 7px rgba(0, 0, 0, 0.55),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+    transition: background 0.5s, box-shadow 0.5s;
+}
+
+.sk-switch_knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, #ffffff, #d2d6da 55%, #9aa0a6);
+    box-shadow:
+        0 3px 6px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        inset 0 -3px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1), background 0.5s, box-shadow 0.5s;
+}
+
+body.flat .sk-switch {
+    background: #fff;
+    box-shadow: none;
+    border: 2px solid var(--pine);
+    border-radius: 8px;
+}
+
+body.flat .sk-switch_track {
+    background: #cfc9b8;
+    box-shadow: none;
+}
+
+body.flat .sk-switch_knob {
+    transform: translateX(42px);
+    background: var(--pine);
+    box-shadow: none;
+}
+
+/* ---------- 2. Push button + lamp LED ---------- */
+.sk-pushRow {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.sk-push {
+    cursor: pointer;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    border: 0;
+    position: relative;
+    color: #5e1408;
+    font-family: "ZT Neue Ralewe", sans-serif;
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    background: radial-gradient(circle at 34% 28%, #ff9d7a, #d8431c 58%, #8e2208);
+    box-shadow:
+        inset 0 2px 2px rgba(255, 255, 255, 0.5),
+        inset 0 -6px 9px rgba(0, 0, 0, 0.45),
+        0 7px 0 #6f1a05,
+        0 12px 18px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.35);
+    transition: box-shadow 0.12s, transform 0.12s, background 0.5s, border-radius 0.5s;
+}
+
+.sk-push:focus-visible {
+    outline: 3px solid var(--flame);
+    outline-offset: 4px;
+}
+
+.sk-push:active,
+.sk-push[aria-pressed="true"] {
+    transform: translateY(6px);
+    box-shadow:
+        inset 0 3px 8px rgba(0, 0, 0, 0.55),
+        inset 0 -2px 3px rgba(255, 255, 255, 0.15),
+        0 1px 0 #6f1a05,
+        0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.sk-led {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #5c4f3a, #2c2517);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(255, 255, 255, 0.4);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+body.lamp-on .sk-led {
+    background: radial-gradient(circle at 35% 30%, #ffe9a8, #ffb347 55%, #d97a12);
+    box-shadow: 0 0 12px 3px rgba(255, 176, 64, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+body.flat .sk-push {
+    background: var(--ember);
+    color: #fff;
+    text-shadow: none;
+    box-shadow: none;
+    border-radius: 10px;
+}
+
+body.flat .sk-push:active,
+body.flat .sk-push[aria-pressed="true"] {
+    background: var(--pine);
+    transform: none;
+}
+
+body.flat .sk-led {
+    background: #cfc9b8;
+    box-shadow: none;
+}
+
+body.flat.lamp-on .sk-led {
+    background: var(--flame);
+    box-shadow: none;
+}
+
+/* ---------- 3. Rotary knob ---------- */
+.sk-knobWrap {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.sk-knob {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    position: relative;
+    cursor: grab;
+    touch-action: none;
+    background:
+        radial-gradient(circle at 50% 50%, transparent 58%, rgba(0, 0, 0, 0.25) 60%, transparent 64%),
+        radial-gradient(circle at 34% 28%, #f2f4f6, #b9bec4 55%, #7d8288);
+    box-shadow:
+        0 6px 12px rgba(0, 0, 0, 0.5),
+        inset 0 2px 2px rgba(255, 255, 255, 0.8),
+        inset 0 -5px 8px rgba(0, 0, 0, 0.3);
+    transition: background 0.5s, box-shadow 0.5s;
+}
+
+.sk-knob:active {
+    cursor: grabbing;
+}
+
+.sk-knob:focus-visible {
+    outline: 3px solid var(--flame);
+    outline-offset: 4px;
+}
+
+.sk-knob_dial {
+    position: absolute;
+    inset: 0;
+    transform: rotate(-135deg);
+    /* JS rotates between -135deg and 135deg */
+}
+
+.sk-knob_marker {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 6px;
+    height: 20px;
+    margin-left: -3px;
+    border-radius: 3px;
+    background: var(--ember);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+.sk-knob_readout {
+    font-family: "ZT Neue Ralewe", sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #2e3338;
+    min-width: 4ch;
+}
+
+body.flat .sk-knob {
+    background: #fff;
+    border: 2px solid var(--pine);
+    box-shadow: none;
+}
+
+body.flat .sk-knob_marker {
+    background: var(--pine);
+    box-shadow: none;
+}
+
+/* ---------- Footer (wood plank + brass plaque) ---------- */
+.sk-footer {
+    position: relative;
+    z-index: 2;
+    margin: 0 clamp(0.75rem, 2.5vw, 1.5rem) 5.5rem;
+    padding: 2rem clamp(1rem, 4vw, 2.5rem);
+    border-radius: 12px;
+    color: var(--cream);
+    background:
+        repeating-linear-gradient(88deg, rgba(0, 0, 0, 0.12) 0 12px, transparent 12px 34px),
+        linear-gradient(180deg, #3d2715, #2a1a0c);
+    border: 1px solid #1d1107;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 10px 22px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    transition: background 0.5s, box-shadow 0.5s, border-radius 0.5s;
+}
+
+body.flat .sk-footer {
+    background: var(--pine);
+    box-shadow: none;
+    border-color: var(--pine);
+    border-radius: 6px;
+}
+
+.sk-footer h4 {
+    margin: 0 0 0.5rem;
+    font-family: "Playfair Display", Georgia, serif;
+    color: #e8c87e;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.7);
+}
+
+body.flat .sk-footer h4 {
+    text-shadow: none;
+    color: var(--cream);
+}
+
+.sk-footer p {
+    margin: 0.15rem 0;
+    font-size: 0.92rem;
+}
+
+.sk-footer a {
+    color: #e8c87e;
+    text-underline-offset: 0.25em;
+}
+
+.sk-footer a:hover {
+    color: var(--flame);
+}
+
+.sk-copyright {
+    align-self: flex-end;
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+/* ---------- Wider screens ---------- */
+@media only screen and (min-width: 860px) {
+    .Return {
+        bottom: auto;
+        top: 15px;
+        right: 15px;
+    }
+
+    .sk-desk {
+        grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+        align-items: start;
+    }
+
+    .sk-paper {
+        grid-column: 1;
+    }
+
+    .sk-panel {
+        grid-column: 2;
+        position: sticky;
+        top: 1.5rem;
+    }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+@media screen and (max-width: 480px) {
+    .Return {
+        visibility: hidden;
+    }
+}

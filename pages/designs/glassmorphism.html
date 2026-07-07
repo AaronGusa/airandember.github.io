@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Air&amp;Ember &mdash; Glassmorphism Design Example</title>
+        <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
+        <link rel="stylesheet" href="../../css/glass.css">
+    </head>
+    <body data-bg="aurora">
+        <!-- The scenery the glass blurs. Three layers, swapped by the background switcher. -->
+        <div class="scenery" aria-hidden="true">
+            <div class="scenery__layer scenery__layer--aurora">
+                <span class="blob blob--pine"></span>
+                <span class="blob blob--ember"></span>
+                <span class="blob blob--air"></span>
+                <span class="blob blob--cream"></span>
+            </div>
+            <div class="scenery__layer scenery__layer--photo"></div>
+            <div class="scenery__layer scenery__layer--flat"></div>
+        </div>
+
+        <div class="returnCont">
+            <a class="Return" href="../designs.html">Back to Designs</a>
+        </div>
+
+        <header class="gl-header glass">
+            <a class="gl-brand" href="#" aria-label="Air and Ember home">
+                <img src="../../assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="Air&amp;Ember logo">
+                <span>Air&amp;Ember</span>
+            </a>
+            <nav class="gl-nav" aria-label="Demo navigation">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="gl-main">
+            <!-- Hero / educational blurb -->
+            <section class="gl-hero glass">
+                <p class="gl-eyebrow">Design Education &middot; Glassmorphism</p>
+                <h1>Glassmorphism</h1>
+                <p class="gl-tagline">Frosted panes floating over light.</p>
+                <p>
+                    Glassmorphism styles interface surfaces as panes of frosted glass: semi-transparent fills,
+                    a heavy background blur, a hair-thin light border, and a soft shadow that lifts each pane off
+                    the scenery behind it. The look traces back to the &ldquo;vibrancy&rdquo; materials of
+                    <strong>iOS&nbsp;7</strong> (2013), matured into a full design language with
+                    <strong>macOS Big Sur</strong> (2020), and runs in parallel on Windows as the
+                    <strong>Acrylic</strong> material in Fluent Design. The defining trait is that the surface is
+                    never a flat color &mdash; it is a live sample of whatever sits behind it, blurred until it reads
+                    as texture instead of content.
+                </p>
+                <p>
+                    Its strengths are depth and elegance: layered panes create an instant sense of hierarchy
+                    (closer panes are sharper and brighter), and a well-tuned blur makes even a riotous background
+                    feel calm. The honest caveats: <strong>legibility</strong> depends entirely on what wanders
+                    behind the glass, so text contrast must be checked against the worst case, not the prettiest
+                    screenshot; and the CSS that powers it, <code>backdrop-filter</code>, while now supported in
+                    all modern browsers, still deserves an <code>@supports</code> fallback &mdash; this page swaps to a
+                    more opaque fill wherever blur is unavailable, and you should too.
+                </p>
+                <p>
+                    Use glassmorphism when you have rich imagery or color to show through &mdash; hero overlays,
+                    media players, dashboards over data visualizations. Skip it for dense text-heavy products,
+                    where the shifting background becomes noise.
+                </p>
+            </section>
+
+            <!-- Demo 1: Glass Lab -->
+            <section class="gl-lab glass" id="glass-lab" aria-labelledby="labHeading">
+                <h2 id="labHeading">Demo 1 &mdash; The Glass Lab</h2>
+                <p class="gl-caption">
+                    The entire frosted-glass recipe is three ingredients. Drag each slider and watch the sample pane:
+                    <strong>blur radius</strong> is the frost (at 0 the pane is clear plastic, not glass),
+                    <strong>fill opacity</strong> is the milkiness of the white tint (too high and it becomes a plain
+                    white card), and <strong>border opacity</strong> is the lit edge that sells the pane as a physical
+                    sheet catching light. Each control writes a CSS custom property &mdash; the sample's style is just
+                    <code>backdrop-filter: blur(var(--lab-blur))</code> plus a translucent fill and border.
+                </p>
+                <div class="lab-stage">
+                    <div class="lab-sample" id="labSample">
+                        <h3>Frosted sample</h3>
+                        <p>Aurora light passes through this pane. The blur turns the chaos behind it into a soft glow.</p>
+                    </div>
+                    <div class="lab-controls">
+                        <label class="lab-control" for="labBlur">
+                            <span class="lab-control__name">Blur radius <output id="labBlurOut" for="labBlur">14px</output></span>
+                            <input type="range" id="labBlur" min="0" max="30" value="14" step="1">
+                        </label>
+                        <label class="lab-control" for="labFill">
+                            <span class="lab-control__name">Fill opacity <output id="labFillOut" for="labFill">18%</output></span>
+                            <input type="range" id="labFill" min="0" max="100" value="18" step="1">
+                        </label>
+                        <label class="lab-control" for="labBorder">
+                            <span class="lab-control__name">Border opacity <output id="labBorderOut" for="labBorder">45%</output></span>
+                            <input type="range" id="labBorder" min="0" max="100" value="45" step="1">
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Demo 2: background switcher -->
+            <section class="gl-lab glass" id="bg-lab" aria-labelledby="bgHeading">
+                <h2 id="bgHeading">Demo 2 &mdash; Glass needs scenery</h2>
+                <p class="gl-caption">
+                    A frosted pane is only as interesting as what it frosts. Switch the page background and watch
+                    every card on this page: over the <strong>aurora</strong> the glass glows, over the
+                    <strong>photo</strong> it reads as a window, and over <strong>flat grey</strong> the blur has
+                    nothing to do &mdash; the &ldquo;glass&rdquo; collapses into an ordinary grey rectangle. If your
+                    product's background is a solid color, glassmorphism is the wrong tool.
+                </p>
+                <div class="bg-switch" role="group" aria-label="Page background">
+                    <button class="bg-btn is-active" type="button" data-bg="aurora">Vibrant aurora</button>
+                    <button class="bg-btn" type="button" data-bg="photo">Photograph</button>
+                    <button class="bg-btn" type="button" data-bg="flat">Flat grey</button>
+                </div>
+                <p class="bg-readout" id="bgReadout" role="status" aria-live="polite">
+                    Currently blurring: layered gradient aurora &mdash; the ideal habitat for glass.
+                </p>
+            </section>
+
+            <!-- Demo 3: stacking -->
+            <section class="gl-lab glass" id="stack-lab" aria-labelledby="stackHeading">
+                <h2 id="stackHeading">Demo 3 &mdash; Layered depth</h2>
+                <p class="gl-caption">
+                    Depth in glassmorphism comes from stacking. The rear pane below blurs the aurora; the front pane
+                    blurs the rear pane <em>and</em> the aurora, so it looks unmistakably closer. Notice the front
+                    pane also gets a slightly brighter fill and border &mdash; nearer glass catches more light. Hover
+                    (or tap) either pane to lift it.
+                </p>
+                <div class="stack-stage">
+                    <div class="stack-pane stack-pane--back" tabindex="0">
+                        <h3>Rear pane</h3>
+                        <p>Dimmer fill, softer edge. Reads as background chrome.</p>
+                    </div>
+                    <div class="stack-pane stack-pane--front" tabindex="0">
+                        <h3>Front pane</h3>
+                        <p>Brighter fill, crisper border, deeper shadow. Reads as the active layer.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="gl-footer glass">
+            <div class="gl-social">
+                <a href="" aria-label="Instagram"><img src="../../assets/images/designAssets/instagram-2016-logo-svgrepo-com.svg" alt=""></a>
+                <a href="" aria-label="Facebook"><img src="../../assets/images/designAssets/facebook-svgrepo-com.svg" alt=""></a>
+                <a href="" aria-label="X Social"><img src="../../assets/images/designAssets/icons8-x.svg" alt=""></a>
+            </div>
+            <div class="gl-footer__cols">
+                <div>
+                    <h4>Support</h4>
+                    <p>support@airandember.com</p>
+                </div>
+                <div>
+                    <h4>Operating Hours</h4>
+                    <p>Monday &ndash; Friday</p>
+                    <p>7 AM &ndash; 6 PM MST / MDT</p>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
+                </div>
+            </div>
+            <p class="gl-footer__copy">&copy; Copyright 2025 Air &amp; Ember</p>
+        </footer>
+
+        <script>
+            (function () {
+                /* Demo 1: sliders drive the sample pane's custom properties */
+                var sample = document.getElementById("labSample");
+                var blur = document.getElementById("labBlur");
+                var fill = document.getElementById("labFill");
+                var border = document.getElementById("labBorder");
+                var blurOut = document.getElementById("labBlurOut");
+                var fillOut = document.getElementById("labFillOut");
+                var borderOut = document.getElementById("labBorderOut");
+
+                function updateLab() {
+                    sample.style.setProperty("--lab-blur", blur.value + "px");
+                    sample.style.setProperty("--lab-fill", fill.value / 100);
+                    sample.style.setProperty("--lab-border", border.value / 100);
+                    blurOut.value = blur.value + "px";
+                    fillOut.value = fill.value + "%";
+                    borderOut.value = border.value + "%";
+                }
+                [blur, fill, border].forEach(function (input) {
+                    input.addEventListener("input", updateLab);
+                });
+                updateLab();
+
+                /* Demo 2: background switcher swaps a data attribute on <body> */
+                var bgBtns = document.querySelectorAll(".bg-btn");
+                var bgReadout = document.getElementById("bgReadout");
+                var notes = {
+                    aurora: "Currently blurring: layered gradient aurora \u2014 the ideal habitat for glass.",
+                    photo: "Currently blurring: a photograph \u2014 the panes now read as literal frosted windows.",
+                    flat: "Currently blurring: flat grey \u2014 nothing to blur, so the glass effect dies. Compare any card above."
+                };
+                bgBtns.forEach(function (btn) {
+                    btn.addEventListener("click", function () {
+                        document.body.dataset.bg = btn.dataset.bg;
+                        bgReadout.textContent = notes[btn.dataset.bg];
+                        bgBtns.forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+                    });
+                });
+            })();
+        </script>
+    </body>
+</html>

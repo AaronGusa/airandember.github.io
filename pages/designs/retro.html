@@ -3,61 +3,214 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Air&Ember Asymmetric Design Example</title>
+        <title>Air&amp;Ember — Retro / Vintage Design Example</title>
         <link rel="icon" type="image/x-icon" href="../../assets/images/designAssets/AE-LOGO-ICON-1.webp">
         <link rel="stylesheet" href="../../css/retro.css">
-
     </head>
-    <body>
+    <body class="era-80s scanlines-on">
         <div class="returnCont">
             <a class="Return" href="../designs.html">Back to Designs</a>
-       </div>
-        <header>
-          <h1>Rad Central</h1>
-          <nav>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </nav>
+        </div>
+
+        <!-- CRT scanline + vignette overlay (toggleable) -->
+        <div class="crt" aria-hidden="true"></div>
+
+        <header class="site-header panel">
+            <h1 class="chrome-title">Rad Central</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
         </header>
-      
+
         <main>
             <div class="mainCont">
-                <h1 class="RetroTitle">RETRO / VINTAGE</h1>
-                <section id="carousel">
-                    <div class="slide">Totally rad, dude!</div>
-                    <div class="slide">This site is off the hook!</div>
-                    <div class="slide">Eh, that's wicked awesome, buddy!</div>
-                    <div class="slide">Booyah! Time to get jiggy!</div>
+
+                <!-- Interactive teaching element: era switcher -->
+                <section class="era-switcher panel">
+                    <h2 class="section-heading">Pick your decade</h2>
+                    <p class="era-intro">
+                        &ldquo;Retro&rdquo; isn&rsquo;t one style &mdash; it&rsquo;s a costume box. Each era of design has
+                        unmistakable signature cues. Hit a button and this <em>entire page</em> re-themes itself:
+                        colors, type, borders, the works.
+                    </p>
+                    <div class="era-buttons" role="group" aria-label="Era theme switcher">
+                        <button class="era-btn era-btn-70s" type="button" data-era="era-70s">1970s Print</button>
+                        <button class="era-btn era-btn-80s is-active" type="button" data-era="era-80s">1980s Neon</button>
+                        <button class="era-btn era-btn-90s" type="button" data-era="era-90s">1990s Web</button>
+                    </div>
+                    <p class="era-caption" id="eraCaption">
+                        <strong>1980s Neon:</strong> dark backgrounds, glowing magenta and cyan, chrome gradients and
+                        gridlines &mdash; the visual language of arcades, VHS covers, and airbrushed sci-fi paperbacks.
+                    </p>
                 </section>
-                <br><br><br><br><br><br>
 
-                <section class="content">
+                <div class="title-block">
+                    <h1 class="RetroTitle glow">RETRO / VINTAGE</h1>
+                    <div class="starburst" aria-hidden="true"><span>NEW!</span></div>
+                </div>
+
+                <!-- Rebuilt quote carousel -->
+                <section class="carousel panel" id="carousel" aria-label="Totally authentic testimonials">
+                    <div class="carousel-window">
+                        <div class="slide is-active">Totally rad, dude!</div>
+                        <div class="slide">This site is off the hook!</div>
+                        <div class="slide">Eh, that's wicked awesome, buddy!</div>
+                        <div class="slide">Booyah! Time to get jiggy!</div>
+                    </div>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn" type="button" id="prevSlide" aria-label="Previous quote">&#9664;</button>
+                        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Quote slides"></div>
+                        <button class="carousel-btn" type="button" id="nextSlide" aria-label="Next quote">&#9654;</button>
+                    </div>
+                </section>
+
+                <!-- Educational content -->
+                <section class="content panel">
                     <div class="contentCont">
-                        <h1>Blast from the Past!</h1>
+                        <h2 class="section-heading">Blast from the Past!</h2>
                         <div class="contentPImg">
-                            <p>A retro vintage website offers more than just visual appeal; it creates a nostalgic experience that deeply
-                            connects with audiences. This design style uses classic elements such as ornate typography, muted color palettes,
-                            and textured backgrounds to evoke familiarity and charm.
-                            <br><br><br>
-                            It’s perfect for brands aiming to highlight heritage, authenticity, and craftsmanship in their identity. Retro vintage design fosters an emotional connection with customers who value timeless aesthetics, setting your business apart from the uniformity of modern web trends. While blending nostalgia with usability, such a site can leave a lasting impression, showcasing your unique story with creative flair.
-
+                            <p>
+                                A retro or vintage website offers more than visual appeal &mdash; it creates a nostalgic
+                                experience that connects deeply with its audience. The style borrows classic elements
+                                such as ornate or period-correct typography, muted or era-specific color palettes, and
+                                textured backgrounds to evoke familiarity and charm.
+                                <br><br>
+                                It&rsquo;s perfect for brands that want to highlight heritage, authenticity, and craftsmanship.
+                                Retro design builds an emotional connection with people who value timeless aesthetics,
+                                and it sets a business apart from the uniformity of modern web trends. Done well &mdash;
+                                blending nostalgia with real usability &mdash; a retro site leaves a lasting impression and
+                                tells a story no template can.
                             </p>
-                            <img src="../../assets/images/designAssets/9285000.webp" alt="">
+                            <figure class="retro-figure">
+                                <img src="../../assets/images/designAssets/9285000.webp" alt="Retro illustration">
+                                <figcaption>Period texture sells the theme more than any single color choice.</figcaption>
+                            </figure>
                         </div>
+                    </div>
+                </section>
+
+                <!-- Hit counter + CRT toggle -->
+                <section class="widgets">
+                    <div class="hit-counter panel">
+                        <p class="counter-label">You are visitor number</p>
+                        <div class="odometer" id="odometer" aria-live="polite"></div>
+                        <p class="widget-caption">
+                            Every self-respecting 90s homepage had a hit counter &mdash; odometer digits and all.
+                            Ours is lovingly fake.
+                        </p>
+                    </div>
+                    <div class="crt-control panel">
+                        <p class="counter-label">CRT scanlines</p>
+                        <button class="chunky-toggle is-on" type="button" id="crtToggle" aria-pressed="true">ON</button>
+                        <p class="widget-caption">
+                            Scanline and vignette overlays mimic the curved glass of an old monitor &mdash;
+                            an instant, cheap dose of analog texture. Toggle to compare.
+                        </p>
                     </div>
                 </section>
             </div>
         </main>
-      
-        <footer>
-          <p>&copy; 1999-2025 Rad Central. Keep on chillin'!</p>
-        </footer>
-      </body>
-      
-    
 
+        <footer class="panel">
+            <p class="marquee"><span>&copy; 1999&ndash;2026 Rad Central &middot; Keep on chillin' &middot; Best viewed at 800&times;600 &middot; Sign our guestbook! &middot;</span></p>
+        </footer>
+
+        <script>
+            (function () {
+                var body = document.body;
+
+                /* --- Era switcher: swaps a body class; CSS variables do the rest --- */
+                var eraBtns = document.querySelectorAll('.era-btn');
+                var eraCaption = document.getElementById('eraCaption');
+                var captions = {
+                    'era-70s': '<strong>1970s Print:</strong> warm browns, oranges and avocado tones, groovy rounded display faces, cream paper backgrounds \u2014 a look born from offset printing, album sleeves, and magazine culture.',
+                    'era-80s': '<strong>1980s Neon:</strong> dark backgrounds, glowing magenta and cyan, chrome gradients and gridlines \u2014 the visual language of arcades, VHS covers, and airbrushed sci-fi paperbacks.',
+                    'era-90s': '<strong>1990s Web:</strong> battleship-grey backgrounds, beveled 3D borders, Times New Roman, hit counters and \u201cunder construction\u201d energy \u2014 pure GeoCities-era Web 1.0.'
+                };
+                eraBtns.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        body.classList.remove('era-70s', 'era-80s', 'era-90s');
+                        body.classList.add(btn.dataset.era);
+                        eraCaption.innerHTML = captions[btn.dataset.era];
+                        eraBtns.forEach(function (b) { b.classList.remove('is-active'); });
+                        btn.classList.add('is-active');
+                    });
+                });
+
+                /* --- CRT toggle --- */
+                var crtToggle = document.getElementById('crtToggle');
+                crtToggle.addEventListener('click', function () {
+                    var on = body.classList.toggle('scanlines-on');
+                    crtToggle.classList.toggle('is-on', on);
+                    crtToggle.textContent = on ? 'ON' : 'OFF';
+                    crtToggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+                });
+
+                /* --- Quote carousel: auto-rotating with controls --- */
+                var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+                var dotsWrap = document.getElementById('carouselDots');
+                var current = 0;
+                var timer = null;
+                var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                slides.forEach(function (_, i) {
+                    var dot = document.createElement('button');
+                    dot.className = 'dot' + (i === 0 ? ' is-active' : '');
+                    dot.type = 'button';
+                    dot.setAttribute('aria-label', 'Go to quote ' + (i + 1));
+                    dot.addEventListener('click', function () { goTo(i); restart(); });
+                    dotsWrap.appendChild(dot);
+                });
+                var dots = Array.prototype.slice.call(dotsWrap.children);
+
+                function goTo(i) {
+                    current = (i + slides.length) % slides.length;
+                    slides.forEach(function (s, j) { s.classList.toggle('is-active', j === current); });
+                    dots.forEach(function (d, j) { d.classList.toggle('is-active', j === current); });
+                }
+                function restart() {
+                    if (reduceMotion) return;
+                    clearInterval(timer);
+                    timer = setInterval(function () { goTo(current + 1); }, 4500);
+                }
+                document.getElementById('prevSlide').addEventListener('click', function () { goTo(current - 1); restart(); });
+                document.getElementById('nextSlide').addEventListener('click', function () { goTo(current + 1); restart(); });
+                restart();
+
+                /* --- Fake hit counter --- */
+                var odometer = document.getElementById('odometer');
+                var hits = 142857 + Math.floor(Math.random() * 9000);
+                function renderHits() {
+                    odometer.innerHTML = '';
+                    String(hits).padStart(8, '0').split('').forEach(function (ch) {
+                        var d = document.createElement('span');
+                        d.className = 'digit';
+                        d.textContent = ch;
+                        odometer.appendChild(d);
+                    });
+                }
+                renderHits();
+                if (!reduceMotion) {
+                    setInterval(function () { hits += 1 + Math.floor(Math.random() * 3); renderHits(); }, 6000);
+                }
+
+                /* --- Konami code easter egg --- */
+                var code = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+                var pos = 0;
+                document.addEventListener('keydown', function (e) {
+                    pos = (e.key === code[pos]) ? pos + 1 : (e.key === code[0] ? 1 : 0);
+                    if (pos === code.length) {
+                        pos = 0;
+                        body.classList.add('rad-mode');
+                        setTimeout(function () { body.classList.remove('rad-mode'); }, 4000);
+                    }
+                });
+            })();
+        </script>
+    </body>
 </html>

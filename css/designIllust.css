@@ -1,4 +1,56 @@
-/* Global Styles */
+/* ============================================================
+   Air&Ember — Illustration-Led design education page
+   One illustrated forest scene, built from stacked layers.
+   data-mood on .scene re-lights the whole composition with
+   CSS filters and a swapped sky gradient.
+   ============================================================ */
+
+@font-face {
+    font-family: 'Monday Coffee';
+    src: url(../assets/fonts/MondayCoffee.ttf) format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ZT Neue Ralewe';
+    src: url(../assets/fonts/ZTNeueRalewe-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ZT Neue Ralewe';
+    src: url(../assets/fonts/ZTNeueRalewe-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Krusty;
+    src: url(../assets/fonts/krustycraft.otf);
+    font-display: swap;
+}
+
+/* Registered so the sky gradient colors animate between moods
+   (browsers without @property simply switch instantly). */
+@property --sky-top {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #7ec8e8;
+}
+
+@property --sky-mid {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #b8e4f2;
+}
+
+@property --sky-horizon {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #eef7e8;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,137 +58,18 @@
 }
 
 html {
-    width: 100%;
-    height: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
-    height: max-content;
-    width: 100%;
-    font-family: 'Helvetica', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    /* background-color: #f5f5f5; */
-    padding: 0 1rem;
+    font-family: 'ZT Neue Ralewe', 'Segoe UI', sans-serif;
+    line-height: 1.7;
+    color: #21301f;
+    background-color: #f7f3e8;
     overflow-x: hidden;
 }
 
-/* Navigation */
-header nav ul {
-    display: flex;
-    justify-content: flex-end;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-header nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-}
-
-main {
-    background-image: url('../assets/images/designAssets/SITE_Illust_HERO.png');
-    background-size: cover;
-    background-position: right;
-    background-color: transparent;
-    min-height: 100vh;
-    background-color: #f5f5f5;
-}
-
-/* Hero Section */
-#title {
-    font-size: clamp(1rem, 10vw, 10rem);
-}
-
-.hero {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 0;
-    z-index: 10;
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.hero-content p {
-    max-width: 400px;
-    margin-bottom: 2rem;
-}
-
-.hero-illustration img {
-    width: 100%;
-    max-width: 600px; /* Ensures image is responsive */
-    height: auto;
-}
-
-button {
-    padding: 2rem;
-    border-radius: 100px;
-    background-color: rgba(228, 228, 228, 0.75);
-    transition: background-color 0.15s ease-in-out, border-radius 0.15s ease-in-out;
-    z-index: 100;
-}
-
-button:hover {
-    background-color: #029cb3;
-    border-radius: 0;
-}
-
-button:active {
-    background-color: red;
-}
-
-
-
-/* About Section */
-#about {
-    text-align: center;
-    padding: 2rem 0;
-}
-
-#about h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-/* Footer */
-footer {
-    text-align: right;
-    padding: 1rem;
-    background-color: #222;
-    color: white;
-    z-index: 10;
-}
-
-/* .hero-illustration img {
-    animation: float 3s infinite ease-in-out;
-} */
-
-#trees {
-    height: 500px;
-    /* border: 5px solid red; */
-    position: absolute;
-    bottom: -35px;
-    left: 0;
-    animation: float 3s infinite cubic-bezier(0.76,-0.19, 0.29, 1.21);
-    z-index: 0;
-
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
+/* ---------- Back to Designs ---------- */
 .returnCont {
     display: flex;
     justify-content: center;
@@ -159,12 +92,414 @@ footer {
     z-index: 200000;
 }
 
-/* @media screen and (max-width: 845px) {
-    #title {
-        font-size: 3rem;
+/* ---------- Header ---------- */
+.il-header {
+    background-color: #f7f3e8;
+}
+
+.il-nav {
+    max-width: 74rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.9rem clamp(1rem, 4vw, 2.5rem);
+}
+
+.il-nav__logo {
+    height: 2.75rem;
+    width: auto;
+}
+
+.il-nav ul {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    list-style: none;
+}
+
+.il-nav a {
+    text-decoration: none;
+    color: #172c16;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.15rem;
+}
+
+.il-nav a:hover,
+.il-nav a:focus-visible {
+    color: #a74918;
+    border-bottom-color: #a74918;
+}
+
+/* ---------- The illustrated scene ---------- */
+.scene {
+    position: relative;
+    height: clamp(34rem, 92vh, 46rem);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* mood tokens — Day is the default */
+.scene[data-mood="day"] {
+    --sky-top: #7ec8e8;
+    --sky-mid: #b8e4f2;
+    --sky-horizon: #eef7e8;
+    --orb-color: #ffd75e;
+    --orb-x: 72%;
+    --orb-y: 12%;
+    --mood-filter: hue-rotate(0deg) saturate(1) brightness(1);
+    --scene-text: #14301c;
+    --cta-bg: #a74918;
+    --cta-text: #f4e7c5;
+}
+
+.scene[data-mood="dawn"] {
+    --sky-top: #46527e;
+    --sky-mid: #e58f6a;
+    --sky-horizon: #ffd9a0;
+    --orb-color: #ffb15e;
+    --orb-x: 22%;
+    --orb-y: 52%;
+    --mood-filter: hue-rotate(-12deg) saturate(1.15) brightness(0.9);
+    --scene-text: #fff3dd;
+    --cta-bg: #ff7a2f;
+    --cta-text: #1d1428;
+}
+
+.scene[data-mood="dusk"] {
+    --sky-top: #2c2140;
+    --sky-mid: #8a4a63;
+    --sky-horizon: #ff9a52;
+    --orb-color: #ff7a2f;
+    --orb-x: 76%;
+    --orb-y: 58%;
+    --mood-filter: hue-rotate(16deg) saturate(1.05) brightness(0.68);
+    --scene-text: #ffe8cf;
+    --cta-bg: #ff7a2f;
+    --cta-text: #241327;
+}
+
+.scene[data-mood="night"] {
+    --sky-top: #05070f;
+    --sky-mid: #101a2e;
+    --sky-horizon: #1d2c3f;
+    --orb-color: #e8ecf2;
+    --orb-x: 26%;
+    --orb-y: 14%;
+    --mood-filter: hue-rotate(28deg) saturate(0.5) brightness(0.42);
+    --scene-text: #e9eef5;
+    --cta-bg: #f4e7c5;
+    --cta-text: #14301c;
+}
+
+.scene__sky {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+    background: linear-gradient(to bottom, var(--sky-top), var(--sky-mid) 55%, var(--sky-horizon));
+    transition: --sky-top 0.9s ease, --sky-mid 0.9s ease, --sky-horizon 0.9s ease;
+}
+
+.scene__orb {
+    position: absolute;
+    z-index: -2;
+    width: clamp(4rem, 9vw, 7rem);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    left: var(--orb-x);
+    top: var(--orb-y);
+    background-color: var(--orb-color);
+    box-shadow: 0 0 60px 18px var(--orb-color);
+    transition: left 0.9s ease, top 0.9s ease, background-color 0.9s ease, box-shadow 0.9s ease;
+}
+
+/* Tree bands: the same illustration tiled at three scales.
+   Layers bleed past the edges so parallax never shows a seam. */
+.scene__layer {
+    position: absolute;
+    inset: -4%;
+    background-image: url('../assets/images/designAssets/SITE_ILLUST_HERO_TREES.png');
+    background-repeat: repeat-x;
+    will-change: transform;
+    pointer-events: none;
+}
+
+.scene__layer--far {
+    z-index: -1;
+    background-size: auto 30%;
+    background-position: left 2rem bottom 24%;
+    filter: var(--mood-filter) brightness(1.35) saturate(0.55) opacity(0.65);
+    transition: filter 0.9s ease;
+}
+
+.scene__layer--mid {
+    z-index: 1;
+    background-size: auto 52%;
+    background-position: left -3rem bottom 8%;
+    filter: var(--mood-filter) brightness(1.12) saturate(0.8) opacity(0.85);
+    transition: filter 0.9s ease;
+}
+
+.scene__layer--near {
+    z-index: 3;
+    background-size: auto 78%;
+    background-position: left bottom -2%;
+    filter: var(--mood-filter);
+    transition: filter 0.9s ease;
+}
+
+.scene__frog {
+    position: absolute;
+    z-index: 4; /* peeks over the front treeline */
+    bottom: -1.5rem;
+    right: clamp(1rem, 8vw, 9rem);
+    width: clamp(6rem, 14vw, 10rem);
+    height: auto;
+    filter: var(--mood-filter);
+    transition: filter 0.9s ease;
+    will-change: transform;
+}
+
+/* Headline & copy live inside the scene */
+.scene__content {
+    position: relative;
+    z-index: 4;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: clamp(3.5rem, 9vh, 6rem) 1.5rem 0;
+    color: var(--scene-text);
+    transition: color 0.9s ease;
+    will-change: transform;
+}
+
+.il-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.35em;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.scene__headline {
+    font-family: 'Monday Coffee', 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.6rem, 8.5vw, 6.5rem);
+    line-height: 1.05;
+    font-weight: 400;
+}
+
+.scene__sub {
+    margin-top: 1.25rem;
+    font-size: clamp(1rem, 2.2vw, 1.3rem);
+    max-width: 38ch;
+}
+
+.scene__cta {
+    margin-top: 1.75rem;
+    display: inline-block;
+    background-color: var(--cta-bg);
+    color: var(--cta-text);
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    padding: 0.9rem 2rem;
+    border-radius: 999px;
+    transition: background-color 0.9s ease, color 0.9s ease, transform 0.2s ease;
+}
+
+.scene__cta:hover,
+.scene__cta:focus-visible {
+    transform: translateY(-3px);
+}
+
+/* ---------- Mood switcher ---------- */
+.moods {
+    position: absolute;
+    z-index: 5;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.45rem;
+    border-radius: 999px;
+    background-color: rgba(8, 5, 17, 0.35);
+    backdrop-filter: blur(6px);
+}
+
+.moods__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    border: 1px solid transparent;
+    background: none;
+    color: #f4e7c5;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.moods__btn:hover,
+.moods__btn:focus-visible {
+    background-color: rgba(244, 231, 197, 0.18);
+}
+
+.moods__btn.is-active {
+    background-color: rgba(244, 231, 197, 0.25);
+    border-color: rgba(244, 231, 197, 0.6);
+}
+
+.moods__swatch {
+    width: 0.95rem;
+    height: 0.95rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.moods__swatch--dawn { background: linear-gradient(to bottom, #46527e, #ffd9a0); }
+.moods__swatch--day { background: linear-gradient(to bottom, #7ec8e8, #eef7e8); }
+.moods__swatch--dusk { background: linear-gradient(to bottom, #2c2140, #ff9a52); }
+.moods__swatch--night { background: linear-gradient(to bottom, #05070f, #1d2c3f); }
+
+/* ---------- Teaching captions ---------- */
+.il-captions {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2.5rem) 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: 1.5rem;
+}
+
+.il-caption {
+    background-color: #fffdf4;
+    border-left: 5px solid #a74918;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.98rem;
+    color: #3c4637;
+    border-radius: 0 10px 10px 0;
+}
+
+.il-caption strong {
+    color: #172c16;
+}
+
+/* ---------- Educational copy ---------- */
+.il-about {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: clamp(2.5rem, 7vw, 5rem) clamp(1rem, 4vw, 2.5rem);
+}
+
+.il-about h2 {
+    font-family: 'Monday Coffee', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #172c16;
+    margin-bottom: 1rem;
+}
+
+.il-about p {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    margin-bottom: 1.25rem;
+}
+
+/* ---------- Footer ---------- */
+.il-footer {
+    background-color: #172c16;
+    color: #f4e7c5;
+    text-align: center;
+    padding: 3rem clamp(1rem, 4vw, 2.5rem) 5.5rem;
+}
+
+.il-footer__cols {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(1.5rem, 6vw, 5rem);
+    margin-bottom: 2rem;
+}
+
+.il-footer__cols h4 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    color: #ff7a2f;
+}
+
+.il-footer__cols p {
+    font-size: 0.95rem;
+}
+
+.il-footer a {
+    color: #f4e7c5;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.il-footer a:hover {
+    color: #ff7a2f;
+}
+
+.il-footer__copy {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+/* ---------- Responsive ---------- */
+@media screen and (max-width: 700px) {
+    .moods {
+        right: 50%;
+        transform: translateX(50%);
+        top: auto;
+        bottom: 1rem;
     }
 
-    #trees {
-        width: 95vw;
+    .moods__btn {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.78rem;
     }
-} */
+
+    .scene__frog {
+        right: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 1056px) {
+    .Return {
+        position: fixed;
+        bottom: auto;
+        top: 15px;
+        right: 15px;
+        height: 3rem;
+    }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+@media screen and (max-width: 480px) {
+    .Return {
+        visibility: hidden;
+    }
+}
