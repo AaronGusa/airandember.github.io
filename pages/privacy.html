@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air&amp;Ember — Privacy Policy</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../css/trailnav.css">
+    <link rel="stylesheet" href="../css/ember-pages.css">
+    <script src="../scripts/trailnav.js" defer></script>
+    <script src="../scripts/ember-pages.js" defer></script>
+</head>
+<body>
+
+    <!-- ====== AMBIENT LAYERS ====== -->
+    <canvas id="emberCanvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="cursorGlow" aria-hidden="true"></div>
+    <div id="cursorRing" aria-hidden="true"></div>
+    <div id="scrollTrack" aria-hidden="true">
+        <div id="scrollFlame">&#x1F525;</div>
+    </div>
+
+    <!-- ====== NAV : THE TRAIL MAP ====== -->
+    <header class="trailBar" id="trailBar">
+        <a class="trailBrand" href="../index.html">
+            <img src="../assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="Air&Ember logo">
+            <span>Air<em>&amp;</em>Ember</span>
+        </a>
+        <button class="matchBtn" id="matchBtn" aria-expanded="false" aria-controls="trailMap" aria-label="Open the trail map">
+            <span class="matchSticks" aria-hidden="true">
+                <span class="matchFlame"></span>
+                <span class="matchStick matchStick--1"></span>
+                <span class="matchStick matchStick--2"></span>
+            </span>
+            <span class="matchLabel">TRAIL MAP</span>
+        </button>
+    </header>
+
+    <nav class="trailMap" id="trailMap" aria-label="Site trail map">
+        <ol class="waypoints">
+            <li><a class="waypoint" href="../index.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">01</span>
+                <span class="wpName">Home</span>
+                <span class="wpNote">back to the campfire</span>
+            </a></li>
+            <li><a class="waypoint" href="designs.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">02</span>
+                <span class="wpName">Designs</span>
+                <span class="wpNote">the field guide</span>
+            </a></li>
+            <li><a class="waypoint" href="webdesign.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">03</span>
+                <span class="wpName">Services</span>
+                <span class="wpNote">what we forge</span>
+            </a></li>
+            <li><a class="waypoint" href="contact.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">04</span>
+                <span class="wpName">Contact</span>
+                <span class="wpNote">send up a signal</span>
+            </a></li>
+            <li><a class="waypoint" href="about.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">05</span>
+                <span class="wpName">About</span>
+                <span class="wpNote">the two fire-tenders</span>
+            </a></li>
+        </ol>
+        <p class="trailLegend" aria-hidden="true">A&amp;E TRAIL MAP — EST. WHERE WIND MEETS FIRE</p>
+    </nav>
+
+    <main>
+
+        <!-- ====== HERO ====== -->
+        <section class="pageHero">
+            <div class="pageHeroInner">
+                <p class="pageKicker reveal" data-reveal="up">&gt; TRACKERS DETECTED ........... NONE</p>
+                <h1 class="pageTitle reveal" data-reveal="up">What happens in the forest<br><span class="hl">stays in the forest</span>.</h1>
+                <p class="pageSub reveal" data-reveal="up">
+                    Our privacy policy, in one breath: we don&rsquo;t collect your data, we don&rsquo;t
+                    want your data, and the little we hold for our clients is never for sale.
+                    In our opinion, it&rsquo;s the most robust, user-first policy on the trail.
+                </p>
+                <p class="bigCtaSub reveal" data-reveal="up" style="margin-top:1.5rem;">EFFECTIVE JULY 7, 2026 &middot; APPLIES TO AIRANDEMBER.COM</p>
+            </div>
+        </section>
+
+        <!-- ====== THE SHORT VERSION ====== -->
+        <section class="band band--pine" id="short">
+            <div class="bandInner splitGrid">
+                <div class="reveal" data-reveal="left">
+                    <p class="eyebrow">01 — THE SHORT VERSION</p>
+                    <h2 class="bandTitle">Nothing to hide, because there&rsquo;s <span class="hl">nothing collected</span>.</h2>
+                    <p class="bandCopy">
+                        Air &amp; Ember does not keep cookies, tracking data, analytics profiles, or
+                        user information about visitors to this site. You can read every page here
+                        without leaving a single footprint we hold onto.
+                    </p>
+                    <p class="bandCopy">
+                        The one exception is <strong class="hl">onboarded clients</strong> — the people
+                        we build for — who trust us with the minimum information needed to do the work
+                        and send an honest invoice. That&rsquo;s it. That&rsquo;s the whole list.
+                    </p>
+                    <p class="handNote">no trackers. no ad pixels. no funny business.</p>
+                </div>
+                <div class="crtWrap reveal" data-reveal="right">
+                    <div class="crt">
+                        <div class="crtScreen">
+                            <p class="crtLine">&gt; SCAN COOKIES ................ <span class="crtErr">NONE FOUND</span></p>
+                            <p class="crtLine">&gt; SCAN AD_TRACKERS ............ <span class="crtErr">NONE FOUND</span></p>
+                            <p class="crtLine">&gt; SCAN ANALYTICS_PROFILES ..... <span class="crtErr">NONE FOUND</span></p>
+                            <p class="crtLine">&gt; DATA_BROKERS.CONTRACT ....... <span class="crtErr">REFUSED</span></p>
+                            <p class="crtLine">&gt; CLIENT VAULT (INVITE ONLY) .. OK</p>
+                            <p class="crtLine">&gt; YOUR PRIVACY ................ <span class="crtOk">INTACT&#x2588;</span></p>
+                        </div>
+                        <div class="crtBezel"><span class="crtDot"></span> A&amp;E PRIVACY AUDIT — CONTINUOUS</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== VISITORS ====== -->
+        <section class="band band--ink" id="visitors">
+            <div class="bandInner">
+                <p class="eyebrow reveal" data-reveal="up">02 — IF YOU&rsquo;RE JUST VISITING</p>
+                <h2 class="bandTitle reveal" data-reveal="up">Wander freely. <span class="hl">We&rsquo;re not watching.</span></h2>
+                <p class="bandCopy reveal" data-reveal="up">
+                    Browsing this site requires no account, sets no cookies, and feeds no analytics
+                    dashboard. The ember particles following your cursor live and die in your own
+                    browser — nothing about your visit is recorded or stored by us.
+                </p>
+                <div class="elementGrid">
+                    <article class="elementCard cardTilt reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F36A;</div>
+                        <h3>No Cookies</h3>
+                        <p>We set no tracking cookies. The only browser storage we ever use is a simple sign-in flag for clients logged into their portal — it identifies your session to you, not you to anyone else.</p>
+                        <span class="cardTag">STORAGE / MINIMAL</span>
+                    </article>
+                    <article class="elementCard cardTilt reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F4E8;</div>
+                        <h3>The Contact Form</h3>
+                        <p>If you send up a signal, what you write (name, organization, phone, email, message) goes to our inbox so we can reply — and is used for nothing else. No newsletter ambush, no drip campaign.</p>
+                        <span class="cardTag">USED ONCE / TO REPLY</span>
+                    </article>
+                    <article class="elementCard cardTilt reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F6AB;</div>
+                        <h3>No Third Parties</h3>
+                        <p>Universally: we will never sell, share, or distribute user information to third parties. Not for money, not for &ldquo;partnership opportunities,&rdquo; not ever.</p>
+                        <span class="cardTag">SOLD / NEVER</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== ONBOARDED CLIENTS ====== -->
+        <section class="band band--pine" id="clients">
+            <div class="bandInner splitGrid">
+                <div class="reveal" data-reveal="left">
+                    <p class="eyebrow">03 — IF YOU&rsquo;RE AN ONBOARDED CLIENT</p>
+                    <h2 class="bandTitle">The client vault: <span class="hl">small, locked, yours</span>.</h2>
+                    <p class="bandCopy">
+                        When you become a client, we keep the minimum needed to build your project and
+                        bill you honestly: your name, contact details, and billing information tied to
+                        your invoices. Your portal login is protected by industry-standard
+                        authentication, and payment details are handled by our payment processor —
+                        we never see or store your full card numbers.
+                    </p>
+                    <p class="bandCopy">
+                        The trusted tools that make the portal run (authentication and payment
+                        processing) act only as processors on our instructions. They power your
+                        account; they don&rsquo;t get to keep or use your information for themselves,
+                        and nobody gets a copy.
+                    </p>
+                    <p class="bandCopy">
+                        Want your data gone? Email us and we&rsquo;ll delete what we hold, keeping only
+                        what the law requires us to retain (like tax records of paid invoices).
+                    </p>
+                </div>
+                <div class="reveal" data-reveal="right">
+                    <div class="emberPanel">
+                        <div class="elementGlyph">&#x1F510;</div>
+                        <h2 class="bandTitle" style="font-size:1.6rem;">What&rsquo;s in the vault</h2>
+                        <ul class="supplyList">
+                            <li>Name &amp; Contact Info</li>
+                            <li>Project Details</li>
+                            <li>Invoices &amp; Billing</li>
+                            <li>Portal Login</li>
+                        </ul>
+                        <h2 class="bandTitle" style="font-size:1.6rem; margin-top:1.5rem;">What&rsquo;s not</h2>
+                        <ul class="supplyList">
+                            <li>Browsing History</li>
+                            <li>Tracking Profiles</li>
+                            <li>Full Card Numbers</li>
+                            <li>Anything For Sale</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== THE SALE CLAUSE ====== -->
+        <section class="band band--ink" id="sale">
+            <div class="bandInner">
+                <p class="eyebrow centered reveal" data-reveal="up">04 — IF THE CAMPFIRE EVER CHANGES HANDS</p>
+                <h2 class="bandTitle centered reveal" data-reveal="up">Your data doesn&rsquo;t come <span class="hl">with the furniture</span>.</h2>
+                <p class="bandCopy centered reveal" data-reveal="up">
+                    In the event Air &amp; Ember is ever sold or changes ownership, you will be told
+                    before it happens — and you will be given the option to <strong class="hl">opt out of
+                    having your data included</strong> in the ownership change. Choose to opt out and your
+                    information is deleted rather than transferred. Most companies bury this clause;
+                    we&rsquo;re putting it in large type.
+                </p>
+            </div>
+        </section>
+
+        <!-- ====== FINE PRINT & CONTACT ====== -->
+        <section class="band band--embers" id="questions">
+            <div class="bandInner">
+                <p class="eyebrow reveal" data-reveal="up">05 — THE FINE PRINT, STILL LEGIBLE</p>
+                <h2 class="bandTitle reveal" data-reveal="up">Changes, questions, <span class="hl">and open doors</span>.</h2>
+                <p class="bandCopy reveal" data-reveal="up">
+                    If this policy ever changes, we&rsquo;ll update this page and its effective date —
+                    and any change will only ever hold us to this same user-first standard or better.
+                    We won&rsquo;t quietly loosen the rules while you&rsquo;re not looking.
+                </p>
+                <p class="bandCopy reveal" data-reveal="up">
+                    Questions about your data, deletion requests, or anything this page didn&rsquo;t
+                    answer: write to a real human and a real human writes back.
+                </p>
+                <div class="bigCta reveal" data-reveal="up">
+                    <p class="bigCtaWhisper">privacy shouldn&rsquo;t require a lawyer to read</p>
+                    <a class="btnEmber btnHuge magnet" href="mailto:support@airandember.com">
+                        <span>support@airandember.com</span> <span class="arrow">&#x21A0;</span>
+                    </a>
+                    <p class="bigCtaSub">MON&ndash;FRI &middot; 7AM&ndash;6PM MST &middot; NO TICKET QUEUES</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="emberFooter">
+        <div class="footerGrid">
+            <div class="footCol">
+                <p class="footMark">Air<em>&amp;</em>Ember</p>
+                <p>Custom web &amp; software, hand-built where the forest meets the mainframe.</p>
+            </div>
+            <div class="footCol">
+                <h4>Support</h4>
+                <p><a href="mailto:support@airandember.com">support@airandember.com</a></p>
+                <p>Mon&ndash;Fri &middot; 7AM&ndash;6PM MST</p>
+            </div>
+            <div class="footCol">
+                <h4>The Trail</h4>
+                <a href="../index.html">Home</a>
+                <a href="designs.html">Designs</a>
+                <a href="webdesign.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="footCol">
+                <h4>Keys &amp; Legal</h4>
+                <a class="footLogin" href="login.html">CLIENT LOGIN &#x21A0;</a>
+                <a href="privacy.html" id="privacyPolicyA">Privacy Policy</a>
+            </div>
+        </div>
+        <p class="footerBase">&copy; 2026 AIR &amp; EMBER &mdash; GROWN IN THE U.S.A., POWERED BY WIND &amp; FIRE</p>
+    </footer>
+
+</body>
+</html>
