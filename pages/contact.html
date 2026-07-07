@@ -3,126 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air&Ember Homepage</title>
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
-
-
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../scripts/uni.js" defer></script>
-    <script src="../scripts/mobileMenu.js" defer></script>
+    <title>Air&amp;Ember — Send Up a Signal</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../css/trailnav.css">
+    <link rel="stylesheet" href="../css/ember-pages.css">
+    <script src="../scripts/trailnav.js" defer></script>
+    <script src="../scripts/ember-pages.js" defer></script>
     <script src="../scripts/contact.js" defer></script>
 </head>
 <body id="contactPage">
-    <header>
 
-        <div id="header1" class="flexRow justSpaceBetween">
-            <div class="overHidded headerImageCont">
-                <a href="../index.html"><img id="logoImage" src="../assets/images/A&E_SqLogo_Lt.png" alt="Logo image" ></a>
-            </div>
+    <!-- ====== AMBIENT LAYERS ====== -->
+    <canvas id="emberCanvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="cursorGlow" aria-hidden="true"></div>
+    <div id="cursorRing" aria-hidden="true"></div>
+    <div id="scrollTrack" aria-hidden="true">
+        <div id="scrollFlame">&#x1F525;</div>
+    </div>
 
-        </div>
-        <div id="header2" class="Logo">
-                <div><h1>Air</h1></div>
-                <div><h1>&</h1></div>
-                <div><h1>Ember</h1></div>
-            </div>
-        <div id="header3">
-            <nav><ul>
-<li><a href="../index.html">Home</a></li>
-                <li><a href="designs.html">Designs</a></li>
-                <li><a href="webdesign.html">Services</a></li>
-                <li><a class="selected" href="#">Contact</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul></nav>
-        </div>
-        <div id="headerMini" class="min-height">
-            <div id="menuMobile">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="navMobile" class="hidden">
-                <nav><ul>
-                    <li><a href="designs.html">Designs</a></li>
-                    <li><a href="webdesign.html">Services</a></li>
-                    <li><a class="selected" href="#">Contact</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="login.html">Login</a></li>
-                <h1 id="closeMenu">X</h1>
-
-                </ul></nav>
-            </div>
-        </div>
+    <!-- ====== NAV : THE TRAIL MAP ====== -->
+    <header class="trailBar" id="trailBar">
+        <a class="trailBrand" href="../index.html">
+            <img src="../assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="Air&Ember logo">
+            <span>Air<em>&amp;</em>Ember</span>
+        </a>
+        <button class="matchBtn" id="matchBtn" aria-expanded="false" aria-controls="trailMap" aria-label="Open the trail map">
+            <span class="matchSticks" aria-hidden="true">
+                <span class="matchFlame"></span>
+                <span class="matchStick matchStick--1"></span>
+                <span class="matchStick matchStick--2"></span>
+            </span>
+            <span class="matchLabel">TRAIL MAP</span>
+        </button>
     </header>
-    <main class="contactMain">
-        <div class="explainContact">
-            <h2>Ready to Join Us?</h2>
-            <p>Because of our limited capacity, we carefully select the clients we work with. 
-            </p>    
-            <p>
-                If you're interested in our subscription 
-                service for digital web design, development, and asset creation and management, we'd love to connect with you! 
-            </p>
-            <p>At our small business, we specialize in serving small businesses and individuals. 
-                Our focus is on providing personalized, you-oriented customization.
-            </p>
-            <p>To ensure we offer the best possible service, we work one-on-one with our clients. This allows us to fully understand
-                 your vision, coordinate costs, and guide you through the onboarding process to get your organization online.
-            </p>
-            <p>We can't wait to hear from you!</p>
-        </div>
-        <div class="contactFormCont riser ">
-              <h1>Contact Us</h1>
-              <div id="loadingCircle" class="hidden centeredCont">
-                <div class="loader"></div>
-              </div>   
-           <form id="contactForm">
-                
-                <input type="text" id="name" name="name" placeholder="First and Last Name" required><br>
 
-                <input type="text" id="company_name" name="company_name" placeholder="Organization's Name"><br>
-               
-                <input type="tel" id="phone" name="phone" placeholder="Phone Number" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" required><br>
+    <nav class="trailMap" id="trailMap" aria-label="Site trail map">
+        <ol class="waypoints">
+            <li><a class="waypoint" href="../index.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">01</span>
+                <span class="wpName">Home</span>
+                <span class="wpNote">back to the campfire</span>
+            </a></li>
+            <li><a class="waypoint" href="designs.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">02</span>
+                <span class="wpName">Designs</span>
+                <span class="wpNote">the field guide</span>
+            </a></li>
+            <li><a class="waypoint" href="webdesign.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">03</span>
+                <span class="wpName">Services</span>
+                <span class="wpNote">what we forge</span>
+            </a></li>
+            <li><a class="waypoint" href="contact.html" aria-current="page">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">04</span>
+                <span class="wpName">Contact</span>
+                <span class="wpNote">send up a signal</span>
+            </a></li>
+            <li><a class="waypoint" href="about.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">05</span>
+                <span class="wpName">About</span>
+                <span class="wpNote">the two fire-tenders</span>
+            </a></li>
+        </ol>
+        <p class="trailLegend" aria-hidden="true">A&amp;E TRAIL MAP — EST. WHERE WIND MEETS FIRE</p>
+    </nav>
 
-                <input type="email" id="email" name="email" placeholder="Email" required><br>
+    <main>
 
-                <textarea id="message" name="message" placeholder="Let us know what your looking for, and we'll get you a quote!" required></textarea><br>
+        <!-- ====== HERO ====== -->
+        <section class="pageHero">
+            <div class="pageHeroInner">
+                <p class="pageKicker reveal" data-reveal="up">SMOKE SIGNALS ACCEPTED HERE</p>
+                <h1 class="pageTitle reveal" data-reveal="up">Send up <span class="hl">a signal</span>.</h1>
+                <p class="pageSub reveal" data-reveal="up">
+                    Fifteen free minutes, zero sales pitch. Tell us the dream and
+                    we&rsquo;ll get you a real quote &mdash; line by line, no smoke.
+                </p>
+            </div>
+        </section>
 
-                <div style="display:none !important;">
-                    <label for="contact_me_back"  class="hidden">Contact by Email</label>
-                    <input id="contact_me_back" type="checkbox" name="contact_me_back" value="1" tabindex="-1" autocomplete="off"> 
+        <!-- ====== THE FORM ====== -->
+        <section class="band band--pine">
+            <div class="bandInner splitGrid">
+
+                <div class="reveal" data-reveal="left">
+                    <p class="eyebrow">READY TO JOIN US?</p>
+                    <h2 class="bandTitle">A small fire, tended <span class="hl">carefully</span>.</h2>
+                    <p class="bandCopy">
+                        Because of our limited capacity, we carefully select the clients we work with.
+                        If you&rsquo;re interested in our subscription service for digital web design,
+                        development, and asset creation and management, we&rsquo;d love to connect.
+                    </p>
+                    <p class="bandCopy">
+                        We&rsquo;re a small business that specializes in serving small businesses and
+                        individuals &mdash; personalized, you-oriented customization, one-on-one. That&rsquo;s
+                        how we fully understand your vision, coordinate costs, and walk you through
+                        onboarding until your organization is glowing online.
+                    </p>
+                    <p class="handNote">we can&rsquo;t wait to hear from you!</p>
                 </div>
 
-                <button class="animated-button" id="contactButton" type="submit">Submit</button>
-            </form> 
-            <div class="centeredCont">
-                <h1 id="emailConfirm" class="hidden">Email Sent!</h1>
+                <div class="formCard reveal" data-reveal="right">
+                    <h1>Light the Beacon</h1>
+                    <div id="loadingCircle" class="hidden centeredCont">
+                        <div class="loader"></div>
+                    </div>
+                    <form id="contactForm" class="emberForm">
+
+                        <input type="text" id="name" name="name" placeholder="First and Last Name" required>
+
+                        <input type="text" id="company_name" name="company_name" placeholder="Organization's Name">
+
+                        <input type="tel" id="phone" name="phone" placeholder="Phone Number" pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" required>
+
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+
+                        <textarea id="message" name="message" placeholder="Let us know what you're looking for, and we'll get you a quote!" required></textarea>
+
+                        <div style="display:none !important;">
+                            <label for="contact_me_back" class="hidden">Contact by Email</label>
+                            <input id="contact_me_back" type="checkbox" name="contact_me_back" value="1" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <button class="btnEmber magnet" id="contactButton" type="submit"><span>Send the Spark</span> <span class="arrow">&#x21A0;</span></button>
+                    </form>
+                    <div class="centeredCont">
+                        <h1 id="emailConfirm" class="formConfirm hidden">Signal received — we&rsquo;ll write back soon! &#x1F525;</h1>
+                    </div>
+                </div>
+
             </div>
-        </div>
-        
+        </section>
+
+        <!-- ====== DIRECT LINES ====== -->
+        <section class="band band--ink">
+            <div class="bandInner">
+                <div class="elementGrid">
+                    <article class="elementCard reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F4E7;</div>
+                        <h3>Carrier Pigeon 2.0</h3>
+                        <p>Prefer plain old email? Write to us directly and a real human answers — never a ticket queue.</p>
+                        <span class="cardTag">SUPPORT@AIRANDEMBER.COM</span>
+                    </article>
+                    <article class="elementCard reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F550;</div>
+                        <h3>Fire-Watch Hours</h3>
+                        <p>We keep the lookout staffed Monday through Friday, 7 AM to 6 PM Mountain Time.</p>
+                        <span class="cardTag">MON&ndash;FRI &middot; 7AM&ndash;6PM MST</span>
+                    </article>
+                    <article class="elementCard reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F332;</div>
+                        <h3>No Sales Pressure</h3>
+                        <p>Your first chat is a conversation, not a pitch. We listen like the trees do — then we quote honestly.</p>
+                        <span class="cardTag">NO SALESMEN. JUST PARTNERS.</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
     </main>
-    <footer class="contactFooterCont justSpaceBetween padded">
-        <div class="footerContactCont padded">
-            <h3 class="contactFootContent padded">@Copyright 2025</h3>
-        </div>
-        <div class="contactFooterCont">
-            <div class="footerContactCont padded">
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="emberFooter">
+        <div class="footerGrid">
+            <div class="footCol">
+                <p class="footMark">Air<em>&amp;</em>Ember</p>
+                <p>Custom web &amp; software, hand-built where the forest meets the mainframe.</p>
+            </div>
+            <div class="footCol">
                 <h4>Support</h4>
-                <p>support@airandember.com</p>
-            </div>      
-            <div class="footerContactCont padded">
-            
-                <h4>Operating Hours</h4>
-                <p>Monday - Friday</p>
-                <p>7 AM - 6 PM MST / MDT</p>
+                <p><a href="mailto:support@airandember.com">support@airandember.com</a></p>
+                <p>Mon&ndash;Fri &middot; 7AM&ndash;6PM MST</p>
             </div>
-            <div class="footerContactCont padded">
-                <h4>Legal</h4>
-                <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
-                <!-- <p><a href="">Terms of Service</a></p> -->
+            <div class="footCol">
+                <h4>The Trail</h4>
+                <a href="../index.html">Home</a>
+                <a href="designs.html">Designs</a>
+                <a href="webdesign.html">Services</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="footCol">
+                <h4>Keys &amp; Legal</h4>
+                <a class="footLogin" href="login.html">CLIENT LOGIN &#x21A0;</a>
+                <a href="#" id="privacyPolicyA">Privacy Policy</a>
             </div>
         </div>
+        <p class="footerBase">&copy; 2026 AIR &amp; EMBER &mdash; GROWN IN THE U.S.A., POWERED BY WIND &amp; FIRE</p>
     </footer>
+
 </body>
 </html>

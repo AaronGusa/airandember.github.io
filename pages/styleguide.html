@@ -3,115 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air&Ember Homepage</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <script src="../scripts/uni.js" defer></script>
-    <script src="..scripts/mobileMenu.js" defer></script>
-    <link rel="stylesheet" href="../css/styles.css">
+    <title>Air&amp;Ember — Style Guide</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../css/trailnav.css">
+    <link rel="stylesheet" href="../css/ember-pages.css">
+    <script src="../scripts/trailnav.js" defer></script>
+    <script src="../scripts/ember-pages.js" defer></script>
 </head>
-<body >
-    <header>
+<body>
 
-        <div id="header1" class="flexRow justSpaceBetween">
-            <div class="overHidded headerImageCont">
-                <a href="../index.html"><img id="logoImage" src="../assets/images/A&E_SqLogo_Lt.png" alt="Logo image"></a>
+    <!-- ====== AMBIENT LAYERS ====== -->
+    <canvas id="emberCanvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="cursorGlow" aria-hidden="true"></div>
+    <div id="cursorRing" aria-hidden="true"></div>
+    <div id="scrollTrack" aria-hidden="true">
+        <div id="scrollFlame">&#x1F525;</div>
+    </div>
 
-            </div>
-
-        </div>
-        <div id="header2" class="Logo">
-                <div><h1>Air</h1></div>
-                <div><h1>&</h1></div>
-                <div><h1>Ember</h1></div>
-            </div>
-        <div id="header3">
-            <nav><ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="designs.html">Designs</a></li>
-                <li><a href="webdesign.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a class="selected" href="about.html">About</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul></nav>
-        </div>
-        <div id="headerMini" class="min-height">
-            <div id="menuMobile">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="navMobile" class="hidden">
-                <nav><ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="designs.html">Designs</a></li>
-                    <li><a href="webdesign.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a class="selected" href="about.html">About</a></li>
-                    <li><a href="login.html">Login</a></li>
-                <h1 id="closeMenu">X</h1>
-
-                </ul></nav>
-            </div>
-        </div>
+    <!-- ====== NAV : THE TRAIL MAP ====== -->
+    <header class="trailBar" id="trailBar">
+        <a class="trailBrand" href="../index.html">
+            <img src="../assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="Air&Ember logo">
+            <span>Air<em>&amp;</em>Ember</span>
+        </a>
+        <button class="matchBtn" id="matchBtn" aria-expanded="false" aria-controls="trailMap" aria-label="Open the trail map">
+            <span class="matchSticks" aria-hidden="true">
+                <span class="matchFlame"></span>
+                <span class="matchStick matchStick--1"></span>
+                <span class="matchStick matchStick--2"></span>
+            </span>
+            <span class="matchLabel">TRAIL MAP</span>
+        </button>
     </header>
-    <main class="main">
 
-    
-        <div class="content backgrounded titleMover">
-            <h1 class="aboutTitleH1">Style Guide</h1>
-        </div>
-        <div class="fontCont">
-            <h1>Fonts</h1>
-            <div class="fontContP">
-                <p class="Nauman">Nauman</p>
-                <p class="Playfair">Playfair</p>
-                <p class="Onoma">Onoma</p>
-                <p class="ZTBoldItalic">ZTBoldItalic</p>
-                <p class="ZTMed">ZTMed</p>
-                <p class="ZTExtBd">ZTExtBd</p>
-                <p class="ZTExtBdItlc">ZTExtBdItlc</p>
-                <p class="CaviarDreams">CaviarDreams</p>
-                <p class="Digital">Digital</p>
-                <p class="Krusty">Krusty</p>
-                <p class="Feronia">Feronia</p>
-                <p class="Arellion">Arellion</p>
-                <p class="Monday">Monday</p>
-                <p class="Aamonoline">Aamonoline</p>
-            </div>    
-        </div>
-        <div class="fontCont">
-            <h1>Color</h1>
-            <div class="colorContDiv">
-                <div class="green">#172C16</div>
-                <div class="tan">#FAECCA</div>
-                <div class="blue">#080511</div>
-                <div class="orange">#A74918</div>
+    <nav class="trailMap" id="trailMap" aria-label="Site trail map">
+        <ol class="waypoints">
+            <li><a class="waypoint" href="../index.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">01</span>
+                <span class="wpName">Home</span>
+                <span class="wpNote">back to the campfire</span>
+            </a></li>
+            <li><a class="waypoint" href="designs.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">02</span>
+                <span class="wpName">Designs</span>
+                <span class="wpNote">the field guide</span>
+            </a></li>
+            <li><a class="waypoint" href="webdesign.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">03</span>
+                <span class="wpName">Services</span>
+                <span class="wpNote">what we forge</span>
+            </a></li>
+            <li><a class="waypoint" href="contact.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">04</span>
+                <span class="wpName">Contact</span>
+                <span class="wpNote">send up a signal</span>
+            </a></li>
+            <li><a class="waypoint" href="about.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">05</span>
+                <span class="wpName">About</span>
+                <span class="wpNote">the two fire-tenders</span>
+            </a></li>
+        </ol>
+        <p class="trailLegend" aria-hidden="true">A&amp;E TRAIL MAP — EST. WHERE WIND MEETS FIRE</p>
+    </nav>
+
+    <main>
+
+        <!-- ====== HERO ====== -->
+        <section class="pageHero">
+            <div class="pageHeroInner">
+                <p class="pageKicker reveal" data-reveal="up">THE REGISTRY — HOW THE FIRE IS BUILT</p>
+                <h1 class="pageTitle reveal" data-reveal="up">Style <span class="hl">Guide</span>.</h1>
+                <p class="pageSub reveal" data-reveal="up">
+                    The record of the Air &amp; Ember design system: night forest meets
+                    retro-future terminal. Every color, face, and component on the site
+                    is registered here.
+                </p>
             </div>
-        </div>
-        <div class="fontCont">
-            <h1>Button</h1>
-                <button class="animated-button" id="contactButton">Submit</button>
-        </div>
+        </section>
+
+        <!-- ====== PALETTE ====== -->
+        <section class="band band--pine" id="palette">
+            <div class="bandInner">
+                <p class="eyebrow reveal" data-reveal="up">01 — PIGMENTS</p>
+                <h2 class="bandTitle reveal" data-reveal="up">The <span class="hl">palette</span>.</h2>
+                <p class="bandCopy reveal" data-reveal="up">Pulled from the forest at night: ink sky, pine shadow, moonlit cream, and a live ember in three temperatures, cooled by a breath of night air.</p>
+
+                <div class="swatchGrid reveal" data-reveal="up">
+                    <figure class="swatch">
+                        <div class="chip" style="background:#080511;"></div>
+                        <figcaption><strong>INK</strong>--ink<br>#080511</figcaption>
+                    </figure>
+                    <figure class="swatch">
+                        <div class="chip" style="background:#172c16;"></div>
+                        <figcaption><strong>PINE</strong>--pine<br>#172C16</figcaption>
+                    </figure>
+                    <figure class="swatch">
+                        <div class="chip" style="background:#0b170b;"></div>
+                        <figcaption><strong>PINE DEEP</strong>--pine-deep<br>#0B170B</figcaption>
+                    </figure>
+                    <figure class="swatch">
+                        <div class="chip" style="background:#f4e7c5;"></div>
+                        <figcaption><strong>CREAM</strong>--cream<br>#F4E7C5</figcaption>
+                    </figure>
+                    <figure class="swatch">
+                        <div class="chip" style="background:#ff7a2f;"></div>
+                        <figcaption><strong>EMBER</strong>--ember<br>#FF7A2F</figcaption>
+                    </figure>
+                    <figure class="swatch">
+                        <div class="chip" style="background:#A74918;"></div>
+                        <figcaption><strong>EMBER DEEP</strong>--ember-deep<br>#A74918</figcaption>
+                    </figure>
+                    <figure class="swatch">
+                        <div class="chip" style="background:#ffb347;"></div>
+                        <figcaption><strong>EMBER GLOW</strong>--ember-glow<br>#FFB347</figcaption>
+                    </figure>
+                    <figure class="swatch">
+                        <div class="chip" style="background:#9fd8cb;"></div>
+                        <figcaption><strong>AIR</strong>--air<br>#9FD8CB</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== TYPE ====== -->
+        <section class="band band--ink" id="type">
+            <div class="bandInner">
+                <p class="eyebrow reveal" data-reveal="up">02 — VOICES</p>
+                <h2 class="bandTitle reveal" data-reveal="up">The <span class="hl">typefaces</span>.</h2>
+                <p class="bandCopy reveal" data-reveal="up">Five voices around the fire: one to declare, one to explain, one to insist, one to compute, and one to whisper in the margins.</p>
+
+                <div class="reveal" data-reveal="up">
+                    <div class="typeRow">
+                        <p class="typeMeta">PLAYFAIR DISPLAY<br>--font-display<br>HEADLINES &amp; TITLES</p>
+                        <p class="spec spec--display">The forest meets the mainframe.</p>
+                    </div>
+                    <div class="typeRow">
+                        <p class="typeMeta">ZT NEUE RALEWE MED<br>--font-body<br>BODY COPY</p>
+                        <p class="spec spec--body">Wind carries the idea. Fire makes it real.</p>
+                    </div>
+                    <div class="typeRow">
+                        <p class="typeMeta">ZT NEUE RALEWE XBD<br>--font-bold<br>BUTTONS &amp; EMPHASIS</p>
+                        <p class="spec spec--bold">No salesmen. Just partners.</p>
+                    </div>
+                    <div class="typeRow">
+                        <p class="typeMeta">DIGITAL SYSTEM<br>--font-crt<br>EYEBROWS, TAGS &amp; TERMINALS</p>
+                        <p class="spec spec--crt">&gt; IGNITING EMBERS ........ OK</p>
+                    </div>
+                    <div class="typeRow">
+                        <p class="typeMeta">MONDAY COFFEE<br>--font-hand<br>MARGIN NOTES &amp; WHISPERS</p>
+                        <p class="spec spec--hand">breathe in, scroll down</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== COMPONENTS ====== -->
+        <section class="band band--pine" id="components">
+            <div class="bandInner">
+                <p class="eyebrow reveal" data-reveal="up">03 — HARDWARE</p>
+                <h2 class="bandTitle reveal" data-reveal="up">The <span class="hl">components</span>.</h2>
+
+                <h3 class="eyebrow" style="margin-top:2.5rem;">BUTTONS</h3>
+                <div class="guideDemoRow reveal" data-reveal="up">
+                    <a class="btnEmber magnet" href="#components"><span>Ember Button</span> <span class="arrow">&#x21A0;</span></a>
+                    <a class="btnGhost magnet" href="#components"><span>Ghost Button</span> <span class="arrow">&#x2193;</span></a>
+                    <span class="cardTag">CARD TAG / CRT PILL</span>
+                </div>
+
+                <h3 class="eyebrow" style="margin-top:2.5rem;">ELEMENT CARD</h3>
+                <div class="elementGrid" style="margin-top:1.5rem; max-width: 640px;">
+                    <article class="elementCard cardTilt reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F525;</div>
+                        <h3>Element Card</h3>
+                        <p>Tilts toward the cursor, glows where you point. Used for services, values, and facts worth a frame.</p>
+                        <span class="cardTag">EMBER / FORGE</span>
+                    </article>
+                </div>
+
+                <h3 class="eyebrow" style="margin-top:2.5rem;">FORM FIELDS</h3>
+                <div class="formCard reveal" data-reveal="up" style="max-width: 480px;">
+                    <form class="emberForm" onsubmit="return false;">
+                        <input type="text" placeholder="Text input — ember focus ring">
+                        <textarea placeholder="Textarea — same treatment" style="min-height: 90px;"></textarea>
+                        <button class="btnEmber" type="submit"><span>Submit</span></button>
+                    </form>
+                </div>
+
+                <h3 class="eyebrow" style="margin-top:2.5rem;">CRT TERMINAL</h3>
+                <div class="crtWrap reveal" data-reveal="up" style="max-width: 560px;">
+                    <div class="crt">
+                        <div class="crtScreen">
+                            <p class="crtLine">&gt; STYLE_GUIDE.SYS ............. OK</p>
+                            <p class="crtLine">&gt; GREEN PHOSPHOR #7DFF9A ...... OK</p>
+                            <p class="crtLine">&gt; ERROR TONE #FF6B5E .......... <span class="crtErr">DEMO</span></p>
+                            <p class="crtLine">&gt; SCANLINES + ROVING GLOW ..... OK</p>
+                            <p class="crtLine">&gt; BOOTS ON SCROLL-INTO-VIEW ... OK</p>
+                            <p class="crtLine">&gt; REGISTRY COMPLETE ........... <span class="crtOk">SAVED&#x2588;</span></p>
+                        </div>
+                        <div class="crtBezel"><span class="crtDot"></span> A&amp;E TERMINAL 1979&#x2192;2099</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====== MOTION & RULES ====== -->
+        <section class="band band--embers" id="rules">
+            <div class="bandInner">
+                <p class="eyebrow reveal" data-reveal="up">04 — LAWS OF THE FOREST</p>
+                <h2 class="bandTitle reveal" data-reveal="up">Motion &amp; <span class="hl">rules</span>.</h2>
+                <div class="elementGrid">
+                    <article class="elementCard reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F32C;&#xFE0F;</div>
+                        <h3>Ambient Layers</h3>
+                        <p>Every page carries the ember canvas, film grain, cursor glow + ring, and the flame scroll-progress track. Particles thin out on touch devices.</p>
+                        <span class="cardTag">EMBER-PAGES.JS</span>
+                    </article>
+                    <article class="elementCard reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F525;</div>
+                        <h3>Reveals</h3>
+                        <p>Content enters with <code>.reveal</code> + <code>data-reveal="up|left|right"</code>, driven by IntersectionObserver — transform and opacity only.</p>
+                        <span class="cardTag">SCROLL / OBSERVER</span>
+                    </article>
+                    <article class="elementCard reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F9ED;</div>
+                        <h3>The Trail Map</h3>
+                        <p>Site nav lives behind the matchstick. Light spreads from the strike, waypoints hike in, and "YOU ARE HERE" marks the current page.</p>
+                        <span class="cardTag">TRAILNAV.CSS / .JS</span>
+                    </article>
+                    <article class="elementCard reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x267F;</div>
+                        <h3>Reduced Motion</h3>
+                        <p>Every animation collapses under <code>prefers-reduced-motion</code>: cursor restored, grain removed, reveals visible, information never lost.</p>
+                        <span class="cardTag">A11Y / ALWAYS</span>
+                    </article>
+                </div>
+            </div>
+        </section>
+
     </main>
-    <footer class="contactFooterCont justSpaceBetween padded">
-        <h3 class="contactFootContent">@Copyright 2025</h3>
-        <div class="contactFooterCont">
-            <div class="footerContactCont padded">
-                <h4>Support</h4>
-                <p>support@airandember.com</p>
-            </div>      
-            <div class="footerContactCont padded">
-            
-                <h4>Operating Hours</h4>
-                <p>Monday - Friday</p>
-                <p>7 AM - 6 PM MST / MDT</p>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="emberFooter">
+        <div class="footerGrid">
+            <div class="footCol">
+                <p class="footMark">Air<em>&amp;</em>Ember</p>
+                <p>Custom web &amp; software, hand-built where the forest meets the mainframe.</p>
             </div>
-            <div class="footerContactCont padded">
-                <h4>Legal</h4>
-                <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
-                <!-- <p><a href="">Terms of Service</a></p> -->
+            <div class="footCol">
+                <h4>Support</h4>
+                <p><a href="mailto:support@airandember.com">support@airandember.com</a></p>
+                <p>Mon&ndash;Fri &middot; 7AM&ndash;6PM MST</p>
+            </div>
+            <div class="footCol">
+                <h4>The Trail</h4>
+                <a href="../index.html">Home</a>
+                <a href="designs.html">Designs</a>
+                <a href="webdesign.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footCol">
+                <h4>Keys &amp; Legal</h4>
+                <a class="footLogin" href="login.html">CLIENT LOGIN &#x21A0;</a>
+                <a href="#" id="privacyPolicyA">Privacy Policy</a>
             </div>
         </div>
+        <p class="footerBase">&copy; 2026 AIR &amp; EMBER &mdash; GROWN IN THE U.S.A., POWERED BY WIND &amp; FIRE</p>
     </footer>
+
 </body>
 </html>

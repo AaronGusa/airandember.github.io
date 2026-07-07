@@ -3,211 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air&Ember Homepage</title>
-    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.png">
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../scripts/uni.js" defer></script>
-    <script src="../scripts/mobileMenu.js" defer></script>
-
+    <title>Air&amp;Ember — What We Forge</title>
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
+    <link rel="stylesheet" href="../css/trailnav.css">
+    <link rel="stylesheet" href="../css/ember-pages.css">
+    <script src="../scripts/trailnav.js" defer></script>
+    <script src="../scripts/ember-pages.js" defer></script>
 </head>
 <body>
-    <header>
 
-        <div id="header1" class="flexRow justSpaceBetween">
-            <div class="overHidded headerImageCont">
-                <a href="../index.html"><img id="logoImage" src="../assets/images/A&E_SqLogo_Lt.png" alt="Logo image"></a>
-            </div>
+    <!-- ====== AMBIENT LAYERS ====== -->
+    <canvas id="emberCanvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="cursorGlow" aria-hidden="true"></div>
+    <div id="cursorRing" aria-hidden="true"></div>
+    <div id="scrollTrack" aria-hidden="true">
+        <div id="scrollFlame">&#x1F525;</div>
+    </div>
 
-        </div>
-        <div id="header2" class="Logo">
-                <div><h1>Air</h1></div>
-                <div><h1>&</h1></div>
-                <div><h1>Ember</h1></div>
-            </div>
-        <div id="header3">
-            <nav><ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="designs.html">Designs</a></li>
-                <li><a class="selected" href="#">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul></nav>
-        </div>
-        <div id="headerMini" class="min-height">
-            <div id="menuMobile">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="navMobile" class="hidden">
-                <nav><ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="designs.html">Designs</a></li>
-                    <li><a class="selected" href="#">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="login.html">Login</a></li>
-                <h1 id="closeMenu">X</h1>
-
-                </ul></nav>
-            </div>
-        </div>
+    <!-- ====== NAV : THE TRAIL MAP ====== -->
+    <header class="trailBar" id="trailBar">
+        <a class="trailBrand" href="../index.html">
+            <img src="../assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="Air&Ember logo">
+            <span>Air<em>&amp;</em>Ember</span>
+        </a>
+        <button class="matchBtn" id="matchBtn" aria-expanded="false" aria-controls="trailMap" aria-label="Open the trail map">
+            <span class="matchSticks" aria-hidden="true">
+                <span class="matchFlame"></span>
+                <span class="matchStick matchStick--1"></span>
+                <span class="matchStick matchStick--2"></span>
+            </span>
+            <span class="matchLabel">TRAIL MAP</span>
+        </button>
     </header>
-    <main class="devMain">
-        <div class="word-wrapper text pBase">
-            <!-- <h2><span class="verb pBase"></span></h2> -->
-            <div class="wordCycleCont">
-                <h2 class="word Krusty textCenter" data-index="0">Web Design</h2>
-                <h2 class="word Digital textRight" data-index="1">Software Development</h2>
-                <h2 class="word Feronia  textCenter" data-index="2">Graphic Design</h2>
-                <h2 class="word Aamonoline textLeft" data-index="3">Photography</h2>
+
+    <nav class="trailMap" id="trailMap" aria-label="Site trail map">
+        <ol class="waypoints">
+            <li><a class="waypoint" href="../index.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">01</span>
+                <span class="wpName">Home</span>
+                <span class="wpNote">back to the campfire</span>
+            </a></li>
+            <li><a class="waypoint" href="designs.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">02</span>
+                <span class="wpName">Designs</span>
+                <span class="wpNote">the field guide</span>
+            </a></li>
+            <li><a class="waypoint" href="webdesign.html" aria-current="page">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">03</span>
+                <span class="wpName">Services</span>
+                <span class="wpNote">what we forge</span>
+            </a></li>
+            <li><a class="waypoint" href="contact.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">04</span>
+                <span class="wpName">Contact</span>
+                <span class="wpNote">send up a signal</span>
+            </a></li>
+            <li><a class="waypoint" href="about.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">05</span>
+                <span class="wpName">About</span>
+                <span class="wpNote">the two fire-tenders</span>
+            </a></li>
+        </ol>
+        <p class="trailLegend" aria-hidden="true">A&amp;E TRAIL MAP — EST. WHERE WIND MEETS FIRE</p>
+    </nav>
+
+    <main>
+
+        <!-- ====== HERO ====== -->
+        <section class="pageHero">
+            <div class="pageHeroInner">
+                <p class="pageKicker reveal" data-reveal="up">FOUR STATIONS. ONE FORGE.</p>
+                <h1 class="pageTitle reveal" data-reveal="up">What we <span class="hl">forge</span>.</h1>
+                <p class="pageSub reveal" data-reveal="up">
+                    Web design, software, branding, and digital assets — every station
+                    worked by the same pair of hands, so nothing gets lost between fires.
+                </p>
             </div>
-        </div>
-        <div class="WebDesign">
-            <h1 class="Krusty ">Web Design</h1>
-            <div class="followCont">
-                <div class="followListCont justSpaceAround">
-                    <div class="list1">
-                        <ul class="listed">
-                            <li class="listedLi">Custom Domain</li>
-                            <li class="listedLi">Mobile/Tablet/PC Site</li>
-                            <li class="listedLi">Domain Email</li>
-                        </ul>
-                    </div>
-                    <div class="list2">
-                        <ul>
-                            <li class="listedLi">Ongoing Maintenance</li>
-                            <li class="listedLi">Direct Support</li>
-                            <li class="listedLi">SEO & GEO Optimization</li>
-                        </ul>
-                    </div>
+        </section>
+
+        <!-- ====== STATION 1 : WEB DESIGN ====== -->
+        <section class="band band--pine" id="web">
+            <div class="bandInner splitGrid">
+                <div class="reveal" data-reveal="left">
+                    <p class="eyebrow">STATION 01 — AIR / FLOW</p>
+                    <h2 class="bandTitle">Web Design: the modern <span class="hl">window shopping</span>.</h2>
+                    <p class="bandCopy">
+                        Before the digital age, a stunning window display would inspire patrons to
+                        enter your place of business. Today the windows the public looks through are
+                        browsers — on their computers, tablets, and phones. Air &amp; Ember makes sure
+                        what they see through that glass reflects your values and your brand.
+                    </p>
+                    <ul class="supplyList">
+                        <li>Custom Domain</li>
+                        <li>Mobile / Tablet / PC Site</li>
+                        <li>Domain Email</li>
+                        <li>Ongoing Maintenance</li>
+                        <li>Direct Support</li>
+                        <li>SEO &amp; GEO Optimization</li>
+                    </ul>
                 </div>
-            </div>
-            <div>
-                <div class="bordered padded lightcard">
-                    <div class="flexRow flexwrap ">
-                        <div class="padded softwareWords">
-                            <h2>Websites are the modern windowshopping</h2>
-                            <p class="pBase">Before the digital age, a stunning window display would inspire patrons to enter your place of business.
-                                Today, the windows the public uses are found in browsers on their computers and mobile devices. 
-                            </p>
+                <div class="crtWrap reveal" data-reveal="right">
+                    <div class="crt">
+                        <div class="crtScreen">
+                            <p class="crtLine">&gt; POLISH STOREFRONT GLASS ..... OK</p>
+                            <p class="crtLine">&gt; RESPONSIVE ON ALL SCREENS ... OK</p>
+                            <p class="crtLine">&gt; SEO BEACONS LIT ............. OK</p>
+                            <p class="crtLine">&gt; TEMPLATE_FARM.EXE ........... <span class="crtErr">NOT FOUND</span></p>
+                            <p class="crtLine">&gt; WEEKLY TENDING SCHEDULED .... OK</p>
+                            <p class="crtLine">&gt; YOUR_STOREFRONT.WEB ......... <span class="crtOk">SHINING&#x2588;</span></p>
                         </div>
-                        <div>
-                        </div>
+                        <div class="crtBezel"><span class="crtDot"></span> A&amp;E FORGE STATION 01</div>
                     </div>
                 </div>
-
-
-                <div class="footered padded" >
-                    <p>Air & Ember ensure your online prescence reflects your values and brand</p>
-                </div>
-                <!-- <h1>What can Air & Ember take care of for me?</h1> -->
-
-                
             </div>
-        </div>
-      
-        <br><br><br><br>
-        <div class="softwareDesign">
-            <h1 class="Digital textRight">Software Development</h1>
-            <div class="bordered padded lightcard">
-                <div class="flexRow flexwrap ">
-                    <div class="padded softwareWords">
-                        <h2>Need more functionality?</h2>
-                        <p class="pBase">Webapps are becoming more and more popular. Instead of just a website, the user is able to use your site like they would a program or app on their personal devices. 
+        </section>
+
+        <!-- ====== STATION 2 : SOFTWARE ====== -->
+        <section class="band band--ink" id="software">
+            <div class="bandInner splitGrid">
+                <div class="reveal" data-reveal="left">
+                    <div class="emberPanel">
+                        <div class="elementGlyph">&#x1F525;</div>
+                        <h2 class="bandTitle">Need more functionality?</h2>
+                        <p class="bandCopy">
+                            Webapps are becoming more and more popular. Instead of just a website,
+                            your users get something they can work in — like a program or app on
+                            their own devices. Increase your users&rsquo; productivity with a webapp.
                         </p>
                     </div>
-                    <div>
-                    </div>
+                </div>
+                <div class="reveal" data-reveal="right">
+                    <p class="eyebrow">STATION 02 — EMBER / FORGE</p>
+                    <h2 class="bandTitle">Software <span class="hl">Development</span>.</h2>
+                    <p class="bandCopy">
+                        Custom tools forged for your workflow — from inventory systems to client
+                        portals — tempered in real use, built to grow instead of being overhauled.
+                    </p>
+                    <ul class="supplyList">
+                        <li>Increased Interactivity</li>
+                        <li>Elite Performance</li>
+                        <li>Superior Functionality</li>
+                        <li>Scalability</li>
+                        <li>Avoid Overhauls</li>
+                        <li>Future Proof</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footered padded" >
-                <p>Increase your users productivity with a webapp!</p>
-            </div>
-            <div class="followCont">
-                <div class="followListCont justSpaceAround">
-                    <div class="list1">
-                        <ul class="listed">
-                            <li class="listedLi">Increased Interactivity</li>
-                            <li class="listedLi">Elite Performance</li>
-                            <li class="listedLi">Superior Functionality</li>
-                        </ul>
-                    </div>
-                    <div class="list2">
-                        <ul>
-                            <li class="listedLi">Scalability</li>
-                            <li class="listedLi">Avoid Overhauls</li>
-                            <li class="listedLi">Future Proof</li>
-                        </ul>
-                    </div>
+        </section>
+
+        <!-- ====== STATION 3 : GRAPHIC DESIGN ====== -->
+        <section class="band band--pine" id="graphics">
+            <div class="bandInner splitGrid">
+                <div class="reveal" data-reveal="left">
+                    <p class="eyebrow">STATION 03 — EARTH / ROOT</p>
+                    <h2 class="bandTitle">Graphic Design: a brand that <span class="hl">grows from your roots</span>.</h2>
+                    <p class="bandCopy">
+                        Need a brand refresh? All your logo and branding needs can be met with
+                        Air &amp; Ember — assets that grow from who you are instead of being stapled
+                        on after. You keep the ultimate choice in your custom branding.
+                    </p>
+                    <ul class="supplyList">
+                        <li>Logos</li>
+                        <li>Brand Kits</li>
+                        <li>Print &amp; Digital Assets</li>
+                        <li>Full Creative Control</li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-  
-        <br><br><br><br>
-        <div class="graphicDesign">
-            <h1 class="Feronia">Graphic Design</h1>
-            <div class="bordered padded lightcard">
-                <div class="flexRow flexwrap ">
-                    <div class="padded">
-                        <h2>Need a Brand Refresh?</h2>
-                        <p class="pBase">All your logo and branding needs can be met with Air & Ember! 
+                <div class="reveal" data-reveal="right">
+                    <div class="emberPanel">
+                        <div class="elementGlyph">&#x1F343;</div>
+                        <h2 class="bandTitle">One artist, start to finish.</h2>
+                        <p class="bandCopy">
+                            Because the designer and the developer are the same person, your brand
+                            doesn&rsquo;t get lost in translation between teams — the logo, the palette,
+                            and the site all come from the same fire.
                         </p>
                     </div>
-                    <div>
-                    </div>
                 </div>
             </div>
+        </section>
 
-
-            <div class="footered padded" >
-                <p>Have the ultimate choice in your custom branding</p>
-            </div>
-        </div>
-        <br><br><br><br>
-        <div class="Photography">
-            <h1 class="Aamonoline textRight">Digital Assets & Photography</h1>
-            <div class="bordered padded lightcard">
-                <div class="flexRow flexwrap ">
-                    <div class="padded softwareWords">
-                        <h2>Professional Grade Photography & Digital Assets</h2>
-                        <p class="pBase">Every site needs accurate assets that help your clientelle feel informed. Air & Ember can produce high quality
-                            images including corporate team headshots, b-roll images and videos, and event documentation.
+        <!-- ====== STATION 4 : PHOTOGRAPHY & ASSETS ====== -->
+        <section class="band band--ink" id="photography">
+            <div class="bandInner splitGrid">
+                <div class="reveal" data-reveal="left">
+                    <div class="emberPanel">
+                        <div class="elementGlyph">&#x26A1;</div>
+                        <h2 class="bandTitle">Professional grade, forest to lens.</h2>
+                        <p class="bandCopy">
+                            Every site needs accurate assets that help your clientele feel informed.
+                            Air &amp; Ember produces high-quality images including corporate team
+                            headshots, b-roll images and video, and event documentation.
                         </p>
-                    </div>
-                    <div>
+                        <p class="handNote">travel fees may apply by distance &amp; dates</p>
                     </div>
                 </div>
+                <div class="reveal" data-reveal="right">
+                    <p class="eyebrow">STATION 04 — STORM / WIRE</p>
+                    <h2 class="bandTitle">Digital Assets &amp; <span class="hl">Photography</span>.</h2>
+                    <p class="bandCopy">
+                        The boring-but-vital wiring too: hosting, email, domains — set up once
+                        and tended weekly, alongside the imagery that makes it all feel alive.
+                    </p>
+                    <ul class="supplyList">
+                        <li>Team Headshots</li>
+                        <li>B-Roll Images &amp; Video</li>
+                        <li>Event Documentation</li>
+                        <li>Hosting &amp; Domains</li>
+                    </ul>
+                </div>
             </div>
+        </section>
 
-
-            <div class="footered padded" >
-                <p>Depending on distance and dates travel fees may be applied</p>
+        <!-- ====== CTA ====== -->
+        <section class="band band--embers">
+            <div class="bandInner">
+                <div class="bigCta reveal" data-reveal="up">
+                    <p class="bigCtaWhisper">pick a station. or all four.</p>
+                    <a class="btnEmber btnHuge magnet" href="contact.html">
+                        <span>Start a Spark</span> <span class="arrow">&#x21A0;</span>
+                    </a>
+                    <p class="bigCtaSub">SUPPORT@AIRANDEMBER.COM &middot; MON&ndash;FRI, 7AM&ndash;6PM MST</p>
+                </div>
             </div>
-        </div>
+        </section>
+
     </main>
-    <footer class="contactFooterCont justSpaceBetween padded">
-        <div class="footerContactCont padded">
-            <h3 class="contactFootContent padded">@Copyright 2025</h3>
-        </div>
-        <div class="contactFooterCont">
-            <div class="footerContactCont padded">
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="emberFooter">
+        <div class="footerGrid">
+            <div class="footCol">
+                <p class="footMark">Air<em>&amp;</em>Ember</p>
+                <p>Custom web &amp; software, hand-built where the forest meets the mainframe.</p>
+            </div>
+            <div class="footCol">
                 <h4>Support</h4>
-                <p>support@airandember.com</p>
-            </div>      
-            <div class="footerContactCont padded">
-            
-                <h4>Operating Hours</h4>
-                <p>Monday - Friday</p>
-                <p>7 AM - 6 PM MST / MDT</p>
+                <p><a href="mailto:support@airandember.com">support@airandember.com</a></p>
+                <p>Mon&ndash;Fri &middot; 7AM&ndash;6PM MST</p>
             </div>
-            <div class="footerContactCont padded">
-                <h4>Legal</h4>
-                <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
-                <!-- <p><a href="">Terms of Service</a></p> -->
+            <div class="footCol">
+                <h4>The Trail</h4>
+                <a href="../index.html">Home</a>
+                <a href="designs.html">Designs</a>
+                <a href="contact.html">Contact</a>
+                <a href="about.html">About</a>
+            </div>
+            <div class="footCol">
+                <h4>Keys &amp; Legal</h4>
+                <a class="footLogin" href="login.html">CLIENT LOGIN &#x21A0;</a>
+                <a href="#" id="privacyPolicyA">Privacy Policy</a>
             </div>
         </div>
+        <p class="footerBase">&copy; 2026 AIR &amp; EMBER &mdash; GROWN IN THE U.S.A., POWERED BY WIND &amp; FIRE</p>
     </footer>
+
 </body>
 </html>

@@ -3,119 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air&Ember Homepage</title>
+    <title>Air&amp;Ember — The Two Fire-Tenders</title>
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
-
-    <script src="../scripts/uni.js" defer></script>
-    <script src="../scripts/mobileMenu.js" defer></script>
-
-    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/trailnav.css">
+    <link rel="stylesheet" href="../css/ember-pages.css">
+    <script src="../scripts/trailnav.js" defer></script>
+    <script src="../scripts/ember-pages.js" defer></script>
 </head>
-<body >
-    <header>
+<body>
 
-        <div id="header1" class="flexRow justSpaceBetween">
-            <div class="overHidded headerImageCont">
-                <a href="../index.html"><img id="logoImage" src="../assets/images/A&E_SqLogo_Lt.png" alt="Logo image"></a>
-            </div>
+    <!-- ====== AMBIENT LAYERS ====== -->
+    <canvas id="emberCanvas" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+    <div id="cursorGlow" aria-hidden="true"></div>
+    <div id="cursorRing" aria-hidden="true"></div>
+    <div id="scrollTrack" aria-hidden="true">
+        <div id="scrollFlame">&#x1F525;</div>
+    </div>
 
-        </div>
-        <div id="header2" class="Logo">
-                <div><h1>Air</h1></div>
-                <div><h1>&</h1></div>
-                <div><h1>Ember</h1></div>
-            </div>
-        <div id="header3">
-            <nav><ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="designs.html">Designs</a></li>
-                <li><a href="webdesign.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a class="selected" href="#">About</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul></nav>
-        </div>
-        <div id="headerMini" class="min-height">
-            <div id="menuMobile">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div id="navMobile" class="hidden">
-                <nav><ul>
-                    <li><a href="../index.html">Home</a></li>
-                <li><a href="designs.html">Designs</a></li>
-                <li><a href="webdesign.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a class="selected" href="#">About</a></li>
-                <li><a href="login.html">Login</a></li>
-                <h1 id="closeMenu">X</h1>
-
-                </ul></nav>
-            </div>
-        </div>
+    <!-- ====== NAV : THE TRAIL MAP ====== -->
+    <header class="trailBar" id="trailBar">
+        <a class="trailBrand" href="../index.html">
+            <img src="../assets/images/designAssets/AE LOGO ICON cropped Blonde.png" alt="Air&Ember logo">
+            <span>Air<em>&amp;</em>Ember</span>
+        </a>
+        <button class="matchBtn" id="matchBtn" aria-expanded="false" aria-controls="trailMap" aria-label="Open the trail map">
+            <span class="matchSticks" aria-hidden="true">
+                <span class="matchFlame"></span>
+                <span class="matchStick matchStick--1"></span>
+                <span class="matchStick matchStick--2"></span>
+            </span>
+            <span class="matchLabel">TRAIL MAP</span>
+        </button>
     </header>
+
+    <nav class="trailMap" id="trailMap" aria-label="Site trail map">
+        <ol class="waypoints">
+            <li><a class="waypoint" href="../index.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">01</span>
+                <span class="wpName">Home</span>
+                <span class="wpNote">back to the campfire</span>
+            </a></li>
+            <li><a class="waypoint" href="designs.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">02</span>
+                <span class="wpName">Designs</span>
+                <span class="wpNote">the field guide</span>
+            </a></li>
+            <li><a class="waypoint" href="webdesign.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">03</span>
+                <span class="wpName">Services</span>
+                <span class="wpNote">what we forge</span>
+            </a></li>
+            <li><a class="waypoint" href="contact.html">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">04</span>
+                <span class="wpName">Contact</span>
+                <span class="wpNote">send up a signal</span>
+            </a></li>
+            <li><a class="waypoint" href="about.html" aria-current="page">
+                <span class="wpDot" aria-hidden="true"></span>
+                <span class="wpIndex">05</span>
+                <span class="wpName">About</span>
+                <span class="wpNote">the two fire-tenders</span>
+            </a></li>
+        </ol>
+        <p class="trailLegend" aria-hidden="true">A&amp;E TRAIL MAP — EST. WHERE WIND MEETS FIRE</p>
+    </nav>
+
     <main>
-        <div class="content backgrounded titleMover">
-            <h1 class="aboutTitleH1">About Air&Ember</h1>
-        </div>
-        <div class="aboutIntro padded">
-            <div class="aboutIntroWords">
-                <h1 class="aboutH1">Hi there, and welcome!</h1>
-                
-                <p class="aboutP"> <span class="aboutSpan">I’m Aaron,</span> the guy behind the keyboard, designing and developing websites for small businesses like yours.
-                    <br><br>The name “Air and Ember” has a special meaning—it’s a playful nod to my wife Amber and myself, Aaron (see what we did there?).
-                    While it’s a one-man show on the web design front, Amber is my biggest cheerleader and occasional brainstorm partner.
-                </p>
-                <p class="aboutP">    
-                    The air and ember theme reflects how we approach life and work: <span class="aboutSpan">light and adaptable like air, but with the fire and spark
-                    of a glowing ember</span>. Nature inspires us, and we aim to build websites that feel effortless yet full of life. Let’s create
-                    something amazing together!
+
+        <!-- ====== HERO ====== -->
+        <section class="pageHero">
+            <div class="pageHeroInner">
+                <p class="pageKicker reveal" data-reveal="up">WHO TENDS THIS FIRE</p>
+                <h1 class="pageTitle reveal" data-reveal="up">Air is Aaron.<br><span class="hl">Ember is Amber.</span></h1>
+                <p class="pageSub reveal" data-reveal="up">
+                    A two-person campfire story: one keyboard, one cheerleader,
+                    and a name that was hiding in our own names all along.
                 </p>
             </div>
-            <div class="aboutIntroImg">
-                <img class="aboutImg" src="../assets/images/AG_Headshot.webp" alt="">
+        </section>
+
+        <!-- ====== THE STORY ====== -->
+        <section class="band band--pine" id="story">
+            <div class="bandInner splitGrid">
+                <div class="reveal" data-reveal="left">
+                    <p class="eyebrow">HI THERE, AND WELCOME</p>
+                    <h2 class="bandTitle">The guy behind <span class="hl">the keyboard</span>.</h2>
+                    <p class="bandCopy">
+                        I&rsquo;m Aaron &mdash; designing and developing websites for small businesses
+                        like yours. The name &ldquo;Air &amp; Ember&rdquo; has a special meaning: it&rsquo;s a playful
+                        nod to my wife Amber and myself, Aaron. See what we did there?
+                    </p>
+                    <p class="bandCopy">
+                        While it&rsquo;s a one-man show on the web design front, Amber is my biggest
+                        cheerleader and occasional brainstorm partner.
+                    </p>
+                    <p class="bandCopy">
+                        The air and ember theme reflects how we approach life and work:
+                        <strong class="hl">light and adaptable like air, with the fire and spark of a
+                        glowing ember</strong>. Nature inspires us, and we build websites that feel
+                        effortless yet full of life.
+                    </p>
+                </div>
+                <figure class="portraitFrame reveal" data-reveal="right">
+                    <img src="../assets/images/AG_Headshot.webp" alt="Aaron, the designer and developer behind Air & Ember">
+                    <figcaption>the fire-tenders, est. A&amp;E</figcaption>
+                </figure>
             </div>
-        </div>
-        <div class="aboutExpert">
-            <h1 class="aboutH1">Why Air & Ember</h1>
-            <div class="aboutExpertWords">
-                <p class="aboutP">I bring a unique blend of creativity and technical skill to the table, backed by a <span class="aboutSpan">BS in Applied Technology and certifications in 
-                    web development, computer programming, and system administration</span>. With a strong foundation in technologies like HTML, CSS, JavaScript,
-                    and experience with advanced tools such as MEAN and MERN stacks, Firebase, and Python, I specialize in building dynamic and efficient
-                    websites for small businesses.
-                </p>
-                <p class="aboutP">
-                    <span class="aboutSpan">What sets me apart is</span> my ability to seamlessly combine design and development. As both an artistic creative and a coding problem-solver,
-                    I eliminate the need for multiple teams, streamlining the process and keeping costs manageable for my clients. Whether it’s crafting a
-                    visually stunning design or developing a powerful backend, I focus on delivering websites that look great, perform efficiently, and fit
-                    your specific needs.
-                </p>
+        </section>
+
+        <!-- ====== WHY A&E — CREDENTIALS ON THE CRT ====== -->
+        <section class="band band--ink" id="why">
+            <div class="bandInner splitGrid">
+                <div class="crtWrap reveal" data-reveal="left">
+                    <div class="crt">
+                        <div class="crtScreen">
+                            <p class="crtLine">&gt; SCAN CREDENTIALS ............ OK</p>
+                            <p class="crtLine">&gt; BS APPLIED TECHNOLOGY ....... OK</p>
+                            <p class="crtLine">&gt; CERT WEB_DEV / PROGRAMMING .. OK</p>
+                            <p class="crtLine">&gt; CERT SYS_ADMINISTRATION ..... OK</p>
+                            <p class="crtLine">&gt; STACKS: MEAN·MERN·FIREBASE·PY OK</p>
+                            <p class="crtLine">&gt; DESIGN+DEV IN ONE HUMAN ..... <span class="crtOk">CONFIRMED&#x2588;</span></p>
+                        </div>
+                        <div class="crtBezel"><span class="crtDot"></span> A&amp;E PERSONNEL FILE 001</div>
+                    </div>
+                </div>
+                <div class="reveal" data-reveal="right">
+                    <p class="eyebrow">WHY AIR &amp; EMBER</p>
+                    <h2 class="bandTitle">One craftsman, <span class="hl">both halves</span> of the craft.</h2>
+                    <p class="bandCopy">
+                        I bring a blend of creativity and technical skill backed by a BS in Applied
+                        Technology and certifications in web development, computer programming, and
+                        system administration &mdash; with HTML, CSS, and JavaScript at the roots and
+                        MEAN/MERN stacks, Firebase, and Python in the canopy.
+                    </p>
+                    <p class="bandCopy">
+                        What sets Air &amp; Ember apart is the seam you&rsquo;ll never see: as both an artistic
+                        creative and a coding problem-solver, I eliminate the need for multiple teams.
+                        One pair of hands carries your project from sketch to server &mdash; which keeps the
+                        process streamlined and the costs manageable.
+                    </p>
+                    <p class="handNote">no hand-offs. no telephone game.</p>
+                </div>
             </div>
-        </div>
-        <div>
-            <h2><a href="styleguide.html">Style Guide</a></h2>
-        </div>
+        </section>
+
+        <!-- ====== THE THREE LOGS ====== -->
+        <section class="band band--embers" id="values">
+            <div class="bandInner">
+                <p class="eyebrow centered reveal" data-reveal="up">THE THREE LOGS WE NEVER LET BURN DOWN</p>
+                <h2 class="bandTitle centered reveal" data-reveal="up">Transparency. Education. <span class="hl">Fairness.</span></h2>
+                <div class="elementGrid">
+                    <article class="elementCard cardTilt reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F56F;&#xFE0F;</div>
+                        <h3>Transparency</h3>
+                        <p>Real quotes, line by line. You see exactly what&rsquo;s being built, what it costs, and why — no black box, no surprise invoice.</p>
+                        <span class="cardTag">LOG / ONE</span>
+                    </article>
+                    <article class="elementCard cardTilt reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x1F4D6;</div>
+                        <h3>Education</h3>
+                        <p>We refuse to gatekeep the tech. We teach you how your site actually works, in plain language, so you own it instead of renting it back.</p>
+                        <span class="cardTag">LOG / TWO</span>
+                    </article>
+                    <article class="elementCard cardTilt reveal" data-reveal="up">
+                        <div class="elementGlyph">&#x2696;&#xFE0F;</div>
+                        <h3>Fairness</h3>
+                        <p>Fair pricing, weekly check-ins, and a partner who&rsquo;s still here long after launch. That&rsquo;s how it should have felt all along.</p>
+                        <span class="cardTag">LOG / THREE</span>
+                    </article>
+                </div>
+
+                <div class="bigCta reveal" data-reveal="up">
+                    <p class="bigCtaWhisper">let&rsquo;s create something amazing together</p>
+                    <a class="btnEmber btnHuge magnet" href="contact.html">
+                        <span>Say Hello</span> <span class="arrow">&#x21A0;</span>
+                    </a>
+                    <p class="bigCtaSub">CURIOUS HOW THE FIRE IS BUILT? <a href="styleguide.html" style="text-decoration: underline;">READ THE STYLE GUIDE</a></p>
+                </div>
+            </div>
+        </section>
+
     </main>
-    <footer class="contactFooterCont justSpaceBetween padded">
-        <h3 class="contactFootContent">@Copyright 2025</h3>
-        <div class="contactFooterCont">
-            <div class="footerContactCont padded">
-                <h4>Support</h4>
-                <p>support@airandember.com</p>
-            </div>      
-            <div class="footerContactCont padded">
-            
-                <h4>Operating Hours</h4>
-                <p>Monday - Friday</p>
-                <p>7 AM - 6 PM MST / MDT</p>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="emberFooter">
+        <div class="footerGrid">
+            <div class="footCol">
+                <p class="footMark">Air<em>&amp;</em>Ember</p>
+                <p>Custom web &amp; software, hand-built where the forest meets the mainframe.</p>
             </div>
-            <div class="footerContactCont padded">
-                <h4>Legal</h4>
-                <p><a href="" id="privacyPolicyA">Privacy Policy</a></p>
-                <!-- <p><a href="">Terms of Service</a></p> -->
+            <div class="footCol">
+                <h4>Support</h4>
+                <p><a href="mailto:support@airandember.com">support@airandember.com</a></p>
+                <p>Mon&ndash;Fri &middot; 7AM&ndash;6PM MST</p>
+            </div>
+            <div class="footCol">
+                <h4>The Trail</h4>
+                <a href="../index.html">Home</a>
+                <a href="designs.html">Designs</a>
+                <a href="webdesign.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footCol">
+                <h4>Keys &amp; Legal</h4>
+                <a class="footLogin" href="login.html">CLIENT LOGIN &#x21A0;</a>
+                <a href="#" id="privacyPolicyA">Privacy Policy</a>
+                <a href="styleguide.html">Style Guide</a>
             </div>
         </div>
+        <p class="footerBase">&copy; 2026 AIR &amp; EMBER &mdash; GROWN IN THE U.S.A., POWERED BY WIND &amp; FIRE</p>
     </footer>
+
 </body>
 </html>
