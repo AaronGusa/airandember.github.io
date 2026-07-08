@@ -492,11 +492,11 @@ body.touchDevice #cursorGlow { display: none; }
 }
 .bandTitle.centered, .bandCopy.centered { text-align: center; }
 .bandCopy {
-    font-size: 1.08rem;
+    font-size: 1.58rem;
     line-height: 1.8;
     opacity: .82;
     margin-bottom: 1.1rem;
-    max-width: 60ch;
+    max-width: 100%;
 }
 .bandCopy.centered { margin: 0 auto 1.1rem; }
 .hl {
@@ -607,7 +607,7 @@ body.touchDevice #cursorGlow { display: none; }
     overflow: clip;
     background: linear-gradient(180deg, var(--pine-deep) 0%, var(--ink) 50%, var(--pine-deep) 100%);
 }
-.trustIntro { max-width: 56ch; margin-bottom: 1rem; }
+.trustIntro { max-width: 100%; margin-bottom: 1rem; text-align: center;}
 
 .trustLayout {
     display: grid;
@@ -699,6 +699,78 @@ body.touchDevice #cursorGlow { display: none; }
     box-shadow: 0 8px 20px rgba(0, 0, 0, .55);
 }
 
+/* ----- the three thrown logs: transparency · education · fairness -----
+   Hidden through phases 01–04. When the scene hits "blaze" they are
+   hurled in one by one (arc + spin via shared keyframes, per-log CSS
+   vars), land on the fire, and THEN the blaze swells (the fire's
+   transition is delayed for that phase so the logs land first). */
+.trustThrown {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+.thrownLog {
+    position: absolute;
+    left: 50%;
+    width: 172px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px; /* clears the sawn end cap */
+    border-radius: 18px;
+    background: linear-gradient(180deg, #6b4c2c 0%, #4a3118 45%, #2b1a0c 100%);
+    box-shadow:
+        inset 0 2px 3px rgba(255, 232, 190, .18),
+        inset 0 -4px 6px rgba(0, 0, 0, .5),
+        0 8px 18px rgba(0, 0, 0, .45);
+    font-family: var(--font-hand);
+    font-size: 2.15rem;
+    color: var(--cream-soft);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .75);
+    /* initial state only — showcase.js scrubs opacity/transform with scroll */
+    opacity: 0;
+    transform: translate(var(--fromX), -300px) rotate(var(--fromR));
+    will-change: transform;
+}
+.thrownLog::before { /* sawn end with growth rings */
+    content: '';
+    position: absolute;
+    left: 7px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+    #d9b57e 0 7px, #b28a52 7px 20px, #8a6537 20px 45px, #6b4a24 45px 50px);
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, .5);
+    padding: 0;
+}
+/* education flies in from the right, so it's cut the other way:
+   sawn end cap on the right, text padding swapped to clear it */
+.thrownLog--education::before {
+    left: auto;
+    right: 7px;
+}
+.thrownLog--education {
+    padding-left: 0;
+    padding-right: 20px;
+}
+.thrownLog::after { /* faint bark striping */
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background: repeating-linear-gradient(100deg,
+        transparent 0 14px, rgba(0, 0, 0, .12) 14px 16px);
+}
+
+/* resting spots: loosely stacked around the fire's base.
+   --fromX / --fromR / --lr are read by showcase.js, which scrubs the
+   throw with scroll position (in AND out along the same path). */
+.thrownLog--transparency { --fromX: -560px; --fromR: -210deg; --lr: -7deg; bottom: 12%;   margin-left: -128px; }
+.thrownLog--education    { --fromX: 560px;  --fromR: 210deg;  --lr: 6deg;  bottom: 12.5%; margin-left: -34px; }
+.thrownLog--fairness     { --fromX: -560px; --fromR: -170deg; --lr: -2deg; bottom: 19%;   margin-left: -86px; }
+
 /* the fire itself: scales + brightens by phase */
 .trustFire {
     position: absolute;
@@ -738,7 +810,7 @@ body.touchDevice #cursorGlow { display: none; }
     top: .9rem;
     right: 1rem;
     font-family: var(--font-crt);
-    font-size: .68rem;
+    font-size: 1.25rem;
     letter-spacing: .2em;
     text-transform: uppercase;
     color: var(--cream);
@@ -761,21 +833,25 @@ body.touchDevice #cursorGlow { display: none; }
 .trustScene[data-phase="spark"]    .trustSky--warm { opacity: .35; }
 .trustScene[data-phase="spark"]    .trustSmoke { opacity: .3; }
 .trustScene[data-phase="spark"]    .trustGhosts { opacity: .2; transform: translateY(-14px); }
-.trustScene[data-phase="spark"]    .trustGlow { opacity: .28; }
-.trustScene[data-phase="spark"]    .trustFire { opacity: 1; transform: translateX(-50%) scale(.34); }
+.trustScene[data-phase="spark"]    .trustGlow { opacity: .28; transition-delay: .8s; }
+.trustScene[data-phase="spark"]    .trustFire { opacity: 1; transform: translateX(-50%) scale(.34); transition-delay: .8s; }
 
 .trustScene[data-phase="kindling"] .trustSky--warm { opacity: .72; }
 .trustScene[data-phase="kindling"] .trustSmoke { opacity: .12; }
 .trustScene[data-phase="kindling"] .trustGhosts { opacity: 0; transform: translateY(-26px); }
-.trustScene[data-phase="kindling"] .trustGlow { opacity: .6; }
-.trustScene[data-phase="kindling"] .trustFire { opacity: 1; transform: translateX(-50%) scale(.52); }
+.trustScene[data-phase="kindling"] .trustGlow { opacity: .6; transition-delay: .8s; }
+.trustScene[data-phase="kindling"] .trustFire { opacity: 1; transform: translateX(-50%) translateY(-15%) scale(.52); transition-delay: .8s; }
 
 .trustScene[data-phase="blaze"]    .trustSky--cold { opacity: 0; }
 .trustScene[data-phase="blaze"]    .trustSky--warm { opacity: 1; }
 .trustScene[data-phase="blaze"]    .trustSmoke { opacity: 0; }
 .trustScene[data-phase="blaze"]    .trustGhosts { opacity: 0; transform: translateY(-26px); }
-.trustScene[data-phase="blaze"]    .trustGlow { opacity: 1; }
-.trustScene[data-phase="blaze"]    .trustFire { opacity: 1; transform: translateX(-50%) scale(20); }
+.trustScene[data-phase="blaze"]    .trustGlow { opacity: 1; transition-delay: .8s; }
+.trustScene[data-phase="blaze"]    .trustFire { opacity: 1; transform: translateX(-50%) translateY(-20%) scale(20); transition-delay: 0.9s; }
+
+/* (thrown-log motion lives in showcase.js — scroll-scrubbed, so the throw
+   plays forward on the way down and backward on the way up, snap-free:
+   transparency @ 03 spark · education @ 04 kindling · fairness @ 05 blaze) */
 
 /* ----- the text steps ----- */
 .trustSteps {
@@ -813,7 +889,7 @@ body.touchDevice #cursorGlow { display: none; }
     max-width: 52ch;
     margin: 2rem auto 0;
     font-family: var(--font-crt);
-    font-size: .82rem;
+    font-size: 2rem;
     letter-spacing: .14em;
     color: rgba(244, 231, 197, .7);
 }
@@ -1145,6 +1221,11 @@ body.touchDevice #cursorGlow { display: none; }
     .trustScene { height: 300px; }
     .trustSteps { gap: 34vh; padding: 10vh 0 26vh; }
     .trustStep p { max-width: none; }
+    .thrownLog { width: 138px; height: 30px; font-size: 1.75rem; }
+    .thrownLog::before { width: 18px; height: 25px; }
+    .thrownLog--transparency { margin-left: -104px; }
+    .thrownLog--education    { margin-left: -28px; }
+    .thrownLog--fairness     { margin-left: -70px; }
 }
 
 /* ============ REDUCED MOTION ============ */
@@ -1163,4 +1244,13 @@ body.touchDevice #cursorGlow { display: none; }
        Steps stay fully legible since the dimming transition is neutralized. */
     .trustStep { opacity: 1; transform: none; }
     .trustFlame { animation: none; }
+    /* thrown logs: skip the throw, land instantly; fire keeps no delay */
+    .trustScene[data-phase="spark"]    .trustFire,
+    .trustScene[data-phase="spark"]    .trustGlow,
+    .trustScene[data-phase="kindling"] .trustFire,
+    .trustScene[data-phase="kindling"] .trustGlow,
+    .trustScene[data-phase="blaze"]    .trustFire,
+    .trustScene[data-phase="blaze"]    .trustGlow { transition-delay: 0s; }
+    /* thrown logs: showcase.js detects reduced motion and simply places /
+       removes them at their resting spots — no flight either direction */
 }

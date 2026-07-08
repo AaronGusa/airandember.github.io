@@ -248,7 +248,7 @@ body.trailOpen { overflow: hidden; }
 
 .wpNote {
     font-family: var(--font-hand);
-    font-size: 1.15rem;
+    font-size: 2.15rem;
     color: var(--air);
     opacity: 0;
     transform: rotate(-2deg) translateX(-6px);
@@ -261,17 +261,19 @@ body.trailOpen { overflow: hidden; }
 }
 
 /* the trail marker for the page you're standing on */
-.waypoint[aria-current="page"]::after {
-    content: 'YOU ARE HERE';
+.waypoint[aria-current="page"]::before {
+    content: '🕯️';
     align-self: center;
+    justify-content: center;
+    text-align: center;
     font-family: var(--font-crt);
-    font-size: .6rem;
+    font-size: .76rem;
     letter-spacing: .3em;
     color: var(--ember-glow);
     border: 1px solid rgba(255, 179, 71, .45);
     border-radius: 999px;
-    padding: .3rem .75rem;
-    margin-left: .4rem;
+    padding: .3rem ;
+    margin: .4rem;
     animation: hereBlink 2.4s steps(2) infinite;
     white-space: nowrap;
 }

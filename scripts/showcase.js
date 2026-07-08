@@ -238,6 +238,7 @@
             kindling: 'catching\u2026',
             blaze: 'a steady blaze'
         };
+
         const trustObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
@@ -269,6 +270,26 @@
         max: parseFloat(el.dataset.tiltMax || '4')
     }));
 
+    // Thrown logs: each log's flight is scrubbed directly by scroll position
+    // relative to its trust step — fully reversible, no snaps. The flight
+    // path lives here; CSS only holds the resting spot + start vars.
+    const thrownLogScrub = [];
+    [['transparency', 'spark'], ['education', 'kindling'], ['fairness', 'blaze']]
+        .forEach(([log, phase]) => {
+            const el = document.querySelector(`.thrownLog--${log}`);
+            const step = document.querySelector(`.trustStep[data-phase="${phase}"]`);
+            if (!el || !step) return;
+            const cs = getComputedStyle(el);
+            thrownLogScrub.push({
+                el,
+                step,
+                fromX: parseFloat(cs.getPropertyValue('--fromX')) || -560,
+                fromR: parseFloat(cs.getPropertyValue('--fromR')) || -210,
+                lr: parseFloat(cs.getPropertyValue('--lr')) || 0,
+                last: -1
+            });
+        });
+
     const marqueeTrack = document.querySelector('[data-marquee]');
     const nav = document.querySelector('.skyNav');
     const root = document.documentElement;
@@ -297,6 +318,24 @@
             // -1 (below) .. 0 (center) .. 1 (above)
             const t = ((vh / 2) - (rect.top + rect.height / 2)) / (vh / 2);
             el.style.transform = `rotate(${(t * maxRot).toFixed(2)}deg) translateY(${(t * -12).toFixed(1)}px)`;
+        }
+
+        // thrown logs: throw progress follows the step through the viewport.
+        // p: 0 = step top at 85% of viewport, 1 = step top at 50% (landed).
+        // Scrolling back up runs the identical path in reverse, frame-perfect.
+        for (const log of thrownLogScrub) {
+            const rect = log.step.getBoundingClientRect();
+            let p = ((vh * 0.85) - rect.top) / (vh * 0.35);
+            p = Math.max(0, Math.min(1, p));
+            if (prefersReduced) p = p >= 0.5 ? 1 : 0; // placed or absent, no flight
+            if (p === log.last) continue;
+            log.last = p;
+            const x = log.fromX * (1 - p);              // horizontal travel
+            const y = -300 * (1 - p * p);               // gravity: falls faster near the fire
+            const r = log.fromR + (log.lr - log.fromR) * p; // spin unwinds into resting angle
+            log.el.style.opacity = p === 0 ? '0' : '1';
+            log.el.style.transform =
+                `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) rotate(${r.toFixed(2)}deg)`;
         }
 
         // gentle scroll tilt (the & in the hero, the CRT)
