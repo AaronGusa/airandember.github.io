@@ -38,7 +38,14 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+/* Hide the viewport scrollbar WITHOUT killing scrolling — the page's
+   scrollbar belongs to html (the root scroller). Never `overflow: hidden`
+   on body/html for this; it propagates to the viewport and stops scrolling. */
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar { display: none; } /* Chrome / Edge / Safari */
 
 body {
     background: var(--ink);
