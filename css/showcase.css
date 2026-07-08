@@ -40,8 +40,13 @@ body {
     background: var(--ink);
     color: var(--cream);
     font-family: var(--font-body);
-    overflow-x: hidden;
+    overflow: hidden;
     cursor: none; /* custom cursor takes over (restored on touch via JS) */
+}
+
+body::-webkit-scrollbar {
+    width: 0em;
+    display: none;
 }
 
 body.touchDevice { cursor: auto; }
